@@ -15,11 +15,11 @@ export const PageBlog: React.FC = () => {
     return (
         <>
             <div className="container containerWrapper">
+
+                <CoverContent/>
+
                 <div className="row">
-                    <div className="col s12">
-                        <CoverContent/>
-                    </div>
-                    <div className="col s3 plAvatar">
+                <div className="col s3 plAvatar">
                         <AvatarUser/>
                     </div>
                     <div className="col s6">

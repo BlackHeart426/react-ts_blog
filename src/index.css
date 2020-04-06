@@ -71,16 +71,26 @@ code {
   background-position: center;
 }
 
+.CoverContent {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 240px;
+  margin: 0 auto;
+}
+
 .CoverWrapper {
   height: 240px;
   margin-bottom: 20px;
-  padding-top: 140px;
+  /*padding-top: 140px;*/
 
 }
 
 .Cover_info {
-  margin-left: 370px;
-  padding-left: 20px;
+  position: relative;
+  padding: 0 0 15px 20px;
+  margin-left: 310px;
 }
 
 .Layout {

@@ -2,19 +2,19 @@ import React from "react";
 
 export const listLevels = [
     {
-        name: "1",
+        name: "Tier 1",
         cost: "50",
         description: "Access to the show ",
         active: true
     },
     {
-        name: "2",
+        name: "Tier 2",
         cost: "100",
         description: "All videos",
         active: false
     },
     {
-        name: "3",
+        name: "Tier 3",
         cost: "150",
         description: "Special",
         active: false
