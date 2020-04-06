@@ -14,10 +14,22 @@ export const PageBlog: React.FC = () => {
     const {userId} = useParams<ParamTypes>()
     return (
         <>
-            <CoverContent/>
-            <AvatarUser/>
-            <AboutUserCard/>
-            <LevelSubscribe/>
+            <div className="container containerWrapper">
+                <div className="row">
+                    <div className="col s12">
+                        <CoverContent/>
+                    </div>
+                    <div className="col s3 plAvatar">
+                        <AvatarUser/>
+                    </div>
+                    <div className="col s6">
+                        <AboutUserCard/>
+                    </div>
+                    <div className="col s3">
+                        <LevelSubscribe/>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

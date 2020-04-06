@@ -7,7 +7,7 @@ import { PageBlog } from './page/pageBlog';
 const App: React.FC = () => {
   return <div className="grey lighten-3">
     <Navbar/>
-    <div className="container ">
+    <div className="Layout">
       <BrowserRouter>
         <Switch>
           <Route exact path="/:userId" component={PageBlog}/>

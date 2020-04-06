@@ -30,8 +30,21 @@ code {
   height: 240px;
 }
 
+.containerWrapper {
+  width: 100%;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+.avatarCard_user_position {
+  position: relative;
+  top: -200px;
+}
+
 .avatarCard_user {
   width: 250px;
+
+
 }
 
 .avatarCard_user.description {
@@ -40,4 +53,38 @@ code {
 
 .avatarCard_user.followed {
   width: 100%;
+}
+
+.plAvatar {
+  padding-left: 55px !important;
+}
+
+.CoverContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 1240px;
+  height: 240px;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/logo%2Fbackground_065.jpg?alt=media&token=7c4b3ee2-9e75-42f2-97ab-5f17c5b31989");
+  background-size: cover;
+  background-position: center;
+}
+
+.CoverWrapper {
+  height: 240px;
+  margin-bottom: 20px;
+  padding-top: 140px;
+
+}
+
+.Cover_info {
+  margin-left: 370px;
+  padding-left: 20px;
+}
+
+.Layout {
+  position: relative;
+  min-width: 1240px;
+  flex: 1;
 }

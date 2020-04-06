@@ -24,7 +24,7 @@ export const listLevels = [
 export const LevelSubscribe: React.FC = () => {
     return (
         <div className="row ">
-            <div className="col s12 m4">
+            <div className="col s12 m12">
                 <div className="card ">
                     <div className="card-content ">
                         <p className="bold">LEVEL SUBSCRIBE</p>

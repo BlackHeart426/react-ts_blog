@@ -3,8 +3,8 @@ import React from "react";
 export const AvatarUser: React.FC = () => {
     return (
         <div className="row ">
-            <div className="col s12 m7">
-                <div className="card avatarCard_user">
+            <div className="col s12 m12">
+                <div className="card avatarCard_user_position">
                     <div className="card-image">
                         <img src="https://images.boosty.to/user/9647/avatar?change_time=1561378020&croped=1&mh=560&mw=450"/>
                             {/*<span className="card-title">Card Title</span>*/}

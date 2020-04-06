@@ -3,7 +3,7 @@ import React from "react";
 export const AboutUserCard: React.FC = () => {
     return (
         <div className="row ">
-            <div className="col s12 m8">
+            <div className="col s12 m12">
                 <div className="card ">
                     <div className="card-content ">
                         <p className="bold">ABOUT USER</p>
