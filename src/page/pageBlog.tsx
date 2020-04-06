@@ -4,6 +4,7 @@ import { AvatarUser } from "../components/AvatarUser";
 import {ReactComponent} from "*.svg";
 import {CoverContent} from "../components/CoverContent";
 import {AboutUserCard} from "../components/AboutUserCard";
+import {LevelSubscribe} from "../components/LevelSubscribe";
 
 interface ParamTypes {
     userId: string
@@ -16,6 +17,7 @@ export const PageBlog: React.FC = () => {
             <CoverContent/>
             <AvatarUser/>
             <AboutUserCard/>
+            <LevelSubscribe/>
         </>
     )
 }

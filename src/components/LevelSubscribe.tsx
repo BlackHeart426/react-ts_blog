@@ -24,21 +24,21 @@ export const listLevels = [
 export const LevelSubscribe: React.FC = () => {
     return (
         <div className="row ">
-            <div className="col s12 m6">
+            <div className="col s12 m4">
                 <div className="card ">
                     <div className="card-content ">
                         <p className="bold">LEVEL SUBSCRIBE</p>
                     </div>
-                    <div className="card-action ">
-                        {listLevels.map((item, index) => {
-                            <div className="card-content ">
-                                <p className="bold">{item.name}</p>
-                                <p className="bold">{item.cost}</p>
-                                <p className="bold">{item.description}</p>
-                            </div>
-                        })}
-                    </div>
-
+                    {listLevels.map((item, index) => (
+                        <div className="card-action ">
+                            <p className="bold">{item.name}</p>
+                            <p >{item.cost} ₽ в месяц</p>
+                            <p >{item.description}</p>
+                            <a className="waves-effect btn waves-light orange avatarCard_user followed bold">
+                                Follow
+                            </a>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
