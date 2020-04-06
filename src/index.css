@@ -25,3 +25,19 @@ code {
   margin-top: 12px;
   margin-bottom: 12px;
 }
+
+.wrapperBlog {
+  height: 240px;
+}
+
+.avatarCard_user {
+  width: 250px;
+}
+
+.avatarCard_user.description {
+  text-align: center;
+}
+
+.avatarCard_user.followed {
+  width: 100%;
+}
