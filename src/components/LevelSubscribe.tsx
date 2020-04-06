@@ -3,19 +3,19 @@ import React from "react";
 export const listLevels = [
     {
         name: "Tier 1",
-        cost: "50",
+        cost: 50,
         description: "Access to the show ",
         active: true
     },
     {
         name: "Tier 2",
-        cost: "100",
+        cost: 100,
         description: "All videos",
         active: false
     },
     {
         name: "Tier 3",
-        cost: "150",
+        cost: 150,
         description: "Special",
         active: false
     },
@@ -29,8 +29,8 @@ export const LevelSubscribe: React.FC = () => {
                     <div className="card-content ">
                         <p className="bold">LEVEL SUBSCRIBE</p>
                     </div>
-                    {listLevels.map((item, index) => (
-                        <div className="card-action ">
+                    {listLevels.map((item: { name: string, cost: number, description: string }, index: number) => (
+                        <div className="card-action " key={index}>
                             <p className="bold">{item.name}</p>
                             <p >{item.cost} ₽ в месяц</p>
                             <p >{item.description}</p>

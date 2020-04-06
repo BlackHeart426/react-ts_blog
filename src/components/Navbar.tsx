@@ -8,6 +8,7 @@ export const Navbar: React.FC = () => (
           <a href="#" className="brand-logo black-text mx1">
             TS Blog
           </a>
+          <a className="waves-light btn white black-text bold">See subscribers</a>
           <ul className="right hide-on-med-and-down">
             <li><a className="waves-light btn white black-text bold">Create page</a></li>
             <li className="my12">
