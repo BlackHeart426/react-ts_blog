@@ -1,20 +1,27 @@
 import React from "react";
-
+import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, Typography} from "@material-ui/core";
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+            contentAbout: {
+                marginTop: '10px'
+            }
+        }
+    )
+)
 export const AboutUserCard: React.FC = () => {
+    const classes = useStyles()
     return (
-        <div className="row ">
-            <div className="col s12 m12">
-                <div className="card ">
-                    <div className="card-content ">
-                        <p className="bold">ABOUT USER</p>
-                    </div>
-                    <div className="card-action ">
-                        <p>Привет! Я - Вика Кисимяка, единственный на сегодняшний день успешный блогер по гик тематике, который еще и девушка) На этой странице я делаю свой эксклюзивный контент, который не попадает в открытый доступ.
-                            Очень личное и ламповое шоу "Вечерний Урурургант", куски моего творчества, обзоры на фильмы со спойлерами и многое другое. </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <Card >
+            <CardContent>
+                <Typography gutterBottom variant="h6" component="h2">
+                    ABOUT USER
+                </Typography>
+                <Divider />
+                <Typography component="p" className={classes.contentAbout}>
+                    Subscribers
+                </Typography>
+            </CardContent>
+        </Card>
     )
 }

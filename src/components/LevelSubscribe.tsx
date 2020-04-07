@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, Typography} from "@material-ui/core";
 
 export const listLevels = [
     {
@@ -23,24 +24,32 @@ export const listLevels = [
 
 export const LevelSubscribe: React.FC = () => {
     return (
-        <div className="row ">
-            <div className="col s12 m12">
-                <div className="card ">
-                    <div className="card-content ">
-                        <p className="bold">LEVEL SUBSCRIBE</p>
-                    </div>
-                    {listLevels.map((item: { name: string, cost: number, description: string }, index: number) => (
-                        <div className="card-action " key={index}>
-                            <p className="bold">{item.name}</p>
-                            <p >{item.cost} ₽ в месяц</p>
-                            <p >{item.description}</p>
-                            <a className="waves-effect btn waves-light orange avatarCard_user followed bold">
-                                Follow
-                            </a>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+        <Card >
+            {listLevels.map((item:{name:string, cost: number, description: string, active: boolean}, index: number) => (
+                <>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {item.name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {item.cost} ₽ в месяц
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {item.description}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <FormControl fullWidth >
+                            <Button
+                                variant="contained"
+                                color="primary">
+                                Followed
+                            </Button>
+                        </FormControl>
+                    </CardActions>
+                    <Divider />
+                </>
+            ))}
+        </Card>
     )
 }

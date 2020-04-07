@@ -5,7 +5,9 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import { PageBlog } from './page/pageBlog';
 import TemporaryDrawer from "./components/Drawer/Drawer";
 import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/core';
-import {orange} from "@material-ui/core/colors";
+import {grey, orange} from "@material-ui/core/colors";
+import { ShablonPage } from './components/shablonPage';
+import {createStyles} from "@material-ui/core/styles";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -23,21 +25,26 @@ const mainTheme = createMuiTheme({
   },
 });
 
-const App: React.FC = () => {
-  return <ThemeProvider theme={mainTheme}>
-    <Navbar/>
-    <TemporaryDrawer open={true}/>
-    <div>
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      root : {
+        // position: 'relative',
+        background: grey[200]
+      }
+    })
+)
 
-        <main>
-          <div>
-            <Switch>
-              <Route exact path="/:userId" component={PageBlog}/>
-            </Switch>
-          </div>
-        </main>
-    </div>
+const App: React.FC = () => {
+  const classes = useStyles()
+  return <div className={classes.root}>
+    <ThemeProvider theme={mainTheme}>
+      <Navbar/>
+      <TemporaryDrawer open={true}/>
+      <Switch>
+        <Route exact path="/:userId" component={ShablonPage}/>
+      </Switch>
   </ThemeProvider>
+  </div>
 }
 
 export default App;
