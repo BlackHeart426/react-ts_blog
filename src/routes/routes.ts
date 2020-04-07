@@ -1,0 +1,9 @@
+export const HOME = "/home";
+export const SETTINGS = "/settings/edit"
+export const SETTINGS_SUBSCRIBERS = "/settings/subscriptions"
+export const SETTINGS_NOTIFICATIONS = "/settings/notifications"
+export const SETTINGS_APPS = "/settings/external-apps"
+export const STATISTICS = "/blog/statistics"
+export const SUBSCRIBERS = "/blog/subscribers"
+export const WITHDRAWAL_METHODS = "/blog/withdrawal-methods"
+export const PAYOUT_HISTORY = "/blog/payout-history"
