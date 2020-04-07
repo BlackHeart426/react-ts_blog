@@ -98,3 +98,7 @@ code {
   min-width: 1240px;
   flex: 1;
 }
+
+.btnDrawer {
+  margin-top: -13px;
+}
