@@ -1,16 +1,33 @@
 import React from 'react';
 import './App.css';
-import { Navbar } from './components/Navbar';
+import  Navbar  from './components/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import { PageBlog } from './page/pageBlog';
 import TemporaryDrawer from "./components/Drawer/Drawer";
-import {makeStyles, Theme} from '@material-ui/core';
+import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/core';
+import {orange} from "@material-ui/core/colors";
+
+const darkTheme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: orange[500],
+    },
+  },
+});
+
+const mainTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: orange[400],
+    },
+  },
+});
 
 const App: React.FC = () => {
-  return <div>
+  return <ThemeProvider theme={mainTheme}>
     <Navbar/>
     <TemporaryDrawer open={true}/>
-    <div className="Layout">
+    <div>
 
         <main>
           <div>
@@ -20,7 +37,7 @@ const App: React.FC = () => {
           </div>
         </main>
     </div>
-  </div>
+  </ThemeProvider>
 }
 
 export default App;
