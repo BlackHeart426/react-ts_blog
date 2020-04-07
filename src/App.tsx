@@ -10,6 +10,9 @@ import { ShablonPage } from './components/shablonPage';
 import {createStyles} from "@material-ui/core/styles";
 import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './routes/routes';
 import {NonFound} from "./page/NonFound";
+import {Home} from "./page/Home";
+import {Settings} from "./page/Settings";
+import {Profile} from "./page/Profile";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -30,8 +33,10 @@ const mainTheme = createMuiTheme({
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root : {
-        // position: 'relative',
         background: grey[200]
+      },
+      content: {
+        paddingTop: '80px'
       }
     })
 )
@@ -42,18 +47,21 @@ const App: React.FC = () => {
     <ThemeProvider theme={mainTheme}>
       <Navbar/>
       <TemporaryDrawer open={true}/>
-      <Switch>
-        <Route exact path={HOME} component={NonFound}/>
-        <Route exact path={PAGE_BLOG} component={ShablonPage}/>
-        <Route exact path={SETTINGS} component={NonFound}/>
-        <Route exact path={SETTINGS_SUBSCRIBERS} component={NonFound}/>
-        <Route exact path={SETTINGS_NOTIFICATIONS} component={NonFound}/>
-        <Route exact path={SETTINGS_APPS} component={NonFound}/>
-        <Route exact path={STATISTICS} component={NonFound}/>
-        <Route exact path={SUBSCRIBERS} component={NonFound}/>
-        <Route exact path={WITHDRAWAL_METHODS} component={NonFound}/>
-        <Route exact path={PAYOUT_HISTORY} component={NonFound}/>
-      </Switch>
+      <div className={classes.content}>
+        <Switch>
+          <Route exact path={HOME} component={Home}/>
+          <Route exact path={PAGE_BLOG} component={ShablonPage}/>
+          <Route exact path={SETTINGS} component={Settings}/>
+            <Route exact path={SETTINGS_SUBSCRIBERS} component={Settings}/>
+            <Route exact path={SETTINGS_NOTIFICATIONS} component={Settings}/>
+            <Route exact path={SETTINGS_APPS} component={Settings}/>
+          <Route exact path={STATISTICS} component={Profile}/>
+            <Route exact path={SUBSCRIBERS} component={Profile}/>
+            <Route exact path={WITHDRAWAL_METHODS} component={Profile}/>
+            <Route exact path={PAYOUT_HISTORY} component={Profile}/>
+            <Route component={NonFound}/>
+        </Switch>
+      </div>
   </ThemeProvider>
   </div>
 }
