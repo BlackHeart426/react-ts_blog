@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/firebase/auth.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/firebase/database.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/firebase/firebaseService.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthentication.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/action/app.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reduce/app.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reduce/authorization.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/types.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/NonFound.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -77,7 +66,7 @@
       <workItem from="1586165334747" duration="621000" />
       <workItem from="1586175559940" duration="13000" />
       <workItem from="1586175751959" duration="13969000" />
-      <workItem from="1586246375617" duration="20405000" />
+      <workItem from="1586246375617" duration="20947000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -163,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586266312812</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="store auth">
+      <created>1586280691190</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1586280691190</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,17 +177,18 @@
     <MESSAGE value="navbar" />
     <MESSAGE value="material ui" />
     <MESSAGE value="css" />
-    <option name="LAST_COMMIT_MESSAGE" value="css" />
+    <MESSAGE value="store auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="store auth" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586254951936">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586266312304">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586280690475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586266312304" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586280690475" />
     <state x="830" y="413" key="Github.ShareDialog" timestamp="1586175860658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -216,10 +213,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254997367" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586266314546">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586280692787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586266314546" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586280692787" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586266074729">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
