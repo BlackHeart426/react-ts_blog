@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
             width: '1240px',
             margin: '0 auto',
             paddingBottom: '20px',
-            paddingTop: '200px',
+            paddingTop: '235px',
+
             color: 'white'
         },
         paper: {

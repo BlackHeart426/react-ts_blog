@@ -1,23 +1,27 @@
 import React from "react";
+import {Typography} from "@material-ui/core";
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+            contentInfoTitle: {
+                marginLeft: '292px',
+                paddingLeft: '25px'
+            }
+        }
+    )
+)
 
 export const CoverContent: React.FC = () => {
+    const classes = useStyles();
     return (
-
-        <div className="CoverWrapper">
-            <div className="CoverContainer"/>
-            <div className="CoverContent">
-                <div className="Cover_info white-text">
-                    <div className="Cover_info_Link">
-                        <h3 className="white-text">BlackHeart</h3>
-                    </div>
-                    <div className="Cover_info_Name">
-                        gamer
-                    </div>
-                    <div className="Cover_info_Dots">
-
-                    </div>
-                </div>
-            </div>
+        <div className={classes.contentInfoTitle}>
+            <Typography gutterBottom variant="h5" component="h2">
+                BlackHear
+            </Typography>
+            <Typography gutterBottom  component="h2">
+                Edit description
+            </Typography>
         </div>
     )
 }

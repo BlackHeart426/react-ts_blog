@@ -1,9 +1,25 @@
 import React from "react";
 import {Card, CardContent, CardMedia, Typography, CardActions, Button, FormControl} from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+            contentAvatar: {
+                position: 'absolute',
+                top: '100px',
+                width: '255px',
+                padding: '20px'
+
+            }
+        }
+    )
+)
+
 export const AvatarUser: React.FC = () => {
+    const classes = useStyles()
     return (
-        <Card >
+        <Card className={classes.contentAvatar}>
             <CardMedia
                 component="img"
                 height="280"
