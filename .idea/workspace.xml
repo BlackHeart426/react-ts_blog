@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthentication.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthentication.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reduce/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reduce/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/NonFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/NonFound.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authorization.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +76,7 @@
       <workItem from="1586175559940" duration="13000" />
       <workItem from="1586175751959" duration="13969000" />
       <workItem from="1586246375617" duration="24819000" />
-      <workItem from="1586331154941" duration="5620000" />
+      <workItem from="1586331154941" duration="6665000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -195,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586284985861</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="store">
+      <created>1586337700898</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1586337700898</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,17 +219,18 @@
     <MESSAGE value="pages routes" />
     <MESSAGE value="auth firebase" />
     <MESSAGE value="css" />
-    <option name="LAST_COMMIT_MESSAGE" value="css" />
+    <MESSAGE value="store" />
+    <option name="LAST_COMMIT_MESSAGE" value="store" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586254951936">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586284985139">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586337700027">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284985139" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586337700027" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586336606197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -256,18 +259,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254997367" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586284986696">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586337701092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284986696" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586337701092" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586283413661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586283413661" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586284179176">
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586338501674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284179176" />
+    <state x="656" y="252" width="607" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586338501674" />
     <state x="623" y="225" key="search.everywhere.popup" timestamp="1586335471488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

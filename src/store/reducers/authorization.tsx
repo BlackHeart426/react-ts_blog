@@ -13,5 +13,7 @@ export const authReducer = (state:object = initialState, action: IAction) => {
     switch (action.type) {
         case IS_AUTHENTICATION:
             return {...state, isAuthorization: action.payload }
+        default:
+            return state
     }
 }
