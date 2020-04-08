@@ -2,17 +2,32 @@ import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
 import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin";
+import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
+
+interface IDataUser {
+    email: string,
+    password: string
+}
 
 const Login = (props: any) => {
     const [dialogOpened, setDialogOpened] = useState(false);
+    const [state, setState] = useState(null)
 
     const handleOpenLogin = () => {
         setDialogOpened(true)
 
     };
-    const handleLogin = (dataUser: any) => {
+    const handleLogin = (dataUser: IDataUser) => {
         console.log(dataUser.email)
-        props.auth(dataUser.username, dataUser.password, true)
+        const email = "val007@gmail.com"
+        const password = "123123"
+        doCreateUserWithEmailAndPassword(dataUser.email, dataUser.password)
+            .then(
+                //dispatch
+            )
+            .catch(error => {
+                console.log(error)
+            });
     };
 
     return(
@@ -34,20 +49,18 @@ const Login = (props: any) => {
     )
 };
 
-// function mapStateToProps(state) {
+// function mapStateToProps(state: any) {
 //     return {
 //         counter: state.counter
 //     }
 //
 // }
 //
-// function mapDispatchToProps(dispatch) {
+// function mapDispatchToProps(dispatch: any) {
 //     return {
-//         auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin)),
+//         auth: (email: string, password: string, isLogin) => dispatch(auth(email, password, isLogin)),
 //         alert: (text) => dispatch(showAlert(text)),
-//         getAllData: () => dispatch(getAllDataActionCreator()),
-//         logout: () => dispatch(logout)
 //     }
 // }
 
-export default  Login //connect(mapStateToProps, mapDispatchToProps)(Login)
+export default Login //connect(mapStateToProps, mapDispatchToProps)(Login)
