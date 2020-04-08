@@ -1,4 +1,4 @@
-export const HOME = "/home";
+export const HOME = "/";
 export const PAGE_BLOG = "/:userId"
 export const SETTINGS = "/app/settings/edit"
 export const SETTINGS_SUBSCRIBERS = "/app/settings/subscriptions"

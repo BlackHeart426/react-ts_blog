@@ -1,18 +1,19 @@
 import React, {Component} from "react";
 import { auth } from "../firebaseService";
-import {withRouter} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {HOME} from "../../routes/routes";
+import {connect} from "react-redux";
+import {isAuthorization} from "../../store/action/authorization";
 
 interface IProp {
-    history?: any;
     authUser?: any;
 }
 interface IState {
     authUser?: any;
 }
 
-export const withAuthorization = (condition: any) => (Component: any) => {
-    class WithAuthorization extends React.Component<IProp, IState> {
+export const withAuthorization = (Component: any) => {
+    return class WithAuthorization extends React.Component<IProp, IState> {
         constructor(props: any) {
             super(props);
 
@@ -26,20 +27,18 @@ export const withAuthorization = (condition: any) => (Component: any) => {
                authUser
                    ? this.setState(() => ({ authUser }))
                    : this.setState(() => ({ authUser: null }));
-               if(!condition(authUser)) {
-                   this.props.history(HOME)
-               }
+
            })
         }
 
         public render() {
             const { authUser } = this.state;
-
+            if(!authUser ) {
+                return <Redirect to={HOME}/>
+            }
             return (
                 <Component authUser={authUser} />
             )
         }
     }
-
-    return withRouter(WithAuthorization as any)
 }

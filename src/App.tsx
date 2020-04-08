@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
         background: grey[200]
       },
       content: {
-        paddingTop: '80px'
+        paddingTop: '60px'
       }
     })
 )
