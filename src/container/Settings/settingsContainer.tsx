@@ -1,7 +1,8 @@
 import React from "react";
-import {Settings} from "../../components/settings";
+import {withAuthorization} from "../../firebase/hoc/withAuthorization";
+import {SettingsComponents} from "../../page/Settings";
 
-export const SettingsContainer: React.FC = () => {
+const SettingsContainer: React.FC = (props) => {
 
     //func
     //connect
@@ -11,6 +12,8 @@ export const SettingsContainer: React.FC = () => {
     }
 
     return (
-        <Settings/>
+        <SettingsComponents/>
     )
 }
+
+export const Settings = withAuthorization(SettingsContainer)

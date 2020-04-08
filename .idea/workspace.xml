@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialog/CustomDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAuth/DialogLogin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAuth/DialogRecovery.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAuth/DialogSignUp.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAuth/style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Settings/settingsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Settings/settingsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Settings.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -33,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-typescript-firebase-auth-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Dialog/DialogAuth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,16 +55,18 @@
     <property name="ts.external.directory.path" value="C:\Users\BlackHeart\WebstormProjects\ts_blog\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\page" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Profile" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Nvbar" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container\Settings" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Profile" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Settings" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\firebase" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog\DialogAuth" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\page" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Profile" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -70,7 +83,7 @@
       <workItem from="1586175559940" duration="13000" />
       <workItem from="1586175751959" duration="13969000" />
       <workItem from="1586246375617" duration="24819000" />
-      <workItem from="1586331154941" duration="13045000" />
+      <workItem from="1586331154941" duration="20777000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -205,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586342828769</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="withAuthorization.tsx">
+      <created>1586348432274</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1586348432274</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,10 +257,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586342828228">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586348431723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586342828228" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586348431723" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586336606197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -269,14 +289,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254997367" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586342829857">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586348433686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586342829857" />
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586283413661">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586348433686" />
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586351210575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586283413661" />
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586351210575" />
     <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586341743127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

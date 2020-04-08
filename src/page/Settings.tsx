@@ -1,8 +1,7 @@
 import React from "react";
 import {withAuthorization} from "../firebase/hoc/withAuthorization";
 
-const SettingsComponents: React.FC = () => {
+export const SettingsComponents: React.FC = (props) => {
     return <div>SETTINGS</div>
 }
 
-export const Settings = withAuthorization(SettingsComponents)

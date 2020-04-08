@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import  Navbar  from './components/Navbar';
+import  Navbar  from './components/Navbar/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import { PageBlog } from './page/pageBlog';
 import TemporaryDrawer from "./components/Drawer/Drawer";
@@ -11,8 +11,10 @@ import {createStyles} from "@material-ui/core/styles";
 import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './routes/routes';
 import {NonFound} from "./page/NonFound";
 import {Home} from "./page/Home";
-import {Settings} from "./page/Settings";
+import {Settings} from "./container/Settings/settingsContainer";
 import {Profile} from "./page/Profile";
+import {auth} from "./firebase/firebaseService";
+import { User } from 'firebase';
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -25,7 +27,7 @@ const darkTheme = createMuiTheme({
 const mainTheme = createMuiTheme({
   palette: {
     primary: {
-      main: orange[400],
+      main: "#f15f2c",
     },
   },
 });
@@ -43,6 +45,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: React.FC = () => {
   const classes = useStyles()
+  const [user, setUser] = useState<User|null>(null);
+
+  useEffect(()=>{
+    auth.onAuthStateChanged((authUser) => {
+      authUser
+          ? setUser( authUser )
+          : setUser(null );
+
+    })
+  },[])
   return <div className={classes.root}>
     <ThemeProvider theme={mainTheme}>
       <Navbar/>
