@@ -77,16 +77,24 @@ export function DialogLogin(props: any) {
         // }
     };
 
-    const handleKeyPress = (e: any) => {
+    const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.keyCode === 13 || e.which === 13) {
             isButtonDisabled || handleLogin();
         }
     };
 
+
     const handleClose = (e: any) => {
         onHide()
         setDialogOpened(false)
     };
+
+    const handleChange = (e: any) => {
+        const {name, value} = e.currentTarget;
+        // const filedName = e.currentTarget.dataset.filedName
+
+        console.log(value, name)
+    }
 
     const data = {
         title: 'LOGIN',
@@ -94,25 +102,30 @@ export function DialogLogin(props: any) {
             <div>
                 <TextField
                     error={error}
+                    variant="outlined"
                     fullWidth
                     id="email"
+                    autoFocus
+                    name="email"
                     type="email"
                     label="Email"
                     placeholder="Email"
                     margin="normal"
-                    // onChange={(e)=>setEmail(e.target.value)}
+                    onChange={handleChange}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
                     error={error}
+                    variant="outlined"
                     fullWidth
+                    name="password"
                     id="password"
                     type="password"
                     label="Password"
                     placeholder="Password"
                     margin="normal"
                     helperText={helperText}
-                    // onChange={(e)=>setPassword(e.target.value)}
+                    onChange={handleChange}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
 

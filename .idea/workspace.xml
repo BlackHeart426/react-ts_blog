@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogAuth/DialogLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAuth/DialogLogin.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <workItem from="1586175559940" duration="13000" />
       <workItem from="1586175751959" duration="13969000" />
       <workItem from="1586246375617" duration="24819000" />
-      <workItem from="1586331154941" duration="23503000" />
+      <workItem from="1586331154941" duration="26197000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -221,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586357995361</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="login">
+      <created>1586363319382</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1586363319382</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,10 +261,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586357994692">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586363318829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586357994692" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586363318829" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586336606197">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -286,10 +293,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254997367" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586357996589">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586363321428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586357996589" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586363321428" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586351210575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
