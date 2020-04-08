@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/PayoutHistory.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Statistics.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Subscribers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/WithdrawalMethods.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Settings/SettingsApps.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Settings/SettingsNotifications.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Settings/SettingsSubscribers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/Profile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/Settings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/settingsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Settings/settingsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthentication.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthentication.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reduce/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reduce/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authorization.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -47,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-typescript-firebase-auth-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -83,7 +80,8 @@
       <workItem from="1586165334747" duration="621000" />
       <workItem from="1586175559940" duration="13000" />
       <workItem from="1586175751959" duration="13969000" />
-      <workItem from="1586246375617" duration="24618000" />
+      <workItem from="1586246375617" duration="24819000" />
+      <workItem from="1586331154941" duration="5620000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -190,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586281543855</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="css">
+      <created>1586284985861</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1586284985861</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,50 +212,54 @@
     <MESSAGE value="test" />
     <MESSAGE value="navbar" />
     <MESSAGE value="material ui" />
-    <MESSAGE value="css" />
     <MESSAGE value="store auth" />
     <MESSAGE value="pages" />
     <MESSAGE value="pages routes" />
     <MESSAGE value="auth firebase" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth firebase" />
+    <MESSAGE value="css" />
+    <option name="LAST_COMMIT_MESSAGE" value="css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586254951936">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586281543330">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586284985139">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586281543330" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284985139" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586336606197">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586336606197" />
     <state x="830" y="413" key="Github.ShareDialog" timestamp="1586175860658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="830" y="413" key="Github.ShareDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586175860658" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1586277754884">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1586284997834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586277754884" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1586277754884">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284997834" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1586284997834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586277754884" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1586277754884">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284997834" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1586284997834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586277754884" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1586277754884">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284997834" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1586284997834">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586277754884" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284997834" />
     <state x="756" y="231" key="RollbackChangesDialog" timestamp="1586254997367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254997367" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586281546504">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586284986696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586281546504" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284986696" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586283413661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -259,10 +268,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="252" width="607" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586284179176" />
-    <state x="623" y="225" key="search.everywhere.popup" timestamp="1586178729911">
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1586335471488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" key="search.everywhere.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586178729911" />
+    <state x="623" y="225" key="search.everywhere.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586335471488" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -270,12 +279,10 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/firebase/firebaseService.tsx</url>
           <line>5</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Profile/Statistics.tsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

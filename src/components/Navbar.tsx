@@ -6,9 +6,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Button } from '@material-ui/core';
+import {AccountCircle, MenuBook} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -155,7 +154,7 @@ export default function Navbar() {
                         TS BLOG
                     </Typography>
                     <Button
-                        startIcon={<MenuIcon />}
+                        startIcon={<MenuBook/>}
                         variant="outlined">
                         My subscribers
                     </Button>
