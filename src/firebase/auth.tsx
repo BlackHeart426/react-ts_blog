@@ -1,4 +1,5 @@
 import { auth } from "./firebaseService";
+import {User} from "firebase";
 
 //Sign Up
 export const doCreateUserWithEmailAndPassword = (
@@ -26,26 +27,32 @@ export const doPasswordUpdate = async (password: string) => {
     }
     throw Error("No auth.currentUser!");
 };
-// export const doAuthStateChange = async () => {
-//     auth.onAuthStateChanged(function(user) {
-//         if (user) {
-//             const uid = user.uid
-//             const email = user.email;
-//             const expiresIn = user.metadata.a;
-//             const token = user.getIdToken().then(
-//                 function(token){
-//                     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
-//
-//                     localStorage.setItem('token', token)
-//                     localStorage.setItem('userId', uid)
-//                     localStorage.setItem('expirationDate', expirationDate)
-//                     localStorage.setItem('email', email)
-//
-//                     // dispatch(authSuccess(token))
-//                     // dispatch(autoLogout(expirationDate))
-//                 }
-//             );
-//         }
-//
-// }
+export const doAuthStateChange = async () => {
+    auth.onAuthStateChanged(function (user: User | null) {
+        if (user) {
+            console.log(user)
+            const uid = user.uid
+            const email = user.email;
+            const expiresIn:any = user.metadata.lastSignInTime;
+            const token = user.getIdToken().then(
+                function (token) {
+                    const lastSignInTime = new Date(expiresIn);
+                    const expirationDate = new Date(lastSignInTime.setHours(lastSignInTime.getHours() + 3))
+
+                    localStorage.setItem('token', token)
+                    localStorage.setItem('userId', uid)
+                    localStorage.setItem('expirationDate', expirationDate.toString())
+                    localStorage.setItem('email', "" + email)
+                    const dataUser = {
+                        token,
+                        expirationDate
+                    }
+                    return (dataUser)
+                }
+            );
+        }
+
+
+    })
+}
 
