@@ -14,15 +14,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
+import {Theme} from "@material-ui/core";
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         container: {
             display: 'flex',
             flexWrap: 'wrap',
             width: 400,
         },
-        loginBtn: {
+        signUpBtn: {
             marginTop: theme.spacing(2),
             flexGrow: 1
         },
@@ -31,11 +32,13 @@ const useStyles = makeStyles((theme) =>
             background: '#3f51b5',
             color: '#fff'
         },
+        actionGrid: {
+            marginTop: theme.spacing(1)
+        }
 
     }),
 );
-
-export function DialogSignUp(props) {
+export function DialogSignUp(props: any) {
 
     const classes = useStyles();
     const {show, onHide, onSignUp} = props;
@@ -49,7 +52,7 @@ export function DialogSignUp(props) {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        if (username.trim() && email.trim() && password.trim() && passwordRepeat.trim()) {
+        if (username.trim() && email.trim() && password.trim() && passwordRepeat.trim() && ( password === passwordRepeat)) {
             setIsButtonDisabled(false);
         } else {
             setIsButtonDisabled(true);
@@ -60,7 +63,7 @@ export function DialogSignUp(props) {
         setDialogOpened(show)
     }, [show]);
 
-    const handleLogin = () => {
+    const handleSignUp = () => {
         const dataUser = {
             username,
             email,
@@ -68,29 +71,22 @@ export function DialogSignUp(props) {
             passwordRepeat
         }
         onSignUp(dataUser)
-        // if (username === 'abc@email.com' && password === 'password') {
-        //     //Запрос в БД
-        //     setError(false);
-        //     setHelperText('Login Successfully');
-        // } else {
-        //     setError(true);
-        //     setHelperText('Incorrect username or password')
-        // }
+        handleClose()
     };
 
     const handleKeyPress = (e: any) => {
         if (e.keyCode === 13 || e.which === 13) {
-            isButtonDisabled || handleLogin();
+            isButtonDisabled || handleSignUp();
         }
     };
 
-    const handleClose = (e: any) => {
+    const handleClose = () => {
         onHide()
         setDialogOpened(false)
     };
 
     const data = {
-        title: 'Edit history record',
+        title: 'SIGN UP',
         content:
             <div>
                 <TextField
@@ -98,6 +94,7 @@ export function DialogSignUp(props) {
                     fullWidth
                     id="username"
                     type="text"
+                    name="username"
                     label="Username"
                     placeholder="Username"
                     margin="normal"
@@ -109,6 +106,7 @@ export function DialogSignUp(props) {
                     fullWidth
                     id="email"
                     type="email"
+                    name="email"
                     label="Email"
                     placeholder="Email"
                     margin="normal"
@@ -120,6 +118,7 @@ export function DialogSignUp(props) {
                     fullWidth
                     id="password"
                     type="password"
+                    name="password"
                     label="Password"
                     placeholder="Password"
                     margin="normal"
@@ -132,6 +131,7 @@ export function DialogSignUp(props) {
                     fullWidth
                     id="passwordRepeat"
                     type="password"
+                    name="passwordRepeat"
                     label="Password Repeat"
                     placeholder="Repeat Password"
                     margin="normal"
@@ -146,8 +146,8 @@ export function DialogSignUp(props) {
                     variant="contained"
                     size="large"
                     color="primary"
-                    className={classes.loginBtn}
-                    onClick={handleLogin}
+                    className={classes.signUpBtn}
+                    onClick={handleSignUp}
                     disabled={isButtonDisabled}>
                     Sign Up
                 </Button>
@@ -159,7 +159,7 @@ export function DialogSignUp(props) {
                     </Grid>
                     <Grid item>
                         <Link href="#" variant="body2">
-                            {"Don't have an account? Sign Up"}
+                            {"Have an account? Login"}
                         </Link>
                     </Grid>
                 </Grid>

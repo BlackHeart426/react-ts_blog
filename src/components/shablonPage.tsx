@@ -73,7 +73,7 @@ export const ShablonPage: React.FC = () => {
                             <AboutUserCard/>
                         </Grid>
                         <Grid item xs={3}>
-                            <LevelSubscribe/>
+                            <LevelSubscribe />
                         </Grid>
                     </Grid>
 

@@ -26,3 +26,26 @@ export const doPasswordUpdate = async (password: string) => {
     }
     throw Error("No auth.currentUser!");
 };
+// export const doAuthStateChange = async () => {
+//     auth.onAuthStateChanged(function(user) {
+//         if (user) {
+//             const uid = user.uid
+//             const email = user.email;
+//             const expiresIn = user.metadata.a;
+//             const token = user.getIdToken().then(
+//                 function(token){
+//                     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
+//
+//                     localStorage.setItem('token', token)
+//                     localStorage.setItem('userId', uid)
+//                     localStorage.setItem('expirationDate', expirationDate)
+//                     localStorage.setItem('email', email)
+//
+//                     // dispatch(authSuccess(token))
+//                     // dispatch(autoLogout(expirationDate))
+//                 }
+//             );
+//         }
+//
+// }
+

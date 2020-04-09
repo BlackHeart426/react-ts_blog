@@ -21,7 +21,7 @@ export const listLevels = [
         active: false
     },
 ]
-
+//editable: boolean
 export const LevelSubscribe: React.FC = () => {
     return (
         <Card >

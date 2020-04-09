@@ -82,19 +82,5 @@ export default function CustomDialog(props: any) {
                 </DialogActions>
             </Dialog>
         </div>
-        // <Dialog
-        //     open={dialogOpened}
-        //     onClose={handleClose}
-        //     aria-labelledby="alert-dialog-title"
-        //     aria-describedby="alert-dialog-description"
-        // >
-        //     <DialogTitle id="alert-dialog-title"><strong>{data.title}</strong></DialogTitle>
-        //     <DialogContent>
-        //             {data.content}
-        //     </DialogContent>
-        //     <DialogActions >
-        //         {data.action}
-        //     </DialogActions>
-        // </Dialog>
     );
 }

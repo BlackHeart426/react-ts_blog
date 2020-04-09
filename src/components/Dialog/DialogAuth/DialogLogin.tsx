@@ -67,14 +67,7 @@ export function DialogLogin(props: any) {
             password
         }
         onLogin(dataUser)
-        // if (username === 'abc@email.com' && password === 'password') {
-        //     //Запрос в БД
-        //     setError(false);
-        //     setHelperText('Login Successfully');
-        // } else {
-        //     setError(true);
-        //     setHelperText('Incorrect username or password')
-        // }
+        handleClose()
     };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -84,14 +77,19 @@ export function DialogLogin(props: any) {
     };
 
 
-    const handleClose = (e: any) => {
+    const handleClose = () => {
         onHide()
         setDialogOpened(false)
     };
 
     const handleChange = (e: any) => {
         const {name, value} = e.currentTarget;
-        // const filedName = e.currentTarget.dataset.filedName
+        if (name === 'email'){
+            setEmail(value)
+        } else {
+            setPassword(value)
+        }
+
 
         console.log(value, name)
     }

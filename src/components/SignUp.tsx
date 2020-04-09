@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
 import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin";
-import {doSignInWithEmailAndPassword} from "../firebase/auth";
+import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
+import {DialogSignUp} from "./Dialog/DialogAuth/DialogSignUp";
 import {authorizationActionCreator} from "../store/action/authorization";
 
 interface IDataUser {
@@ -10,32 +11,38 @@ interface IDataUser {
     password: string
 }
 
-const Login = (props: any) => {
+const SignUp = (props: any) => {
     const [dialogOpened, setDialogOpened] = useState(false);
     const [state, setState] = useState(null)
 
-    const handleOpenLogin = () => {
+    const handleOpenSignUp = () => {
         setDialogOpened(true)
 
     };
-    const handleLogin = (dataUser: IDataUser) => {
+    const handleSignUp = (dataUser: IDataUser) => {
         console.log(dataUser.email)
         props.authorization(dataUser.email, dataUser.password)
+        // doCreateUserWithEmailAndPassword(dataUser.email, dataUser.password)
+        //     .then(
+        //         //dispatch
+        //     )
+        //     .catch(error => {
+        //         console.log(error)
+        //     });
     };
 
     return(
         <>
             <Button
-                onClick={handleOpenLogin}
+                onClick={handleOpenSignUp}
                 type="submit"
-                color="primary"
-                variant="contained"
+                variant="outlined"
             >
-                Login
+                <strong>Register</strong>
             </Button>
-            <DialogLogin
+            <DialogSignUp
                 show={ dialogOpened }
-                onLogin = {(dataUser: any) => handleLogin(dataUser)}
+                onSignUp = {(dataUser: any) => handleSignUp(dataUser)}
                 onHide={ () => setDialogOpened(false) }
             />
         </>
@@ -51,8 +58,8 @@ function mapStateToProps(state: any) {
 
 function mapDispatchToProps(dispatch: any) {
     return {
-        authorization: (email: string, password: string, isLogin: boolean) => dispatch(isAuthorizationActionCreator(email, password, true)),
+        authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, false)),
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default  connect(mapStateToProps, mapDispatchToProps)(SignUp)

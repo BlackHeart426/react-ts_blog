@@ -11,6 +11,7 @@ import {AccountCircle, MenuBook} from "@material-ui/icons";
 import {useStyles} from "./styles";
 import {withAuthorization} from "../../firebase/hoc/withAuthorization";
 import Login from "../Login";
+import SignUp from "../SignUp";
 
 interface IProps {
     authUser?: any
@@ -120,10 +121,7 @@ function Navbar(props: IProps) {
                         <>
                             < div className={classes.grow} />
                             <div className={classes.menuButton}>
-                                <Button
-                                    variant="outlined">
-                                    <strong>Register</strong>
-                                </Button>
+                                <SignUp/>
                             </div>
                             <div className={classes.menuButton}>
                                <Login/>

@@ -22,7 +22,8 @@
     "react-router-dom": "latest",
     "react-scripts": "3.4.1",
     "typescript": "^3.7.5",
-    "typescript-fsa-redux-thunk": "^2.1.9"
+    "typescript-fsa-redux-thunk": "^2.1.9",
+    "redux-devtools-extension": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
