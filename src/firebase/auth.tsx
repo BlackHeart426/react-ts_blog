@@ -1,5 +1,6 @@
 import { auth } from "./firebaseService";
 import {User} from "firebase";
+import {EMAIL, EXPIRATIONDATE, TOKEN, USERID} from "../constants/localStorage";
 
 //Sign Up
 export const doCreateUserWithEmailAndPassword = (
@@ -27,7 +28,7 @@ export const doPasswordUpdate = async (password: string) => {
     }
     throw Error("No auth.currentUser!");
 };
-export const doAuthStateChange = async () => {
+export const doAuthStateChange = async (cb: any) => {
     auth.onAuthStateChanged(function (user: User | null) {
         if (user) {
             console.log(user)
@@ -39,15 +40,15 @@ export const doAuthStateChange = async () => {
                     const lastSignInTime = new Date(expiresIn);
                     const expirationDate = new Date(lastSignInTime.setHours(lastSignInTime.getHours() + 3))
 
-                    localStorage.setItem('token', token)
-                    localStorage.setItem('userId', uid)
-                    localStorage.setItem('expirationDate', expirationDate.toString())
-                    localStorage.setItem('email', "" + email)
+                    localStorage.setItem(TOKEN, token)
+                    localStorage.setItem(USERID, uid)
+                    localStorage.setItem(EXPIRATIONDATE, expirationDate.toString())
+                    localStorage.setItem(EMAIL, "" + email)
                     const dataUser = {
                         token,
                         expirationDate
                     }
-                    return (dataUser)
+                    return cb(dataUser)
                 }
             );
         }

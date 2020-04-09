@@ -1,7 +1,7 @@
-import {IS_AUTHENTICATION} from "../types";
+import {IS_AUTHENTICATED} from "../types";
 
 const initialState = {
-    isAuthorization: false
+    isAuthenticated: null
 }
 
 interface IAction {
@@ -11,8 +11,8 @@ interface IAction {
 
 export const authReducer = (state:object = initialState, action: IAction) => {
     switch (action.type) {
-        case IS_AUTHENTICATION:
-            return {...state, isAuthorization: action.payload }
+        case IS_AUTHENTICATED:
+            return {...state, isAuthenticated: action.payload }
         default:
             return state
     }

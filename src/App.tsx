@@ -8,13 +8,15 @@ import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/cor
 import {grey, orange} from "@material-ui/core/colors";
 import { ShablonPage } from './components/shablonPage';
 import {createStyles} from "@material-ui/core/styles";
-import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './routes/routes';
+import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './constants/routes';
 import {NonFound} from "./page/NonFound";
 import {Home} from "./page/Home";
 import {Settings} from "./container/Settings/settingsContainer";
 import {Profile} from "./page/Profile";
 import {auth} from "./firebase/firebaseService";
 import { User } from 'firebase';
+import { connect } from 'react-redux';
+import {autoLoginActionCreator, logoutActionCreator} from "./store/action/authorization";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -43,17 +45,14 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
-const App: React.FC = () => {
+const App: React.FC = (props: any) => {
   const classes = useStyles()
   const [user, setUser] = useState<User|null>(null);
 
-  useEffect(()=>{
-    auth.onAuthStateChanged((authUser) => {
-      authUser
-          ? setUser( authUser )
-          : setUser(null );
+  useEffect(() => {
 
-    })
+    props.action.autoLogin()
+
   },[])
   return <div className={classes.root}>
     <ThemeProvider theme={mainTheme}>
@@ -78,4 +77,18 @@ const App: React.FC = () => {
   </div>
 }
 
-export default App;
+function mapStateToProps(state: any) {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  }
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    action: {
+      autoLogin: () => dispatch(autoLoginActionCreator())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);

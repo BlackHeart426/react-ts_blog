@@ -20,7 +20,7 @@ const Login = (props: any) => {
     };
     const handleLogin = (dataUser: IDataUser) => {
         console.log(dataUser.email)
-        props.authorization(dataUser.email, dataUser.password)
+        props.action.authorization(dataUser.email, dataUser.password)
     };
 
     return(
@@ -42,17 +42,12 @@ const Login = (props: any) => {
     )
 };
 
-function mapStateToProps(state: any) {
-    return {
-        counter: state.counter
-    }
-
-}
-
 function mapDispatchToProps(dispatch: any) {
     return {
-        authorization: (email: string, password: string, isLogin: boolean) => dispatch(isAuthorizationActionCreator(email, password, true)),
+        action: {
+            authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, true))
+        }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login)

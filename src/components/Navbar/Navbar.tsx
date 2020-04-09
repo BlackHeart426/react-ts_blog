@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Dispatch} from 'react';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -12,17 +12,13 @@ import {useStyles} from "./styles";
 import {withAuthorization} from "../../firebase/hoc/withAuthorization";
 import Login from "../Login";
 import SignUp from "../SignUp";
+import {authorizationActionCreator, logoutActionCreator} from "../../store/action/authorization";
+import {connect, DispatchProp} from "react-redux";
 
-interface IProps {
-    authUser?: any
-}
-
-function Navbar(props: IProps) {
+function Navbar(props: any) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-    const { authUser } = props;
-
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -37,6 +33,11 @@ function Navbar(props: IProps) {
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
+    };
+
+    const handleLogout = () => {
+        props.action.logout()
+        handleMenuClose()
     };
 
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -56,6 +57,7 @@ function Navbar(props: IProps) {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
     );
 
@@ -92,7 +94,7 @@ function Navbar(props: IProps) {
                     <Typography className={classes.title} variant="h6" noWrap>
                         TS BLOG
                     </Typography>
-                    {authUser
+                    {props.isAuthenticated
                         ? <>
                             <Button
                                 startIcon={<MenuBook/>}
@@ -135,5 +137,20 @@ function Navbar(props: IProps) {
         </div>
     );
 }
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated
+    }
 
-export default Navbar
+}
+
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            logout: () => dispatch(logoutActionCreator())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

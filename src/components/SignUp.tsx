@@ -21,14 +21,7 @@ const SignUp = (props: any) => {
     };
     const handleSignUp = (dataUser: IDataUser) => {
         console.log(dataUser.email)
-        props.authorization(dataUser.email, dataUser.password)
-        // doCreateUserWithEmailAndPassword(dataUser.email, dataUser.password)
-        //     .then(
-        //         //dispatch
-        //     )
-        //     .catch(error => {
-        //         console.log(error)
-        //     });
+        props.action.authorization(dataUser.email, dataUser.password)
     };
 
     return(
@@ -49,17 +42,13 @@ const SignUp = (props: any) => {
     )
 };
 
-function mapStateToProps(state: any) {
-    return {
-        counter: state.counter
-    }
-
-}
-
 function mapDispatchToProps(dispatch: any) {
     return {
-        authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, false)),
+        action: {
+            authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, false))
+        }
+
     }
 }
 
-export default  connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default  connect(null, mapDispatchToProps)(SignUp)
