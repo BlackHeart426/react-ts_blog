@@ -40,6 +40,15 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 export function DialogSignUp(props: any) {
 
+    const initialState = {
+        email: false,
+        password: false,
+        username: false,
+        emailError: '',
+        passwordError: '',
+        usernameError: ''
+    }
+
     const classes = useStyles();
     const {show, onHide, onSignUp} = props;
     const [username, setUsername] = useState('');
@@ -49,7 +58,7 @@ export function DialogSignUp(props: any) {
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [helperText, setHelperText] = useState('');
-    const [error, setError] = useState(false);
+    const [errorForm, setError] = useState(initialState);
 
     useEffect(() => {
         if (username.trim() && email.trim() && password.trim() && passwordRepeat.trim() && ( password === passwordRepeat)) {
@@ -90,7 +99,8 @@ export function DialogSignUp(props: any) {
         content:
             <div>
                 <TextField
-                    error={error}
+                    error={errorForm.username}
+                    helperText={errorForm.usernameError}
                     fullWidth
                     id="username"
                     type="text"
@@ -102,7 +112,8 @@ export function DialogSignUp(props: any) {
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={error}
+                    error={errorForm.email}
+                    helperText={errorForm.emailError}
                     fullWidth
                     id="email"
                     type="email"
@@ -114,7 +125,8 @@ export function DialogSignUp(props: any) {
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={error}
+                    error={errorForm.password}
+                    helperText={errorForm.passwordError}
                     fullWidth
                     id="password"
                     type="password"
@@ -122,12 +134,12 @@ export function DialogSignUp(props: any) {
                     label="Password"
                     placeholder="Password"
                     margin="normal"
-                    helperText={helperText}
                     onChange={(e)=>setPassword(e.target.value)}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={error}
+                    error={errorForm.password}
+                    helperText={errorForm.passwordError}
                     fullWidth
                     id="passwordRepeat"
                     type="password"
@@ -135,7 +147,6 @@ export function DialogSignUp(props: any) {
                     label="Password Repeat"
                     placeholder="Repeat Password"
                     margin="normal"
-                    helperText={helperText}
                     onChange={(e)=>setPasswordRepeat(e.target.value)}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />

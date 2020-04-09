@@ -1,7 +1,7 @@
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import React, {useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import CustomDialog from "../CustomDialog";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import createStyles from "@material-ui/styles/createStyles";
@@ -14,6 +14,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
+import {validateForm} from "../../validateForm/validateForm";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -38,6 +39,11 @@ const useStyles = makeStyles((theme) =>
     }),
 );
 
+interface IValidateData {
+    error: string,
+    errorMessage: string
+}
+
 export function DialogLogin(props: any) {
 
     const initialState = {
@@ -56,7 +62,17 @@ export function DialogLogin(props: any) {
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [helperText, setHelperText] = useState('');
-    const [errorForm, setError] = useState({email: false, password: false, emailError: '', passwordError: ''});
+    // const [errorForm, setError] = useState({email: false, password: false, emailError: '', passwordError: ''});
+    const [errorForm, setError] = useState({
+        email: {
+            status: false,
+            message: ''
+        },
+        password: {
+            status: false,
+            message: ''
+        },
+    });
 
     useEffect(() => {
         if (email.trim() && password.trim()) {
@@ -93,24 +109,11 @@ export function DialogLogin(props: any) {
         setDialogOpened(false)
     };
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: any, cb: any) => {
         const {name, value} = e.currentTarget;
-        if (name === 'email'){
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-                setError({...errorForm, email: true, emailError: 'Incorrect email address'});
-            } else {
-                setError({...errorForm, email: false, emailError: ''});
-            }
-            setEmail(value)
-        } else {
-            console.log(12)
-            if (!/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/.test(value)) {
-                setError({...errorForm, password: true, passwordError: 'Not strong password'});
-            } else {
-                setError({...errorForm, password: false, passwordError: ''});
-            }
-            setPassword(value)
-        }
+        const infoValid = validateForm(name, value)
+        setError({...errorForm, [name]: {status: infoValid.error, message: infoValid.errorMessage}});
+        return cb
     }
 
     const data = {
@@ -118,8 +121,8 @@ export function DialogLogin(props: any) {
         content:
             <div>
                 <TextField
-                    error={errorForm.email}
-                    helperText={errorForm.emailError}
+                    error={errorForm.email.status}
+                    helperText={errorForm.email.message}
                     variant="outlined"
                     fullWidth
                     id="email"
@@ -129,12 +132,12 @@ export function DialogLogin(props: any) {
                     label="Email"
                     placeholder="Email"
                     margin="normal"
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e, setEmail(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={errorForm.password}
-                    helperText={errorForm.passwordError}
+                    error={errorForm.password.status}
+                    helperText={errorForm.password.message}
                     variant="outlined"
                     fullWidth
                     name="password"
@@ -143,7 +146,7 @@ export function DialogLogin(props: any) {
                     label="Password"
                     placeholder="Password"
                     margin="normal"
-                    onChange={handleChange}
+                    onChange={(e) => handleChange(e, setPassword(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
 
