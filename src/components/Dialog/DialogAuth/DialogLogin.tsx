@@ -40,6 +40,15 @@ const useStyles = makeStyles((theme) =>
 
 export function DialogLogin(props: any) {
 
+    const initialState = {
+        email: '',
+        password: '',
+        formErrors: {email: '', password: ''},
+        emailValid: false,
+        passwordValid: false,
+        formValid: false
+    }
+
     const classes = useStyles();
     const {show, onHide, onLogin} = props;
     const [email, setEmail] = useState('');
@@ -47,7 +56,7 @@ export function DialogLogin(props: any) {
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [helperText, setHelperText] = useState('');
-    const [error, setError] = useState(false);
+    const [errorForm, setError] = useState({email: false, password: false, emailError: '', passwordError: ''});
 
     useEffect(() => {
         if (email.trim() && password.trim()) {
@@ -60,6 +69,8 @@ export function DialogLogin(props: any) {
     useEffect(() => {
        setDialogOpened(show)
     }, [show]);
+
+
 
     const handleLogin = () => {
         const dataUser = {
@@ -85,13 +96,21 @@ export function DialogLogin(props: any) {
     const handleChange = (e: any) => {
         const {name, value} = e.currentTarget;
         if (name === 'email'){
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+                setError({...errorForm, email: true, emailError: 'Incorrect email address'});
+            } else {
+                setError({...errorForm, email: false, emailError: ''});
+            }
             setEmail(value)
         } else {
+            console.log(12)
+            if (!/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/.test(value)) {
+                setError({...errorForm, password: true, passwordError: 'Not strong password'});
+            } else {
+                setError({...errorForm, password: false, passwordError: ''});
+            }
             setPassword(value)
         }
-
-
-        console.log(value, name)
     }
 
     const data = {
@@ -99,7 +118,8 @@ export function DialogLogin(props: any) {
         content:
             <div>
                 <TextField
-                    error={error}
+                    error={errorForm.email}
+                    helperText={errorForm.emailError}
                     variant="outlined"
                     fullWidth
                     id="email"
@@ -113,7 +133,8 @@ export function DialogLogin(props: any) {
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={error}
+                    error={errorForm.password}
+                    helperText={errorForm.passwordError}
                     variant="outlined"
                     fullWidth
                     name="password"
@@ -122,7 +143,6 @@ export function DialogLogin(props: any) {
                     label="Password"
                     placeholder="Password"
                     margin="normal"
-                    helperText={helperText}
                     onChange={handleChange}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />

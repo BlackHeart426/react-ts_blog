@@ -1,5 +1,4 @@
-import React, {Dispatch} from 'react';
-import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,11 +8,10 @@ import Menu from '@material-ui/core/Menu';
 import { Button } from '@material-ui/core';
 import {AccountCircle, MenuBook} from "@material-ui/icons";
 import {useStyles} from "./styles";
-import {withAuthorization} from "../../firebase/hoc/withAuthorization";
 import Login from "../Login";
 import SignUp from "../SignUp";
-import {authorizationActionCreator, logoutActionCreator} from "../../store/action/authorization";
-import {connect, DispatchProp} from "react-redux";
+import {logoutActionCreator} from "../../store/action/authorization";
+import {connect} from "react-redux";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -68,7 +66,6 @@ function Navbar(props: any) {
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             id={mobileMenuId}
             keepMounted
-
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
@@ -101,7 +98,7 @@ function Navbar(props: any) {
                                 variant="outlined">
                                 My subscribers
                             </Button>
-                            < div className={classes.grow} />
+                            <div className={classes.grow} />
                             <div>
                                 <Button  variant="outlined">Create Page</Button>
                             </div>
@@ -121,7 +118,7 @@ function Navbar(props: any) {
                         </>
                         :
                         <>
-                            < div className={classes.grow} />
+                            <div className={classes.grow} />
                             <div className={classes.menuButton}>
                                 <SignUp/>
                             </div>

@@ -1,4 +1,4 @@
-import {IS_AUTHENTICATED, IS_AUTHENTICATION} from "../types";
+import {IS_AUTHENTICATED} from "../types";
 import {
     doAuthStateChange,
     doCreateUserWithEmailAndPassword,

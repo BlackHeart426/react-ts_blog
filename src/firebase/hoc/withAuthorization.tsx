@@ -2,9 +2,6 @@ import React, {Component} from "react";
 import { auth } from "../firebaseService";
 import {Redirect} from "react-router-dom";
 import {HOME} from "../../constants/routes";
-import {connect} from "react-redux";
-import {isAuthorization} from "../../store/action/authorization";
-import functions from "firebase";
 
 interface IProp {
     authUser?: any;

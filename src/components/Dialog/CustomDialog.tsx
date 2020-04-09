@@ -1,10 +1,8 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
-import Button from '@material-ui/core/Button';
+import React, {useEffect} from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
-import Container from "@material-ui/core/Container";
 import CloseIcon from '@material-ui/icons/Close';
 import {createStyles, Theme, WithStyles, withStyles, Typography, IconButton} from '@material-ui/core';
 
