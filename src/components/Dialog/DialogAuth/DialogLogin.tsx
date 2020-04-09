@@ -47,23 +47,6 @@ interface IValidateData {
 export function DialogLogin(props: any) {
 
     const initialState = {
-        email: '',
-        password: '',
-        formErrors: {email: '', password: ''},
-        emailValid: false,
-        passwordValid: false,
-        formValid: false
-    }
-
-    const classes = useStyles();
-    const {show, onHide, onLogin} = props;
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [dialogOpened, setDialogOpened] = useState(false);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-    const [helperText, setHelperText] = useState('');
-    // const [errorForm, setError] = useState({email: false, password: false, emailError: '', passwordError: ''});
-    const [errorForm, setError] = useState({
         email: {
             status: false,
             message: ''
@@ -72,7 +55,15 @@ export function DialogLogin(props: any) {
             status: false,
             message: ''
         },
-    });
+    }
+
+    const classes = useStyles();
+    const {show, onHide, onLogin} = props;
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [dialogOpened, setDialogOpened] = useState(false);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [errorForm, setError] = useState(initialState);
 
     useEffect(() => {
         if (email.trim() && password.trim()) {

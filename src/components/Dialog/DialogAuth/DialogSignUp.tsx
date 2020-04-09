@@ -15,6 +15,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {Theme} from "@material-ui/core";
+import {validateForm} from "../../validateForm/validateForm";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -41,12 +42,22 @@ const useStyles = makeStyles((theme: Theme) =>
 export function DialogSignUp(props: any) {
 
     const initialState = {
-        email: false,
-        password: false,
-        username: false,
-        emailError: '',
-        passwordError: '',
-        usernameError: ''
+        email: {
+            status: false,
+            message: ''
+        },
+        password: {
+            status: false,
+            message: ''
+        },
+        passwordRepeat: {
+            status: false,
+            message: ''
+        },
+        username: {
+            status: false,
+            message: ''
+        },
     }
 
     const classes = useStyles();
@@ -57,7 +68,6 @@ export function DialogSignUp(props: any) {
     const [passwordRepeat, setPasswordRepeat] = useState('');
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-    const [helperText, setHelperText] = useState('');
     const [errorForm, setError] = useState(initialState);
 
     useEffect(() => {
@@ -94,60 +104,83 @@ export function DialogSignUp(props: any) {
         setDialogOpened(false)
     };
 
+    const handlePasswordRepeat = (e: any,cb: any) => {
+        debugger
+        if(password !== e.target.value) {
+            setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
+        } else {
+            setError({...errorForm, passwordRepeat: {status: false, message: ''}});
+        }
+
+        return cb
+    };
+
+    const handleChange = (e: any, cb: any) => {
+        const {name, value} = e.currentTarget;
+        const infoValid = validateForm(name, value)
+        setError({...errorForm, [name]: {status: infoValid.error, message: infoValid.errorMessage}});
+
+        return cb
+    }
+
     const data = {
         title: 'SIGN UP',
         content:
             <div>
                 <TextField
-                    error={errorForm.username}
-                    helperText={errorForm.usernameError}
+                    error={errorForm.username.status}
+                    helperText={errorForm.username.message}
                     fullWidth
+                    variant="outlined"
                     id="username"
                     type="text"
                     name="username"
                     label="Username"
                     placeholder="Username"
                     margin="normal"
-                    onChange={(e)=>setUsername(e.target.value)}
+                    onChange={(e) => handleChange(e, setUsername(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={errorForm.email}
-                    helperText={errorForm.emailError}
+                    error={errorForm.email.status}
+                    helperText={errorForm.email.message}
                     fullWidth
+                    variant="outlined"
                     id="email"
                     type="email"
                     name="email"
                     label="Email"
                     placeholder="Email"
                     margin="normal"
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e) => handleChange(e, setEmail(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={errorForm.password}
-                    helperText={errorForm.passwordError}
+                    error={errorForm.password.status}
+                    helperText={errorForm.password.message}
                     fullWidth
+                    variant="outlined"
                     id="password"
                     type="password"
                     name="password"
                     label="Password"
                     placeholder="Password"
                     margin="normal"
-                    onChange={(e)=>setPassword(e.target.value)}
+                    onChange={(e) => handleChange(e, setPassword(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
-                    error={errorForm.password}
-                    helperText={errorForm.passwordError}
+                    error={errorForm.passwordRepeat.status}
+                    helperText={errorForm.passwordRepeat.message}
                     fullWidth
+                    variant="outlined"
                     id="passwordRepeat"
                     type="password"
                     name="passwordRepeat"
                     label="Password Repeat"
                     placeholder="Repeat Password"
                     margin="normal"
-                    onChange={(e)=>setPasswordRepeat(e.target.value)}
+                    onChange={(e) => handlePasswordRepeat(e,setPasswordRepeat(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
             </div>,
