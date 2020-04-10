@@ -12,6 +12,7 @@ import Login from "../Login";
 import SignUp from "../SignUp";
 import {logoutActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
+import {AuthorizationModal} from "../../container/Authorization/AuthorizationModal";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -91,6 +92,7 @@ function Navbar(props: any) {
                     <Typography className={classes.title} variant="h6" noWrap>
                         TS BLOG
                     </Typography>
+                    <AuthorizationModal/>
                     {props.isAuthenticated
                         ? <>
                             <Button
