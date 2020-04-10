@@ -2,19 +2,14 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import React, {ChangeEvent, useEffect, useState} from "react";
-import CustomDialog from "../CustomDialog";
+import {CustomDialog} from "../CustomDialog";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import createStyles from "@material-ui/styles/createStyles";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
-import Card from "@material-ui/core/Card";
-import Dialog from "@material-ui/core/Dialog";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {validateForm} from "../../validateForm/validateForm";
+import { Icon, InlineIcon } from '@iconify/react';
+import googleIcon from '@iconify/icons-flat-color-icons/google';
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -58,7 +53,7 @@ export function DialogLogin(props: any) {
     }
 
     const classes = useStyles();
-    const {show, onHide, onLogin} = props;
+    const {show, onHide, onLogin, onAuthGoogle} = props;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [dialogOpened, setDialogOpened] = useState(false);
@@ -85,6 +80,11 @@ export function DialogLogin(props: any) {
             password
         }
         onLogin(dataUser)
+        handleClose()
+    };
+
+    const handleGoogle = () => {
+        onAuthGoogle()
         handleClose()
     };
 
@@ -153,6 +153,14 @@ export function DialogLogin(props: any) {
                     disabled={isButtonDisabled}>
                     LOGIN
                 </Button>
+                <Button
+                    variant="outlined"
+                    size="large"
+                    startIcon={<Icon icon={googleIcon}/>}
+                    className={classes.loginBtn}
+                    onClick={handleGoogle}>
+                    GOOGLE
+                </Button>
                 <Grid container className={classes.actionGrid}>
                     <Grid item xs >
                         <Link href="#" variant="body2">
@@ -166,6 +174,7 @@ export function DialogLogin(props: any) {
                     </Grid>
                 </Grid>
             </FormControl>
+
 
     }
 

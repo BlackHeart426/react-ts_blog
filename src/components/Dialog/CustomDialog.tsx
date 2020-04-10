@@ -53,7 +53,8 @@ const DialogActions = withStyles((theme: Theme) => ({
     },
 }))(MuiDialogActions);
 
-export default function CustomDialog(props: any) {
+export const CustomDialog = withStyles(styles)((props: any) => {
+    const {classes} = props;
     const [open, setOpen] = React.useState(false);
     const {show, onHide, data} = props;
 
@@ -68,7 +69,7 @@ export default function CustomDialog(props: any) {
 
     return (
         <div>
-            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog maxWidth={'xs'} onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
                     {data.title}
                 </DialogTitle>
@@ -81,4 +82,4 @@ export default function CustomDialog(props: any) {
             </Dialog>
         </div>
     );
-}
+})

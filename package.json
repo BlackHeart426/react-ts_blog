@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@firebase/auth-types": "^0.10.0",
+    "@iconify/icons-flat-color-icons": "^1.0.4",
+    "@iconify/react": "^1.1.3",
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -15,15 +17,15 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-redux": "^7.1.7",
     "@types/redux": "^3.6.0",
-    "firebase": "^7.13.2",
+    "firebase": "^7.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "latest",
     "react-scripts": "3.4.1",
+    "redux-devtools-extension": "latest",
     "typescript": "^3.7.5",
-    "typescript-fsa-redux-thunk": "^2.1.9",
-    "redux-devtools-extension": "latest"
+    "typescript-fsa-redux-thunk": "^2.1.9"
   },
   "scripts": {
     "start": "react-scripts start",

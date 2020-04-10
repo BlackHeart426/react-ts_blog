@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin";
-import {doSignInWithEmailAndPassword} from "../firebase/auth";
-import {authorizationActionCreator} from "../store/action/authorization";
+import {DialogLogin} from "../Dialog/DialogAuth/DialogLogin";
+import {doSignInWithEmailAndPassword} from "../../firebase/auth";
+import {authorizationActionCreator, authorizationGoogleActionCreator} from "../../store/action/authorization";
 
 interface IDataUser {
     email: string,
@@ -22,6 +22,9 @@ const Login = (props: any) => {
         console.log(dataUser.email)
         props.action.authorization(dataUser.email, dataUser.password)
     };
+    const handleAuthGoogle = () => {
+        props.action.authorizationGoogle()
+    };
 
     return(
         <>
@@ -35,7 +38,8 @@ const Login = (props: any) => {
             </Button>
             <DialogLogin
                 show={ dialogOpened }
-                onLogin = {(dataUser: any) => handleLogin(dataUser)}
+                onAuthGoogle={handleAuthGoogle}
+                onLogin={(dataUser: any) => handleLogin(dataUser)}
                 onHide={ () => setDialogOpened(false) }
             />
         </>
@@ -45,7 +49,8 @@ const Login = (props: any) => {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, true))
+            authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, true)),
+            authorizationGoogle: () => dispatch(authorizationGoogleActionCreator())
         }
     }
 }

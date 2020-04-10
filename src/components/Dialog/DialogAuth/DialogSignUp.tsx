@@ -2,7 +2,7 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import React, {useEffect, useState} from "react";
-import CustomDialog from "../CustomDialog";
+import {CustomDialog} from "../CustomDialog";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import createStyles from "@material-ui/styles/createStyles";
 import CardActions from "@material-ui/core/CardActions";
@@ -16,6 +16,8 @@ import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {Theme} from "@material-ui/core";
 import {validateForm} from "../../validateForm/validateForm";
+import {Icon} from "@iconify/react";
+import googleIcon from "@iconify/icons-flat-color-icons/google";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -23,6 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             flexWrap: 'wrap',
             width: 400,
+        },
+        loginBtn: {
+            marginTop: theme.spacing(2),
+            flexGrow: 1
         },
         signUpBtn: {
             marginTop: theme.spacing(2),
@@ -61,7 +67,7 @@ export function DialogSignUp(props: any) {
     }
 
     const classes = useStyles();
-    const {show, onHide, onSignUp} = props;
+    const {show, onHide, onSignUp, onAuthGoogle} = props;
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -90,6 +96,11 @@ export function DialogSignUp(props: any) {
             passwordRepeat
         }
         onSignUp(dataUser)
+        handleClose()
+    };
+
+    const handleGoogle = () => {
+        onAuthGoogle()
         handleClose()
     };
 
@@ -194,6 +205,14 @@ export function DialogSignUp(props: any) {
                     onClick={handleSignUp}
                     disabled={isButtonDisabled}>
                     Sign Up
+                </Button>
+                <Button
+                    variant="outlined"
+                    size="large"
+                    startIcon={<Icon icon={googleIcon}/>}
+                    className={classes.loginBtn}
+                    onClick={handleGoogle}>
+                    GOOGLE
                 </Button>
                 <Grid container>
                     <Grid item xs>

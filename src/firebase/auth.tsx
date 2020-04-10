@@ -1,6 +1,11 @@
-import { auth } from "./firebaseService";
+import {auth, googleAuthProvider} from "./firebaseService";
 import {User} from "firebase";
 import {EMAIL, EXPIRATIONDATE, TOKEN, USERID} from "../constants/localStorage";
+
+//Google Up
+export const doGoogleSignIn = () =>
+    auth.signInWithPopup(googleAuthProvider)
+
 
 //Sign Up
 export const doCreateUserWithEmailAndPassword = (

@@ -1,7 +1,7 @@
 import {IS_AUTHENTICATED} from "../types";
 import {
     doAuthStateChange,
-    doCreateUserWithEmailAndPassword,
+    doCreateUserWithEmailAndPassword, doGoogleSignIn,
     doSignInWithEmailAndPassword,
     doSignOut
 } from "../../firebase/auth";
@@ -12,6 +12,21 @@ import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage
 interface IUserData {
     token: string,
     expirationDate: string
+}
+
+export const authorizationGoogleActionCreator = () => {
+    return async (dispatch: any) => {
+        doGoogleSignIn()
+            .then(result => {
+                doAuthStateChange((dataUser: IUserData)=>{
+                    dispatch(isAuthenticatedActionCreator(dataUser.token))
+                })
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 }
 
 export const autoLoginActionCreator = () => {
@@ -41,17 +56,13 @@ export const logoutActionCreator = () => {
 
 export const authorizationActionCreator = (email: string, password: string, isLogin: boolean) => {
     return async (dispatch: Dispatch) => {
-        function isAuthDispatch(dataUser: IUserData) {
-            console.log(dataUser)
-            dispatch(isAuthenticatedActionCreator(dataUser.token))
-            // dispatch(autoLogoutActionCreator(dataUser.expirationDate))
-        }
-
         if (isLogin) {
             doSignInWithEmailAndPassword(email, password)
                 .then(function (firebaseUser: firebase.auth.UserCredential) {
                     console.log(firebaseUser)
-                    doAuthStateChange((dataUser: IUserData)=>isAuthDispatch(dataUser))
+                    doAuthStateChange((dataUser: IUserData)=>{
+                        dispatch(isAuthenticatedActionCreator(dataUser.token))
+                    })
                 })
                 .catch(
                     error => console.log('messageError', error.message)
@@ -60,7 +71,9 @@ export const authorizationActionCreator = (email: string, password: string, isLo
             doCreateUserWithEmailAndPassword(email, password)
                 .then(function (firebaseUser: firebase.auth.UserCredential) {
                     console.log(firebaseUser)
-                    doAuthStateChange((dataUser: IUserData)=>isAuthDispatch(dataUser))
+                    doAuthStateChange((dataUser: IUserData)=>{
+                        dispatch(isAuthenticatedActionCreator(dataUser.token))
+                    })
                 })
                 .catch(
                     error => console.log('messageError', error.message)
