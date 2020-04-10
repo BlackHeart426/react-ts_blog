@@ -8,7 +8,7 @@ import Menu from '@material-ui/core/Menu';
 import { Button } from '@material-ui/core';
 import {AccountCircle, MenuBook} from "@material-ui/icons";
 import {useStyles} from "./styles";
-import Login from "../Login/Login";
+import Login from "../Login";
 import SignUp from "../SignUp";
 import {logoutActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";

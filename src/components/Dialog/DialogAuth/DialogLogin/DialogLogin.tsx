@@ -2,37 +2,15 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import React, {ChangeEvent, useEffect, useState} from "react";
-import {CustomDialog} from "../CustomDialog";
+import {CustomDialog} from "../../CustomDialog";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import createStyles from "@material-ui/styles/createStyles";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import {validateForm} from "../../validateForm/validateForm";
+import {validateForm} from "../../../validateForm/validateForm";
 import { Icon, InlineIcon } from '@iconify/react';
 import googleIcon from '@iconify/icons-flat-color-icons/google';
-
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        container: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: 400,
-        },
-        loginBtn: {
-            marginTop: theme.spacing(2),
-            flexGrow: 1
-        },
-        header: {
-            textAlign: 'center',
-            background: '#3f51b5',
-            color: '#fff'
-        },
-        actionGrid: {
-            marginTop: theme.spacing(1)
-        }
-
-    }),
-);
+import {useStyles} from "./styles";
 
 interface IValidateData {
     error: string,
@@ -120,6 +98,7 @@ export function DialogLogin(props: any) {
                     autoFocus
                     name="email"
                     type="email"
+                    size={"small"}
                     label="Email"
                     placeholder="Email"
                     margin="normal"
@@ -133,6 +112,7 @@ export function DialogLogin(props: any) {
                     fullWidth
                     name="password"
                     id="password"
+                    size={"small"}
                     type="password"
                     label="Password"
                     placeholder="Password"

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin";
+import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin/DialogLogin";
 import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
 import {DialogSignUp} from "./Dialog/DialogAuth/DialogSignUp";
 import {authorizationActionCreator, authorizationGoogleActionCreator} from "../store/action/authorization";

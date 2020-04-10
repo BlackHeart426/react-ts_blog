@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {DialogLogin} from "../Dialog/DialogAuth/DialogLogin";
-import {doSignInWithEmailAndPassword} from "../../firebase/auth";
-import {authorizationActionCreator, authorizationGoogleActionCreator} from "../../store/action/authorization";
+import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin/DialogLogin";
+import {doSignInWithEmailAndPassword} from "../firebase/auth";
+import {authorizationActionCreator, authorizationGoogleActionCreator} from "../store/action/authorization";
 
 interface IDataUser {
     email: string,

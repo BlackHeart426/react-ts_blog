@@ -145,6 +145,7 @@ export function DialogSignUp(props: any) {
                     variant="outlined"
                     id="username"
                     type="text"
+                    size={"small"}
                     name="username"
                     label="Username"
                     placeholder="Username"
@@ -160,6 +161,7 @@ export function DialogSignUp(props: any) {
                     id="email"
                     type="email"
                     name="email"
+                    size={"small"}
                     label="Email"
                     placeholder="Email"
                     margin="normal"
@@ -174,6 +176,7 @@ export function DialogSignUp(props: any) {
                     id="password"
                     type="password"
                     name="password"
+                    size={"small"}
                     label="Password"
                     placeholder="Password"
                     margin="normal"
@@ -184,6 +187,7 @@ export function DialogSignUp(props: any) {
                     error={errorForm.passwordRepeat.status}
                     helperText={errorForm.passwordRepeat.message}
                     fullWidth
+                    size={"small"}
                     variant="outlined"
                     id="passwordRepeat"
                     type="password"
