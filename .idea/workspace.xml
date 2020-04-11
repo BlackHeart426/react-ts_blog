@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationRecoveryPassword.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationSignUp.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationRightSide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationRightSide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLeftSide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLeftSide.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <workItem from="1586331154941" duration="26220000" />
       <workItem from="1586418691012" duration="28179000" />
       <workItem from="1586505224801" duration="7974000" />
-      <workItem from="1586596935215" duration="4360000" />
+      <workItem from="1586596935215" duration="6170000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -307,14 +306,20 @@
       <option name="project" value="LOCAL" />
       <updated>1586541550745</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="AuthorizationRightSide">
+      <created>1586601405440</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1586601405440</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="page" />
     <MESSAGE value="level" />
     <MESSAGE value="content css" />
     <MESSAGE value="menu" />
@@ -339,7 +344,8 @@
     <MESSAGE value="google auth" />
     <MESSAGE value="RecoveryPassword" />
     <MESSAGE value="Authorization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Authorization" />
+    <MESSAGE value="AuthorizationRightSide" />
+    <option name="LAST_COMMIT_MESSAGE" value="AuthorizationRightSide" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -350,10 +356,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586541550123">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586601404825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586541550123" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586601404825" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -386,10 +392,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586527992064" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586541551678">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586601406923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586541551678" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586601406923" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586541545361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
