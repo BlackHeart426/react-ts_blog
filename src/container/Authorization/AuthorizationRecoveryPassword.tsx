@@ -67,7 +67,7 @@ export function AuthorizationRecoveryPassword(props: any) {
         <>
             <div>
                 <Typography align={"center"}>
-                    Recovery password
+                    <strong>Recovery password</strong>
                 </Typography>
                 <TextField
                     error={errorForm.email.status}

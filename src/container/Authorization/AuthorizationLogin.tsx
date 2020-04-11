@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../../components/validateForm/validateForm";
 import {Checkbox, Typography, FormControlLabel} from "@material-ui/core";
@@ -58,6 +58,16 @@ export function AuthorizationLogin(props: any) {
         // handleClose()
     };
 
+    useEffect(() => {
+        if (errorForm.email.status === false
+            && errorForm.password.status === false
+            && email.trim() && password.trim()) {
+            setIsButtonDisabled(false);
+        } else {
+            setIsButtonDisabled(true);
+        }
+    }, [email, password]);
+
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.keyCode === 13 || e.which === 13) {
             isButtonDisabled || handleLogin();
@@ -74,7 +84,7 @@ export function AuthorizationLogin(props: any) {
         <>
             <div>
                 <Typography align={"center"}>
-                    Login
+                    <strong>Login</strong>
                 </Typography>
                 <TextField
                     error={errorForm.email.status}

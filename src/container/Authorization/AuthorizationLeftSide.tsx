@@ -22,16 +22,16 @@ export const AuthorizationLeftSide = () => {
     return (
         <>
             <GoogleLoginButton onClick={() => alert("Hello")} >
-                <span>Sign up using Google+</span>
+                <span>Google+</span>
             </GoogleLoginButton>
             <FacebookLoginButton onClick={() => alert("Hello")} >
-                <span>Sign up using Facebook</span>
+                <span>Facebook</span>
             </FacebookLoginButton>
             <TwitterLoginButton onClick={() => alert("Hello")}>
-                <span>Sign up using Twitter</span>
+                <span>Twitter</span>
             </TwitterLoginButton>
             <MicrosoftLoginButton>
-                <span>Sign up using Microsoft</span>
+                <span>Microsoft</span>
             </MicrosoftLoginButton>
         </>
     )

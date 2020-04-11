@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../../components/validateForm/validateForm";
 import {Checkbox, Typography, FormControlLabel} from "@material-ui/core";
@@ -52,6 +52,30 @@ export function AuthorizationSignUp(props: any) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
+    useEffect(()=>{
+        if(password !== passwordRepeat) {
+            setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
+        } else {
+            setError({...errorForm, passwordRepeat: {status: false, message: ''}});
+        }
+    },[passwordRepeat, password])
+
+    useEffect(() => {
+        if (errorForm.email.status === false
+            && errorForm.password.status === false
+            && errorForm.passwordRepeat.status === false
+            && errorForm.username.status === false
+            && errorForm.email.status === false
+            && username.trim()
+            && email.trim()
+            && password.trim()
+            && passwordRepeat.trim()) {
+            setIsButtonDisabled(false);
+        } else {
+            setIsButtonDisabled(true);
+        }
+    }, [username, password, email, passwordRepeat]);
+
     const handleSignUp = () => {
         // const dataUser = {
         //     username,
@@ -65,11 +89,7 @@ export function AuthorizationSignUp(props: any) {
 
 
     const handlePasswordRepeat = (e: any,cb: any) => {
-        if(password !== e.target.value) {
-            setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
-        } else {
-            setError({...errorForm, passwordRepeat: {status: false, message: ''}});
-        }
+
 
         return cb
     };
@@ -90,7 +110,7 @@ export function AuthorizationSignUp(props: any) {
         <>
             <div>
                 <Typography align={"center"}>
-                    Sign Up
+                    <strong>Sign Up</strong>
                 </Typography>
                 <TextField
                     className={classes.contentText}
@@ -154,7 +174,7 @@ export function AuthorizationSignUp(props: any) {
                     label="Password Repeat"
                     placeholder="Repeat Password"
                     margin="normal"
-                    onChange={(e) => handlePasswordRepeat(e,setPasswordRepeat(e.target.value))}
+                    onChange={(e) => setPasswordRepeat(e.target.value)}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <FormControl fullWidth className={classes.action}>
