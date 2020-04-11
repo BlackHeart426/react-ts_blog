@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export function AuthorizationLogin(props: any) {
+export function AuthorizationSignUp(props: any) {
     const classes = useStyles()
     const {onChangeForm} = props;
 
@@ -34,33 +34,49 @@ export function AuthorizationLogin(props: any) {
             status: false,
             message: ''
         },
+        passwordRepeat: {
+            status: false,
+            message: ''
+        },
+        username: {
+            status: false,
+            message: ''
+        },
     }
 
-    // const classes = useStyles();
-    // const {show, onHide, onLogin, onAuthGoogle} = props;
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordRepeat, setPasswordRepeat] = useState('');
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
-    const handleLogin = () => {
-        const dataUser = {
-            email,
-            password
-        }
-        // onLogin(dataUser)
+    const handleSignUp = () => {
+        // const dataUser = {
+        //     username,
+        //     email,
+        //     password,
+        //     passwordRepeat
+        // }
+        // onSignUp(dataUser)
         // handleClose()
     };
 
-    const handleGoogle = () => {
-        // onAuthGoogle()
-        // handleClose()
+
+    const handlePasswordRepeat = (e: any,cb: any) => {
+        if(password !== e.target.value) {
+            setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
+        } else {
+            setError({...errorForm, passwordRepeat: {status: false, message: ''}});
+        }
+
+        return cb
     };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.keyCode === 13 || e.which === 13) {
-            isButtonDisabled || handleLogin();
+            isButtonDisabled || handleSignUp();
         }
     };
 
@@ -74,17 +90,33 @@ export function AuthorizationLogin(props: any) {
         <>
             <div>
                 <Typography align={"center"}>
-                    Login
+                    Sign Up
                 </Typography>
                 <TextField
+                    className={classes.contentText}
+                    error={errorForm.username.status}
+                    helperText={errorForm.username.message}
+                    fullWidth
+                    variant="outlined"
+                    id="username"
+                    type="text"
+                    size={"small"}
+                    name="username"
+                    label="Username"
+                    placeholder="Username"
+                    margin="normal"
+                    onChange={(e) => handleChange(e, setUsername(e.target.value))}
+                    onKeyPress={(e)=>handleKeyPress(e)}
+                />
+                <TextField
+                    className={classes.contentText}
                     error={errorForm.email.status}
                     helperText={errorForm.email.message}
-                    variant="outlined"
                     fullWidth
+                    variant="outlined"
                     id="email"
-                    autoFocus
-                    name="email"
                     type="email"
+                    name="email"
                     size={"small"}
                     label="Email"
                     placeholder="Email"
@@ -93,40 +125,47 @@ export function AuthorizationLogin(props: any) {
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <TextField
+                    className={classes.contentText}
                     error={errorForm.password.status}
                     helperText={errorForm.password.message}
-                    variant="outlined"
                     fullWidth
-                    name="password"
+                    variant="outlined"
                     id="password"
-                    size={"small"}
                     type="password"
+                    name="password"
+                    size={"small"}
                     label="Password"
                     placeholder="Password"
                     margin="normal"
                     onChange={(e) => handleChange(e, setPassword(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            // checked={state.checkedB}
-                            onChange={handleChange}
-                            name="checkedB"
-                            color="primary"
-                        />
-                    }
-                    label="Remember me"
+                <TextField
+                    className={classes.contentText}
+                    style={{marginTop: '8px'}}
+                    error={errorForm.passwordRepeat.status}
+                    helperText={errorForm.passwordRepeat.message}
+                    fullWidth
+                    size={"small"}
+                    variant="outlined"
+                    id="passwordRepeat"
+                    type="password"
+                    name="passwordRepeat"
+                    label="Password Repeat"
+                    placeholder="Repeat Password"
+                    margin="normal"
+                    onChange={(e) => handlePasswordRepeat(e,setPasswordRepeat(e.target.value))}
+                    onKeyPress={(e)=>handleKeyPress(e)}
                 />
-                <FormControl fullWidth  className={classes.action}>
+                <FormControl fullWidth className={classes.action}>
                     <Button
                         variant="contained"
                         size="large"
                         color="primary"
-                        // className={classes.loginBtn}
-                        onClick={handleLogin}
+                        // className={classes.signUpBtn}
+                        onClick={handleSignUp}
                         disabled={isButtonDisabled}>
-                        LOGIN
+                        Sign Up
                     </Button>
                 </FormControl>
                 <Grid container >
@@ -136,8 +175,8 @@ export function AuthorizationLogin(props: any) {
                         </Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#" onClick={() => onChangeForm('signUp')} variant="body2">
-                            {"Don't have an account? Sign Up"}
+                        <Link href="#" onClick={() => onChangeForm('login')} variant="body2">
+                            {"Don't have an account? Login"}
                         </Link>
                     </Grid>
                 </Grid>

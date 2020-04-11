@@ -21,16 +21,12 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export function AuthorizationLogin(props: any) {
-    const classes = useStyles()
+export function AuthorizationRecoveryPassword(props: any) {
     const {onChangeForm} = props;
+    const classes = useStyles()
 
     const initialState = {
         email: {
-            status: false,
-            message: ''
-        },
-        password: {
             status: false,
             message: ''
         },
@@ -39,15 +35,12 @@ export function AuthorizationLogin(props: any) {
     // const classes = useStyles();
     // const {show, onHide, onLogin, onAuthGoogle} = props;
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
     const handleLogin = () => {
         const dataUser = {
-            email,
-            password
+            email
         }
         // onLogin(dataUser)
         // handleClose()
@@ -74,7 +67,7 @@ export function AuthorizationLogin(props: any) {
         <>
             <div>
                 <Typography align={"center"}>
-                    Login
+                    Recovery password
                 </Typography>
                 <TextField
                     error={errorForm.email.status}
@@ -92,32 +85,6 @@ export function AuthorizationLogin(props: any) {
                     onChange={(e) => handleChange(e, setEmail(e.target.value))}
                     onKeyPress={(e)=>handleKeyPress(e)}
                 />
-                <TextField
-                    error={errorForm.password.status}
-                    helperText={errorForm.password.message}
-                    variant="outlined"
-                    fullWidth
-                    name="password"
-                    id="password"
-                    size={"small"}
-                    type="password"
-                    label="Password"
-                    placeholder="Password"
-                    margin="normal"
-                    onChange={(e) => handleChange(e, setPassword(e.target.value))}
-                    onKeyPress={(e)=>handleKeyPress(e)}
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            // checked={state.checkedB}
-                            onChange={handleChange}
-                            name="checkedB"
-                            color="primary"
-                        />
-                    }
-                    label="Remember me"
-                />
                 <FormControl fullWidth  className={classes.action}>
                     <Button
                         variant="contained"
@@ -126,18 +93,18 @@ export function AuthorizationLogin(props: any) {
                         // className={classes.loginBtn}
                         onClick={handleLogin}
                         disabled={isButtonDisabled}>
-                        LOGIN
+                        Send
                     </Button>
                 </FormControl>
                 <Grid container >
                     <Grid item xs >
-                        <Link href="#" onClick={() => onChangeForm('recovery')} variant="body2">
-                            Forgot password?
+                        <Link href="#" onClick={() => onChangeForm('login')} variant="body2">
+                            Login
                         </Link>
                     </Grid>
                     <Grid item>
                         <Link href="#" onClick={() => onChangeForm('signUp')} variant="body2">
-                            {"Don't have an account? Sign Up"}
+                            Sign Up
                         </Link>
                     </Grid>
                 </Grid>

@@ -10,7 +10,7 @@ interface IDataUser {
     password: string
 }
 
-const Login = (props: any) => {
+const Login: React.FC = (props: any) => {
     const [dialogOpened, setDialogOpened] = useState(false);
     const [state, setState] = useState(null)
 
