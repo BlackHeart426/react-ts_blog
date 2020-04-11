@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {authorizationActionCreator, authorizationGoogleActionCreator} from "../../store/action/authorization";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,9 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export function AuthorizationLogin(props: any) {
+function AuthorizationLogin(props: any) {
     const classes = useStyles()
-    const {onChangeForm} = props;
+    const {onChangeForm, onHideModal} = props;
 
     const initialState = {
         email: {
@@ -36,26 +38,20 @@ export function AuthorizationLogin(props: any) {
         },
     }
 
-    // const classes = useStyles();
-    // const {show, onHide, onLogin, onAuthGoogle} = props;
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('valepa009@gmail.com');
+    const [password, setPassword] = useState('qwe123QWE!@#');
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
     const handleLogin = () => {
-        const dataUser = {
-            email,
-            password
-        }
-        // onLogin(dataUser)
-        // handleClose()
+        props.action.authorization(email, password)
+        handleClose()
     };
 
-    const handleGoogle = () => {
-        // onAuthGoogle()
-        // handleClose()
+    const handleClose = () => {
+        onHideModal()
+        setDialogOpened(false)
     };
 
     useEffect(() => {
@@ -155,3 +151,13 @@ export function AuthorizationLogin(props: any) {
         </>
     )
 }
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, true)),
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AuthorizationLogin)

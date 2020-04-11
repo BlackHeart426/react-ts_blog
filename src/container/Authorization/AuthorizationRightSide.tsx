@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import {AuthorizationLogin} from "./AuthorizationLogin";
-import { AuthorizationSignUp } from "./AuthorizationSignUp";
-import {AuthorizationRecoveryPassword} from "./AuthorizationRecoveryPassword";
+import AuthorizationLogin from "./AuthorizationLogin";
+import AuthorizationSignUp from "./AuthorizationSignUp";
+import AuthorizationRecoveryPassword from "./AuthorizationRecoveryPassword";
 
-export const AuthorizationRightSide: React.FC = (props: any) => {
+export function AuthorizationRightSide(props: any){
+    const {onHideModal} = props;
     const [stateForm, setStateForm] = useState({login: true, signUp: false, recovery: false})
     const handleChangeForm = (name: any) => {
         name === 'login' && setStateForm({...stateForm, login: true, signUp: false, recovery: false})
@@ -13,9 +14,10 @@ export const AuthorizationRightSide: React.FC = (props: any) => {
     }
     return (
         <>
-            {stateForm.login && <AuthorizationLogin onChangeForm={(name: any) => handleChangeForm(name)} />}
-            {stateForm.signUp && <AuthorizationSignUp onChangeForm={(name: any) => handleChangeForm(name)} />}
-            {stateForm.recovery && <AuthorizationRecoveryPassword onChangeForm={(name: any) => handleChangeForm(name)} />}
+            {stateForm.login && <AuthorizationLogin onHideModal={onHideModal} onChangeForm={(name: any) => handleChangeForm(name)} />}
+            {stateForm.signUp && <AuthorizationSignUp onHideModal={onHideModal} onChangeForm={(name: any) => handleChangeForm(name)} />}
+            {stateForm.recovery && <AuthorizationRecoveryPassword onHideModal={onHideModal} onChangeForm={(name: any) => handleChangeForm(name)} />}
         </>
     )
 }
+

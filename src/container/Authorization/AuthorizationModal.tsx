@@ -12,13 +12,18 @@ export const AuthorizationModal: React.FC = () => {
         title: 'Authorization',
         content:
             <div>
-                <AuthorizationForm/>
+                <AuthorizationForm onHideModal={() => handleClose()}/>
             </div>,
     }
 
     const handleOpen = () => {
         setDialogOpened(true)
     }
+
+    const handleClose = () => {
+        setDialogOpened(false)
+    }
+
     return (
         <>
         <Button

@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {authorizationActionCreator} from "../../store/action/authorization";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,9 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export function AuthorizationSignUp(props: any) {
+function AuthorizationSignUp(props: any) {
     const classes = useStyles()
-    const {onChangeForm} = props;
+    const {onChangeForm, onHideModal} = props;
 
     const initialState = {
         email: {
@@ -77,21 +79,13 @@ export function AuthorizationSignUp(props: any) {
     }, [username, password, email, passwordRepeat]);
 
     const handleSignUp = () => {
-        // const dataUser = {
-        //     username,
-        //     email,
-        //     password,
-        //     passwordRepeat
-        // }
-        // onSignUp(dataUser)
-        // handleClose()
+        // props.action.authorization(email, password)
+        handleClose()
     };
 
-
-    const handlePasswordRepeat = (e: any,cb: any) => {
-
-
-        return cb
+    const handleClose = () => {
+        onHideModal()
+        setDialogOpened(false)
     };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -204,3 +198,14 @@ export function AuthorizationSignUp(props: any) {
         </>
     )
 }
+
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, false)),
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AuthorizationSignUp)

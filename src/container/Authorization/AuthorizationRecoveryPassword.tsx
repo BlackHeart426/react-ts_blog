@@ -7,6 +7,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {authorizationActionCreator} from "../../store/action/authorization";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,8 +23,8 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export function AuthorizationRecoveryPassword(props: any) {
-    const {onChangeForm} = props;
+function AuthorizationRecoveryPassword(props: any) {
+    const {onChangeForm, onHideModal} = props;
     const classes = useStyles()
 
     const initialState = {
@@ -32,13 +34,11 @@ export function AuthorizationRecoveryPassword(props: any) {
         },
     }
 
-    // const classes = useStyles();
-    // const {show, onHide, onLogin, onAuthGoogle} = props;
     const [email, setEmail] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
-    const handleLogin = () => {
+    const handleSendEmail = () => {
         const dataUser = {
             email
         }
@@ -46,14 +46,10 @@ export function AuthorizationRecoveryPassword(props: any) {
         // handleClose()
     };
 
-    const handleGoogle = () => {
-        // onAuthGoogle()
-        // handleClose()
-    };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.keyCode === 13 || e.which === 13) {
-            isButtonDisabled || handleLogin();
+            isButtonDisabled || handleSendEmail();
         }
     };
 
@@ -112,3 +108,14 @@ export function AuthorizationRecoveryPassword(props: any) {
         </>
     )
 }
+
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            // authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, true)),
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AuthorizationRecoveryPassword)

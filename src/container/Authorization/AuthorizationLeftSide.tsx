@@ -11,9 +11,10 @@ import {
     MicrosoftLoginButton,
     TwitterLoginButton
 } from "react-social-login-buttons";
+import AuthorizationLogin from "./AuthorizationLogin";
 
-export const AuthorizationLeftSide = () => {
-
+export function AuthorizationLeftSide(props: any) {
+    const {onHideModal} = props;
     const handleGoogle = () => {
         // props.action.authorizationGoogle()
         // handleClose()
@@ -21,7 +22,7 @@ export const AuthorizationLeftSide = () => {
 
     return (
         <>
-            <GoogleLoginButton onClick={() => alert("Hello")} >
+            <GoogleLoginButton onClick={() => handleGoogle()} >
                 <span>Google+</span>
             </GoogleLoginButton>
             <FacebookLoginButton onClick={() => alert("Hello")} >
