@@ -87,7 +87,7 @@ function AuthorizationRecoveryPassword(props: any) {
                         size="large"
                         color="primary"
                         // className={classes.loginBtn}
-                        onClick={handleLogin}
+                        onClick={handleSendEmail}
                         disabled={isButtonDisabled}>
                         Send
                     </Button>
