@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../../components/validateForm/validateForm";
 import {Checkbox, Typography, FormControlLabel} from "@material-ui/core";
@@ -7,7 +7,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
-import {authorizationActionCreator} from "../../store/action/authorization";
+import {authorizationActionCreator, resetPasswordActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,10 +42,24 @@ function AuthorizationRecoveryPassword(props: any) {
         const dataUser = {
             email
         }
+        props.action.resetPassword(email)
         // onLogin(dataUser)
-        // handleClose()
+        handleClose()
     };
 
+
+    const handleClose = () => {
+        onHideModal()
+    };
+
+    useEffect(() => {
+        if (errorForm.email.status === false
+            && email.trim()){
+            setIsButtonDisabled(false);
+        } else {
+            setIsButtonDisabled(true);
+        }
+    }, [email]);
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.keyCode === 13 || e.which === 13) {
@@ -113,7 +127,7 @@ function AuthorizationRecoveryPassword(props: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            // authorization: (email: string, password: string) => dispatch(authorizationActionCreator(email, password, true)),
+            resetPassword: (email: string) => dispatch(resetPasswordActionCreator(email)),
         }
     }
 }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../../components/validateForm/validateForm";
-import {Checkbox, Typography, FormControlLabel} from "@material-ui/core";
+import {Checkbox, Typography, FormControlLabel, IconButton, InputAdornment, InputLabel, OutlinedInput} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
@@ -9,6 +9,9 @@ import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {authorizationActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import {Visibility, VisibilityOff} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -49,37 +52,49 @@ function AuthorizationSignUp(props: any) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordVisible, setPasswordVisible] = useState(false);
     const [passwordRepeat, setPasswordRepeat] = useState('');
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
-    useEffect(()=>{
-        if(password !== passwordRepeat) {
-            setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
-        } else {
-            setError({...errorForm, passwordRepeat: {status: false, message: ''}});
-        }
-    },[passwordRepeat, password])
+    // useEffect(()=>{
+    //     debugger
+    //     if(password === passwordRepeat) {
+    //         setError({...errorForm, passwordRepeat: {status: false, message: ''}});
+    //     } else {
+    //         setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
+    //     }
+    // },[passwordRepeat, password])
 
     useEffect(() => {
-        if (errorForm.email.status === false
-            && errorForm.password.status === false
-            && errorForm.passwordRepeat.status === false
-            && errorForm.username.status === false
-            && errorForm.email.status === false
+        let passwordError;
+        if(password === passwordRepeat) {
+            setError({...errorForm, passwordRepeat: {status: false, message: ''}});
+            passwordError = false
+        } else {
+            setError({...errorForm, passwordRepeat: {status: true, message: 'Password do not match'}});
+            passwordError = true
+        }
+        if (!errorForm.email.status
+            && !errorForm.password.status
+            && !passwordError
+            && !errorForm.username.status
+            && !errorForm.email.status
             && username.trim()
             && email.trim()
             && password.trim()
             && passwordRepeat.trim()) {
+            console.log(errorForm, username, email, password, passwordRepeat)
             setIsButtonDisabled(false);
         } else {
+            console.log(errorForm, username, email, password, passwordRepeat)
             setIsButtonDisabled(true);
         }
     }, [username, password, email, passwordRepeat]);
 
     const handleSignUp = () => {
-        // props.action.authorization(email, password)
+        props.action.authorization(email, password)
         handleClose()
     };
 
@@ -92,6 +107,10 @@ function AuthorizationSignUp(props: any) {
         if (e.keyCode === 13 || e.which === 13) {
             isButtonDisabled || handleSignUp();
         }
+    };
+
+    const handleClickShowPassword = () => {
+        setPasswordVisible(!passwordVisible);
     };
 
     const handleChange = (e: any, cb: any) => {
@@ -145,8 +164,20 @@ function AuthorizationSignUp(props: any) {
                     fullWidth
                     variant="outlined"
                     id="password"
-                    type="password"
+                    type={passwordVisible ? 'text' : 'password'}
                     name="password"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                size={"small"}
+                                edge="end"
+                            >
+                                {passwordVisible ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>,
+                    }}
                     size={"small"}
                     label="Password"
                     placeholder="Password"
@@ -163,7 +194,19 @@ function AuthorizationSignUp(props: any) {
                     size={"small"}
                     variant="outlined"
                     id="passwordRepeat"
-                    type="password"
+                    type={passwordVisible ? 'text' : 'password'}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                size={"small"}
+                                edge="end"
+                            >
+                                {passwordVisible ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                        </InputAdornment>,
+                    }}
                     name="passwordRepeat"
                     label="Password Repeat"
                     placeholder="Repeat Password"

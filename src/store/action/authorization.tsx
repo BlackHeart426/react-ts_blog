@@ -1,7 +1,7 @@
 import {IS_AUTHENTICATED} from "../types";
 import {
     doAuthStateChange,
-    doCreateUserWithEmailAndPassword, doGoogleSignIn,
+    doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,
     doSignInWithEmailAndPassword,
     doSignOut
 } from "../../firebase/auth";
@@ -81,6 +81,20 @@ export const authorizationActionCreator = (email: string, password: string, isLo
         }
 
     }
+}
+
+export const resetPasswordActionCreator = (email: string) => {
+    return async (dispatch: Dispatch) => {
+            doPasswordReset(email)
+                .then( info => {
+                    console.log(info)
+                    }
+                )
+                .catch(error => {
+                    console.log(error)
+                })
+
+        }
 }
 
 export function isAuthenticatedActionCreator(token: string|null) {
