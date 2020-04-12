@@ -92,7 +92,7 @@ function Navbar(props: any) {
                     <Typography className={classes.title} variant="h6" noWrap>
                         TS BLOG
                     </Typography>
-                    <AuthorizationModal/>
+
                     {props.isAuthenticated
                         ? <>
                             <Button
@@ -122,11 +122,12 @@ function Navbar(props: any) {
                         <>
                             <div className={classes.grow} />
                             <div className={classes.menuButton}>
-                                <SignUp/>
+                                <AuthorizationModal register={true}/>
                             </div>
                             <div className={classes.menuButton}>
-                               <Login/>
+                                <AuthorizationModal login={true} />
                             </div>
+
                         </>
                     }
                 </Toolbar>

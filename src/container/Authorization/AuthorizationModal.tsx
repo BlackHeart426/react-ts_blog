@@ -5,18 +5,19 @@ import {Button} from "@material-ui/core";
 import Toolbar from "@material-ui/core/Toolbar";
 import {AuthorizationForm} from "./AuthorizationForm";
 
-export const AuthorizationModal: React.FC = () => {
+export function AuthorizationModal(props: any) {
+    const {login = false, register= false} = props
     const [dialogOpened, setDialogOpened] = useState(false);
 
     const data = {
         title: 'Authorization',
         content:
             <div>
-                <AuthorizationForm onHideModal={() => handleClose()}/>
+                <AuthorizationForm form={login ? 'login' : 'signUp'}  onHideModal={() => handleClose()}/>
             </div>,
     }
 
-    const handleOpen = () => {
+    const handleOpen = (name: any) => {
         setDialogOpened(true)
     }
 
@@ -26,13 +27,31 @@ export const AuthorizationModal: React.FC = () => {
 
     return (
         <>
-        <Button
-            variant="outlined"
-            onClick={handleOpen}
-        >
-            Auth
-        </Button>
-        <CustomDialog size={'md'}  data = { data } show={ dialogOpened }  onHide={ () => setDialogOpened(false) }/>
+            {register && <Button
+                onClick={() => handleOpen('register')}
+                type="submit"
+                variant="outlined"
+            >
+                <strong>Register</strong>
+            </Button>}
+
+            {login &&
+            <Button
+                onClick={() => handleOpen('login')}
+                type="submit"
+                color="primary"
+                variant="contained"
+            >
+                Login
+            </Button>
+            }
+            {/*<Button*/}
+            {/*    variant="outlined"*/}
+            {/*    onClick={handleOpen}*/}
+            {/*>*/}
+            {/*    Auth*/}
+            {/*</Button>*/}
+            <CustomDialog size={'md'} data = { data } show={ dialogOpened }  onHide={ () => setDialogOpened(false) }/>
         </>
     )
 }

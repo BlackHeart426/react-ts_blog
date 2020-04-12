@@ -28,7 +28,8 @@
     "redux-devtools-extension": "latest",
     "semantic-ui-react": "^0.88.2",
     "typescript": "^3.7.5",
-    "typescript-fsa-redux-thunk": "^2.1.9"
+    "typescript-fsa-redux-thunk": "^2.1.9",
+    "@material-ui/lab": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

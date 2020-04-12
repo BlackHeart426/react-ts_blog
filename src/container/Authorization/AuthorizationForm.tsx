@@ -6,7 +6,7 @@ import { AuthorizationLeftSide } from "./AuthorizationLeftSide";
 
 
 export function AuthorizationForm(props: any) {
-    const {onHideModal} = props;
+    const {onHideModal, form} = props;
     return (
         <Grid style={{width: 800}} container alignItems="center">
             <div style={{width: 370, padding: 10, marginRight: 10}}>
@@ -16,7 +16,7 @@ export function AuthorizationForm(props: any) {
             </div>
             <Divider orientation="vertical" flexItem />
             <div style={{width: 350, padding: 10, marginLeft: 20}}>
-                <AuthorizationRightSide onHideModal={onHideModal}/>
+                <AuthorizationRightSide form={form} onHideModal={onHideModal}/>
             </div>
         </Grid>
     )

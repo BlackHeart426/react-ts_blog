@@ -9,6 +9,7 @@ import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {authorizationActionCreator, resetPasswordActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,6 +36,7 @@ function AuthorizationRecoveryPassword(props: any) {
     }
 
     const [email, setEmail] = useState('');
+    const [alertSuccess, setAlertSuccess] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
 
@@ -43,8 +45,8 @@ function AuthorizationRecoveryPassword(props: any) {
             email
         }
         props.action.resetPassword(email)
+        setAlertSuccess(true)
         // onLogin(dataUser)
-        handleClose()
     };
 
 
@@ -76,6 +78,9 @@ function AuthorizationRecoveryPassword(props: any) {
     return (
         <>
             <div>
+                {alertSuccess
+                && <Alert onClose={() => {}}>На вашу почту отправлено письмо для восстановления пароля</Alert>
+                }
                 <Typography align={"center"}>
                     <strong>Recovery password</strong>
                 </Typography>
