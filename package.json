@@ -27,12 +27,14 @@
     "react-router-dom": "latest",
     "react-scripts": "3.4.1",
     "react-share": "^4.1.0",
+    "react-share-icons": "^1.0.2",
     "react-social-login-buttons": "^3.0.0",
     "redux-devtools-extension": "latest",
     "semantic-ui-react": "^0.88.2",
     "social-media-icons-react": "^1.0.10",
     "typescript": "^3.7.5",
-    "typescript-fsa-redux-thunk": "^2.1.9"
+    "typescript-fsa-redux-thunk": "^2.1.9",
+    "@iconify/icons-cib": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

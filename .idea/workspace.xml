@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/FacebookButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/FacebookButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/GoogleButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/GoogleButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/InstagramButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/InstagramButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/MailButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/MailButtonLogin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Button/OkButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/OkButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/SocialButtonStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/SocialButtonStyle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/TwitterButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/TwitterButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/VkButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/VkButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/YoutubeButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/YoutubeButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLogin.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,7 @@
       <workItem from="1586505224801" duration="7974000" />
       <workItem from="1586596935215" duration="10667000" />
       <workItem from="1586683676073" duration="16305000" />
-      <workItem from="1586768320998" duration="3277000" />
+      <workItem from="1586768320998" duration="3878000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -370,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586718349943</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="css">
+      <created>1586771765142</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1586771765142</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +385,6 @@
     <MESSAGE value="pages" />
     <MESSAGE value="pages routes" />
     <MESSAGE value="auth firebase" />
-    <MESSAGE value="css" />
     <MESSAGE value="store" />
     <MESSAGE value="router hoc" />
     <MESSAGE value="withAuthorization.tsx" />
@@ -402,7 +401,8 @@
     <MESSAGE value="resetPassword" />
     <MESSAGE value="auth" />
     <MESSAGE value="css auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="css auth" />
+    <MESSAGE value="css" />
+    <option name="LAST_COMMIT_MESSAGE" value="css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -417,10 +417,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586254951936" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586718349069">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586771764330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586718349069" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586771764330" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -453,10 +453,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586527992064" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586718350566">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586771765600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586718350566" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586771765600" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586771549748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -465,10 +465,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586683973702" />
-    <state x="656" y="252" width="842" height="536" key="find.popup" timestamp="1586769455473">
+    <state x="656" y="252" width="842" height="536" key="find.popup" timestamp="1586772059278">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="842" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586769455473" />
+    <state x="656" y="252" width="842" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586772059278" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586620747313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

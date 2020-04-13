@@ -1,12 +1,12 @@
 import React from "react";
 import {SocialButtonStyle} from "./SocialButtonStyle";
-import {blue} from "@material-ui/core/colors";
-import {OKIcon} from 'react-share';
+import { Icon, InlineIcon } from '@iconify/react';
+import odnoklassnikiIcon from '@iconify/icons-cib/odnoklassniki';
 
 export function OkButtonLogin(props: any) {
     const colorButton =  '#f2720c'
-    const colorButtonHover =  '#f2720c'
-    const icon = <OKIcon round size={50}/>
+    const colorButtonHover =  '#cb5f09'
+    const icon = <Icon width={36} height={36} icon={odnoklassnikiIcon} color={'white'}/>
 
     const handleConnection = (name: any) => {
         console.log(name)
