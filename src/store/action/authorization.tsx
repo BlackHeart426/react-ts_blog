@@ -3,7 +3,8 @@ import {
     doAuthStateChange,
     doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,
     doSignInWithEmailAndPassword,
-    doSignOut
+    doSignOut,
+    doVkSignIn
 } from "../../firebase/auth";
 import { Dispatch } from "redux";
 import firebase from "firebase";
@@ -26,6 +27,21 @@ export const authorizationGoogleActionCreator = () => {
             .catch(error => {
                 console.log(error)
             })
+    }
+}
+
+export const authorizationVkActionCreator = () => {
+    return async (dispatch: any) => {
+        doVkSignIn()
+            // .then(result => {
+            //     doAuthStateChange((dataUser: IUserData)=>{
+            //         dispatch(isAuthenticatedActionCreator(dataUser.token))
+            //     })
+            //     console.log(result)
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            // })
     }
 }
 

@@ -10,10 +10,13 @@ export const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(2),
         },
         title: {
-            marginRight: '25px',
-            display: 'none',
+            marginRight: '15px',
+            marginLeft: '15px',
+            // display: 'none',
             [theme.breakpoints.up('sm')]: {
-                display: 'block',
+                // display: 'block',
+                marginRight: '25px',
+                marginLeft: '25px',
             },
         },
         search: {

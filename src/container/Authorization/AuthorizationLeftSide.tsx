@@ -5,12 +5,12 @@ import {Divider, Grid, IconButton} from "@material-ui/core";
 import {blue} from "@material-ui/core/colors";
 import {TwitterButtonLogin} from "../../components/Button/TwitterButtonLogin";
 import {InstagramButtonLogin} from "../../components/Button/InstagramButtonLogin";
-import {VkButtonLogin} from "../../components/Button/VkButtonLogin";
+import VkButtonLogin from "../../components/Button/VkButtonLogin";
 import {YoutubeButtonLogin} from "../../components/Button/YoutubeButtonLogin";
 import {MailButtonLogin} from "../../components/Button/MailButtonLogin";
 import {OkButtonLogin} from "../../components/Button/OkButtonLogin";
 import {FacebookButtonLogin} from "../../components/Button/FacebookButtonLogin";
-import {GoogleButtonLogin} from "../../components/Button/GoogleButtonLogin";
+import GoogleButtonLogin from "../../components/Button/GoogleButtonLogin";
 
 const TwitterButton = withStyles((theme: Theme) => ({
     root: {
@@ -37,10 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
 export function AuthorizationLeftSide(props: any) {
     const classes = useStyles()
     const {onHideModal} = props;
-    const handleGoogle = () => {
-        // props.action.authorizationGoogle()
-        // handleClose()
-    };
 
     return (
         <>
@@ -64,7 +60,7 @@ export function AuthorizationLeftSide(props: any) {
                     <MailButtonLogin />
                 </Grid>
                 <Grid item xs={3}>
-                    <GoogleButtonLogin />
+                    <GoogleButtonLogin onC />
                 </Grid>
                 <Grid item xs={3}>
                     <OkButtonLogin />

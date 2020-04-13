@@ -88,7 +88,7 @@ function Navbar(props: any) {
     return (
         <div className={classes.grow}>
             <AppBar position="fixed" color="inherit">
-                <Toolbar>
+                <Toolbar style={{padding: 0}}>
                     <Typography className={classes.title} variant="h6" noWrap>
                         TS BLOG
                     </Typography>

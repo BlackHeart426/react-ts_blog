@@ -13,7 +13,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 justifyContent: 'center',
                 borderRadius: '20px',
 
-            },
+            }
         }
     )
 )
