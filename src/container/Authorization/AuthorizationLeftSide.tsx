@@ -12,32 +12,7 @@ import {OkButtonLogin} from "../../components/Button/OkButtonLogin";
 import {FacebookButtonLogin} from "../../components/Button/FacebookButtonLogin";
 import GoogleButtonLogin from "../../components/Button/GoogleButtonLogin";
 
-const TwitterButton = withStyles((theme: Theme) => ({
-    root: {
-        color: theme.palette.getContrastText(blue[500]),
-        backgroundColor: blue[500],
-        '&:hover': {
-            backgroundColor: blue[700],
-        },
-    },
-}))(Button);
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        buttonGoogle: {
-            width: '70px',
-            height: '70px',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: '20px',
-        },
-        }
-    )
-)
 export function AuthorizationLeftSide(props: any) {
-    const classes = useStyles()
-    const {onHideModal} = props;
-
     return (
         <>
             <Grid container spacing={3}>
@@ -60,25 +35,39 @@ export function AuthorizationLeftSide(props: any) {
                     <MailButtonLogin />
                 </Grid>
                 <Grid item xs={3}>
-                    <GoogleButtonLogin onC />
+                    <GoogleButtonLogin />
                 </Grid>
                 <Grid item xs={3}>
                     <OkButtonLogin />
                 </Grid>
             </Grid>
 
-            {/*<GoogleLoginButton onClick={() => handleGoogle()} >*/}
-            {/*    <span>Google+</span>*/}
-            {/*</GoogleLoginButton>*/}
-            {/*<FacebookLoginButton onClick={() => alert("Hello")} >*/}
-            {/*    <span>Facebook</span>*/}
-            {/*</FacebookLoginButton>*/}
-            {/*<TwitterLoginButton onClick={() => alert("Hello")}>*/}
-            {/*    <span>Twitter</span>*/}
-            {/*</TwitterLoginButton>*/}
-            {/*<MicrosoftLoginButton>*/}
-            {/*    <span>Microsoft</span>*/}
-            {/*</MicrosoftLoginButton>*/}
+            {/*<Grid container spacing={2}>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <TwitterButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <InstagramButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <FacebookButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <VkButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <YoutubeButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <MailButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <GoogleButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*    <Grid item xs={6}>*/}
+            {/*        <OkButtonLogin />*/}
+            {/*    </Grid>*/}
+            {/*</Grid>*/}
         </>
     )
 }
