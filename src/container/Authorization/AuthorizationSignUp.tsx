@@ -233,7 +233,7 @@ function AuthorizationSignUp(props: any) {
                     </Grid>
                     <Grid item>
                         <Link href="#" onClick={() => onChangeForm('login')} variant="body2">
-                            {"Don't have an account? Login"}
+                            {"Login"}
                         </Link>
                     </Grid>
                 </Grid>

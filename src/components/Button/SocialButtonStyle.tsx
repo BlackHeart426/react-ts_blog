@@ -7,8 +7,12 @@ import React from "react";
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
             button: {
-                width: '70px',
-                height: '70px',
+                [theme.breakpoints.up('md')]: {
+                    width: '70px',
+                    height: '70px',
+                },
+                width: '60px',
+                height: '60px',
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: '20px',
