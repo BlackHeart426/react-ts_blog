@@ -1,5 +1,5 @@
 import {createStyles, makeStyles, Theme, withStyles} from "@material-ui/core/styles";
-import {blue} from "@material-ui/core/colors";
+import {blue, grey} from "@material-ui/core/colors";
 import Button from "@material-ui/core/Button";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import React from "react";
@@ -12,6 +12,7 @@ export const useStyles = makeStyles((theme: Theme) =>
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: '20px',
+
             },
         }
     )
@@ -19,26 +20,29 @@ export const useStyles = makeStyles((theme: Theme) =>
 
 interface IProps {
     colorButton: string,
+    colorBackground: string,
+    colorBorder: string,
     colorButtonHover: string,
     icon: any,
     onConnection: any
 }
 
 export function SocialButtonStyle(props: IProps) {
-    const {colorButton, icon, colorButtonHover, onConnection} = props;
+    const {colorButton, colorBackground, colorBorder, icon, colorButtonHover, onConnection} = props;
 
     const CustomButton = withStyles((theme: Theme) => ({
         root: {
             color: theme.palette.getContrastText(colorButton),
-            backgroundColor: colorButton,
+            border: '1px solid' + colorBorder,
+            background: colorBackground,
             '&:hover': {
-                backgroundColor: colorButtonHover,
+                background: colorButtonHover,
             },
         },
     }))(Button);
     const classes = useStyles();
     return (
-        <CustomButton variant="outlined"  onClick={() => onConnection()} aria-label="delete" className={classes.button} size="large">
+        <CustomButton onClick={() => onConnection()} aria-label="delete" className={classes.button} size="large">
             {icon}
         </CustomButton>
     )

@@ -15,7 +15,9 @@ export function YoutubeButtonLogin(props: any) {
     return (
         <SocialButtonStyle
             onConnection={() => handleConnection('twitter')}
-            colorButton={colorButton} 
+            colorButton={colorButton}
+            colorBorder={colorButton}
+            colorBackground={colorButton}
             colorButtonHover={colorButtonHover}
             icon={icon} />
     )

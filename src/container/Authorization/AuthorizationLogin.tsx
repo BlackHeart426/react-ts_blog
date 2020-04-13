@@ -55,8 +55,9 @@ function AuthorizationLogin(props: any) {
     };
 
     useEffect(() => {
-        if (errorForm.email.status === false
-            && errorForm.password.status === false
+        console.log(errorForm, email, password)
+        if (!errorForm.email.status
+            && !errorForm.password.status
             && email.trim() && password.trim()) {
             setIsButtonDisabled(false);
         } else {

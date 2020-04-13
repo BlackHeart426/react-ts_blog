@@ -16,6 +16,8 @@ export function TwitterButtonLogin(props: any) {
         <SocialButtonStyle
             onConnection={() => handleConnection('twitter')}
             colorButton={colorButton}
+            colorBorder={colorButton}
+            colorBackground={colorButton}
             colorButtonHover={colorButtonHover}
             icon={icon} />
     )
