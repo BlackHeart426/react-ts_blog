@@ -1,10 +1,10 @@
 import React from "react";
 import {useParams} from "react-router";
-import { AvatarUser } from "../components/AvatarUser";
+import { AvatarUser } from "../components/pageShablons/AvatarUser";
 import {ReactComponent} from "*.svg";
-import {CoverContent} from "../components/CoverContent";
-import {AboutUserCard} from "../components/AboutUserCard";
-import {LevelSubscribe} from "../components/LevelSubscribe";
+import {CoverContent} from "../components/pageShablons/CoverContent";
+import {AboutUserCard} from "../components/pageShablons/AboutUserCard";
+import {LevelSubscribe} from "../components/pageShablons/LevelSubscribe";
 
 interface ParamTypes {
     userId: string

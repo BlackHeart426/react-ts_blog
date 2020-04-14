@@ -6,7 +6,7 @@ import { PageBlog } from './page/pageBlog';
 import TemporaryDrawer from "./components/Drawer/Drawer";
 import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/core';
 import {grey, orange} from "@material-ui/core/colors";
-import { ShablonPage } from './components/shablonPage';
+import { ShablonPage } from './container/shablonPage';
 import {createStyles} from "@material-ui/core/styles";
 import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './constants/routes';
 import {NonFound} from "./page/NonFound";

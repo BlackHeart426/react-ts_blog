@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AboutUserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AboutUserCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AvatarUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AvatarUser.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CoverContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LevelSubscribe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/LevelSubscribe.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/database.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/database.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/currentUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shablonPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/shablonPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/pageBlog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/pageBlog.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -37,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Button" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/pageShablons" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -48,19 +54,19 @@
     <property name="ts.external.directory.path" value="C:\Users\BlackHeart\WebstormProjects\ts_blog\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\icons" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container\Authorization" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Authorization" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog\DialogAuth\DialogLogin" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Login" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Button" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container\Authorization" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog\DialogAuth" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\page" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\icons" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container\Authorization" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -83,7 +89,7 @@
       <workItem from="1586596935215" duration="10667000" />
       <workItem from="1586683676073" duration="16305000" />
       <workItem from="1586768320998" duration="18372000" />
-      <workItem from="1586849477892" duration="13456000" />
+      <workItem from="1586849477892" duration="24559000" />
     </task>
     <task id="LOCAL-00001" summary="new Project">
       <created>1586175842337</created>
@@ -414,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586864066497</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="action CreatePage">
+      <created>1586870092523</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1586870092523</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,10 +474,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586854476713" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586864065909">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586870091902">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586864065909" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586870091902" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -497,26 +510,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586527992064" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586856847164">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586870093610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586856847164" />
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586864766682">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586870093610" />
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586879217150">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586864766682" />
-    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586854343672">
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586879217150" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586880209616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586854343672" />
-    <state x="656" y="252" width="842" height="536" key="find.popup" timestamp="1586865676630">
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
+    <state x="656" y="252" width="842" height="536" key="find.popup" timestamp="1586878689949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="842" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586865676630" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586620747313">
+    <state x="656" y="252" width="842" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586878689949" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586620747313" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586877882026" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586786636305">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -533,6 +546,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Profile/Statistics.tsx</url>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/pageShablons/Posts.tsx</url>
+          <line>44</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

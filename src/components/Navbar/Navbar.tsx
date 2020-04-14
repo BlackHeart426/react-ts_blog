@@ -98,7 +98,7 @@ function Navbar(props: any) {
                             <Button
                                 startIcon={<DehazeIcon/>}
                                 variant="outlined">
-                                My subscribers
+                                <strong>My subscribers</strong>
                             </Button>
                             <div className={classes.grow} />
                             <div>
@@ -114,7 +114,7 @@ function Navbar(props: any) {
                                     onClick={handleProfileMenuOpen}
                                     color="inherit"
                                 >
-                                    <AccountCircle />
+                                    <AccountCircle fontSize={"large"}/>
 
                                 </IconButton>
                             </div>
