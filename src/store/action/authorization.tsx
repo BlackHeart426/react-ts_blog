@@ -9,6 +9,7 @@ import {
 import { Dispatch } from "redux";
 import firebase from "firebase";
 import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
+import {getBlogPageUserActionCreator} from "./currentUser";
 
 interface IUserData {
     token: string,
@@ -51,7 +52,8 @@ export const autoLoginActionCreator = () => {
         if(!token) {
             dispatch(logoutActionCreator())
         } else {
-           dispatch(isAuthenticatedActionCreator(token))
+            await dispatch(isAuthenticatedActionCreator(token))
+            await dispatch(getBlogPageUserActionCreator())
         }
     }
 }

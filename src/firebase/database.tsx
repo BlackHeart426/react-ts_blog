@@ -5,3 +5,9 @@ export function createPageFireBase(pageBlog: string, userId: string) {
         .child(userId)  //userID
         .set({pageBlog})
 }
+
+export function getPageBlogUserFireBase(userId: string) {
+        return database.ref('userBlogs')
+            .child(userId)
+            .once('value')
+}

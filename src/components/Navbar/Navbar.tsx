@@ -8,8 +8,7 @@ import Menu from '@material-ui/core/Menu';
 import { Button } from '@material-ui/core';
 import {AccountCircle, MenuBook} from "@material-ui/icons";
 import {useStyles} from "./styles";
-import Login from "../Login";
-import SignUp from "../SignUp";
+import DehazeIcon from '@material-ui/icons/Dehaze';
 import {logoutActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
 import {AuthorizationModal} from "../../container/Authorization/AuthorizationModal";
@@ -97,13 +96,14 @@ function Navbar(props: any) {
                     {props.isAuthenticated
                         ? <>
                             <Button
-                                startIcon={<MenuBook/>}
+                                startIcon={<DehazeIcon/>}
                                 variant="outlined">
                                 My subscribers
                             </Button>
                             <div className={classes.grow} />
                             <div>
-                                <CreatePage/>
+                                {/*add cookies*/}
+                                {!props.pageCurrentUser && <CreatePage/>}
                             </div>
                             <div className={classes.account} >
                                 <IconButton
@@ -140,7 +140,8 @@ function Navbar(props: any) {
 }
 function mapStateToProps(state: any) {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        isAuthenticated: state.auth.isAuthenticated,
+        pageCurrentUser: state.currentUser.myPage
     }
 
 }
