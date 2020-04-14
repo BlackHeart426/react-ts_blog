@@ -1,4 +1,7 @@
-export const TOKEN = "token";
-export const USERID = "userId";
-export const EXPIRATIONDATE = "expirationDate";
-export const EMAIL = "email";
+import {database} from "./firebaseService";
+
+export function createPageFireBase(pageBlog: string, userId: string) {
+        return database.ref('userBlogs')
+        .child(userId)  //userID
+        .set({pageBlog})
+}

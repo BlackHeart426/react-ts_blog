@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Button} from "@material-ui/core";
-import { DialogCreatePage } from "./Dialog/DialogCreatePage";
+import DialogCreatePage from "./Dialog/DialogCreatePage";
 
 export function CreatePage() {
     const [dialogOpened, setDialogOpened] = useState(false);

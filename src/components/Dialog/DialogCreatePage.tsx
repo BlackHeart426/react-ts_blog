@@ -5,8 +5,11 @@ import {CardContent, Typography} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
+import {authorizationActionCreator} from "../../store/action/authorization";
+import {connect} from "react-redux";
+import {createPageActionCreator} from "../../store/action/currentUser";
 
-export function DialogCreatePage(props: any) {
+function DialogCreatePage(props: any) {
     const {show, onHide} = props;
     const [dialogOpened, setDialogOpened] = useState(false);
     const [email, setEmail] = useState('');
@@ -26,6 +29,8 @@ export function DialogCreatePage(props: any) {
     }, [email, pageBlog]);
 
     const handleBecomeAuthor = () => {
+        props.action.setMyPage(pageBlog)
+        onHide()
         console.log('become bloger')
     }
 
@@ -82,3 +87,13 @@ export function DialogCreatePage(props: any) {
         <CustomDialog size={'xs'} data={ data } show={ dialogOpened }  onHide={ onHide }/>
     )
 }
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(DialogCreatePage)

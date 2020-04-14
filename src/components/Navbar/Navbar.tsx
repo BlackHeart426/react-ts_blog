@@ -55,8 +55,8 @@ function Navbar(props: any) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleMenuClose}>My income</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
             <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
     );
