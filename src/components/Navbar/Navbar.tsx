@@ -13,6 +13,7 @@ import SignUp from "../SignUp";
 import {logoutActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
 import {AuthorizationModal} from "../../container/Authorization/AuthorizationModal";
+import {CreatePage} from "../CreatePage";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -102,9 +103,9 @@ function Navbar(props: any) {
                             </Button>
                             <div className={classes.grow} />
                             <div>
-                                <Button  variant="outlined">Create Page</Button>
+                                <CreatePage/>
                             </div>
-                            <div >
+                            <div className={classes.account} >
                                 <IconButton
                                     edge="end"
                                     aria-label="account of current user"

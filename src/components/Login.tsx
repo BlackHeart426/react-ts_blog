@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin/DialogLogin";
 import {doSignInWithEmailAndPassword} from "../firebase/auth";
 import {authorizationActionCreator, authorizationGoogleActionCreator} from "../store/action/authorization";
 
@@ -36,12 +35,12 @@ const Login: React.FC = (props: any) => {
             >
                 Login
             </Button>
-            <DialogLogin
-                show={ dialogOpened }
-                onAuthGoogle={handleAuthGoogle}
-                onLogin={(dataUser: any) => handleLogin(dataUser)}
-                onHide={ () => setDialogOpened(false) }
-            />
+            {/*<DialogLogin*/}
+            {/*    show={ dialogOpened }*/}
+            {/*    onAuthGoogle={handleAuthGoogle}*/}
+            {/*    onLogin={(dataUser: any) => handleLogin(dataUser)}*/}
+            {/*    onHide={ () => setDialogOpened(false) }*/}
+            {/*/>*/}
         </>
     )
 };

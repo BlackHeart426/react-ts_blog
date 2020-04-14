@@ -9,6 +9,9 @@ export const useStyles = makeStyles((theme: Theme) =>
         menuButton: {
             marginRight: theme.spacing(2),
         },
+        account: {
+            marginRight: theme.spacing(2),
+        },
         title: {
             marginRight: '15px',
             marginLeft: '15px',

@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin/DialogLogin";
 import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
-import {DialogSignUp} from "./Dialog/DialogAuth/DialogSignUp";
 import {authorizationActionCreator, authorizationGoogleActionCreator} from "../store/action/authorization";
 
 interface IDataUser {
@@ -37,12 +35,12 @@ const SignUp = (props: any) => {
             >
                 <strong>Register</strong>
             </Button>
-            <DialogSignUp
-                show={ dialogOpened }
-                onSignUp = {(dataUser: any) => handleSignUp(dataUser)}
-                onAuthGoogle={handleAuthGoogle}
-                onHide={ () => setDialogOpened(false) }
-            />
+            {/*<DialogSignUp*/}
+            {/*    show={ dialogOpened }*/}
+            {/*    onSignUp = {(dataUser: any) => handleSignUp(dataUser)}*/}
+            {/*    onAuthGoogle={handleAuthGoogle}*/}
+            {/*    onHide={ () => setDialogOpened(false) }*/}
+            {/*/>*/}
         </>
     )
 };

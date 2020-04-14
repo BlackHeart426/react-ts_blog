@@ -1,10 +1,8 @@
 import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
-import {DialogLogin} from "./Dialog/DialogAuth/DialogLogin/DialogLogin";
 import {doSignInWithEmailAndPassword} from "../firebase/auth";
 import {authorizationActionCreator, authorizationGoogleActionCreator} from "../store/action/authorization";
-import { DialogRecoveryPassword } from "./Dialog/DialogAuth/DialogRecoveryPassword";
 
 interface IDataUser {
     email: string,
@@ -34,11 +32,11 @@ const RecoveryPassword = (props: any) => {
             >
                 Login
             </Button>
-            <DialogRecoveryPassword
-                show={ dialogOpened }
-                onLogin={(dataUser: any) => handleRecoveryPassword(dataUser)}
-                onHide={ () => setDialogOpened(false) }
-            />
+            {/*<DialogRecoveryPassword*/}
+            {/*    show={ dialogOpened }*/}
+            {/*    onLogin={(dataUser: any) => handleRecoveryPassword(dataUser)}*/}
+            {/*    onHide={ () => setDialogOpened(false) }*/}
+            {/*/>*/}
         </>
     )
 };
