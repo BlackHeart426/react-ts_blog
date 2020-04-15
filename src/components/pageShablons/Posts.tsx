@@ -1,13 +1,18 @@
 import React from "react";
-import {Card, CardContent, Divider, Grid, IconButton, Paper, Typography} from "@material-ui/core";
+import {Card, CardContent, Divider, Grid, IconButton, InputAdornment, Paper, Typography} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
-import {Visibility, VisibilityOff} from "@material-ui/icons";
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ShareIcon from '@material-ui/icons/Share';
+import {AccountCircle, Visibility, VisibilityOff} from "@material-ui/icons";
+import TextField from "@material-ui/core/TextField";
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
             contentAbout: {
-                marginTop: '10px'
+                marginBottom: 10
             },
             grow: {
                 flexGrow: 1
@@ -40,7 +45,7 @@ export const listPosts = [
 ]
 
 export const Posts: React.FC = (props: any) => {
-    const {editable = true} = props
+    const {editable = false} = props
     const classes = useStyles()
     return (
         <Paper elevation={0}  style={{marginTop: 20}}>
@@ -62,15 +67,63 @@ export const Posts: React.FC = (props: any) => {
 
             <Divider />
             <CardContent>
-
-
+                <Typography component="p" variant="h6"  className={classes.contentAbout}>
+                    <strong>Subscribers</strong>
+                </Typography>
                 <Typography component="p" className={classes.contentAbout}>
                     Subscribers
                 </Typography>
             </CardContent>
-            <Divider />
-            <CardContent>
 
+            <CardContent style={{paddingBottom: 10}}>
+                <Grid container spacing={3}>
+                    <Grid item xs={3}>
+                        <IconButton
+                            aria-label="toggle  visibility"
+                            size={"small"}
+                        >
+                            <ChatBubbleOutlineIcon/>
+                        </IconButton>
+                         0   Comments
+                    </Grid>
+                    <Grid item xs={2}>
+                        <IconButton
+                            aria-label="toggle  visibility"
+                            size={"small"}
+                        >
+                            <FavoriteBorderIcon/>
+
+                        </IconButton>
+                        0
+                    </Grid>
+                    <Grid item xs={7}>
+                        <IconButton
+                            aria-label="toggle  visibility"
+                            size={"small"}
+                        >
+                            <ShareIcon/>
+                        </IconButton>
+                            Share
+                    </Grid>
+                </Grid>
+            </CardContent>
+            <Divider />
+            <CardContent  style={{paddingBottom: 10}}>
+                <AccountCircle fontSize={"large"}/>
+                <TextField
+                    variant="outlined"
+                    style={{marginTop: 0, marginLeft: 10, marginBottom: 5, width: '92%'}}
+                    id="comment"
+                    name="comment"
+                    type="comment"
+                    size={"small"}
+                    InputProps={{
+                        endAdornment: <TelegramIcon fontSize={"large"}/>,
+                    }}
+                    // label="Comment"
+                    placeholder="Write comment"
+                    margin="normal"
+                />
             </CardContent>
         </Paper>
     )
