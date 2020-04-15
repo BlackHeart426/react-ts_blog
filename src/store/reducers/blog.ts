@@ -1,7 +1,23 @@
 import {SET_DATA_BLOG, SET_MY_PAGE} from "../types";
 
 const initialState = {
-    dataBlog: null
+    dataBlog: {
+        About: {
+            title: '',
+            description: ''
+        },
+        Avatar: {
+            image: ''
+        },
+        Background: '',
+        Description: {
+            name: '',
+            about: ''
+        },
+        LevelTier: {},
+        Posts: {},
+        Tasks: {}
+    }
 }
 
 interface IAction {

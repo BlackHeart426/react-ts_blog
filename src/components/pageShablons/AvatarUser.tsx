@@ -3,6 +3,8 @@ import {Card, CardContent, CardMedia, Typography, CardActions, Button, FormContr
 import PersonIcon from '@material-ui/icons/Person';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import EditIcon from '@material-ui/icons/Edit';
+import {getDataBlogActionCreator} from "../../store/action/blog";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export function AvatarUser (props: any) {
+function AvatarUser (props: any) {
     const {editable= false} = props
     const classes = useStyles()
     return (
@@ -62,3 +64,21 @@ export function AvatarUser (props: any) {
         </>
     )
 }
+
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isMyPage: state.currentUser.myPage,
+        dataBlog: state.blog.dataBlog
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (AvatarUser);

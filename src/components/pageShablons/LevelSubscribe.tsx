@@ -2,26 +2,29 @@ import React from "react";
 import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, Typography, Paper} from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
 import Link from "@material-ui/core/Link";
+import Skeleton from '@material-ui/lab/Skeleton';
+import {getDataBlogActionCreator} from "../../store/action/blog";
+import {connect} from "react-redux";
 
 export const listLevels = [
-    {
-        name: "Tier 1",
-        cost: 50,
-        description: "Access to the show ",
-        active: true
-    },
-    {
-        name: "Tier 2",
-        cost: 100,
-        description: "All videos",
-        active: false
-    },
-    {
-        name: "Tier 3",
-        cost: 150,
-        description: "Special",
-        active: false
-    },
+    // {
+    //     name: "Tier 1",
+    //     cost: 50,
+    //     description: "Access to the show ",
+    //     active: true
+    // },
+    // {
+    //     name: "Tier 2",
+    //     cost: 100,
+    //     description: "All videos",
+    //     active: false
+    // },
+    // {
+    //     name: "Tier 3",
+    //     cost: 150,
+    //     description: "Special",
+    //     active: false
+    // },
 ]
 //editable: boolean
 export function LevelSubscribe(props: any){
@@ -33,7 +36,8 @@ export function LevelSubscribe(props: any){
                 <strong>LEVEL TIER</strong>
             </Typography>
             <Divider />
-            {listLevels.map((item:{name:string, cost: number, description: string, active: boolean}, index: number) => (
+            {listLevels.length > 0
+                ? listLevels.map((item:{name:string, cost: number, description: string, active: boolean}, index: number) => (
                 <div key={index}>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
@@ -68,7 +72,10 @@ export function LevelSubscribe(props: any){
                     </CardActions>
                     <Divider />
                 </div>
-            ))}
+            ))
+            :  <CardContent>
+                <Skeleton variant="rect" width={'100%'} height={168} />
+            </CardContent>}
 
         </Paper>
             {editable && <FormControl fullWidth style={{marginTop: 20}}>
@@ -82,3 +89,21 @@ export function LevelSubscribe(props: any){
             </>
     )
 }
+
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isMyPage: state.currentUser.myPage,
+        dataBlog: state.blog.dataBlog
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (LevelSubscribe);

@@ -8,6 +8,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import {AccountCircle, Visibility, VisibilityOff} from "@material-ui/icons";
 import TextField from "@material-ui/core/TextField";
 import TelegramIcon from '@material-ui/icons/Telegram';
+import {getDataBlogActionCreator} from "../../store/action/blog";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -44,7 +46,7 @@ export const listPosts = [
     },
 ]
 
-export const Posts: React.FC = (props: any) => {
+function Posts (props: any) {
     const {editable = false} = props
     const classes = useStyles()
     return (
@@ -128,3 +130,21 @@ export const Posts: React.FC = (props: any) => {
         </Paper>
     )
 }
+
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isMyPage: state.currentUser.myPage,
+        dataBlog: state.blog.dataBlog
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Posts);

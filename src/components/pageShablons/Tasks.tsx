@@ -16,6 +16,8 @@ import {
 import CardHeader from "@material-ui/core/CardHeader";
 import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {getDataBlogActionCreator} from "../../store/action/blog";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -50,7 +52,7 @@ export const listTasks = [
 
 
 //editable: boolean
-export const Tasks: React.FC = (props: any) => {
+function Tasks (props: any) {
     const {editable=false} =props
     const classes = useStyles()
 
@@ -131,3 +133,21 @@ export const Tasks: React.FC = (props: any) => {
         </>
     )
 }
+
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isMyPage: state.currentUser.myPage,
+        dataBlog: state.blog.dataBlog
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Tasks);

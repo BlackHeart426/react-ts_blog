@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
-import { AvatarUser } from "../components/pageShablons/AvatarUser";
-import {CoverContent} from "../components/pageShablons/CoverContent";
-import {AboutUserCard} from "../components/pageShablons/AboutUserCard";
+import AvatarUser from "../components/pageShablons/AvatarUser";
+import CoverContent from "../components/pageShablons/CoverContent";
+import AboutUserCard from "../components/pageShablons/AboutUserCard";
 import {LevelSubscribe} from "../components/pageShablons/LevelSubscribe";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {Button, FormControl, Grid, Paper} from "@material-ui/core";
-import {Tasks} from "../components/pageShablons/Tasks";
-import { Posts } from "../components/pageShablons/Posts";
+import Tasks from "../components/pageShablons/Tasks";
+import Posts from "../components/pageShablons/Posts";
 import {connect} from "react-redux";
 import { getDataBlogActionCreator } from "../store/action/blog";
+import {withAuthorization} from "../firebase/hoc/withAuthorization";
+import { compose } from "redux";
+import {withCheckPage} from "../firebase/hoc/withCheckPage";
 
 interface ParamTypes {
     userId: string
@@ -93,7 +96,7 @@ function TemplatePage(props: any) {
                     <Grid container spacing={3}>
                         <Grid item xs={3}>
                             <div className={classes.contentAvatar}>
-                                <AvatarUser isAuthenticated={props.isAuthenticated} editable={state.editable}/>
+                                <AvatarUser editable={state.editable}/>
                                 <Tasks/>
                             </div>
                         </Grid>
@@ -102,7 +105,7 @@ function TemplatePage(props: any) {
                             <Posts/>
                         </Grid>
                         <Grid item xs={3}>
-                            <LevelSubscribe isAuthenticated={props.isAuthenticated}  editable={state.editable}/>
+                            <LevelSubscribe editable={state.editable}/>
                         </Grid>
                     </Grid>
                 </div>
@@ -126,4 +129,7 @@ function mapDispatchToProps(dispatch: any) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (TemplatePage);
+export default compose(
+    withCheckPage,
+    connect(mapStateToProps, mapDispatchToProps))
+(TemplatePage);

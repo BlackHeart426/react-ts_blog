@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import  Navbar  from './components/Navbar/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import { PageBlog } from './page/pageBlog';
 import TemporaryDrawer from "./components/Drawer/Drawer";
 import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/core';
 import {grey, orange} from "@material-ui/core/colors";

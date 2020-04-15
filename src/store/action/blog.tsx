@@ -13,9 +13,10 @@ import { getDataPageBlogFireBase } from "../../firebase/database";
 export const getDataBlogActionCreator = (nameBlog: string) => {
     return async (dispatch: any) => {
         getDataPageBlogFireBase(nameBlog)
-            .then(response => {
-                dispatch({ type: SET_DATA_BLOG, payload: response });
-                console.log('response', response)
+            .then((snapshot: any) => {
+                const dataBlog = snapshot.val()
+                dispatch({ type: SET_DATA_BLOG, payload: dataBlog });
+                console.log('response', dataBlog)
             })
             .catch(error => {
                 console.error('error',error)

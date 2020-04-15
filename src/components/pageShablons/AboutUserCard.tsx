@@ -3,6 +3,8 @@ import {Card, CardContent, Divider, Grid, IconButton, Paper, Typography} from "@
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
 import {Visibility, VisibilityOff} from "@material-ui/icons";
+import {getDataBlogActionCreator} from "../../store/action/blog";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     )
 )
-export function AboutUserCard(props: any){
+function AboutUserCard(props: any){
     const {editable = false} = props
     const classes = useStyles()
     return (
@@ -47,3 +49,21 @@ export function AboutUserCard(props: any){
         </Paper>
     )
 }
+
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isMyPage: state.currentUser.myPage,
+        dataBlog: state.blog.dataBlog
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (AboutUserCard);

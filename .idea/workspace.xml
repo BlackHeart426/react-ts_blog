@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/BlackHeart.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/Loading.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AboutUserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AboutUserCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AvatarUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AvatarUser.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageShablons/LevelSubscribe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/LevelSubscribe.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/shablonPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/templatePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/templatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/templatePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/database.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/database.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/currentUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/pageBlog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/store/reducers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/firebase/hoc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -65,11 +67,11 @@
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container\Authorization" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\firebase\hoc" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\store\reducers" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\store\action" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Button" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\container\Authorization" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -93,14 +95,7 @@
       <workItem from="1586683676073" duration="16305000" />
       <workItem from="1586768320998" duration="18372000" />
       <workItem from="1586849477892" duration="24687000" />
-      <workItem from="1586949021314" duration="7307000" />
-    </task>
-    <task id="LOCAL-00002" summary="page">
-      <created>1586179730802</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1586179730802</updated>
+      <workItem from="1586949021314" duration="17916000" />
     </task>
     <task id="LOCAL-00003" summary="level">
       <created>1586182559621</created>
@@ -438,14 +433,20 @@
       <option name="project" value="LOCAL" />
       <updated>1586951992335</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="blog">
+      <created>1586957643862</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1586957643862</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pages routes" />
     <MESSAGE value="auth firebase" />
     <MESSAGE value="store" />
     <MESSAGE value="router hoc" />
@@ -470,7 +471,8 @@
     <MESSAGE value="action CreatePage" />
     <MESSAGE value="action Posts" />
     <MESSAGE value="css" />
-    <option name="LAST_COMMIT_MESSAGE" value="css" />
+    <MESSAGE value="blog" />
+    <option name="LAST_COMMIT_MESSAGE" value="blog" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -481,14 +483,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="730" y="323" key="#com.intellij.fileTypes.FileTypeChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586714024084" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586854476713">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586959235704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586854476713" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586951991238">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586959235704" />
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1586957643141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586951991238" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586957643141" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -521,30 +523,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586527992064" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586951993548">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586957646363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586951993548" />
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586956730049">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586957646363" />
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586967388338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586956730049" />
+    <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586967388338" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586880209616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
-    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1586956450214">
+    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1586967677211">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586956450214" />
+    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586967677211" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586877882026" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586786636305">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586959216576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586786636305" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586959216576" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -560,7 +562,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/pageShablons/Posts.tsx</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

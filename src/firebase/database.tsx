@@ -28,7 +28,7 @@ export function getPageBlogUserFireBase(userId: string) {
 }
 
 export function getDataPageBlogFireBase(name: string) {
-        return database.ref('listBlogs')
+        return database.ref('listBlog')
             .child(name)
             .child('dataBlock')
             .once('value')
