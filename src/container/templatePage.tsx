@@ -1,15 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import { AvatarUser } from "../components/pageShablons/AvatarUser";
-import {ReactComponent} from "*.svg";
 import {CoverContent} from "../components/pageShablons/CoverContent";
 import {AboutUserCard} from "../components/pageShablons/AboutUserCard";
 import {LevelSubscribe} from "../components/pageShablons/LevelSubscribe";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {Button, FormControl, Grid, Paper} from "@material-ui/core";
-import PersonIcon from "@material-ui/icons/Person";
 import {Tasks} from "../components/pageShablons/Tasks";
 import { Posts } from "../components/pageShablons/Posts";
+import {connect} from "react-redux";
+import { getDataBlogActionCreator } from "../store/action/blog";
 
 interface ParamTypes {
     userId: string
@@ -58,15 +58,22 @@ const useStyles = makeStyles((theme: Theme) =>
             }
         }
     )
-)
+);
 
-export const ShablonPage: React.FC = () => {
-    const {userId} = useParams<ParamTypes>()
+function TemplatePage(props: any) {
+    const {userId} = useParams<ParamTypes>();
     const classes = useStyles()
-    const [state, setState] = useState({editable: false})
+    const [state, setState] = useState({editable: false});
+
+    useEffect(()=>{
+        props.isMyPage
+            ? setState({...state, editable: true})
+            : props.action.getDataBlog(userId)
+    },[]);
 
     return (
         <>
+
             <div className={classes.layout}>
                 <div className={classes.backgroundImage}>
                     {state.editable && <Button
@@ -86,33 +93,37 @@ export const ShablonPage: React.FC = () => {
                     <Grid container spacing={3}>
                         <Grid item xs={3}>
                             <div className={classes.contentAvatar}>
-                                <AvatarUser/>
+                                <AvatarUser isAuthenticated={props.isAuthenticated} editable={state.editable}/>
                                 <Tasks/>
                             </div>
                         </Grid>
                         <Grid item xs={6}>
-                            <AboutUserCard/>
+                            <AboutUserCard editable={state.editable}/>
                             <Posts/>
                         </Grid>
                         <Grid item xs={3}>
-                            <LevelSubscribe />
+                            <LevelSubscribe isAuthenticated={props.isAuthenticated}  editable={state.editable}/>
                         </Grid>
                     </Grid>
-
-                    <div className="row">
-                        <div className="col s3 plAvatar">
-                            {/*<AvatarUser/>*/}
-                        </div>
-                        <div className="col s6">
-                            {/*<AboutUserCard/>*/}
-                        </div>
-                        <div className="col s3">
-                            {/*<LevelSubscribe/>*/}
-                        </div>
-                    </div>
                 </div>
             </div>
-
         </>
     )
 }
+function mapStateToProps(state: any) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isMyPage: state.currentUser.myPage,
+        dataBlog: state.blog.dataBlog
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (TemplatePage);

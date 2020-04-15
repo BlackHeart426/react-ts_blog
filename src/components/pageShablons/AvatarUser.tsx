@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export const AvatarUser: React.FC = (props: any) => {
+export function AvatarUser (props: any) {
     const {editable= false} = props
     const classes = useStyles()
     return (

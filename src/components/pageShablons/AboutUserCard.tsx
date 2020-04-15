@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     )
 )
-export const AboutUserCard: React.FC = (props: any) => {
+export function AboutUserCard(props: any){
     const {editable = false} = props
     const classes = useStyles()
     return (

@@ -1,4 +1,4 @@
-import {createPageFireBase, getPageBlogUserFireBase} from "../../firebase/database";
+import {createPageBlogFireBase, createPageFireBase, getPageBlogUserFireBase} from "../../firebase/database";
 import {SET_MY_PAGE} from "../types";
 import { Dispatch } from "redux";
 
@@ -15,6 +15,7 @@ export const createPageActionCreator = (name: string) => {
                 .catch(error => {
                     console.error('error',error)
                 })
+            await createPageBlogFireBase(name)
         }
     }
 }

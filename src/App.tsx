@@ -6,7 +6,7 @@ import { PageBlog } from './page/pageBlog';
 import TemporaryDrawer from "./components/Drawer/Drawer";
 import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/core';
 import {grey, orange} from "@material-ui/core/colors";
-import { ShablonPage } from './container/shablonPage';
+import TemplatePage from './container/templatePage';
 import {createStyles} from "@material-ui/core/styles";
 import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './constants/routes';
 import {NonFound} from "./page/NonFound";
@@ -61,7 +61,7 @@ const App: React.FC = (props: any) => {
       <div className={classes.content}>
         <Switch>
           <Route exact path={HOME} component={Home}/>
-          <Route exact path={PAGE_BLOG} component={ShablonPage}/>
+          <Route exact path={PAGE_BLOG} component={TemplatePage}/>
           <Route exact path={SETTINGS} component={Settings}/>
             <Route exact path={SETTINGS_SUBSCRIBERS} component={Settings}/>
             <Route exact path={SETTINGS_NOTIFICATIONS} component={Settings}/>

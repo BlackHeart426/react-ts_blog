@@ -24,7 +24,7 @@ export const listLevels = [
     },
 ]
 //editable: boolean
-export const LevelSubscribe: React.FC = (props: any) => {
+export function LevelSubscribe(props: any){
     const {editable=false} =props
     return (
         <>
