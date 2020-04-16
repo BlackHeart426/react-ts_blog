@@ -2,7 +2,7 @@ import {
     createPageBlogFireBase,
     createUserFireBase,
     getDataPageBlogFireBase,
-    getPageBlogUserFireBase
+    getPageBlogUserFireBase, updatePageBlogUserBlogFireBase
 } from "../../firebase/database";
 import {SET_MY_PAGE, DATA_USER_BLOG} from "../types";
 import { Dispatch } from "redux";
@@ -27,7 +27,15 @@ export const createUserActionCreator = (name: string) => {
 export const createPageActionCreator = (name: string) => {
     if(userId) {
         return async (dispatch: any) => {
-            await createPageBlogFireBase(name)
+            createPageBlogFireBase(name)
+            updatePageBlogUserBlogFireBase(userId, name)
+                .then(response => {
+                    cookie.save('myPage', name, {path : '/'})
+                    dispatch({type: SET_MY_PAGE, payload: name});
+                })
+                .catch(error => {
+
+                })
         }
     }
 }

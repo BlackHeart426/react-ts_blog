@@ -21,8 +21,10 @@ export function createPageBlogFireBase(pageBlog: string) {
         })
 }
 
-export function updateUserBlogFireBase() {
-
+export function updatePageBlogUserBlogFireBase(userId: string, pageBlog: any) {
+        return database.ref('userBlogs')
+            .child(userId)
+            .update({pageBlog})
 }
 
 export function getPageBlogUserFireBase(userId: string) {

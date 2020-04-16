@@ -4,10 +4,7 @@
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/firebase/database.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/database.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/action/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/currentUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/currentUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,14 +84,7 @@
       <workItem from="1586768320998" duration="18372000" />
       <workItem from="1586849477892" duration="24687000" />
       <workItem from="1586949021314" duration="18045000" />
-      <workItem from="1587019834962" duration="19423000" />
-    </task>
-    <task id="LOCAL-00007" summary="settings">
-      <created>1586246734376</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1586246734376</updated>
+      <workItem from="1587019834962" duration="20409000" />
     </task>
     <task id="LOCAL-00008" summary="delete materializecss">
       <created>1586253958846</created>
@@ -432,14 +422,20 @@
       <option name="project" value="LOCAL" />
       <updated>1587037761969</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="check user firebase">
+      <created>1587042804743</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1587042804743</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="auto login" />
     <MESSAGE value="login" />
     <MESSAGE value="sign up" />
     <MESSAGE value="google auth" />
@@ -464,7 +460,8 @@
     <MESSAGE value="create page" />
     <MESSAGE value="drawer open" />
     <MESSAGE value="blog non found" />
-    <option name="LAST_COMMIT_MESSAGE" value="blog non found" />
+    <MESSAGE value="check user firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="check user firebase" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -479,10 +476,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586959235704" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587037761297">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587042804189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037761297" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587042804189" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -519,10 +516,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587037763322">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587042805993">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037763322" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587042805993" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587042438771">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -531,10 +528,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
-    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587041708381">
+    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587043470231">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587041708381" />
+    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587043470231" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
