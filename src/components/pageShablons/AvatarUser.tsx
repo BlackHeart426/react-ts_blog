@@ -29,11 +29,19 @@ function AvatarUser (props: any) {
     const classes = useStyles()
 
     const handleFollowed = () => {
+        let listSubscriptions = []
         const subscription = {
             name: userId,
             tier: 1
         }
-        props.action.addSubscription(subscription)
+        if(props.subscriptions) {
+            listSubscriptions = [subscription, props.subscriptions]
+        } else {
+            listSubscriptions = [subscription]
+        }
+
+        debugger
+        props.action.addSubscription(listSubscriptions)
     }
 
     return (
@@ -86,6 +94,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
+        subscriptions: state.currentUser.subscriptions,
         dataBlog: state.blog.dataBlog
     }
 }

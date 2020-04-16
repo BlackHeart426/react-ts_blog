@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AboutUserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AboutUserCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AvatarUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AvatarUser.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/LevelSubscribe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/LevelSubscribe.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/templatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/templatePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/database.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/database.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/currentUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/currentUser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,14 +83,7 @@
       <workItem from="1586768320998" duration="18372000" />
       <workItem from="1586849477892" duration="24687000" />
       <workItem from="1586949021314" duration="18045000" />
-      <workItem from="1587019834962" duration="29709000" />
-    </task>
-    <task id="LOCAL-00009" summary="test">
-      <created>1586255113874</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1586255113874</updated>
+      <workItem from="1587019834962" duration="31662000" />
     </task>
     <task id="LOCAL-00010" summary="navbar">
       <created>1586261725148</created>
@@ -442,14 +421,20 @@
       <option name="project" value="LOCAL" />
       <updated>1587043793689</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="add subcriptions">
+      <created>1587057180993</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1587057180993</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sign up" />
     <MESSAGE value="google auth" />
     <MESSAGE value="RecoveryPassword" />
     <MESSAGE value="Authorization" />
@@ -474,7 +459,8 @@
     <MESSAGE value="blog non found" />
     <MESSAGE value="check user firebase" />
     <MESSAGE value="update pageBlog" />
-    <option name="LAST_COMMIT_MESSAGE" value="update pageBlog" />
+    <MESSAGE value="add subcriptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="add subcriptions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -489,10 +475,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586959235704" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587043793151">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587057180372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587043793151" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587057180372" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -529,10 +515,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587043794863">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587057182012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587043794863" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587057182012" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587055974155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
