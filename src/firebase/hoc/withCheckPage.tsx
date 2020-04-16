@@ -5,6 +5,7 @@ import {HOME} from "../../constants/routes";
 import {getDataPageBlogFireBase} from "../database";
 import {Backdrop} from "@material-ui/core";
 import {Loading} from "../../page/Loading";
+import {BlogNonFound} from "../../components/BlogNonFound";
 
 interface IProp {
     existBlog?: any;
@@ -55,7 +56,7 @@ export const withCheckPage = (Component: any) => {
                  return <Loading open={true}/>
             } else {
                 if(existBlog === false){
-                    return <Redirect to={HOME}/>
+                    return <BlogNonFound/>
                 } else if(existBlog === true) {
                     return <Component />
                 }
