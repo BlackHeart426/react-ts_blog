@@ -1,4 +1,4 @@
-import {IS_AUTHENTICATED} from "../types";
+import {IS_AUTHENTICATED, SET_MY_PAGE} from "../types";
 import {
     doAuthStateChange,
     doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,
@@ -9,8 +9,9 @@ import {
 import { Dispatch } from "redux";
 import firebase from "firebase";
 import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
-import {getBlogPageUserActionCreator} from "./currentUser";
+import {getBlogPageUserActionCreator, userId, createPageActionCreator, getDataPageBlogActionCreator, createUserActionCreator} from "./currentUser";
 import cookie from "react-cookies";
+import {createUserFireBase} from "../../firebase/database";
 
 interface IUserData {
     token: string,
@@ -19,11 +20,16 @@ interface IUserData {
 }
 
 export const authorizationGoogleActionCreator = () => {
+    let userId: any = null;
+    let flagUserExist = false;
     return async (dispatch: any) => {
-        doGoogleSignIn()
+        await doGoogleSignIn()
             .then(result => {
-                 doAuthStateChange(async (dataUser: IUserData) => {
+                doAuthStateChange(async (dataUser: IUserData) => {
+                    userId = dataUser.userId
                     await dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
+                    await dispatch(getDataPageBlogActionCreator(dataUser.userId))
+
                     // await dispatch(getBlogPageUserActionCreator())
                 })
                 console.log(result)
@@ -31,21 +37,22 @@ export const authorizationGoogleActionCreator = () => {
             .catch(error => {
                 console.log(error)
             })
+
     }
 }
 
 export const authorizationVkActionCreator = () => {
     return async (dispatch: any) => {
         doVkSignIn()
-            // .then(result => {
-            //     doAuthStateChange((dataUser: IUserData)=>{
-            //         dispatch(isAuthenticatedActionCreator(dataUser.token))
-            //     })
-            //     console.log(result)
-            // })
-            // .catch(error => {
-            //     console.log(error)
-            // })
+        // .then(result => {
+        //     doAuthStateChange((dataUser: IUserData)=>{
+        //         dispatch(isAuthenticatedActionCreator(dataUser.token))
+        //     })
+        //     console.log(result)
+        // })
+        // .catch(error => {
+        //     console.log(error)
+        // })
     }
 }
 
@@ -110,16 +117,16 @@ export const authorizationActionCreator = (email: string, password: string, isLo
 
 export const resetPasswordActionCreator = (email: string) => {
     return async (dispatch: Dispatch) => {
-            doPasswordReset(email)
-                .then( info => {
+        doPasswordReset(email)
+            .then( info => {
                     console.log(info)
-                    }
-                )
-                .catch(error => {
-                    console.log(error)
-                })
+                }
+            )
+            .catch(error => {
+                console.log(error)
+            })
 
-        }
+    }
 }
 
 export function isAuthenticatedActionCreator(token: string|null, userId: string|null = null) {

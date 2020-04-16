@@ -1,23 +1,68 @@
-import {createPageBlogFireBase, createPageFireBase, getPageBlogUserFireBase} from "../../firebase/database";
-import {SET_MY_PAGE} from "../types";
+import {
+    createPageBlogFireBase,
+    createUserFireBase,
+    getDataPageBlogFireBase,
+    getPageBlogUserFireBase
+} from "../../firebase/database";
+import {SET_MY_PAGE, DATA_USER_BLOG} from "../types";
 import { Dispatch } from "redux";
 import cookie from 'react-cookies'
 
+
+
 export const userId: string|null = localStorage.getItem('userId');
+
+export const createUserActionCreator = (name: string) => {
+    if(userId) {
+        createUserFireBase(userId)
+            .then(response => {
+                console.log('response', response)
+            })
+            .catch(error => {
+                console.error('error',error)
+            })
+    }
+}
 
 export const createPageActionCreator = (name: string) => {
     if(userId) {
         return async (dispatch: any) => {
-            await createPageFireBase(name, userId)
-                .then(response => {
-                    dispatch({ type: SET_MY_PAGE, payload: name });
-                    console.log('response', response)
-                })
-                .catch(error => {
-                    console.error('error',error)
-                })
             await createPageBlogFireBase(name)
         }
+    }
+}
+
+export const getDataPageBlogActionCreator = (userId: string) => {
+    let flagUserExist = null;
+    return async (dispatch: any) => {
+        getPageBlogUserFireBase(userId)
+            .then((snapshot: any) => {
+                console.log('getDataPageBlogActionCreator',snapshot.val())
+                if (snapshot.val()) {
+                    dispatch(setDataUserBlogActionCreator(snapshot.val())) // add subscription resux
+                    return flagUserExist = true;
+                } else {
+                    createUserFireBase(userId)
+                        .then(response => {
+                            console.log('response', response)
+                        })
+                        .catch(error => {
+                            console.error('error',error)
+                        })
+                }
+            })
+            .catch(error =>{
+                debugger
+                return flagUserExist = false;
+            })
+    }
+
+}
+
+export const setDataUserBlogActionCreator = (dataUser: any) => {
+    return {
+        type: DATA_USER_BLOG,
+        payload: dataUser
     }
 }
 

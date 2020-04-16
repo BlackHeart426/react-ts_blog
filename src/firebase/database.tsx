@@ -1,9 +1,9 @@
 import {database} from "./firebaseService";
 
-export function createPageFireBase(pageBlog: string, userId: string) {
+export function createUserFireBase(userId: string) {
         return database.ref('userBlogs')
         .child(userId)  //userID
-        .set({pageBlog})
+        .set({pageBlog: '', subscriptions: [{name: ''}]})
 }
 
 export function createPageBlogFireBase(pageBlog: string) {
@@ -19,6 +19,10 @@ export function createPageBlogFireBase(pageBlog: string) {
                 Background: '',
                 Posts: '',
         })
+}
+
+export function updateUserBlogFireBase() {
+
 }
 
 export function getPageBlogUserFireBase(userId: string) {
