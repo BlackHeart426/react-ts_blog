@@ -1,7 +1,8 @@
-import {IS_AUTHENTICATED} from "../types";
+import {OPEN_DRAWER} from "../types";
 
 const initialState = {
-    alert: null
+    alert: null,
+    openDrawer: false
 }
 
 interface IAction {
@@ -9,10 +10,10 @@ interface IAction {
     payload: object
 }
 
-export const authReducer = (state:object = initialState, action: IAction) => {
+export const appReducer = (state:object = initialState, action: IAction) => {
     switch (action.type) {
-        case IS_AUTHENTICATED:
-            return {...state, isAuthenticated: action.payload }
+        case OPEN_DRAWER:
+            return {...state, openDrawer: action.payload }
         default:
             return state
     }

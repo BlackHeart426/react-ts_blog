@@ -53,10 +53,11 @@ const App: React.FC = (props: any) => {
     props.action.autoLogin()
 
   },[])
+
   return <div className={classes.root}>
     <ThemeProvider theme={mainTheme}>
       <Navbar/>
-      <TemporaryDrawer open={true}/>
+      <TemporaryDrawer/>
       <div className={classes.content}>
         <Switch>
           <Route exact path={HOME} component={Home}/>
@@ -78,7 +79,8 @@ const App: React.FC = (props: any) => {
 
 function mapStateToProps(state: any) {
   return {
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    openDrawer: state.app.openDrawer
   }
 }
 

@@ -14,6 +14,7 @@ import {connect} from "react-redux";
 import {AuthorizationModal} from "../../container/Authorization/AuthorizationModal";
 import CreatePage from "../CreatePage";
 import { useHistory } from 'react-router-dom';
+import {openDrawerActionCreator} from "../../store/action/app";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -22,6 +23,7 @@ function Navbar(props: any) {
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const history = useHistory();
+    const {onDrawer} = props
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -43,6 +45,11 @@ function Navbar(props: any) {
     const handleOpenMyBlog = () => {
         history.push("/"+props.pageCurrentUser)
     };
+
+    const handleDrawerOpen = () => {
+        props.action.openingDrawer(true)
+    };
+
 
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setMobileMoreAnchorEl(event.currentTarget);
@@ -103,6 +110,7 @@ function Navbar(props: any) {
                         ? <>
                             <Button
                                 startIcon={<DehazeIcon/>}
+                                onClick={handleDrawerOpen}
                                 variant="outlined">
                                 <strong>My subscribers</strong>
                             </Button>
@@ -147,7 +155,8 @@ function Navbar(props: any) {
 function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
-        pageCurrentUser: state.currentUser.myPage
+        pageCurrentUser: state.currentUser.myPage,
+        openDrawer: state.app.openDrawer
     }
 
 }
@@ -156,7 +165,8 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            logout: () => dispatch(logoutActionCreator())
+            logout: () => dispatch(logoutActionCreator()),
+            openingDrawer: (open: any) => dispatch(openDrawerActionCreator(open))
         }
     }
 }

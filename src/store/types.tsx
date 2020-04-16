@@ -4,3 +4,5 @@ export const IS_AUTHENTICATED = 'AUTH/IS_AUTHENTICATED'
 export const SET_MY_PAGE = 'CURRENT_USER/MY_PAGE'
 
 export const SET_DATA_BLOG = 'BLOG/DATA_PAGE'
+
+export const OPEN_DRAWER = 'APP/OPEN_DRAWER'

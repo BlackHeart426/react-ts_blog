@@ -3,10 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-
-interface IOpening {
-    open: boolean
-}
+import {autoLoginActionCreator} from "../../store/action/authorization";
+import {connect} from "react-redux";
+import {openDrawerActionCreator} from "../../store/action/app";
 
 export const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -16,20 +15,12 @@ const useStyles = makeStyles({
     },
 })
 
-
-
-export default function TemporaryDrawer(props: IOpening) {
+function TemporaryDrawer(props: any) {
     const classes = useStyles()
-    const [state, setState] = React.useState(false);
 
     const handleDrawerClose = () => {
-        setState(false)
+        props.action.openingDrawer(false)
     }
-
-    useEffect(()=>{
-        props.open && setState(true)
-    },[props])
-
 
     const list = () => (
         <div
@@ -51,7 +42,7 @@ export default function TemporaryDrawer(props: IOpening) {
             <Drawer
                 onClose={handleDrawerClose}
                 variant="temporary"
-                open={ false }
+                open={ props.openDrawer }
                 anchor="left"
             >
                 {list()}
@@ -59,3 +50,19 @@ export default function TemporaryDrawer(props: IOpening) {
         </>
     );
 }
+
+function mapStateToProps(state: any) {
+    return {
+        openDrawer: state.app.openDrawer
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            openingDrawer: (open: any) => dispatch(openDrawerActionCreator(open))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (TemporaryDrawer);
