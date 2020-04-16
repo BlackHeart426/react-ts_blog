@@ -69,10 +69,18 @@ function TemplatePage(props: any) {
     const [state, setState] = useState({editable: false});
 
     useEffect(()=>{
-        props.isMyPage
-            ? setState({...state, editable: true})
-            : props.action.getDataBlog(userId)
+        props.action.getDataBlog(userId)
+        console.log(props.isMyPage)
+        console.log(userId)
+
     },[]);
+
+    useEffect(()=>{
+        props.isMyPage === userId
+            ? setState({...state, editable: true})
+            : setState({...state, editable: false})
+
+    },[props.isMyPage]);
 
     return (
         <>
@@ -97,7 +105,7 @@ function TemplatePage(props: any) {
                         <Grid item xs={3}>
                             <div className={classes.contentAvatar}>
                                 <AvatarUser editable={state.editable}/>
-                                <Tasks/>
+                                <Tasks editable={state.editable}/>
                             </div>
                         </Grid>
                         <Grid item xs={6}>

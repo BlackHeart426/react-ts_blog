@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Card, CardContent, CardMedia, Typography, CardActions, Button, FormControl, Paper} from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
@@ -18,8 +18,9 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 function AvatarUser (props: any) {
-    const {editable= false} = props
+    const {editable} = props
     const classes = useStyles()
+
     return (
         <>
             <Paper elevation={0} className={classes.contentAvatar}>

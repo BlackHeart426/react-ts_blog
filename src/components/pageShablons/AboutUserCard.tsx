@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 function AboutUserCard(props: any){
-    const {editable = false} = props
+    const {editable} = props
     const classes = useStyles()
     return (
         <Paper elevation={0}  >

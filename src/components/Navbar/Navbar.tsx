@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,7 +12,8 @@ import DehazeIcon from '@material-ui/icons/Dehaze';
 import {logoutActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
 import {AuthorizationModal} from "../../container/Authorization/AuthorizationModal";
-import {CreatePage} from "../CreatePage";
+import CreatePage from "../CreatePage";
+import { useHistory } from 'react-router-dom';
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -20,6 +21,7 @@ function Navbar(props: any) {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const history = useHistory();
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -38,6 +40,9 @@ function Navbar(props: any) {
         props.action.logout()
         handleMenuClose()
     };
+    const handleOpenMyBlog = () => {
+        history.push("/"+props.pageCurrentUser)
+    };
 
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setMobileMoreAnchorEl(event.currentTarget);
@@ -54,6 +59,7 @@ function Navbar(props: any) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
+            <MenuItem onClick={handleOpenMyBlog}>My blog</MenuItem>
             <MenuItem onClick={handleMenuClose}>My income</MenuItem>
             <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
             <MenuItem onClick={handleLogout}>Logout</MenuItem>

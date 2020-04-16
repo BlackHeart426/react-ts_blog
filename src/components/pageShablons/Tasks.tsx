@@ -53,7 +53,7 @@ export const listTasks = [
 
 //editable: boolean
 function Tasks (props: any) {
-    const {editable=false} =props
+    const {editable} =props
     const classes = useStyles()
 
     const BorderLinearProgress = withStyles({
@@ -95,7 +95,7 @@ function Tasks (props: any) {
                                     {item.description}
                                 </Typography>
                             </div>
-                            {editable &&<div className={classes.content}>
+                            {editable && <div className={classes.content}>
                                 <Typography variant="body2" color="textSecondary" component="p" >
                                     <Link href="#" variant="body2">
                                         Edit

@@ -112,7 +112,8 @@ export const doAuthStateChange = async (cb: any) => {
                     localStorage.setItem(EMAIL, "" + email)
                     const dataUser = {
                         token,
-                        expirationDate
+                        expirationDate,
+                        userId: uid
                     }
                     return cb(dataUser)
                 }

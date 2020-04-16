@@ -47,7 +47,7 @@ export const listPosts = [
 ]
 
 function Posts (props: any) {
-    const {editable = false} = props
+    const {editable} = props
     const classes = useStyles()
     return (
         <Paper elevation={0}  style={{marginTop: 20}}>

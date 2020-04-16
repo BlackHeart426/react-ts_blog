@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export const CoverContent: React.FC = (props: any) => {
-    const {editable = false} = props
+    const {editable } = props
     const classes = useStyles();
     return (
         <div className={classes.contentInfoTitle}>

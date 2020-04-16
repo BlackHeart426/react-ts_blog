@@ -28,7 +28,7 @@ export const listLevels = [
 ]
 //editable: boolean
 export function LevelSubscribe(props: any){
-    const {editable=false} =props
+    const {editable} =props
     return (
         <>
         <Paper elevation={0} >

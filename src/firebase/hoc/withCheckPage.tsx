@@ -59,7 +59,6 @@ export const withCheckPage = (Component: any) => {
                 } else if(existBlog === true) {
                     return <Component />
                 }
-
             }
         }
     }

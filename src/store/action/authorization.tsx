@@ -10,18 +10,21 @@ import { Dispatch } from "redux";
 import firebase from "firebase";
 import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
 import {getBlogPageUserActionCreator} from "./currentUser";
+import cookie from "react-cookies";
 
 interface IUserData {
     token: string,
-    expirationDate: string
+    expirationDate: string,
+    userId: string
 }
 
 export const authorizationGoogleActionCreator = () => {
     return async (dispatch: any) => {
         doGoogleSignIn()
             .then(result => {
-                doAuthStateChange((dataUser: IUserData)=>{
-                    dispatch(isAuthenticatedActionCreator(dataUser.token))
+                 doAuthStateChange(async (dataUser: IUserData) => {
+                    await dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
+                    // await dispatch(getBlogPageUserActionCreator())
                 })
                 console.log(result)
             })
@@ -48,18 +51,19 @@ export const authorizationVkActionCreator = () => {
 
 export const autoLoginActionCreator = () => {
     return async (dispatch: any) => {
-        const token = localStorage.getItem(TOKEN)
-        if(!token) {
+        const token: string|null = localStorage.getItem(TOKEN)
+        const userId: string|null = localStorage.getItem('userId');
+        if(!token && !userId) {
             dispatch(logoutActionCreator())
         } else {
-            await dispatch(isAuthenticatedActionCreator(token))
-            await dispatch(getBlogPageUserActionCreator())
+            await dispatch(isAuthenticatedActionCreator(token, userId))
+            // dispatch(getBlogPageUserActionCreator())
         }
     }
 }
 
 export const logoutActionCreator = () => {
-    return async (dispatch: Dispatch) => {
+    return async (dispatch: any) => {
         doSignOut()
             .catch(
                 error => console.log('messageError', error.message)
@@ -69,17 +73,19 @@ export const logoutActionCreator = () => {
         localStorage.removeItem(USERID)
         localStorage.removeItem(EXPIRATIONDATE)
         localStorage.removeItem(EMAIL)
+        cookie.remove('myPage',{path: '/'})
     }
 }
 
 export const authorizationActionCreator = (email: string, password: string, isLogin: boolean) => {
-    return async (dispatch: Dispatch) => {
+    return async (dispatch: any) => {
         if (isLogin) {
             doSignInWithEmailAndPassword(email, password)
                 .then(function (firebaseUser: firebase.auth.UserCredential) {
                     console.log(firebaseUser)
                     doAuthStateChange((dataUser: IUserData)=>{
-                        dispatch(isAuthenticatedActionCreator(dataUser.token))
+                        dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
+                        // dispatch(getBlogPageUserActionCreator(dataUser.userId))
                     })
                 })
                 .catch(
@@ -90,7 +96,8 @@ export const authorizationActionCreator = (email: string, password: string, isLo
                 .then(function (firebaseUser: firebase.auth.UserCredential) {
                     console.log(firebaseUser)
                     doAuthStateChange((dataUser: IUserData)=>{
-                        dispatch(isAuthenticatedActionCreator(dataUser.token))
+                        dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
+                        // dispatch(getBlogPageUserActionCreator())
                     })
                 })
                 .catch(
@@ -115,9 +122,9 @@ export const resetPasswordActionCreator = (email: string) => {
         }
 }
 
-export function isAuthenticatedActionCreator(token: string|null) {
-    return {
-        type: IS_AUTHENTICATED,
-        payload: token
+export function isAuthenticatedActionCreator(token: string|null, userId: string|null = null) {
+    return async (dispatch: any) => {
+        await dispatch({type: IS_AUTHENTICATED, payload: token})
+        await dispatch(getBlogPageUserActionCreator(userId))
     }
 }
