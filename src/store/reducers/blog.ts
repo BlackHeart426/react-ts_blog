@@ -1,4 +1,4 @@
-import {SET_DATA_BLOG, SET_MY_PAGE} from "../types";
+import {SET_DATA_BLOG} from "../types";
 
 const initialState = {
     dataBlog: {

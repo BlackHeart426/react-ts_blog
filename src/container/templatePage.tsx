@@ -14,10 +14,6 @@ import {withAuthorization} from "../firebase/hoc/withAuthorization";
 import { compose } from "redux";
 import {withCheckPage} from "../firebase/hoc/withCheckPage";
 
-interface ParamTypes {
-    userId: string
-}
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
             backgroundImage: {
@@ -63,6 +59,10 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 );
 
+interface ParamTypes {
+    userId: string
+}
+
 function TemplatePage(props: any) {
     const {userId} = useParams<ParamTypes>();
     const classes = useStyles()
@@ -70,16 +70,12 @@ function TemplatePage(props: any) {
 
     useEffect(()=>{
         props.action.getDataBlog(userId)
-        console.log(props.isMyPage)
-        console.log(userId)
-
     },[]);
 
     useEffect(()=>{
         props.isMyPage === userId
             ? setState({...state, editable: true})
             : setState({...state, editable: false})
-
     },[props.isMyPage]);
 
     return (

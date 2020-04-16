@@ -1,4 +1,4 @@
-import {IS_AUTHENTICATED, SET_MY_PAGE} from "../types";
+import {IS_AUTHENTICATED} from "../types";
 import {
     doAuthStateChange,
     doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,

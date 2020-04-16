@@ -3,7 +3,7 @@ import {database} from "./firebaseService";
 export function createUserFireBase(userId: string) {
         return database.ref('userBlogs')
         .child(userId)  //userID
-        .set({pageBlog: '', subscriptions: [{name: ''}]})
+        .set({pageBlog: '', subscriptions: ""})
 }
 
 export function createPageBlogFireBase(pageBlog: string) {
@@ -25,6 +25,12 @@ export function updatePageBlogUserBlogFireBase(userId: string, pageBlog: any) {
         return database.ref('userBlogs')
             .child(userId)
             .update({pageBlog})
+}
+export function addSubscriptionsUserBlogFireBase(userId: string, subscriptions: any) {
+        return database.ref('userBlogs')
+            .child(userId)
+            .child('subscriptions')
+            .set(subscriptions)
 }
 
 export function getPageBlogUserFireBase(userId: string) {

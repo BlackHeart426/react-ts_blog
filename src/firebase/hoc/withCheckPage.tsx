@@ -14,13 +14,8 @@ interface IState {
     existBlog?: any;
 }
 
-interface ParamTypes {
-    userId: string
-}
-
 export const withCheckPage = (Component: any) => {
     return class WithCheckPage extends React.Component<any, IState> {
-        private unsubscriber: any;
         constructor(props: any) {
             super(props);
 

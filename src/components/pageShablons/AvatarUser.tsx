@@ -5,6 +5,8 @@ import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import EditIcon from '@material-ui/icons/Edit';
 import {getDataBlogActionCreator} from "../../store/action/blog";
 import {connect} from "react-redux";
+import {useParams} from "react-router";
+import {addSubscriptionUserActionCreator} from "../../store/action/currentUser";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -17,9 +19,22 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
+interface ParamTypes {
+    userId: string
+}
+
 function AvatarUser (props: any) {
+    const {userId} = useParams<ParamTypes>();
     const {editable} = props
     const classes = useStyles()
+
+    const handleFollowed = () => {
+        const subscription = {
+            name: userId,
+            tier: 1
+        }
+        props.action.addSubscription(subscription)
+    }
 
     return (
         <>
@@ -44,6 +59,7 @@ function AvatarUser (props: any) {
                             <Button
                                 disableElevation
                                 variant="outlined"
+                                onClick={handleFollowed}
                                 startIcon={<PersonIcon/>}
                                 color="primary">
                                 Followed
@@ -77,7 +93,7 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+            addSubscription: (sub: object) => dispatch(addSubscriptionUserActionCreator(sub))
         }
     }
 }

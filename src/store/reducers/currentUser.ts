@@ -1,8 +1,8 @@
-import {DATA_USER_BLOG, SET_MY_PAGE} from "../types";
+import {SET_PAGEBLOG, ADD_SUBSCRIPTIONS, SET_SUBSCRIPTIONS} from "../types"
 
 const initialState = {
     myPage: null,
-    dataUserBlog: null
+    subscriptions: []
 }
 
 interface IAction {
@@ -10,12 +10,14 @@ interface IAction {
     payload: object
 }
 
-export const currentUserReducer = (state:object = initialState, action: IAction) => {
+export const currentUserReducer = (state: any = initialState, action: IAction) => {
     switch (action.type) {
-        case SET_MY_PAGE:
+        case SET_PAGEBLOG:
             return {...state, myPage: action.payload }
-        case DATA_USER_BLOG:
-            return {...state, dataUserBlog: action.payload }
+        case ADD_SUBSCRIPTIONS:
+            return {...state, subscriptions: Object.values(state.subscriptions).concat(action.payload)}
+        case SET_SUBSCRIPTIONS:
+            return {...state, subscriptions: action.payload }
         default:
             return state
     }

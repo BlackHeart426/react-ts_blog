@@ -61,7 +61,7 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+            // getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
         }
     }
 }
