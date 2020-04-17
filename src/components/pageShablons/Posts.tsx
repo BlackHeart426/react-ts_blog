@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardContent, Divider, Grid, IconButton, InputAdornment, Paper, Typography} from "@material-ui/core";
+import {Card, CardContent, Divider, Grid, IconButton, InputAdornment, Paper, Typography, Avatar} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -111,21 +111,29 @@ function Posts (props: any) {
             </CardContent>
             <Divider />
             <CardContent  style={{paddingBottom: 10}}>
-                <AccountCircle fontSize={"large"}/>
-                <TextField
-                    variant="outlined"
-                    style={{marginTop: 0, marginLeft: 10, marginBottom: 5, width: '92%'}}
-                    id="comment"
-                    name="comment"
-                    type="comment"
-                    size={"small"}
-                    InputProps={{
-                        endAdornment: <TelegramIcon fontSize={"large"}/>,
-                    }}
-                    // label="Comment"
-                    placeholder="Write comment"
-                    margin="normal"
-                />
+                <Grid container spacing={3}>
+                    <Grid item xs={1}>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    </Grid>
+                    <Grid item xs={11}>
+                        <TextField
+                            variant="outlined"
+                            style={{marginTop: 0,  marginBottom: 5, width: '100%'}}
+                            id="comment"
+                            name="comment"
+                            type="comment"
+                            size={"small"}
+                            InputProps={{
+                                endAdornment: <TelegramIcon fontSize={"large"}/>,
+                            }}
+                            // label="Comment"
+                            placeholder="Write comment"
+                            margin="normal"
+                        />
+                    </Grid>
+                </Grid>
+
+
             </CardContent>
         </Paper>
     )

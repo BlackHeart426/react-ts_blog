@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import {connect} from "react-redux";
 import {openDrawerActionCreator} from "../../store/action/app";
-import { ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import {ListItem, ListItemText, ListItemIcon, Avatar, Grid} from '@material-ui/core';
 import {AccountCircle} from "@material-ui/icons";
 import {useHistory} from "react-router-dom";
 
@@ -39,7 +39,7 @@ function TemporaryDrawer(props: any) {
             {Object.values(props.subscriptions).map((item:any, index: number) => (
                 <ListItem button key={index} onClick={() => handleOpenBlog(item.name)}>
                     <ListItemIcon>
-                        <AccountCircle />
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                     </ListItemIcon>
                     <ListItemText primary={item.name} >
                         {item.name}

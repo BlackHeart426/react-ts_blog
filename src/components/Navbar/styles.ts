@@ -11,6 +11,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
         account: {
             marginRight: theme.spacing(2),
+            marginLeft: theme.spacing(2),
         },
         title: {
             marginRight: '15px',

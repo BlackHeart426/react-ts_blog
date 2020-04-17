@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { Button } from '@material-ui/core';
+import {Avatar, Button} from '@material-ui/core';
 import {AccountCircle, MenuBook} from "@material-ui/icons";
 import {useStyles} from "./styles";
 import DehazeIcon from '@material-ui/icons/Dehaze';
@@ -121,21 +121,9 @@ function Navbar(props: any) {
                                 {!props.pageCurrentUser && <CreatePage/>}
                             </div>
                             <div className={classes.account} >
-                                {/*<IconButton*/}
-                                {/*    edge="end"*/}
-                                {/*    aria-label="account of current user"*/}
-                                {/*    aria-controls={menuId}*/}
-                                {/*    aria-haspopup="true"*/}
-                                {/*    onClick={handleProfileMenuOpen}*/}
-                                {/*    color="inherit"*/}
-                                {/*>*/}
-
-                                {/*    <AccountCircle/>*/}
-
-                                {/*</IconButton>*/}
                                 <Button
                                     size="medium"
-                                    startIcon={<AccountCircle/>}
+                                    startIcon={<Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />}
                                     onClick={handleProfileMenuOpen}
                                 >
                                     {email}

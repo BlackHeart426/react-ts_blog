@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Drawer/Drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer/Drawer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,14 +85,8 @@
       <workItem from="1586849477892" duration="24687000" />
       <workItem from="1586949021314" duration="18045000" />
       <workItem from="1587019834962" duration="31803000" />
-      <workItem from="1587105983175" duration="3729000" />
-    </task>
-    <task id="LOCAL-00012" summary="css">
-      <created>1586266312812</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1586266312812</updated>
+      <workItem from="1587105983175" duration="4528000" />
+      <workItem from="1587127038681" duration="1292000" />
     </task>
     <task id="LOCAL-00013" summary="store auth">
       <created>1586280691190</created>
@@ -430,14 +424,20 @@
       <option name="project" value="LOCAL" />
       <updated>1587107779852</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="drawer sub and navbar button">
+      <created>1587109800206</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1587109800206</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RecoveryPassword" />
     <MESSAGE value="Authorization" />
     <MESSAGE value="AuthorizationRightSide" />
     <MESSAGE value="css AuthorizationLeftSide" />
@@ -462,7 +462,8 @@
     <MESSAGE value="update pageBlog" />
     <MESSAGE value="add subcriptions" />
     <MESSAGE value="add subcription and exist for button" />
-    <option name="LAST_COMMIT_MESSAGE" value="add subcription and exist for button" />
+    <MESSAGE value="drawer sub and navbar button" />
+    <option name="LAST_COMMIT_MESSAGE" value="drawer sub and navbar button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -477,10 +478,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586959235704" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587107779080">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587109799644">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587107779080" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587109799644" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -517,10 +518,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587107781066">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587109801811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587107781066" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587109801811" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587055974155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -529,9 +530,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
-    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587109644010">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1057" y="295" width="632" height="536" key="find.popup" timestamp="1587132706100">
+      <screen x="-1440" y="0" width="1440" height="860" />
     </state>
+    <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
     <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587109644010" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
