@@ -1,9 +1,11 @@
 import {database} from "./firebaseService";
+import shortid from "shortid";
+
 
 export function createUserFireBase(userId: string) {
         return database.ref('userBlogs')
         .child(userId)  //userID
-        .set({pageBlog: '', subscriptions: ""})
+        .set({pageBlog: ''})
 }
 
 export function createPageBlogFireBase(pageBlog: string) {
@@ -30,6 +32,7 @@ export function addSubscriptionsUserBlogFireBase(userId: string, subscriptions: 
         return database.ref('userBlogs')
             .child(userId)
             .child('subscriptions')
+            .child(shortid.generate())
             .set(subscriptions)
 }
 

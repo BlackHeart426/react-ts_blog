@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Card, CardContent, CardMedia, Typography, CardActions, Button, FormControl, Paper} from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
@@ -25,24 +25,27 @@ interface ParamTypes {
 
 function AvatarUser (props: any) {
     const {userId} = useParams<ParamTypes>();
+    const [existSubscription, setExistSubscription] = useState(false)
     const {editable} = props
     const classes = useStyles()
 
+    useEffect(()=>{
+        const subscriptions = props.subscriptions
+        if(subscriptions) {
+            const existSubscription = Object.values(subscriptions).find((item: any) => item.name === userId)
+            existSubscription ? setExistSubscription(true) : setExistSubscription(false)
+        }
+    },[props.subscriptions])
+
     const handleFollowed = () => {
-        let listSubscriptions = []
         const subscription = {
             name: userId,
             tier: 1
         }
-        if(props.subscriptions) {
-            listSubscriptions = [subscription, props.subscriptions]
-        } else {
-            listSubscriptions = [subscription]
-        }
 
-        debugger
-        props.action.addSubscription(listSubscriptions)
+        props.action.addSubscription(subscription)
     }
+
 
     return (
         <>
@@ -66,6 +69,7 @@ function AvatarUser (props: any) {
                         <FormControl fullWidth>
                             <Button
                                 disableElevation
+                                disabled={existSubscription}
                                 variant="outlined"
                                 onClick={handleFollowed}
                                 startIcon={<PersonIcon/>}
