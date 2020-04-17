@@ -24,6 +24,7 @@ function Navbar(props: any) {
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const history = useHistory();
     const {onDrawer} = props
+    const email = localStorage.getItem('email')
 
     const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -120,17 +121,26 @@ function Navbar(props: any) {
                                 {!props.pageCurrentUser && <CreatePage/>}
                             </div>
                             <div className={classes.account} >
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    onClick={handleProfileMenuOpen}
-                                    color="inherit"
-                                >
-                                    <AccountCircle fontSize={"large"}/>
+                                {/*<IconButton*/}
+                                {/*    edge="end"*/}
+                                {/*    aria-label="account of current user"*/}
+                                {/*    aria-controls={menuId}*/}
+                                {/*    aria-haspopup="true"*/}
+                                {/*    onClick={handleProfileMenuOpen}*/}
+                                {/*    color="inherit"*/}
+                                {/*>*/}
 
-                                </IconButton>
+                                {/*    <AccountCircle/>*/}
+
+                                {/*</IconButton>*/}
+                                <Button
+                                    size="medium"
+                                    startIcon={<AccountCircle/>}
+                                    onClick={handleProfileMenuOpen}
+                                >
+                                    {email}
+                                </Button>
+
                             </div>
                         </>
                         :

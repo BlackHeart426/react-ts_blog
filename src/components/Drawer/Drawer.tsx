@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import {autoLoginActionCreator} from "../../store/action/authorization";
 import {connect} from "react-redux";
 import {openDrawerActionCreator} from "../../store/action/app";
+import { ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import {AccountCircle} from "@material-ui/icons";
+import {useHistory} from "react-router-dom";
 
 export const drawerWidth = 240;
+
 const useStyles = makeStyles({
     drawer: {
         width: drawerWidth,
@@ -17,8 +19,14 @@ const useStyles = makeStyles({
 
 function TemporaryDrawer(props: any) {
     const classes = useStyles()
+    const history = useHistory()
 
     const handleDrawerClose = () => {
+        props.action.openingDrawer(false)
+    }
+
+    const handleOpenBlog = (blog: string) => {
+        history.push("/" + blog)
         props.action.openingDrawer(false)
     }
 
@@ -27,13 +35,18 @@ function TemporaryDrawer(props: any) {
             className={classes.drawer}
             role="presentation"
         >
-            <List>
-                <div>1</div>
+            <List >
+            {Object.values(props.subscriptions).map((item:any, index: number) => (
+                <ListItem button key={index} onClick={() => handleOpenBlog(item.name)}>
+                    <ListItemIcon>
+                        <AccountCircle />
+                    </ListItemIcon>
+                    <ListItemText primary={item.name} >
+                        {item.name}
+                    </ListItemText>
+                </ListItem>
+            ))}
             </List>
-            <Divider />
-            <List>
-            </List>
-            }
         </div>
     );
 
@@ -53,7 +66,8 @@ function TemporaryDrawer(props: any) {
 
 function mapStateToProps(state: any) {
     return {
-        openDrawer: state.app.openDrawer
+        openDrawer: state.app.openDrawer,
+        subscriptions: state.currentUser.subscriptions,
     }
 }
 
