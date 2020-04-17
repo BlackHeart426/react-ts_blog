@@ -13,6 +13,7 @@ import { getDataBlogActionCreator } from "../store/action/blog";
 import {withAuthorization} from "../firebase/hoc/withAuthorization";
 import { compose } from "redux";
 import {withCheckPage} from "../firebase/hoc/withCheckPage";
+import {Footer} from "../components/Footer";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
             layout : {
                 // position: 'relative',
                 minWidth: '1240px',
+                minHeight: 1200,
                 flex: '1',
             },
             content : {
@@ -70,7 +72,10 @@ function TemplatePage(props: any) {
 
     useEffect(()=>{
         props.action.getDataBlog(userId)
-    },[]);
+        props.isMyPage === userId
+            ? setState({...state, editable: true})
+            : setState({...state, editable: false})
+    },[userId]);
 
     useEffect(()=>{
         props.isMyPage === userId
@@ -114,6 +119,7 @@ function TemplatePage(props: any) {
                     </Grid>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

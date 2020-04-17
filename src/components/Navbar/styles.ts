@@ -13,6 +13,9 @@ export const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(2),
             marginLeft: theme.spacing(2),
         },
+        menuIcons: {
+            minWidth: 32
+        },
         title: {
             marginRight: '15px',
             marginLeft: '15px',

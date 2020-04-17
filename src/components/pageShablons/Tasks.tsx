@@ -47,6 +47,12 @@ export const listTasks = [
         name: "собрано",
         description: "All videos",
         active: false
+    },
+    {
+        cost: "0 of 500 ₽",
+        name: "собрано",
+        description: "All videos",
+        active: false
     }
 ]
 

@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import {Avatar, Button} from '@material-ui/core';
+import {Avatar, Button, ListItemIcon} from '@material-ui/core';
 import {AccountCircle, MenuBook} from "@material-ui/icons";
 import {useStyles} from "./styles";
 import DehazeIcon from '@material-ui/icons/Dehaze';
@@ -15,6 +15,13 @@ import {AuthorizationModal} from "../../container/Authorization/AuthorizationMod
 import CreatePage from "../CreatePage";
 import { useHistory } from 'react-router-dom';
 import {openDrawerActionCreator} from "../../store/action/app";
+import SendIcon from '@material-ui/icons/Send';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import SettingsIcon from '@material-ui/icons/Settings';
+import PortraitIcon from '@material-ui/icons/Portrait';
+import WebIcon from '@material-ui/icons/Web';
+import {Divider} from "semantic-ui-react";
+import CreditCardIcon from '@material-ui/icons/CreditCard';
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -67,10 +74,31 @@ function Navbar(props: any) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleOpenMyBlog}>My blog</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My income</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Settings</MenuItem>
-            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            <MenuItem onClick={handleOpenMyBlog}>
+                <ListItemIcon className={classes.menuIcons}>
+                    <WebIcon fontSize="small" />
+                </ListItemIcon>
+                <Typography variant="inherit">My page</Typography>
+            </MenuItem>
+            <MenuItem onClick={handleMenuClose}>
+                <ListItemIcon className={classes.menuIcons}>
+                    <CreditCardIcon fontSize="small" />
+                </ListItemIcon>
+                <Typography variant="inherit">My income</Typography>
+            </MenuItem>
+            <MenuItem onClick={handleMenuClose}>
+                <ListItemIcon className={classes.menuIcons}>
+                    <SettingsIcon fontSize="small" />
+                </ListItemIcon>
+                <Typography variant="inherit">Settings</Typography>
+            </MenuItem>
+            <Divider/>
+            <MenuItem onClick={handleLogout}>
+                <ListItemIcon className={classes.menuIcons}>
+                    <ExitToAppIcon color={"primary"} fontSize="small" />
+                </ListItemIcon>
+                <Typography variant="inherit" color={"primary"}><strong>Logout</strong></Typography>
+            </MenuItem>
         </Menu>
     );
 

@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Posts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Tasks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/templatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/templatePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,14 +90,7 @@
       <workItem from="1586949021314" duration="18045000" />
       <workItem from="1587019834962" duration="31803000" />
       <workItem from="1587105983175" duration="4528000" />
-      <workItem from="1587127038681" duration="1292000" />
-    </task>
-    <task id="LOCAL-00013" summary="store auth">
-      <created>1586280691190</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1586280691190</updated>
+      <workItem from="1587127038681" duration="5192000" />
     </task>
     <task id="LOCAL-00014" summary="pages routes">
       <created>1586281167413</created>
@@ -431,14 +428,20 @@
       <option name="project" value="LOCAL" />
       <updated>1587109800206</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="css avatar">
+      <created>1587132952610</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1587132952611</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Authorization" />
     <MESSAGE value="AuthorizationRightSide" />
     <MESSAGE value="css AuthorizationLeftSide" />
     <MESSAGE value="validate" />
@@ -463,7 +466,8 @@
     <MESSAGE value="add subcriptions" />
     <MESSAGE value="add subcription and exist for button" />
     <MESSAGE value="drawer sub and navbar button" />
-    <option name="LAST_COMMIT_MESSAGE" value="drawer sub and navbar button" />
+    <MESSAGE value="css avatar" />
+    <option name="LAST_COMMIT_MESSAGE" value="css avatar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -478,10 +482,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586959235704" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587109799644">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587132951527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587109799644" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587132951527" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -530,11 +534,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
-    <state x="-1057" y="295" width="632" height="536" key="find.popup" timestamp="1587132706100">
-      <screen x="-1440" y="0" width="1440" height="860" />
+    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587136419378">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
-    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587109644010" />
+    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587136419378" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -563,7 +567,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/container/templatePage.tsx</url>
-          <line>18</line>
+          <line>19</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

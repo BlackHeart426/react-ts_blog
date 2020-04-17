@@ -50,6 +50,7 @@ function Posts (props: any) {
     const {editable} = props
     const classes = useStyles()
     return (
+
         <Paper elevation={0}  style={{marginTop: 20}}>
             <Grid container spacing={3} style={{margin: 0, marginRight: 20}}>
                 <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
