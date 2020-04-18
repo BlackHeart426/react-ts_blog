@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Typography, InputBase, InputAdornment} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import EditIcon from '@material-ui/icons/Edit';
-import {getDataBlogActionCreator} from "../../store/action/blog";
+import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../../store/action/blog";
 import {connect} from "react-redux";
 import Skeleton from "@material-ui/lab/Skeleton";
+import {useParams} from "react-router";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,9 +17,31 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-export const CoverContent: React.FC = (props: any) => {
-    const {editable } = props
+interface ParamTypes {
+    userId: string
+}
+
+function CoverContent(props: any) {
+    const {editable} = props
     const classes = useStyles();
+    const {userId} = useParams<ParamTypes>();
+    const [value, setValue] = useState('')
+
+    useEffect(()=>{
+        setValue(props.dataBlogDescription.about)
+    },[props.dataBlogDescription.about])
+
+    const handleSaveData = (e: any) => {
+        setValue(e.currentTarget.value)
+        console.log(e.currentTarget.value)
+        console.log(e.currentTarget.name)
+        const value = {
+            name: userId,
+            about: e.currentTarget.value
+        }
+        props.action.updateDataBlog(e.currentTarget.name, value)
+    };
+
     return (
         <div className={classes.contentInfoTitle}>
             <Typography gutterBottom variant="h3" component="h2">
@@ -28,15 +51,17 @@ export const CoverContent: React.FC = (props: any) => {
                 }
             </Typography>
             {editable
-                ? <InputBase
+                ?
+                <InputBase
                 style={{color: '#fff', fontSize: 25, width: '60%'}}
                 endAdornment={<EditIcon/>}
+                onChange={handleSaveData}
                 fullWidth
-                defaultValue="Edit description"
-                inputProps={{'aria-label': 'naked'}}
-                />
+                value={value}
+                name={'Description'}
+                inputProps={{'aria-label': 'naked'}}/>
                 : <Typography gutterBottom variant="h5" component="h2">
-                    Edit description
+                    {props.dataBlogDescription.about}
                 </Typography>
             }
         </div>
@@ -54,6 +79,7 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
+            updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value))
             // getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
         }
     }

@@ -19,6 +19,7 @@ import SendIcon from '@material-ui/icons/Send';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PortraitIcon from '@material-ui/icons/Portrait';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import WebIcon from '@material-ui/icons/Web';
 import {Divider} from "semantic-ui-react";
 import CreditCardIcon from '@material-ui/icons/CreditCard';
@@ -82,7 +83,7 @@ function Navbar(props: any) {
             </MenuItem>
             <MenuItem onClick={handleMenuClose}>
                 <ListItemIcon className={classes.menuIcons}>
-                    <CreditCardIcon fontSize="small" />
+                    <AccountBalanceWalletIcon fontSize="small" />
                 </ListItemIcon>
                 <Typography variant="inherit">My income</Typography>
             </MenuItem>

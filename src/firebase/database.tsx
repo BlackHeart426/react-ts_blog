@@ -8,11 +8,18 @@ export function createUserFireBase(userId: string) {
         .set({pageBlog: ''})
 }
 
+export function updateBlogDataFireBase(nameBlog: string, nameColumn: string, value: any) {
+        return database.ref('listBlog')
+            .child(nameBlog)
+            .child('dataBlock')
+            .update({[nameColumn]: value})
+}
+
 export function createPageBlogFireBase(pageBlog: string) {
         return database.ref('listBlog')
-        .child(pageBlog)
-        .child('dataBlock')
-        .set({
+            .child(pageBlog)
+            .child('dataBlock')
+            .set({
                 Avatar: { image: ''},
                 Tasks: '',
                 About: '',

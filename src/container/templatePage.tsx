@@ -97,7 +97,7 @@ function TemplatePage(props: any) {
                     </Button>
                     }
                     <div className={classes.contentInfo}>
-                        <CoverContent/>
+                        <CoverContent editable={state.editable}/>
                     </div>
 
                 </div>
@@ -111,7 +111,7 @@ function TemplatePage(props: any) {
                         </Grid>
                         <Grid item xs={6}>
                             <AboutUserCard editable={state.editable}/>
-                            <Posts/>
+                            <Posts editable={state.editable}/>
                         </Grid>
                         <Grid item xs={3}>
                             <LevelSubscribe editable={state.editable}/>
