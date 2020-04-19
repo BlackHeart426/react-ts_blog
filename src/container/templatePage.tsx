@@ -3,7 +3,7 @@ import {useParams} from "react-router";
 import AvatarUser from "../components/pageShablons/AvatarUser";
 import CoverContent from "../components/pageShablons/CoverContent";
 import AboutUserCard from "../components/pageShablons/AboutUserCard";
-import {LevelSubscribe} from "../components/pageShablons/LevelSubscribe";
+import {TierSubscribe} from "../components/pageShablons/TierSubscribe/TierSubscribe";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {Button, FormControl, Grid, Paper} from "@material-ui/core";
 import Tasks from "../components/pageShablons/Tasks";
@@ -114,7 +114,7 @@ function TemplatePage(props: any) {
                             <Posts editable={state.editable}/>
                         </Grid>
                         <Grid item xs={3}>
-                            <LevelSubscribe editable={state.editable}/>
+                            <TierSubscribe editable={state.editable}/>
                         </Grid>
                     </Grid>
                 </div>

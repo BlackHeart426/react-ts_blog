@@ -4,7 +4,17 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import CloseIcon from '@material-ui/icons/Close';
-import {createStyles, Theme, WithStyles, withStyles, Typography, IconButton} from '@material-ui/core';
+import {
+    createStyles,
+    Theme,
+    WithStyles,
+    withStyles,
+    Typography,
+    IconButton,
+    Grid,
+    CardContent
+} from '@material-ui/core';
+import {grey} from "@material-ui/core/colors";
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -53,10 +63,14 @@ const DialogActions = withStyles((theme: Theme) => ({
     },
 }))(MuiDialogActions);
 
+interface IProps {
+
+}
+
 export const CustomDialog = withStyles(styles)((props: any) => {
     const {classes, size = 'xs'} = props;
     const [open, setOpen] = React.useState(false);
-    const {show, onHide, data} = props;
+    const {show, onHide, data, extendData=false} = props;
 
     useEffect(() => {
         setOpen(show)
@@ -69,18 +83,37 @@ export const CustomDialog = withStyles(styles)((props: any) => {
 
     return (
         <div>
-            <Dialog maxWidth={size} onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog maxWidth={size} fullWidth onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
                     {data.title}
                 </DialogTitle>
-                <DialogContent dividers>
-                    {data.content}
-                </DialogContent>
-                {data.action
-                && <DialogActions>
-                    {data.action}
-                </DialogActions>
-                }
+                <>
+                    {extendData ? <Grid container>
+                            <Grid item xs={4} style={{background: grey[200]}}>
+                                <div>{extendData}</div>
+                            </Grid>
+                            <Grid item xs={8}>
+                                <DialogContent dividers>
+                                    {data.content}
+                                </DialogContent>
+                                {data.action
+                                && <DialogActions>
+                                    {data.action}
+                                </DialogActions>
+                                }
+                            </Grid>
+                        </Grid>
+                        : <>
+                            <DialogContent dividers>
+                                {data.content}
+                            </DialogContent>
+                            {data.action
+                            && <DialogActions>
+                                {data.action}
+                            </DialogActions>}
+                        </>
+                    }
+                </>
             </Dialog>
         </div>
     );

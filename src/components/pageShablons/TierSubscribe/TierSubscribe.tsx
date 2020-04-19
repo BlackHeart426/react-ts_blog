@@ -3,8 +3,9 @@ import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl,
 import CardHeader from "@material-ui/core/CardHeader";
 import Link from "@material-ui/core/Link";
 import Skeleton from '@material-ui/lab/Skeleton';
-import {getDataBlogActionCreator} from "../../store/action/blog";
+import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
+import {AddTier} from "./AddTier";
 
 export const listLevels = [
     // {
@@ -27,13 +28,13 @@ export const listLevels = [
     // },
 ]
 //editable: boolean
-export function LevelSubscribe(props: any){
+export function TierSubscribe(props: any){
     const {editable} =props
     return (
         <>
         <Paper elevation={0} >
             <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
-                <strong>LEVEL TIER</strong>
+                <strong>TIER SUBSCRIBE</strong>
             </Typography>
             <Divider />
             {listLevels.length > 0
@@ -78,14 +79,7 @@ export function LevelSubscribe(props: any){
             </CardContent>}
 
         </Paper>
-            {editable && <FormControl fullWidth style={{marginTop: 20}}>
-                <Button
-                    disableElevation
-                    variant="contained"
-                    color="primary">
-                    <strong>Add tier</strong>
-                </Button>
-            </FormControl>}
+            {editable && <AddTier/>}
             </>
     )
 }
@@ -106,4 +100,4 @@ function mapDispatchToProps(dispatch: any) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (LevelSubscribe);
+export default connect(mapStateToProps, mapDispatchToProps) (TierSubscribe);
