@@ -1,11 +1,61 @@
 import React, {useEffect, useState} from "react";
 import {CustomDialog} from "./CustomDialog";
-import {CardContent, Typography, Select, MenuItem} from "@material-ui/core";
+import {CardContent, Typography, Select, MenuItem, Paper} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import {connect} from "react-redux";
 import {createPageActionCreator} from "../../store/action/currentUser";
+import {grey} from "@material-ui/core/colors";
+
+export const exampleCategories = {
+    total: [
+        {
+            title: 'Baseline',
+            cost: 200,
+            description: 'At this level, you can offer to simply subscribe to the new closed content on the blog',
+        },
+        {
+            title: 'Extended Subscription',
+            cost: 300,
+            description: 'For an extended subscription, you can offer discounts on merch, upload unique content that will be posted only on Busty',
+        },
+        {
+            title: 'Exclusive Subscription',
+            cost: 700,
+            description: 'Для этого уровня рассказывайте или показывайте, над чем работаете прямо сейчас. Позвольте подписчикам выбирать, за что вы возьмётесь в следующий раз.',
+        }
+    ],
+    blog: [
+        {
+            title: 'Baseline',
+            cost: 200,
+            description: 'Subscription gives the right to read all the materials on the blog. Posts will be published here earlier than elsewhere.',
+        },
+        {
+            title: 'Advanced Subscription',
+            cost: 500,
+            description: 'Personal chat in a special chat for subscribers only',
+        },
+        {
+            title: 'Top Subscription',
+            cost: 700,
+            description: 'You will be able to influence the subject matter of the blog material!',
+        }
+    ],
+    videos: [
+        {
+            title: 'Just a subscription',
+            cost: 200,
+            description: 'Thanks for your support! Sometimes I will post posts and videos only for my subscribers. You will also have access to private comments, where you can chat with me and with each other.',
+        },
+        {
+            title: 'Access behind the scenes',
+            cost: 500,
+            description: 'By this subscription all previous levels will be available to you, plus a link to a closed chat where we can chat ourselves and mention your accounts in the story.',
+        },
+    ]
+}
 
 function DialogAddTier(props: any) {
     const {show, onHide} = props;
@@ -15,6 +65,8 @@ function DialogAddTier(props: any) {
     const [description, setDescription] = useState('');
     const [pageBlog, setPageBlog] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [categoriesList, setCategoriesList] = useState(exampleCategories.total)
+    const [categories, setCategories] = useState('total')
 
     useEffect(()=>{
         setDialogOpened(show)
@@ -34,6 +86,13 @@ function DialogAddTier(props: any) {
         console.log('become bloger')
     }
 
+    const handleChangeCategories = (event: any) => {
+        event.target.value === 'total' && setCategoriesList(exampleCategories.total) && setCategories('total')
+        event.target.value === 'blog' && setCategoriesList(exampleCategories.blog) && setCategories('blog')
+        event.target.value === 'videos' && setCategoriesList(exampleCategories.videos) && setCategories('videos')
+        console.log(event.target.value)
+    }
+
     const data = {
         title: 'Add Subscription Tier',
         content:
@@ -46,7 +105,6 @@ function DialogAddTier(props: any) {
                     style={{marginTop: 5}}
                     fullWidth
                     id="name"
-                    autoFocus
                     name="name"
                     type="text"
                     size={"small"}
@@ -68,7 +126,6 @@ function DialogAddTier(props: any) {
                         maxLength: 150,
                     }}
                     id="description"
-                    autoFocus
                     name="Description"
                     type="text"
                     placeholder="Enter your description"
@@ -90,7 +147,6 @@ function DialogAddTier(props: any) {
                     style={{marginTop: 5}}
                     fullWidth
                     id="cost"
-                    autoFocus
                     name="cost"
                     type="number"
                     size={"small"}
@@ -119,22 +175,40 @@ function DialogAddTier(props: any) {
             <Typography style={{margin: 15}} variant="h6" component="p" align={"center"}>
                 Example categories
             </Typography>
-            <FormControl variant="outlined" style={{background: "white", marginLeft: 15, marginRight: 15, minWidth: '90%'}}>
+            <FormControl variant="outlined" style={{background: "white", marginLeft: 15, marginRight: 15, minWidth: '91%'}}>
                 <Select
                     // style={{height: 40}}
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
+                    value={categories}
                     // value={age}
-                    // onChange={handleChange}
+                    onChange={handleChangeCategories}
                 >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={'total'}>Total</MenuItem>
+                    <MenuItem value={'blog'}>Blog</MenuItem>
+                    <MenuItem value={'videos'}>Videos</MenuItem>
                 </Select>
             </FormControl>
+            <div style={{height: 375, background: grey[200]}}>
+                <div style={{height: '100%', overflow: "auto", marginTop: 10, marginRight: 15}}>
+                    {categoriesList.map((item: any, index: number) =>
+                        <Paper elevation={0} style={{margin: 15, marginRight: 0, marginTop: 5, marginBottom: 30}} key={index}>
+                            <div style={{padding: 15}}>
+                                <Typography style={{marginBottom: 5}} component="p" align={"left"}>
+                                    <strong>{item.title}</strong>
+                                </Typography>
+                                <Typography style={{marginBottom: 10}} color="textSecondary" variant="body2"  component="p" align={"left"}>
+                                    {item.cost} ₽ per month
+                                </Typography>
+                                <Typography  variant="body2"  component="p" align={"left"}>
+                                    {item.description}
+                                </Typography>
+                            </div>
+                        </Paper>
+                    )}
+                </div>
+
+            </div>
         </>
 
 
