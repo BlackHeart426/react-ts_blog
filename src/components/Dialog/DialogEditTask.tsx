@@ -98,7 +98,7 @@ function DialogEditTask(props: any) {
     }
 
     return (
-        <CustomDialog size={'sm'} data={ data } show={ true }  onHide={ onHide }/>
+        <CustomDialog size={'sm'} data={ data } show={ dialogOpened }  onHide={ onHide }/>
     )
 }
 

@@ -3,8 +3,9 @@ import {Card, CardContent, Divider, Grid, IconButton, Paper, Typography} from "@
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
 import {Visibility, VisibilityOff} from "@material-ui/icons";
-import {getDataBlogActionCreator} from "../../store/action/blog";
+import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
+import {EditAbout} from "./EditAbout";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -27,21 +28,12 @@ function AboutUserCard(props: any){
                     <strong>ABOUT USER</strong>
                 </Typography>
                 <div className={classes.grow} />
-                {editable && <IconButton
-                    style={{marginRight: 25}}
-                    aria-label="toggle password visibility"
-                    // onClick={handleClickShowPassword}
-
-                >
-                    <SettingsIcon/>
-                </IconButton>
+                {editable && <EditAbout/>
                 }
             </Grid>
 
             <Divider />
             <CardContent>
-
-
                 <Typography component="p" className={classes.contentAbout}>
                     Subscribers
                 </Typography>
