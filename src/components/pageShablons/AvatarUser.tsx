@@ -7,6 +7,7 @@ import {getDataBlogActionCreator} from "../../store/action/blog";
 import {connect} from "react-redux";
 import {useParams} from "react-router";
 import {addSubscriptionUserActionCreator} from "../../store/action/currentUser";
+import {AddPost} from "./Posts/AddPost";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -82,13 +83,7 @@ function AvatarUser (props: any) {
                 }
             </Paper>
             {editable && <FormControl fullWidth style={{marginTop: 15}}>
-                <Button
-                    disableElevation
-                    variant="contained"
-                    startIcon={<EditIcon/>}
-                    color="primary">
-                    <strong>New post</strong>
-                </Button>
+                <AddPost/>
             </FormControl>}
         </>
     )

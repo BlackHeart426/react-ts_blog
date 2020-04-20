@@ -8,8 +8,9 @@ import ShareIcon from '@material-ui/icons/Share';
 import {AccountCircle, Visibility, VisibilityOff} from "@material-ui/icons";
 import TextField from "@material-ui/core/TextField";
 import TelegramIcon from '@material-ui/icons/Telegram';
-import {getDataBlogActionCreator} from "../../store/action/blog";
+import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
+import {EditPost} from "./EditPost";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -57,14 +58,7 @@ function Posts (props: any) {
                     08 апреля в 11:27
                 </Typography>
                 <div className={classes.grow} />
-                {editable && <IconButton
-                    style={{marginRight: 25}}
-                    aria-label="toggle password visibility"
-                    // onClick={handleClickShowPassword}
-
-                >
-                    <SettingsIcon/>
-                </IconButton>
+                {editable && <EditPost/>
                 }
             </Grid>
 
