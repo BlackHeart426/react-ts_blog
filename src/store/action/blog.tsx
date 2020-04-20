@@ -30,7 +30,8 @@ export const updateDataBlogActionCreator = (name: string, value: any) => {
     return async (dispatch: any) => {
         updateBlogDataFireBase(myPage, name, value)
             .then(response => {
-                // dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
+                debugger
+                dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
             })
             .catch(error => {
                 console.error('error',error)

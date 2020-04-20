@@ -9,14 +9,23 @@ import {Button, FormControl, Grid, Paper} from "@material-ui/core";
 import Tasks from "../components/pageShablons/Tasks/Tasks";
 import Posts from "../components/pageShablons/Posts/Posts";
 import {connect} from "react-redux";
-import { getDataBlogActionCreator } from "../store/action/blog";
-import {withAuthorization} from "../firebase/hoc/withAuthorization";
+import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../store/action/blog";
 import { compose } from "redux";
 import {withCheckPage} from "../firebase/hoc/withCheckPage";
 import {Footer} from "../components/Footer";
+import {onComplete, updateBackgroundUser} from "../firebase/storage";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+            root: {
+                '& > *': {
+                    margin: theme.spacing(1),
+                },
+                display: 'flex',
+                position: 'absolute',
+                right: 200,
+                alignItems: 'center',
+            },
             backgroundImage: {
                 position: 'relative',
                 width: '100%',
@@ -25,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 left: '0',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                // backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/logo%2Fbackground_065.jpg?alt=media&token=7c4b3ee2-9e75-42f2-97ab-5f17c5b31989)",
                 backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/logo%2Fbackground_065.jpg?alt=media&token=7c4b3ee2-9e75-42f2-97ab-5f17c5b31989)",
             },
             layout : {
@@ -56,7 +66,14 @@ const useStyles = makeStyles((theme: Theme) =>
                 position: 'absolute',
                 top: '100px',
 
-            }
+            },
+            wrapper: {
+                margin: theme.spacing(1),
+                position: 'relative',
+            },
+            input: {
+                display: 'none',
+            },
         }
     )
 );
@@ -66,9 +83,15 @@ interface ParamTypes {
 }
 
 function TemplatePage(props: any) {
+    const property = {
+        image: {},
+        url: '',
+        progress: 0
+    }
     const {userId} = useParams<ParamTypes>();
     const classes = useStyles()
     const [state, setState] = useState({editable: false});
+    const [imageState, setImageState] = useState(property);
 
     useEffect(()=>{
         props.action.getDataBlog(userId)
@@ -78,23 +101,81 @@ function TemplatePage(props: any) {
     },[userId]);
 
     useEffect(()=>{
+        setImageState(props.dataBlog.Background)
+        console.log(props.dataBlog)
+    },[props.dataBlog])
+
+    useEffect(()=>{
         props.isMyPage === userId
             ? setState({...state, editable: true})
             : setState({...state, editable: false})
     },[props.isMyPage]);
 
+
+    const handleImage = (name: string) => {
+        console.log(name)
+    }
+
+    const handleChange = (event: any) => {
+
+        const image = event.target.files[0];
+        console.log('q')
+
+        handleUpload(image)
+    }
+
+    const handleUpload = (image: string) =>  {
+        updateBackgroundUser(image)
+            .on('state_changed',
+                (snapshot: any) => {
+                },
+                (error: Error) => {
+                },
+                () => {
+                    // complete function ....
+                    onComplete(image, props.action.updateDataBlog)
+                        .then(response => {
+
+                        })
+                        .catch(error => {
+
+                        })
+                });
+    }
+
     return (
         <>
 
             <div className={classes.layout}>
-                <div className={classes.backgroundImage}>
-                    {state.editable && <Button
-                        disableElevation
-                        variant="contained"
-                        style={{background: '#fff', position: "absolute", right: 300, marginTop: 40}}
-                        color="inherit">
-                        <strong>Change background</strong>
-                    </Button>
+                <div className={classes.backgroundImage} style={{backgroundImage: 'url('+ imageState +')'}}>
+                    {state.editable
+                    &&
+                    <>
+                        <div >
+                            <div className={classes.root}>
+                                <input
+                                    accept="image/*"
+                                    className={classes.input}
+                                    id="contained-button-file"
+                                    multiple
+                                    onChange={handleChange}
+                                    type="file"
+                                />
+
+                                <label htmlFor="contained-button-file">
+                                    <div className={classes.wrapper}>
+                                        <Button
+                                            disableElevation
+                                            component="span"
+                                            variant="contained"
+                                            color="secondary">
+                                            <strong>Change background</strong>
+                                        </Button>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </>
                     }
                     <div className={classes.contentInfo}>
                         <CoverContent editable={state.editable}/>
@@ -134,7 +215,8 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId)),
+            updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value))
         }
     }
 }
