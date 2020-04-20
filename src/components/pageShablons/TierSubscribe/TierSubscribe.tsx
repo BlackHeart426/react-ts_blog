@@ -6,14 +6,15 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
 import {AddTier} from "./AddTier";
+import {EditTier} from "./EditTier";
 
 export const listLevels = [
-    // {
-    //     name: "Tier 1",
-    //     cost: 50,
-    //     description: "Access to the show ",
-    //     active: true
-    // },
+    {
+        name: "Tier 1",
+        cost: 50,
+        description: "Access to the show ",
+        active: true
+    },
     // {
     //     name: "Tier 2",
     //     cost: 100,
@@ -50,15 +51,8 @@ export function TierSubscribe(props: any){
                         <Typography variant="body2" color="textSecondary" component="p">
                             {item.description}
                         </Typography>
-                    </CardContent>
-                    <CardActions>
-
                             {editable
-                                ?  <Typography variant="body2" color="textSecondary" component="p" style={{paddingLeft: 8}}>
-                                    <Link href="#" variant="body2">
-                                    Edit
-                                    </Link>
-                                </Typography>
+                                ?  <EditTier/>
                                 :
                                 <FormControl fullWidth >
                                 <Button
@@ -69,8 +63,7 @@ export function TierSubscribe(props: any){
                                 </Button>
                                 </FormControl>
                             }
-
-                    </CardActions>
+                    </CardContent>
                     <Divider />
                 </div>
             ))

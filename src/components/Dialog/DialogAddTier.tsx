@@ -80,8 +80,7 @@ function DialogAddTier(props: any) {
         }
     }, [name, cost, description]);
 
-    const handleBecomeAuthor = () => {
-        props.action.setMyPage(pageBlog)
+    const handleAddTier = () => {
         onHide()
         console.log('become bloger')
     }
@@ -98,7 +97,7 @@ function DialogAddTier(props: any) {
         content:
             <div>
                 <Typography variant="body2"  component="p">
-                    Name
+                    <strong>Name</strong>
                 </Typography>
                 <TextField
                     variant="outlined"
@@ -114,7 +113,7 @@ function DialogAddTier(props: any) {
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography variant="body2"  component="p">
-                    Description
+                    <strong>Description</strong>
                 </Typography>
                 <TextField
                     variant="outlined"
@@ -163,7 +162,7 @@ function DialogAddTier(props: any) {
                     size="large"
                     color="primary"
                     // className={classes.loginBtn}
-                    onClick={handleBecomeAuthor}
+                    onClick={handleAddTier}
                     disabled={isButtonDisabled}>
                     Add tier
                 </Button>

@@ -6,7 +6,7 @@ import AboutUserCard from "../components/pageShablons/AboutUserCard";
 import {TierSubscribe} from "../components/pageShablons/TierSubscribe/TierSubscribe";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {Button, FormControl, Grid, Paper} from "@material-ui/core";
-import Tasks from "../components/pageShablons/Tasks";
+import Tasks from "../components/pageShablons/Tasks/Tasks";
 import Posts from "../components/pageShablons/Posts";
 import {connect} from "react-redux";
 import { getDataBlogActionCreator } from "../store/action/blog";

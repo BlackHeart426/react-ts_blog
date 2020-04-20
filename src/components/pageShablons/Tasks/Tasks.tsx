@@ -16,8 +16,10 @@ import {
 import CardHeader from "@material-ui/core/CardHeader";
 import Link from "@material-ui/core/Link";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
-import {getDataBlogActionCreator} from "../../store/action/blog";
+import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
+import {AddTasks} from "./AddTasks";
+import {EditTask} from "./EditTask";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -102,11 +104,7 @@ function Tasks (props: any) {
                                 </Typography>
                             </div>
                             {editable && <div className={classes.content}>
-                                <Typography variant="body2" color="textSecondary" component="p" >
-                                    <Link href="#" variant="body2">
-                                        Edit
-                                    </Link>
-                                </Typography>
+                               <EditTask/>
                             </div>}
                         </CardContent>
 
@@ -128,14 +126,7 @@ function Tasks (props: any) {
                 </CardActions>
                 <Divider />
             </Paper>
-            {editable && <FormControl fullWidth style={{marginTop: 20}}>
-                <Button
-                    disableElevation
-                    variant="contained"
-                    color="primary">
-                    <strong>Add TAsks</strong>
-                </Button>
-            </FormControl>}
+            {editable && <AddTasks/>}
         </>
     )
 }
