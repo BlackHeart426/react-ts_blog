@@ -14,9 +14,9 @@ const initialState = {
         name: '',
         about: ''
     },
-    LevelTier: {},
-    Posts: {},
-    Tasks: {}
+    LevelTier: [],
+    Posts: [],
+    Tasks: []
 }
 
 interface IAction {
@@ -27,10 +27,17 @@ interface IAction {
 export const blogReducer = (state:any = initialState, action: IAction) => {
     switch (action.type) {
         case SET_DATA_BLOG:
-            return action.payload
+            return {...state,
+                About: action.payload.About,
+                Avatar: action.payload.Avatar,
+                Background: action.payload.Background,
+                Description: action.payload.Description,
+                LevelTier: action.payload.LevelTier,
+                Posts: action.payload.Posts,
+                Tasks: action.payload.Tasks,
+            }
         case UPDATE_DATA_BLOG:
-            const data = action.payload
-            return {...state, [data.name]: data.value}
+            return {...state, [action.payload.name]: action.payload.value}
         default:
             return state
     }
