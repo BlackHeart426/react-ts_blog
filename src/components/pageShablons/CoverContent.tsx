@@ -72,7 +72,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlogDescription: state.blog.dataBlog.Description
+        dataBlogDescription: state.blog.Description
     }
 }
 

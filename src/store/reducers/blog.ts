@@ -2,23 +2,21 @@ import {SET_DATA_BLOG, UPDATE_DATA_BLOG} from "../types";
 import {Avatar} from "@material-ui/core";
 
 const initialState = {
-    dataBlog: {
-        About: {
-            title: '',
-            description: ''
-        },
-        Avatar: {
-            image: ''
-        },
-        Background: '',
-        Description: {
-            name: '',
-            about: ''
-        },
-        LevelTier: {},
-        Posts: {},
-        Tasks: {}
-    }
+    About: {
+        title: '',
+        description: ''
+    },
+    Avatar: {
+        image: ''
+    },
+    Background: '',
+    Description: {
+        name: '',
+        about: ''
+    },
+    LevelTier: {},
+    Posts: {},
+    Tasks: {}
 }
 
 interface IAction {
@@ -26,15 +24,13 @@ interface IAction {
     payload: any
 }
 
-export const blogReducer = (state:object = initialState, action: IAction) => {
+export const blogReducer = (state:any = initialState, action: IAction) => {
     switch (action.type) {
         case SET_DATA_BLOG:
-            return {...state, dataBlog: action.payload }
+            return action.payload
         case UPDATE_DATA_BLOG:
-            return {...state, dataBlog: Object.values(state.dataBlog).forEach((item, index) => {
-                    console.log(item)
-                // item === action.payload.name && item.Background
-                }) }
+            const data = action.payload
+            return {...state, [data.name]: data.value}
         default:
             return state
     }

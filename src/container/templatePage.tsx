@@ -101,7 +101,8 @@ function TemplatePage(props: any) {
     },[userId]);
 
     useEffect(()=>{
-        setImageState(props.dataBlog.Background)
+        debugger
+        props.dataBlog && setImageState(props.dataBlog.Background)
         console.log(props.dataBlog)
     },[props.dataBlog])
 
@@ -208,7 +209,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog.dataBlog
+        dataBlog: state.blog
     }
 }
 
