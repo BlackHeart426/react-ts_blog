@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {CustomDialog} from "./CustomDialog";
-import {CardContent, Typography, Select, MenuItem, Paper} from "@material-ui/core";
+import {Typography, Select, MenuItem, Paper} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import {connect} from "react-redux";
 import {createPageActionCreator} from "../../store/action/currentUser";
 import {grey} from "@material-ui/core/colors";
-
+import {updateDataBlogActionCreator, addDataBlogActionCreator} from "../../store/action/blog";
+import shortid from "shortid";
 export const exampleCategories = {
     total: [
         {
@@ -68,7 +69,6 @@ function DialogAddTier(props: any) {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [description, setDescription] = useState('');
-    const [pageBlog, setPageBlog] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [categories, setCategories] = useState(initialCategories)
 
@@ -86,7 +86,13 @@ function DialogAddTier(props: any) {
 
     const handleAddTier = () => {
         onHide()
+        const dataTier = {
+                name,
+                description,
+                cost
+        }
 
+        props.action.addDataBlog('Tiers', dataTier)
     }
 
     const handleChangeCategories = (event: any) => {
@@ -220,10 +226,12 @@ function DialogAddTier(props: any) {
     )
 }
 
+
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+            addDataBlog: (nameColumn: string, value: any) => dispatch(addDataBlogActionCreator(nameColumn, value, true))
         }
     }
 }
