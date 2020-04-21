@@ -18,7 +18,7 @@ const SignUp = (props: any) => {
 
     };
     const handleSignUp = (dataUser: IDataUser) => {
-        console.log(dataUser.email)
+
         props.action.authorization(dataUser.email, dataUser.password)
     };
 

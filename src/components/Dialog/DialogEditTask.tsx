@@ -30,7 +30,7 @@ function DialogEditTask(props: any) {
 
     const handleSave = () => {
         onHide()
-        console.log('become bloger')
+
     }
 
     const data = {

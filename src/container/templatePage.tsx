@@ -3,7 +3,7 @@ import {useParams} from "react-router";
 import AvatarUser from "../components/pageShablons/AvatarUser";
 import CoverContent from "../components/pageShablons/CoverContent";
 import AboutUserCard from "../components/pageShablons/AbountUserCard/AboutUserCard";
-import {TierSubscribe} from "../components/pageShablons/TierSubscribe/TierSubscribe";
+import TierSubscribe from "../components/pageShablons/TierSubscribe/TierSubscribe";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {Button, FormControl, Grid, Paper} from "@material-ui/core";
 import Tasks from "../components/pageShablons/Tasks/Tasks";
@@ -103,7 +103,6 @@ function TemplatePage(props: any) {
     useEffect(()=>{
         debugger
         props.dataBlog && setImageState(props.dataBlog.Background)
-        console.log(props.dataBlog)
     },[props.dataBlog])
 
     useEffect(()=>{
@@ -118,10 +117,7 @@ function TemplatePage(props: any) {
     }
 
     const handleChange = (event: any) => {
-
         const image = event.target.files[0];
-        console.log('q')
-
         handleUpload(image)
     }
 

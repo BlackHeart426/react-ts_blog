@@ -17,7 +17,6 @@ export const getDataBlogActionCreator = (nameBlog: string) => {
             .then((snapshot: any) => {
                 const dataBlog = snapshot.val()
                 dispatch({ type: SET_DATA_BLOG, payload: dataBlog });
-                console.log('response', dataBlog)
             })
             .catch(error => {
                 console.error('error',error)

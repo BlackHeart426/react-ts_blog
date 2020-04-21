@@ -85,10 +85,8 @@ function AuthorizationSignUp(props: any) {
             && email.trim()
             && password.trim()
             && passwordRepeat.trim()) {
-            console.log(errorForm, username, email, password, passwordRepeat)
             setIsButtonDisabled(false);
         } else {
-            console.log(errorForm, username, email, password, passwordRepeat)
             setIsButtonDisabled(true);
         }
     }, [username, password, email, passwordRepeat]);

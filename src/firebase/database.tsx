@@ -24,7 +24,7 @@ export function createPageBlogFireBase(pageBlog: string) {
                 Tasks: '',
                 About: '',
                 Description: { name: pageBlog},
-                LevelTier: '',
+                Tiers: '',
                 Background: '',
                 Posts: '',
         })

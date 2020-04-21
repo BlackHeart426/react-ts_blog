@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, Typography, Paper} from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
 import Link from "@material-ui/core/Link";
@@ -29,7 +29,7 @@ export const listLevels = [
     // },
 ]
 //editable: boolean
-export function TierSubscribe(props: any){
+function TierSubscribe(props: any){
     const {editable} =props
     return (
         <>
@@ -38,8 +38,8 @@ export function TierSubscribe(props: any){
                 <strong>TIER SUBSCRIBE</strong>
             </Typography>
             <Divider />
-            {listLevels.length > 0
-                ? listLevels.map((item:{name:string, cost: number, description: string, active: boolean}, index: number) => (
+            {props.dataBlog.length > 0
+                ? props.dataBlog.map((item:{name:string, cost: number, description: string, active: boolean}, index: number) => (
                 <div key={index}>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
@@ -81,7 +81,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog.dataBlog
+        dataBlog: state.blog.Tiers
     }
 }
 

@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
+    <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="dinamic state">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogAddPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAddPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogAddTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAddTask.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogAddTier.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAddTier.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogCreatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogCreatePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditPost.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditTask.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditTier.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditTier.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/TierSubscribe/TierSubscribe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/TierSubscribe/TierSubscribe.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLogin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationSignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationSignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/templatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/templatePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/database.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/database.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,14 +109,7 @@
       <workItem from="1587290895018" duration="11918000" />
       <workItem from="1587366225419" duration="31081000" />
       <workItem from="1587451855215" duration="3000" />
-      <workItem from="1587468551042" duration="5433000" />
-    </task>
-    <task id="LOCAL-00023" summary="login">
-      <created>1586366664427</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1586366664427</updated>
+      <workItem from="1587468551042" duration="9292000" />
     </task>
     <task id="LOCAL-00024" summary="auth">
       <created>1586426857289</created>
@@ -435,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587473804637</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="dinamic state">
+      <created>1587474384903</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1587474384903</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,10 +501,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587473803614">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587483827991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587473803614" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587483827991" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -514,18 +533,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="262" key="GridCell.Tab.0.right/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587106708209" />
-    <state x="756" y="231" key="RollbackChangesDialog" timestamp="1587470240938">
+    <state x="756" y="231" key="RollbackChangesDialog" timestamp="1587483163814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587470240938" />
+    <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587483163814" />
     <state x="765" y="224" key="VCS.ChangeListViewerDialog" timestamp="1587037576742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587473805821">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587474386650">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587473805821" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587474386650" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587369081876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -534,11 +553,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
-    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587402187392">
+    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587483460970">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
-    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587402187392" />
+    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587483460970" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

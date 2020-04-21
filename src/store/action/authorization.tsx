@@ -89,7 +89,7 @@ export const authorizationActionCreator = (email: string, password: string, isLo
         if (isLogin) {
             doSignInWithEmailAndPassword(email, password)
                 .then(function (firebaseUser: firebase.auth.UserCredential) {
-                    console.log(firebaseUser)
+
                     doAuthStateChange((dataUser: IUserData)=>{
                         dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
                         // dispatch(getBlogPageUserActionCreator(dataUser.userId))
@@ -101,7 +101,7 @@ export const authorizationActionCreator = (email: string, password: string, isLo
         } else {
             doCreateUserWithEmailAndPassword(email, password)
                 .then(function (firebaseUser: firebase.auth.UserCredential) {
-                    console.log(firebaseUser)
+
                     doAuthStateChange((dataUser: IUserData)=>{
                         dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
                         // dispatch(getBlogPageUserActionCreator())

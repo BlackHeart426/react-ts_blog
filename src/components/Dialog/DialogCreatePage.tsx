@@ -31,7 +31,7 @@ function DialogCreatePage(props: any) {
     const handleBecomeAuthor = () => {
         props.action.setMyPage(pageBlog)
         onHide()
-        console.log('become bloger')
+
     }
 
     const data = {

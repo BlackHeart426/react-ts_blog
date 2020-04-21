@@ -41,10 +41,10 @@ function DialogEditTask(props: any) {
 
     const handleSave = () => {
         onHide()
-        console.log('become bloger')
+
     }
     const handleChange = (value: any) => {
-        console.log(value.toString('html'))
+
         setValue({value});
         setHtml(value.toString('html'));
     };

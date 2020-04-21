@@ -1,5 +1,4 @@
 import {SET_DATA_BLOG, UPDATE_DATA_BLOG} from "../types";
-import {Avatar} from "@material-ui/core";
 
 const initialState = {
     About: {
@@ -14,7 +13,7 @@ const initialState = {
         name: '',
         about: ''
     },
-    LevelTier: [],
+    Tiers: [],
     Posts: [],
     Tasks: []
 }
@@ -32,12 +31,12 @@ export const blogReducer = (state:any = initialState, action: IAction) => {
                 Avatar: action.payload.Avatar,
                 Background: action.payload.Background,
                 Description: action.payload.Description,
-                LevelTier: action.payload.LevelTier,
+                Tiers: action.payload.Tiers,
                 Posts: action.payload.Posts,
                 Tasks: action.payload.Tasks,
             }
         case UPDATE_DATA_BLOG:
-            return {...state, [action.payload.name]: action.payload.value}
+            return {...state, [action.payload.name]: action.payload.value} //Todo переписать
         default:
             return state
     }

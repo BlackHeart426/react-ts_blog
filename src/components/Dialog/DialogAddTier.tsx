@@ -57,6 +57,11 @@ export const exampleCategories = {
     ]
 }
 
+const initialCategories = {
+    data: exampleCategories.total,
+    name: 'total'
+}
+
 function DialogAddTier(props: any) {
     const {show, onHide} = props;
     const [dialogOpened, setDialogOpened] = useState(false);
@@ -65,8 +70,7 @@ function DialogAddTier(props: any) {
     const [description, setDescription] = useState('');
     const [pageBlog, setPageBlog] = useState('');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-    const [categoriesList, setCategoriesList] = useState(exampleCategories.total)
-    const [categories, setCategories] = useState('total')
+    const [categories, setCategories] = useState(initialCategories)
 
     useEffect(()=>{
         setDialogOpened(show)
@@ -82,14 +86,14 @@ function DialogAddTier(props: any) {
 
     const handleAddTier = () => {
         onHide()
-        console.log('become bloger')
+
     }
 
     const handleChangeCategories = (event: any) => {
-        event.target.value === 'total' && setCategoriesList(exampleCategories.total) && setCategories('total')
-        event.target.value === 'blog' && setCategoriesList(exampleCategories.blog) && setCategories('blog')
-        event.target.value === 'videos' && setCategoriesList(exampleCategories.videos) && setCategories('videos')
-        console.log(event.target.value)
+        event.target.value === 'total' && setCategories( {...categories, data: exampleCategories.total, name: 'total'}) //&& setCategories('total')
+        event.target.value === 'blog' && setCategories( {...categories, data: exampleCategories.blog, name: 'blog'}) //&& setCategories('blog')
+        event.target.value === 'videos' && setCategories( {...categories, data: exampleCategories.videos, name: 'videos'})// && setCategories('videos')
+
     }
 
     const data = {
@@ -179,7 +183,7 @@ function DialogAddTier(props: any) {
                     // style={{height: 40}}
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
-                    value={categories}
+                    value={categories.name}
                     // value={age}
                     onChange={handleChangeCategories}
                 >
@@ -190,7 +194,7 @@ function DialogAddTier(props: any) {
             </FormControl>
             <div style={{height: 375, background: grey[200]}}>
                 <div style={{height: '100%', overflow: "auto", marginTop: 10, marginRight: 15}}>
-                    {categoriesList.map((item: any, index: number) =>
+                    {categories.data.map((item: any, index: number) =>
                         <Paper elevation={0} style={{margin: 15, marginRight: 0, marginTop: 5, marginBottom: 30}} key={index}>
                             <div style={{padding: 15}}>
                                 <Typography style={{marginBottom: 5}} component="p" align={"left"}>

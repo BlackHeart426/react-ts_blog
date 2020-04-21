@@ -50,7 +50,7 @@ function DialogAddTask(props: any) {
 
     const handleAddTier = () => {
         onHide()
-        console.log('become bloger')
+
     }
 
     const handleSelectTask = (name: string) => {

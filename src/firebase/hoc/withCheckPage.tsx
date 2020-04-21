@@ -39,14 +39,12 @@ export const withCheckPage = (Component: any) => {
                 })
                 .catch(error => {
                     this.setState(() => ({ existBlog: false }));
-                    console.error('error',error)
                 })
 
         }
 
         public render() {
             const { existBlog } = this.state;
-            console.log(existBlog)
             if(existBlog === null) {
                  return <Loading open={true}/>
             } else {

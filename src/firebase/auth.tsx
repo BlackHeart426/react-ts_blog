@@ -97,7 +97,6 @@ export const doPasswordUpdate = async (password: string) => {
 export const doAuthStateChange = async (cb: any) => {
     auth.onAuthStateChanged(function (user: User | null) {
         if (user) {
-            console.log(user)
             const uid = user.uid
             const email = user.email;
             const expiresIn:any = user.metadata.lastSignInTime;

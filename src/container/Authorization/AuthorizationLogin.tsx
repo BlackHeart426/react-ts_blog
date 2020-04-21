@@ -55,7 +55,6 @@ function AuthorizationLogin(props: any) {
     };
 
     useEffect(() => {
-        console.log(errorForm, email, password)
         if (!errorForm.email.status
             && !errorForm.password.status
             && email.trim() && password.trim()) {

@@ -33,8 +33,6 @@ function CoverContent(props: any) {
 
     const handleSaveData = (e: any) => {
         setValue(e.currentTarget.value)
-        console.log(e.currentTarget.value)
-        console.log(e.currentTarget.name)
         const value = {
             name: userId,
             about: e.currentTarget.value
