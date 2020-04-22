@@ -23,6 +23,7 @@ import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import WebIcon from '@material-ui/icons/Web';
 import {Divider} from "semantic-ui-react";
 import CreditCardIcon from '@material-ui/icons/CreditCard';
+import {PROFILE, SETTINGS} from "../../constants/routes";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -54,6 +55,12 @@ function Navbar(props: any) {
     const handleOpenMyBlog = () => {
         history.push("/"+props.pageCurrentUser)
     };
+    const handleOpenIncome = () => {
+        history.push(PROFILE)
+    };
+    const handleOpenSettings = () => {
+        history.push(SETTINGS)
+    };
 
     const handleDrawerOpen = () => {
         props.action.openingDrawer(true)
@@ -81,13 +88,13 @@ function Navbar(props: any) {
                 </ListItemIcon>
                 <Typography variant="inherit">My page</Typography>
             </MenuItem>
-            <MenuItem onClick={handleMenuClose}>
+            <MenuItem onClick={handleOpenIncome}>
                 <ListItemIcon className={classes.menuIcons}>
                     <AccountBalanceWalletIcon fontSize="small" />
                 </ListItemIcon>
                 <Typography variant="inherit">My income</Typography>
             </MenuItem>
-            <MenuItem onClick={handleMenuClose}>
+            <MenuItem onClick={handleOpenSettings}>
                 <ListItemIcon className={classes.menuIcons}>
                     <SettingsIcon fontSize="small" />
                 </ListItemIcon>

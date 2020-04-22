@@ -7,7 +7,12 @@ import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/cor
 import {green, grey, orange} from "@material-ui/core/colors";
 import TemplatePage from './container/templatePage';
 import {createStyles} from "@material-ui/core/styles";
-import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './constants/routes';
+import {
+  HOME,
+  PAGE_BLOG,
+  SETTINGS,
+  PROFILE
+} from './constants/routes';
 import {NonFound} from "./page/NonFound";
 import {Home} from "./page/Home";
 import {Settings} from "./container/Settings/settingsContainer";
@@ -66,13 +71,13 @@ const App: React.FC = (props: any) => {
           <Route exact path={HOME} component={Home}/>
           <Route exact path={PAGE_BLOG} component={TemplatePage}/>
           <Route exact path={SETTINGS} component={Settings}/>
-            <Route exact path={SETTINGS_SUBSCRIBERS} component={Settings}/>
-            <Route exact path={SETTINGS_NOTIFICATIONS} component={Settings}/>
-            <Route exact path={SETTINGS_APPS} component={Settings}/>
-          <Route exact path={STATISTICS} component={Profile}/>
-            <Route exact path={SUBSCRIBERS} component={Profile}/>
-            <Route exact path={WITHDRAWAL_METHODS} component={Profile}/>
-            <Route exact path={PAYOUT_HISTORY} component={Profile}/>
+            {/*<Route exact path={SETTINGS_SUBSCRIBERS} component={Settings}/>*/}
+            {/*<Route exact path={SETTINGS_NOTIFICATIONS} component={Settings}/>*/}
+            {/*<Route exact path={SETTINGS_APPS} component={Settings}/>*/}
+          <Route exact path={PROFILE} component={Profile}/>
+            {/*<Route exact path={SUBSCRIBERS} component={Profile}/>*/}
+            {/*<Route exact path={WITHDRAWAL_METHODS} component={Profile}/>*/}
+            {/*<Route exact path={PAYOUT_HISTORY} component={Profile}/>*/}
             <Route component={NonFound}/>
         </Switch>
       </div>
