@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Card, CardContent, Divider, Grid, IconButton, Paper, Typography} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -21,6 +21,13 @@ const useStyles = makeStyles((theme: Theme) =>
 function AboutUserCard(props: any){
     const {editable} = props
     const classes = useStyles()
+    const [value, setValue] = useState('')
+
+    useEffect(()=>{
+        console.log('props.dataBlog',props.dataBlog)
+        props.dataBlog && setValue(props.dataBlog)
+    },[props.dataBlog])
+
     return (
         <Paper elevation={0}  >
             <Grid container spacing={3} style={{margin: 0, marginRight: 20}}>
@@ -35,7 +42,7 @@ function AboutUserCard(props: any){
             <Divider />
             <CardContent>
                 <Typography component="p" className={classes.contentAbout}>
-                    Subscribers
+                    {value}
                 </Typography>
             </CardContent>
         </Paper>
@@ -46,7 +53,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog.dataBlog
+        dataBlog: state.blog.About
     }
 }
 

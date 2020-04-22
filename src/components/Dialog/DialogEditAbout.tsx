@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {CustomDialog} from "./CustomDialog";
-import {CardContent, Typography, Select, MenuItem, Paper} from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
 import {createPageActionCreator} from "../../store/action/currentUser";
-import {ToggleButton, ToggleButtonGroup} from "@material-ui/lab";
 import {makeStyles} from "@material-ui/core/styles";
-import MUIRichTextEditor from 'mui-rte'
 import RichTextEditor from 'react-rte';
+import {updateDataBlogActionCreator} from "../../store/action/blog";
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -17,45 +15,61 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function DialogEditTask(props: any) {
-    const classes = useStyles();
     const {show, onHide} = props;
     const [dialogOpened, setDialogOpened] = useState(false);
-    const [description, setDescription] = useState('');
-    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-    const [formats, setFormats] = React.useState(() => ['bold']);
-    const [value, setValue] = React.useState({value: RichTextEditor.createEmptyValue()})
-    const [html, setHtml] = React.useState('')
+    // const [value, setValue] = React.useState({value: RichTextEditor.createEmptyValue()})
+    const [description, setDescription] = React.useState('')
+    // const [html, setHtml] = React.useState('')
 
 
     useEffect(()=>{
         setDialogOpened(show)
+        console.log(props.dataBlog)
+        setDescription(props.dataBlog)
+        // setValue(props.dataBlog)
     },[show])
+    // useEffect(() => {
+    //     if (description.trim()){
+    //         setIsButtonDisabled(false);
+    //     } else {
+    //         setIsButtonDisabled(true);
+    //     }
+    // }, [description]);
 
-    useEffect(() => {
-        if (html.trim()){
-            setIsButtonDisabled(false);
-        } else {
-            setIsButtonDisabled(true);
-        }
-    }, [html]);
 
     const handleSave = () => {
         onHide()
-
+        props.action.updateDataBlog('About', description)
     }
-    const handleChange = (value: any) => {
-
-        setValue({value});
-        setHtml(value.toString('html'));
-    };
+    // const handleChange = (value: any) => {
+    //
+    //     // setValue({value});
+    //     console.log(value)
+    //     setHtml(value.toString('html'));
+    // };
 
     const data = {
         title: 'About Author',
         content:
             <div>
-                <RichTextEditor
-                    value={value.value}
-                    onChange={handleChange}
+                {/*<RichTextEditor*/}
+                {/*    value={value.value}*/}
+                {/*    onChange={handleChange}*/}
+                {/*/>*/}
+                <TextField
+                    variant="outlined"
+                    style={{marginTop: 5}}
+                    fullWidth
+                    multiline
+                    rows={8}
+                    value={description}
+                    id="description"
+                    name="Description"
+                    type="text"
+                    placeholder={"Enter description"}
+                    margin="normal"
+                    onChange={(e) => setDescription(e.target.value)}
+                    // onKeyPress={(e)=>handleKeyPress(e)}
                 />
             </div>,
         action:
@@ -66,8 +80,7 @@ function DialogEditTask(props: any) {
                     disableElevation
                     color="primary"
                     // className={classes.loginBtn}
-                    onClick={handleSave}
-                    disabled={isButtonDisabled}>
+                    onClick={handleSave}>
                     save
                 </Button>
             </>
@@ -78,12 +91,19 @@ function DialogEditTask(props: any) {
     )
 }
 
+function mapStateToProps(state: any) {
+    return {
+        dataBlog: state.blog.About
+    }
+}
+
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+            updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value))
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(DialogEditTask)
+export default connect(mapStateToProps, mapDispatchToProps)(DialogEditTask)

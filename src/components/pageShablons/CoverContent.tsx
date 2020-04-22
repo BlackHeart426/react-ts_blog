@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Typography, InputBase, InputAdornment} from "@material-ui/core";
+import {Typography, InputBase, InputAdornment, Input} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import EditIcon from '@material-ui/icons/Edit';
 import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../../store/action/blog";
@@ -48,20 +48,21 @@ function CoverContent(props: any) {
                     : <Skeleton variant="text" width={100}/>
                 }
             </Typography>
-            {/*{editable*/}
-            {/*    ?*/}
-            {/*    <InputBase*/}
-            {/*    style={{color: '#fff', fontSize: 25, width: '60%'}}*/}
-            {/*    endAdornment={<EditIcon/>}*/}
-            {/*    onChange={handleSaveData}*/}
-            {/*    fullWidth*/}
-            {/*    value={value}*/}
-            {/*    name={'Description'}*/}
-            {/*    inputProps={{'aria-label': 'naked'}}/>*/}
-            {/*    : <Typography gutterBottom variant="h5" component="h2">*/}
-            {/*        {props.dataBlogDescription.about}*/}
-            {/*    </Typography>*/}
-            {/*}*/}
+            {editable
+                ?
+                <Input
+                style={{color: '#fff', fontSize: 25, width: '60%'}}
+                endAdornment={<EditIcon/>}
+                onChange={handleSaveData}
+                fullWidth
+                color={"secondary"}
+                value={value}
+                name={'Description'}
+                inputProps={{'aria-label': 'naked'}}/>
+                : <Typography gutterBottom variant="h5" component="h2">
+                    {props.dataBlogDescription.about}
+                </Typography>
+            }
         </div>
     )
 }

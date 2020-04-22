@@ -1,10 +1,7 @@
 import {SET_DATA_BLOG, UPDATE_DATA_BLOG, ADD_DATA_BLOG, REMOVE_DATA_BLOG, UPDATE_ARRAY_DATA_BLOG} from "../types";
 
 const initialState = {
-    About: {
-        title: '',
-        description: ''
-    },
+    About: '',
     Avatar: {
         image: ''
     },

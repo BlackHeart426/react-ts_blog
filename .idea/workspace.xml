@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Button/PromptButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/FacebookButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/FacebookButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/GoogleButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/GoogleButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/InstagramButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/InstagramButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/MailButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/MailButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/OkButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/OkButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/TwitterButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/TwitterButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/VkButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/VkButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/YoutubeButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/YoutubeButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogAddTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAddTask.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditTask.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditTier.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditTier.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Tasks/EditTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Tasks/EditTask.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Tasks/Tasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Tasks/Tasks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLeftSide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationLeftSide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AbountUserCard/AboutUserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AbountUserCard/AboutUserCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/CoverContent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,21 +94,7 @@
       <workItem from="1587451855215" duration="3000" />
       <workItem from="1587468551042" duration="13668000" />
       <workItem from="1587540372452" duration="9053000" />
-      <workItem from="1587554388731" duration="4058000" />
-    </task>
-    <task id="LOCAL-00026" summary="auto login">
-      <created>1586440034457</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1586440034458</updated>
-    </task>
-    <task id="LOCAL-00027" summary="validate">
-      <created>1586444400660</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1586444400660</updated>
+      <workItem from="1587554388731" duration="6383000" />
     </task>
     <task id="LOCAL-00028" summary="login">
       <created>1586449149234</created>
@@ -453,15 +425,27 @@
       <option name="project" value="LOCAL" />
       <updated>1587550742278</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="PromptButton.tsx">
+      <created>1587558602005</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1587558602006</updated>
+    </task>
+    <task id="LOCAL-00076" summary="task">
+      <created>1587558618606</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1587558618606</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="action Posts" />
-    <MESSAGE value="css" />
     <MESSAGE value="blog" />
     <MESSAGE value="loading" />
     <MESSAGE value="create page" />
@@ -485,7 +469,9 @@
     <MESSAGE value="dinamic state" />
     <MESSAGE value="state" />
     <MESSAGE value="add edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="add edit" />
+    <MESSAGE value="PromptButton.tsx" />
+    <MESSAGE value="task" />
+    <option name="LAST_COMMIT_MESSAGE" value="task" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -500,10 +486,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587558601031">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587558617877">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587558601031" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587558617877" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -540,10 +526,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587558604069">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587558619951">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587558604069" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587558619951" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587557480293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -552,11 +538,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1586880209616" />
-    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587484412823">
+    <state x="511" y="357" width="842" height="606" key="find.popup" timestamp="1587560237069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
-    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587484412823" />
+    <state x="511" y="357" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587560237069" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
