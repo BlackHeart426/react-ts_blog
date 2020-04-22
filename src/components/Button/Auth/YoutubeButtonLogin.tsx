@@ -1,5 +1,5 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
+import {SocialButtonStyle} from "../SocialButtonStyle";
 import {blue, red} from "@material-ui/core/colors";
 import YouTubeIcon from '@material-ui/icons/YouTube';
 

@@ -6,7 +6,8 @@ import DialogEditTier from "../../Dialog/DialogEditTier";
 import Link from "@material-ui/core/Link";
 import DialogEditTask from "../../Dialog/DialogEditTask";
 
-export function EditTask() {
+export function EditTask(props: any) {
+    const {uuid} = props
     const [dialogOpened, setDialogOpened] = useState(false);
 
     const handleOpeningDialog = () => {
@@ -23,6 +24,7 @@ export function EditTask() {
                 </Typography>
                 <DialogEditTask
                     show={ dialogOpened }
+                    uuid={uuid}
                     onHide={ () => setDialogOpened(false)}
                 />
             </FormControl>

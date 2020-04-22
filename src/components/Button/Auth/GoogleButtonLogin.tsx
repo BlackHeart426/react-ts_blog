@@ -1,9 +1,9 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
+import {SocialButtonStyle} from "../SocialButtonStyle";
 import {blue, grey} from "@material-ui/core/colors";
 import { Icon, InlineIcon } from '@iconify/react';
 import googleIcon from '@iconify/icons-flat-color-icons/google';
-import {authorizationGoogleActionCreator} from "../../store/action/authorization";
+import {authorizationGoogleActionCreator} from "../../../store/action/authorization";
 import {connect} from "react-redux";
 
 function GoogleButtonLogin(props: any) {

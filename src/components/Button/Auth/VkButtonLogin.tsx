@@ -1,12 +1,12 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
+import {SocialButtonStyle} from "../SocialButtonStyle";
 import {blue} from "@material-ui/core/colors";
 import Icon36LogoVk from '@vkontakte/icons/dist/36/logo_vk';
 import {
     authorizationActionCreator,
     authorizationGoogleActionCreator,
     authorizationVkActionCreator
-} from "../../store/action/authorization";
+} from "../../../store/action/authorization";
 import {connect} from "react-redux";
 
 function VkButtonLogin(props: any) {

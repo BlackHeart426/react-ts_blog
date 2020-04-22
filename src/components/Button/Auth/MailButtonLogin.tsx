@@ -1,12 +1,12 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
-import { Icon, InlineIcon } from '@iconify/react';
-import odnoklassnikiIcon from '@iconify/icons-cib/odnoklassniki';
+import {SocialButtonStyle} from "../SocialButtonStyle";
+import {blue} from "@material-ui/core/colors";
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 
-export function OkButtonLogin(props: any) {
-    const colorButton =  '#f2720c'
-    const colorButtonHover =  '#cb5f09'
-    const icon = <Icon width={36} height={36} icon={odnoklassnikiIcon} color={'white'}/>
+export function MailButtonLogin(props: any) {
+    const colorButton =  '#005ff9'
+    const colorButtonHover =  '#054bbb'
+    const icon = <AlternateEmailIcon  fontSize="large"/>
 
     const handleConnection = (name: any) => {
         console.log(name)

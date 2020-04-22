@@ -10,6 +10,8 @@ import {grey, red} from "@material-ui/core/colors";
 import GroupIcon from '@material-ui/icons/Group';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import {addDataBlogActionCreator} from "../../store/action/blog";
+import shortid from "shortid";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,7 +33,6 @@ function DialogAddTask(props: any) {
     const classes = useStyles();
     const [dialogOpened, setDialogOpened] = useState(false);
     const [name, setName] = useState('');
-    const [cost, setCost] = useState('');
     const [description, setDescription] = useState('');
     const [task, setTask] = useState('money');
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -41,16 +42,22 @@ function DialogAddTask(props: any) {
     },[show])
 
     useEffect(() => {
-        if (name.trim() && cost.trim() && description.trim()){
+        if (name.trim() && description.trim()){
             setIsButtonDisabled(false);
         } else {
             setIsButtonDisabled(true);
         }
-    }, [name, cost, description]);
+    }, [name, description]);
 
-    const handleAddTier = () => {
+    const handleAddTask = () => {
         onHide()
-
+        const dataTier = {
+            uuid: shortid.generate(),
+            name,
+            description,
+            task
+        }
+        props.action.addDataBlog('Tasks', dataTier)
     }
 
     const handleSelectTask = (name: string) => {
@@ -149,7 +156,7 @@ function DialogAddTask(props: any) {
                     size="large"
                     color="primary"
                     // className={classes.loginBtn}
-                    onClick={handleAddTier}
+                    onClick={handleAddTask}
                     disabled={isButtonDisabled}>
                     Add tier
                 </Button>
@@ -165,6 +172,7 @@ function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+            addDataBlog: (nameColumn: string, value: any) => dispatch(addDataBlogActionCreator(nameColumn, value, true))
         }
     }
 }

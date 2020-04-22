@@ -1,12 +1,12 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
-import {blue} from "@material-ui/core/colors";
-import FacebookIcon from '@material-ui/icons/Facebook';
+import {SocialButtonStyle} from "../SocialButtonStyle";
+import { Icon, InlineIcon } from '@iconify/react';
+import odnoklassnikiIcon from '@iconify/icons-cib/odnoklassniki';
 
-export function FacebookButtonLogin(props: any) {
-    const colorButton =  '#4267b2'
-    const colorButtonHover =  '#385898'
-    const icon = <FacebookIcon  fontSize="large"/>
+export function OkButtonLogin(props: any) {
+    const colorButton =  '#f2720c'
+    const colorButtonHover =  '#cb5f09'
+    const icon = <Icon width={36} height={36} icon={odnoklassnikiIcon} color={'white'}/>
 
     const handleConnection = (name: any) => {
         console.log(name)

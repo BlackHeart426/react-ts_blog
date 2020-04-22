@@ -20,6 +20,7 @@ import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
 import {AddTasks} from "./AddTasks";
 import {EditTask} from "./EditTask";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -36,30 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
-
-export const listTasks = [
-    {
-        cost: "0 of 500",
-        name: 'платных подписчиков',
-        description: "Access to the show ",
-        active: true
-    },
-    {
-        cost: "0 of 500 ₽",
-        name: "собрано",
-        description: "All videos",
-        active: false
-    },
-    {
-        cost: "0 of 500 ₽",
-        name: "собрано",
-        description: "All videos",
-        active: false
-    }
-]
-
-
-//editable: boolean
 function Tasks (props: any) {
     const {editable} =props
     const classes = useStyles()
@@ -80,15 +57,13 @@ function Tasks (props: any) {
                 <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
                     <strong>TASKS</strong>
                 </Typography>
-
-                {listTasks.map((item:{name: string, cost: string, description: string, active: boolean}, index: number) => (
+                {props.dataBlog
+                    ? Object.values(props.dataBlog).map((item:any, index: number) => (
                     <div key={index}>
                         <Divider />
                         <CardContent style={{paddingTop: 10, paddingBottom: 10}}>
                             <div className={classes.content}>
-                                <Typography >
-                                    {item.cost} {item.name}
-                                </Typography>
+                                <strong>0 of {item.name} </strong> {item.task}
                             </div>
                             <div className={classes.content}>
                                 <BorderLinearProgress
@@ -104,13 +79,17 @@ function Tasks (props: any) {
                                 </Typography>
                             </div>
                             {editable && <div className={classes.content}>
-                               <EditTask/>
+                               <EditTask uuid={item.uuid}/>
                             </div>}
                         </CardContent>
 
                     </div>
 
-                ))}
+                ))
+                    :  <CardContent>
+                        <Skeleton variant="rect" width={'100%'} height={168} />
+                    </CardContent>
+                }
                 <CardActions>
                     {!editable
                        && <FormControl fullWidth >
@@ -135,7 +114,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog.dataBlog
+        dataBlog: state.blog.Tasks
     }
 }
 

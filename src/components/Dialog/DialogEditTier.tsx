@@ -13,6 +13,7 @@ import {
     updateDataBlogActionCreator
 } from "../../store/action/blog";
 import shortid from "shortid";
+import {PromptButton} from "../Button/PromptButton";
 
 const initialState = {
     name: '',
@@ -141,15 +142,7 @@ function DialogEditTier(props: any) {
                     disabled={isButtonDisabled}>
                     save
                 </Button>
-                <Button
-                    variant="outlined"
-                    disableElevation
-                    size="large"
-                    color="primary"
-                    // className={classes.loginBtn}
-                    onClick={handleRemoveTier}>
-                    remove tier
-                </Button>
+                <PromptButton name={"Remove tier"} onAccept={() => handleRemoveTier()}/>
             </>
     }
 

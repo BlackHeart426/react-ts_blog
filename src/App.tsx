@@ -4,7 +4,7 @@ import  Navbar  from './components/Navbar/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import TemporaryDrawer from "./components/Drawer/Drawer";
 import {makeStyles, Theme, createMuiTheme, ThemeProvider} from '@material-ui/core';
-import {grey, orange} from "@material-ui/core/colors";
+import {green, grey, orange} from "@material-ui/core/colors";
 import TemplatePage from './container/templatePage';
 import {createStyles} from "@material-ui/core/styles";
 import {HOME, PAGE_BLOG, SETTINGS, SETTINGS_SUBSCRIBERS, SETTINGS_NOTIFICATIONS, SETTINGS_APPS, STATISTICS, SUBSCRIBERS, WITHDRAWAL_METHODS, PAYOUT_HISTORY} from './constants/routes';

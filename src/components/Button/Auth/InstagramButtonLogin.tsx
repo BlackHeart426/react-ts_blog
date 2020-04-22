@@ -1,5 +1,5 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
+import {SocialButtonStyle} from "../SocialButtonStyle";
 import {blue} from "@material-ui/core/colors";
 import InstagramIcon from '@material-ui/icons/Instagram';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";

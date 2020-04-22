@@ -39,15 +39,19 @@ export const blogReducer = (state:any = initialState, action: IAction) => {
             return {...state, [action.payload.name]: action.payload.value} //Todo переписать
         case UPDATE_ARRAY_DATA_BLOG:
             return {...state, [action.payload.name]: Object.values(state[action.payload.name]).map((item: any, index: number) => {
-                if(item.uuid === action.payload.uuid){
-                    item = action.payload.value
-                }
-                return item
+                    if(item.uuid === action.payload.uuid){
+                        item = action.payload.value
+                    }
+                    return item
                 })}
         case ADD_DATA_BLOG:
             return {...state, [action.payload.name]: Object.values(state[action.payload.name]).concat(action.payload.value)} //Todo переписать
         case REMOVE_DATA_BLOG:
-            return {...state, [action.payload.name]: Object.values(state[action.payload.name]).filter(item => console.log(item))}
+            return {...state, [action.payload.name]: Object.values(state[action.payload.name]).filter((item: any) => {
+                    if(item.uuid !== action.payload.uuid) {
+                        return item
+                    }
+                })}
         default:
             return state
     }

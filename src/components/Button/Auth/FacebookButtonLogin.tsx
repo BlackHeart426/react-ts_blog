@@ -1,12 +1,12 @@
 import React from "react";
-import {SocialButtonStyle} from "./SocialButtonStyle";
+import {SocialButtonStyle} from "../SocialButtonStyle";
 import {blue} from "@material-ui/core/colors";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from '@material-ui/icons/Facebook';
 
-export function TwitterButtonLogin(props: any) {
-    const colorButton =  blue[500]
-    const colorButtonHover =  blue[700]
-    const icon = <TwitterIcon  fontSize="large"/>
+export function FacebookButtonLogin(props: any) {
+    const colorButton =  '#4267b2'
+    const colorButtonHover =  '#385898'
+    const icon = <FacebookIcon  fontSize="large"/>
 
     const handleConnection = (name: any) => {
         console.log(name)
