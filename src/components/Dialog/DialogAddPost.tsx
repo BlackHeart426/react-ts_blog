@@ -147,12 +147,14 @@ function DialogAddPost(props: any) {
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}
+                    disableElevation
                     disabled={isButtonDisabled}>
                     save
                 </Button>
                 <Button
                     variant="outlined"
                     size="large"
+                    disableElevation
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}>

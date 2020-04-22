@@ -147,6 +147,7 @@ function DialogEditPost(props: any) {
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}
+                    disableElevation
                     disabled={isButtonDisabled}>
                     save
                 </Button>
@@ -155,6 +156,7 @@ function DialogEditPost(props: any) {
                     size="large"
                     color="primary"
                     // className={classes.loginBtn}
+                    disableElevation
                     onClick={handleSave}>
                     remove tier
                 </Button>

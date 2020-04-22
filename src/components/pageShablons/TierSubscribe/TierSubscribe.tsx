@@ -14,7 +14,7 @@ function TierSubscribe(props: any){
                 <strong>TIER SUBSCRIBE</strong>
             </Typography>
             <Divider />
-            {Object.values(props.dataBlog).length > 0
+            {props.dataBlog
                 ? Object.values(props.dataBlog).map((item:any, index: number) => (
                 <div key={index}>
                     <CardContent>
@@ -28,7 +28,7 @@ function TierSubscribe(props: any){
                             {item.description}
                         </Typography>
                             {editable
-                                ?  <EditTier/>
+                                ?  <EditTier uuid={item.uuid}/>
                                 :
                                 <FormControl fullWidth >
                                 <Button

@@ -5,7 +5,8 @@ import DialogCreatePage from "../../Dialog/DialogCreatePage";
 import DialogEditTier from "../../Dialog/DialogEditTier";
 import Link from "@material-ui/core/Link";
 
-export function EditTier() {
+export function EditTier(props: any) {
+    const {uuid} = props
     const [dialogOpened, setDialogOpened] = useState(false);
 
     const handleOpeningDialog = () => {
@@ -22,6 +23,7 @@ export function EditTier() {
                 </Typography>
                 <DialogEditTier
                     show={ dialogOpened }
+                    uuid={uuid}
                     onHide={ () => setDialogOpened(false)}
                 />
             </FormControl>

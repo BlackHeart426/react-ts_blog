@@ -7,34 +7,64 @@ import FormControl from "@material-ui/core/FormControl";
 import {connect} from "react-redux";
 import {createPageActionCreator} from "../../store/action/currentUser";
 import {grey} from "@material-ui/core/colors";
+import {
+    removeDataBlogActionCreator,
+    updateArrayDataBlogActionCreator,
+    updateDataBlogActionCreator
+} from "../../store/action/blog";
+import shortid from "shortid";
+
+const initialState = {
+    name: '',
+    cost: '',
+    description: ''
+}
+
+interface IState {
+    name: string,
+    cost: string,
+    description: string
+}
 
 function DialogEditTier(props: any) {
-    const {show, onHide} = props;
+    const {show, onHide, uuid} = props;
     const [dialogOpened, setDialogOpened] = useState(false);
-    const [name, setName] = useState('');
-    const [cost, setCost] = useState('');
-    const [description, setDescription] = useState('');
+    const [state, setState] = useState<IState>(initialState);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     useEffect(()=>{
         setDialogOpened(show)
+        const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuid)
+        console.log( data)
+        data && setState({...state, name: data.name, cost: data.cost, description: data.description})
     },[show])
 
     useEffect(() => {
-        if (name.trim() && cost.trim() && description.trim()){
+        if (state.name.trim() && state.cost.trim() && state.description.trim()){
             setIsButtonDisabled(false);
         } else {
             setIsButtonDisabled(true);
         }
-    }, [name, cost, description]);
+    }, [state.name, state.cost, state.description]);
 
     const handleSave = () => {
+        const dataTier = {
+            uuid,
+            name: state.name,
+            description: state.description,
+            cost: state.cost
+        }
         onHide()
+        props.action.updateDataBlog('Tiers', dataTier, uuid)
+    }
 
+    const handleRemoveTier = () => {
+        props.action.removeTier('Tiers', uuid)
+        onHide()
     }
 
     const data = {
-        title: 'Edit Task',
+        title: 'Edit Tier',
         content:
             <div>
                 <Typography variant="body2"  component="p">
@@ -46,11 +76,12 @@ function DialogEditTier(props: any) {
                     fullWidth
                     id="name"
                     name="name"
+                    value={state.name}
                     type="text"
                     size={"small"}
                     placeholder="Enter your name"
                     margin="normal"
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setState({...state, name: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography variant="body2"  component="p">
@@ -61,6 +92,7 @@ function DialogEditTier(props: any) {
                     style={{marginTop: 5}}
                     fullWidth
                     multiline
+                    value={state.description}
                     rows={8}
                     inputProps={{
                         maxLength: 150,
@@ -70,11 +102,11 @@ function DialogEditTier(props: any) {
                     type="text"
                     placeholder="Enter your description"
                     margin="normal"
-                    onChange={(e) => setDescription(e.target.value)}
+                    onChange={(e) => setState({...state, description: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography color="textSecondary" variant="body2"  component="p" align={"right"}>
-                    {description.length} / 150
+                    {state.description.length} / 150
                 </Typography>
                 <Typography variant="body2"  component="p">
                     The cost of a monthly subscription (in rubles)
@@ -88,11 +120,12 @@ function DialogEditTier(props: any) {
                     fullWidth
                     id="cost"
                     name="cost"
+                    value={state.cost}
                     type="number"
                     size={"small"}
                     placeholder="Cost"
                     margin="normal"
-                    onChange={(e) => setCost(e.target.value)}
+                    onChange={(e) => setState({...state, cost: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
             </div>,
@@ -101,6 +134,7 @@ function DialogEditTier(props: any) {
                 <Button
                     variant="contained"
                     size="large"
+                    disableElevation
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}
@@ -109,10 +143,11 @@ function DialogEditTier(props: any) {
                 </Button>
                 <Button
                     variant="outlined"
+                    disableElevation
                     size="large"
                     color="primary"
                     // className={classes.loginBtn}
-                    onClick={handleSave}>
+                    onClick={handleRemoveTier}>
                     remove tier
                 </Button>
             </>
@@ -123,12 +158,22 @@ function DialogEditTier(props: any) {
     )
 }
 
+
+function mapStateToProps(state: any) {
+    return {
+        dataBlog: state.blog.Tiers
+    }
+}
+
+
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+            removeTier: (name: string, uuid: string) => dispatch(removeDataBlogActionCreator(name, uuid)),
+            updateDataBlog: (nameColumn: string, value: any, uuid: string) => dispatch(updateArrayDataBlogActionCreator(nameColumn, value, uuid))
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(DialogEditTier)
+export default connect(mapStateToProps, mapDispatchToProps)(DialogEditTier)

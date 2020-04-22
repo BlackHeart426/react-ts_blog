@@ -87,6 +87,7 @@ function DialogAddTier(props: any) {
     const handleAddTier = () => {
         onHide()
         const dataTier = {
+                uuid: shortid.generate(),
                 name,
                 description,
                 cost
@@ -170,6 +171,7 @@ function DialogAddTier(props: any) {
                 <Button
                     variant="contained"
                     size="large"
+                    disableElevation
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleAddTier}

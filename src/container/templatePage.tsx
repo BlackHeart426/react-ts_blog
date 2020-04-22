@@ -101,7 +101,6 @@ function TemplatePage(props: any) {
     },[userId]);
 
     useEffect(()=>{
-        debugger
         props.dataBlog && setImageState(props.dataBlog.Background)
     },[props.dataBlog])
 

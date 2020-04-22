@@ -63,6 +63,7 @@ function DialogEditTask(props: any) {
                 <Button
                     variant="contained"
                     size="large"
+                    disableElevation
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}

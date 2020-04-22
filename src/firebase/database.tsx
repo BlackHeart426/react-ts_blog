@@ -14,6 +14,14 @@ export function updateBlogDataFireBase(nameBlog: string, nameColumn: string, val
             .child('dataBlock')
             .update({[nameColumn]: value})
 }
+export function updateArrayBlogDataFireBase(nameBlog: string, nameColumn: string, value: any, uuid: string) {
+        return database.ref('listBlog')
+            .child(nameBlog)
+            .child('dataBlock')
+            .child(nameColumn)
+            .child(uuid)
+            .update(value)
+}
 
 export function addRowBlogDataFireBase(nameBlog: string, nameColumn: string, value: any) {
         return database.ref('listBlog')
@@ -28,8 +36,17 @@ export function addArrayBlogDataFireBase(nameBlog: string, nameColumn: string, v
             .child(nameBlog)
             .child('dataBlock')
             .child(nameColumn)
-            .child(shortid.generate())
+            .child(value.uuid)
             .set(value)
+}
+
+export function removeArrayBlogDataFireBase(nameBlog: string, nameColumn: string, uuid: string) {
+        return database.ref('listBlog')
+            .child(nameBlog)
+            .child('dataBlock')
+            .child(nameColumn)
+            .child(uuid)
+            .remove()
 }
 
 export function createPageBlogFireBase(pageBlog: string) {

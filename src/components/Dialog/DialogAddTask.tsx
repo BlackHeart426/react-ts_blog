@@ -145,6 +145,7 @@ function DialogAddTask(props: any) {
             <FormControl fullWidth >
                 <Button
                     variant="contained"
+                    disableElevation
                     size="large"
                     color="primary"
                     // className={classes.loginBtn}

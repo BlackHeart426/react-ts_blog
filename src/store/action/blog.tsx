@@ -1,4 +1,11 @@
-import {ADD_DATA_BLOG, IS_AUTHENTICATED, SET_DATA_BLOG, UPDATE_DATA_BLOG} from "../types";
+import {
+    ADD_DATA_BLOG,
+    IS_AUTHENTICATED,
+    REMOVE_DATA_BLOG,
+    SET_DATA_BLOG,
+    UPDATE_ARRAY_DATA_BLOG,
+    UPDATE_DATA_BLOG
+} from "../types";
 import {
     doAuthStateChange,
     doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,
@@ -11,8 +18,9 @@ import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage
 import {
     addArrayBlogDataFireBase,
     addRowBlogDataFireBase,
-    getDataPageBlogFireBase,
-    updateBlogDataFireBase
+    getDataPageBlogFireBase, removeArrayBlogDataFireBase,
+    updateBlogDataFireBase,
+    updateArrayBlogDataFireBase
 } from "../../firebase/database";
 import cookie from "react-cookies";
 
@@ -29,12 +37,37 @@ export const getDataBlogActionCreator = (nameBlog: string) => {
     }
 }
 
+export const removeDataBlogActionCreator = (name: string, uuid: string) => {
+    const myPage = cookie.load('myPage')
+    return async (dispatch: any) => {
+        removeArrayBlogDataFireBase(myPage, name, uuid)
+            .then(
+                dispatch({type: REMOVE_DATA_BLOG, payload: {name, uuid}})
+            )
+            .catch(error => {
+                console.error(error)
+            })
+    }
+}
+
 export const updateDataBlogActionCreator = (name: string, value: any) => {
     const myPage = cookie.load('myPage')
     return async (dispatch: any) => {
         updateBlogDataFireBase(myPage, name, value)
             .then(response => {
                 dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
+            })
+            .catch(error => {
+                console.error('error',error)
+            })
+    }
+}
+export const updateArrayDataBlogActionCreator = (name: string, value: any, uuid: string) => {
+    const myPage = cookie.load('myPage')
+    return async (dispatch: any) => {
+        updateArrayBlogDataFireBase(myPage, name, value, uuid)
+            .then(response => {
+                dispatch({ type: UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
             })
             .catch(error => {
                 console.error('error',error)

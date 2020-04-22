@@ -75,6 +75,7 @@ function DialogCreatePage(props: any) {
                     variant="contained"
                     size="large"
                     color="primary"
+                    disableElevation
                     // className={classes.loginBtn}
                     onClick={handleBecomeAuthor}
                     disabled={isButtonDisabled}>

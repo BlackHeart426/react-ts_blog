@@ -48,20 +48,20 @@ function CoverContent(props: any) {
                     : <Skeleton variant="text" width={100}/>
                 }
             </Typography>
-            {editable
-                ?
-                <InputBase
-                style={{color: '#fff', fontSize: 25, width: '60%'}}
-                endAdornment={<EditIcon/>}
-                onChange={handleSaveData}
-                fullWidth
-                value={value}
-                name={'Description'}
-                inputProps={{'aria-label': 'naked'}}/>
-                : <Typography gutterBottom variant="h5" component="h2">
-                    {props.dataBlogDescription.about}
-                </Typography>
-            }
+            {/*{editable*/}
+            {/*    ?*/}
+            {/*    <InputBase*/}
+            {/*    style={{color: '#fff', fontSize: 25, width: '60%'}}*/}
+            {/*    endAdornment={<EditIcon/>}*/}
+            {/*    onChange={handleSaveData}*/}
+            {/*    fullWidth*/}
+            {/*    value={value}*/}
+            {/*    name={'Description'}*/}
+            {/*    inputProps={{'aria-label': 'naked'}}/>*/}
+            {/*    : <Typography gutterBottom variant="h5" component="h2">*/}
+            {/*        {props.dataBlogDescription.about}*/}
+            {/*    </Typography>*/}
+            {/*}*/}
         </div>
     )
 }

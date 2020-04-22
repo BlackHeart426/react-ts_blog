@@ -34,7 +34,7 @@ function DialogEditTask(props: any) {
     }
 
     const data = {
-        title: 'Edit Subscription Tier',
+        title: 'Edit Subscription Task',
         content:
             <div>
                 <Typography variant="body2"  component="p">
@@ -80,6 +80,7 @@ function DialogEditTask(props: any) {
                 <Button
                     variant="contained"
                     size="large"
+                    disableElevation
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}
@@ -89,6 +90,7 @@ function DialogEditTask(props: any) {
                 <Button
                     variant="outlined"
                     size="large"
+                    disableElevation
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}>
