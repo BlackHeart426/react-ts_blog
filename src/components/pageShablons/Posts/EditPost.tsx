@@ -4,9 +4,9 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import DialogEditAbout from "../../Dialog/DialogEditAbout";
 import DialogEditPost from "../../Dialog/DialogEditPost";
 
-export function EditPost() {
+export function EditPost(props: any) {
     const [dialogOpened, setDialogOpened] = useState(false);
-
+    const {uuid} = props
     const handleOpeningDialog = () => {
         setDialogOpened(true)
     }
@@ -21,6 +21,7 @@ export function EditPost() {
                 <SettingsIcon/>
             </IconButton>
             <DialogEditPost
+                uuid={uuid}
                 show={ dialogOpened }
                 onHide={ () => setDialogOpened(false)}
             />

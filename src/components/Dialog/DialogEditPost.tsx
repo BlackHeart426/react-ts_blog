@@ -8,9 +8,31 @@ import {connect} from "react-redux";
 import {createPageActionCreator} from "../../store/action/currentUser";
 import {grey} from "@material-ui/core/colors";
 import RichTextEditor from "react-rte";
+import {PromptButton} from "../Button/PromptButton";
+import shortid from "shortid";
+import moment from "moment";
+import {removeDataBlogActionCreator, updateArrayDataBlogActionCreator} from "../../store/action/blog";
+
+const initialState = {
+    name: '',
+    description: '',
+    available: 'all',
+    comments: 'allowed',
+    visible: '',
+    teaser: ''
+}
+
+interface IState {
+    name: string,
+    description: string,
+    available: string,
+    comments: string,
+    visible: any,
+    teaser: string
+}
 
 function DialogEditPost(props: any) {
-    const {show, onHide} = props;
+    const {show, onHide, uuid} = props;
     const [dialogOpened, setDialogOpened] = useState(false);
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -18,9 +40,22 @@ function DialogEditPost(props: any) {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [value, setValue] = React.useState({value: RichTextEditor.createEmptyValue()})
     const [html, setHtml] = React.useState('')
+    const [state, setState] = useState<IState>(initialState)
 
     useEffect(()=>{
         setDialogOpened(show)
+        const data: any = Object.values(props.dataBlog.Posts).find((item: any, index) => item.uuid === uuid)
+        console.log( data)
+        console.log( Object.values(props.dataBlog))
+        console.log( uuid)
+        data && setState({...state,
+            name: data.name,
+            available: data.available,
+            comments: data.comments,
+            visible: data.visible,
+            teaser: data.teaser,
+            description: data.description
+        })
     },[show])
 
     useEffect(() => {
@@ -33,14 +68,39 @@ function DialogEditPost(props: any) {
 
     const handleSave = () => {
         onHide()
-
+        const dataPost = {
+            uuid: shortid.generate(),
+            createPost: moment().format('DD MMMM  YYYY, h:mm'),
+            name: state.name,
+            description: state.description,
+            teaser: state.teaser,
+            available: state.available,
+            comments: state.comments,
+            visible: state.visible,
+        }
+        props.action.addDataBlog('Posts', dataPost)
     }
-
     const handleChange = (value: any) => {
 
         setValue({value});
         setHtml(value.toString('html'));
     };
+
+    const handleRemovePost = () => {
+        props.action.removePost('Posts', uuid)
+        onHide()
+    }
+
+    const handleChangeAvailable = (event: any) => {
+        setState({...state, available: event.target.value})
+    }
+    const handleChangeComment = (event: any) => {
+        setState({...state, comments: event.target.value})
+    }
+
+    const handleChangeWhoSee = (event: any) => {
+        setState({...state, visible: event.target.value})
+    }
 
     const data = {
         title: 'Edit Post',
@@ -59,15 +119,26 @@ function DialogEditPost(props: any) {
                     size={"small"}
                     placeholder="Enter your name"
                     margin="normal"
-                    onChange={(e) => setName(e.target.value)}
+                    value={state.name}
+                    onChange={(e) => setState({...state, name: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography variant="body2" style={{marginTop: 10}}  component="p">
                     <strong>Main text</strong>
                 </Typography>
-                <RichTextEditor
-                    value={value.value}
-                    onChange={handleChange}
+                <TextField
+                    variant="outlined"
+                    style={{marginTop: 5}}
+                    fullWidth
+                    id="description"
+                    name="description"
+                    type="text"
+                    size={"small"}
+                    placeholder="Enter description"
+                    margin="normal"
+                    value={state.description}
+                    onChange={(e) => setState({...state, description: e.target.value})}
+                    // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Grid container spacing={2} style={{marginTop: 20}} >
                     <Grid item xs={6}>
@@ -75,12 +146,11 @@ function DialogEditPost(props: any) {
                             fullWidth
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            // value={age}
-                            onChange={handleChange}
+                            value={state.available}
+                            onChange={handleChangeAvailable}
                         >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={'all'}>Open for all</MenuItem>
+                            <MenuItem value={'sub'}>Only subscribers</MenuItem>
                         </Select>
                     </Grid>
                     <Grid item xs={6}>
@@ -88,12 +158,11 @@ function DialogEditPost(props: any) {
                             fullWidth
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            // value={age}
-                            onChange={handleChange}
+                            value={state.comments}
+                            onChange={handleChangeComment}
                         >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={'allowed'}>Comments allowed</MenuItem>
+                            <MenuItem value={'notAllowed'}>Comments not allowed</MenuItem>
                         </Select>
                     </Grid>
                 </Grid>
@@ -105,13 +174,12 @@ function DialogEditPost(props: any) {
                         // style={{height: 40}}
                         labelId="demo-simple-select-outlined-label"
                         id="demo-simple-select-outlined"
-                        // value={categories}
-                        // value={age}
-                        // onChange={handleChangeCategories}
+                        value={state.visible}
+                        onChange={handleChangeWhoSee}
                     >
-                        <MenuItem value={'total'}>Total</MenuItem>
-                        <MenuItem value={'blog'}>Blog</MenuItem>
-                        <MenuItem value={'videos'}>Videos</MenuItem>
+                        {props.dataBlog.Tiers && Object.values(props.dataBlog.Tiers).map((item: any, index: number) => (
+                            <MenuItem key={index} value={item.name}>"{item.name}" ({item.cost})</MenuItem>
+                        ))}
                     </Select>
                 </FormControl>
                 <Typography variant="body2"  component="p" style={{marginTop: 20}} >
@@ -126,12 +194,13 @@ function DialogEditPost(props: any) {
                     inputProps={{
                         maxLength: 150,
                     }}
-                    id="description"
-                    name="Description"
+                    id="teaser"
+                    name="Teaser"
                     type="text"
                     placeholder={"Enter teaser"}
                     margin="normal"
-                    onChange={(e) => setDescription(e.target.value)}
+                    value={state.teaser}
+                    onChange={(e) => setState({...state, teaser: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography color="textSecondary" variant="body2"  component="p" align={"right"}>
@@ -151,15 +220,7 @@ function DialogEditPost(props: any) {
                     disabled={isButtonDisabled}>
                     save
                 </Button>
-                <Button
-                    variant="outlined"
-                    size="large"
-                    color="primary"
-                    // className={classes.loginBtn}
-                    disableElevation
-                    onClick={handleSave}>
-                    remove tier
-                </Button>
+                <PromptButton name={"Remove task"} onAccept={() => handleRemovePost()}/>
             </>
     }
 
@@ -168,12 +229,21 @@ function DialogEditPost(props: any) {
     )
 }
 
+function mapStateToProps(state: any) {
+    return {
+        dataBlog: state.blog
+    }
+}
+
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+            removePost: (name: string, uuid: string) => dispatch(removeDataBlogActionCreator(name, uuid)),
+            updateDataBlog: (nameColumn: string, value: any, uuid: string) => dispatch(updateArrayDataBlogActionCreator(nameColumn, value, uuid))
+
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(DialogEditPost)
+export default connect(mapStateToProps, mapDispatchToProps)(DialogEditPost)

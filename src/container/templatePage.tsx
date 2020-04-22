@@ -34,8 +34,9 @@ const useStyles = makeStyles((theme: Theme) =>
                 left: '0',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                backgroundColor:' #c7b39b',
                 // backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/logo%2Fbackground_065.jpg?alt=media&token=7c4b3ee2-9e75-42f2-97ab-5f17c5b31989)",
-                backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/logo%2Fbackground_065.jpg?alt=media&token=7c4b3ee2-9e75-42f2-97ab-5f17c5b31989)",
+                // background: '"linear-gradient( rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.5) )", "url(https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/logo%2Fbackground_065.jpg?alt=media&token=7c4b3ee2-9e75-42f2-97ab-5f17c5b31989)"',
             },
             layout : {
                 // position: 'relative',
