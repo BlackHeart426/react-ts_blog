@@ -36,6 +36,7 @@ function Posts (props: any) {
     const {editable} = props
     const classes = useStyles()
     const [posts, setPosts] = useState([])
+    const [like, setLike] = useState(0)
 
     useEffect(()=>{
         if(props.dataBlog) {
@@ -45,6 +46,10 @@ function Posts (props: any) {
             console.log(posts)
         }
     },[props.dataBlog])
+
+    const handleChangeLike = () => {
+        setLike(like + 1)
+    }
 
     return (
     <>
@@ -88,11 +93,12 @@ function Posts (props: any) {
                                 <IconButton
                                     aria-label="toggle  visibility"
                                     size={"small"}
+                                    onClick={handleChangeLike}
                                 >
                                     <FavoriteBorderIcon/>
 
                                 </IconButton>
-                                0
+                                {like}
                             </Grid>
                             <Grid item xs={7}>
                                 <IconButton
