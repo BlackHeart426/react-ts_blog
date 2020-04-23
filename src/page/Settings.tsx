@@ -3,7 +3,7 @@ import {
     Button,
     CardActions,
     CardContent,
-    CardMedia,
+    CardMedia, CircularProgress,
     FormControl,
     Grid,
     IconButton,
@@ -18,31 +18,41 @@ import EditIcon from '@material-ui/icons/Edit';
 import {onComplete, updateBackgroundUser} from "../firebase/storage";
 import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../store/action/blog";
 import {connect} from "react-redux";
+import {grey, green} from "@material-ui/core/colors";
+import {Card} from "semantic-ui-react";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            '& > *': {
-                margin: theme.spacing(1),
+            root: {
+                '& > *': {
+                    margin: theme.spacing(1),
+                },
+                display: 'flex',
+                alignItems: 'center',
             },
-            display: 'flex',
-            alignItems: 'center',
-        },
-        textField: {
-            marginTop: 5
-        },
-        content: {
-            marginTop: 40
-        },
-        contentAvatar: {
-            width: '225px',
-        },
-        wrapper: {
-            position: 'relative',
-        },
-        input: {
-            display: 'none',
-        },
+            textField: {
+                marginTop: 5
+            },
+            content: {
+                marginTop: 40
+            },
+            contentAvatar: {
+                width: '225px',
+            },
+            wrapper: {
+                position: 'relative',
+            },
+            input: {
+                display: 'none',
+            },
+            buttonProgress: {
+                color: '#f15f2c',
+                position: 'absolute',
+                top: '40%',
+                left: '35%',
+                marginTop: -12,
+                marginLeft: -12,
+            },
         }
     )
 )
@@ -60,6 +70,7 @@ function SettingsComponents (props: any){
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [isDisabled, setIsDisabled] = useState(true)
+    const [loading, setLoading] = React.useState(false);
 
     const handleValidate = (e: any, cb: any) => {
         const {name, value} = e.currentTarget;
@@ -91,22 +102,27 @@ function SettingsComponents (props: any){
     },[])
 
     const handleUpload = (image: string) =>  {
-        updateBackgroundUser(image)
-            .on('state_changed',
-                (snapshot: any) => {
-                },
-                (error: Error) => {
-                },
-                () => {
-                    // complete function ....
-                    onComplete(image, props.action.updateDataBlog, 'Avatar')
-                        .then(response => {
+        if(!loading){
+            setLoading(true);
+            updateBackgroundUser(image)
+                .on('state_changed',
+                    (snapshot: any) => {
+                    },
+                    (error: Error) => {
+                    },
+                    () => {
 
-                        })
-                        .catch(error => {
+                        // complete function ....
+                        onComplete(image, props.action.updateDataBlog, 'Avatar')
+                            .then(response => {
+                                setLoading(false)
+                            })
+                            .catch(error => {
 
-                        })
-                });
+                            })
+                    });
+        }
+
     }
 
     return <div className={classes.content}>
@@ -181,7 +197,7 @@ function SettingsComponents (props: any){
                                     disableElevation
                                     component="span"
                                     variant="outlined"
-                                    >
+                                >
                                     <strong>Select image</strong>
                                 </Button>
                             </div>
@@ -201,12 +217,20 @@ function SettingsComponents (props: any){
                     </div>
                     <div>
                         <Paper elevation={0} className={classes.contentAvatar}>
-                            <CardMedia
-                                component="img"
-                                height="280"
-                                image={props.dataBlog}
-                                title="Contemplative Reptile"
-                            />
+                            {loading
+                                ? <Card
+                                    style={{background: grey[100], height: 280, position: 'relative'}}
+                                ><CircularProgress size={85} className={classes.buttonProgress} />
+                            </Card>
+                                : <CardMedia
+                                    component="img"
+                                    height="280"
+                                    style={{background: grey[100]}}
+                                    image={props.dataBlog}
+                                    title="Contemplative Reptile"
+                                />
+                            }
+
                         </Paper>
                     </div>
                 </div>
