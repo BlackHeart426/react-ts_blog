@@ -160,7 +160,7 @@ function Navbar(props: any) {
                             <div className={classes.account} >
                                 <Button
                                     size="medium"
-                                    startIcon={<Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />}
+                                    startIcon={<Avatar alt="Remy Sharp" src={props.avatar} />}
                                     onClick={handleProfileMenuOpen}
                                 >
                                     {email}
@@ -191,7 +191,8 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         pageCurrentUser: state.currentUser.myPage,
-        openDrawer: state.app.openDrawer
+        openDrawer: state.app.openDrawer,
+        avatar: state.blog.Avatar
     }
 
 }

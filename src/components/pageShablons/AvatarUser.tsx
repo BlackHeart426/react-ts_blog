@@ -1,5 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {Card, CardContent, CardMedia, Typography, CardActions, Button, FormControl, Paper} from "@material-ui/core";
+import {
+    Card,
+    CardContent,
+    CardMedia,
+    Typography,
+    CardActions,
+    Button,
+    FormControl,
+    Paper,
+    CircularProgress
+} from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import EditIcon from '@material-ui/icons/Edit';
@@ -8,14 +18,23 @@ import {connect} from "react-redux";
 import {useParams} from "react-router";
 import {addSubscriptionUserActionCreator} from "../../store/action/currentUser";
 import {AddPost} from "./Posts/AddPost";
+import {grey} from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-            contentAvatar: {
-                width: '255px',
-                padding: '20px'
+        contentAvatar: {
+            width: '255px',
+            padding: '20px'
 
-            }
+        },
+        buttonProgress: {
+            color: '#f15f2c',
+            position: 'absolute',
+            top: '40%',
+            left: '35%',
+            marginTop: -12,
+            marginLeft: -12,
+    },
         }
     )
 )
@@ -51,12 +70,19 @@ function AvatarUser (props: any) {
     return (
         <>
             <Paper elevation={0} className={classes.contentAvatar}>
-                <CardMedia
-                    component="img"
-                    height="280"
-                    image="https://images.boosty.to/user/9647/avatar?change_time=1561378020&croped=1&mh=560&mw=450"
-                    title="Contemplative Reptile"
-                />
+                {!props.dataBlog.Avatar
+                    ? <Card
+                        style={{background: grey[100], height: 280, position: 'relative'}}
+                    ><CircularProgress size={85} className={classes.buttonProgress} />
+                    </Card>
+                    : <CardMedia
+                        component="img"
+                        height="280"
+                        style={{background: grey[100]}}
+                        image={props.dataBlog.Avatar}
+                        title="Contemplative Reptile"
+                    />
+                }
                 {!editable && <>
                     <CardContent>
                         <Typography  align="center" gutterBottom variant="h5" component="h2">
@@ -94,7 +120,7 @@ function mapStateToProps(state: any) {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
         subscriptions: state.currentUser.subscriptions,
-        dataBlog: state.blog.dataBlog
+        dataBlog: state.blog
     }
 }
 

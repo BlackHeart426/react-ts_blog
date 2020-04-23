@@ -109,7 +109,7 @@ function Posts (props: any) {
                     <CardContent  style={{paddingBottom: 10}}>
                         <Grid container spacing={3}>
                             <Grid item xs={1}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                                <Avatar alt="Remy Sharp" src={props.avatar} />
                             </Grid>
                             <Grid item xs={11}>
                                 <TextField
@@ -145,7 +145,8 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog.Posts
+        dataBlog: state.blog.Posts,
+        avatar: state.blog.Avatar
     }
 }
 
