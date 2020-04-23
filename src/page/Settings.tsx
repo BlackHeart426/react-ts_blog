@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
     Button,
     CardActions,
@@ -15,8 +15,9 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../components/validateForm/validateForm";
 import EditIcon from '@material-ui/icons/Edit';
-import ClearIcon from "@material-ui/icons/Clear";
-import PersonIcon from "@material-ui/icons/Person";
+import {onComplete, updateBackgroundUser} from "../firebase/storage";
+import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../store/action/blog";
+import {connect} from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -53,14 +54,14 @@ const initialState = {
     },
 }
 
-export function SettingsComponents (props: any){
+function SettingsComponents (props: any){
     const classes = useStyles()
     const [errorForm, setError] = useState(initialState);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [isDisabled, setIsDisabled] = useState(true)
 
-    const handleChange = (e: any, cb: any) => {
+    const handleValidate = (e: any, cb: any) => {
         const {name, value} = e.currentTarget;
         const infoValid = validateForm(name, value)
         setError({...errorForm, [name]: {status: infoValid.error, message: infoValid.errorMessage}});
@@ -80,6 +81,33 @@ export function SettingsComponents (props: any){
 
         }
     };
+
+    const handleChange = (event: any) => {
+        const image = event.target.files[0];
+        handleUpload(image)
+    }
+    useEffect(()=>{
+        console.log(props.dataBlog)
+    },[])
+
+    const handleUpload = (image: string) =>  {
+        updateBackgroundUser(image)
+            .on('state_changed',
+                (snapshot: any) => {
+                },
+                (error: Error) => {
+                },
+                () => {
+                    // complete function ....
+                    onComplete(image, props.action.updateDataBlog, 'Avatar')
+                        .then(response => {
+
+                        })
+                        .catch(error => {
+
+                        })
+                });
+    }
 
     return <div className={classes.content}>
         <Grid container spacing={3}>
@@ -126,7 +154,7 @@ export function SettingsComponents (props: any){
                         size={"small"}
                         placeholder="Email"
                         margin="normal"
-                        onChange={(e) => handleChange(e, setEmail(e.target.value))}
+                        onChange={(e) => handleValidate(e, setEmail(e.target.value))}
                         onKeyPress={(e)=>handleKeyPress(e)}
                     />
                     <Typography variant="body2" color="textSecondary" component="p" >
@@ -143,7 +171,7 @@ export function SettingsComponents (props: any){
                             className={classes.input}
                             id="contained-button-file"
                             multiple
-                            // onChange={handleChange}
+                            onChange={handleChange}
                             type="file"
                         />
 
@@ -154,7 +182,7 @@ export function SettingsComponents (props: any){
                                     component="span"
                                     variant="outlined"
                                     >
-                                    <strong>Change background</strong>
+                                    <strong>Select image</strong>
                                 </Button>
                             </div>
                         </label>
@@ -176,7 +204,7 @@ export function SettingsComponents (props: any){
                             <CardMedia
                                 component="img"
                                 height="280"
-                                image="https://images.boosty.to/user/9647/avatar?change_time=1561378020&croped=1&mh=560&mw=450"
+                                image={props.dataBlog}
                                 title="Contemplative Reptile"
                             />
                         </Paper>
@@ -186,4 +214,22 @@ export function SettingsComponents (props: any){
         </Grid>
     </div>
 }
+
+function mapStateToProps(state: any) {
+    return {
+        dataBlog: state.blog.Avatar
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        action: {
+            updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value)),
+            getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId)),
+
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsComponents);
 

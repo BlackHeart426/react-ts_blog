@@ -8,10 +8,9 @@ export function updateBackgroundUser(image: any) {
             .put(image)
 }
 
-export function onComplete(image: any, onSaveData: any) {
+export function onComplete(image: any, onSaveData: any, nameColumn: any) {
         const storageRef = storage.ref(`images/${image.name}`);
-        const myPage = cookie.load('myPage')
         return storageRef.getDownloadURL().then(function(url: string) {
-                onSaveData('Background', url )
+                onSaveData(nameColumn, url )
         })
 }

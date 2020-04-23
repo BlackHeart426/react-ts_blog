@@ -130,7 +130,7 @@ function TemplatePage(props: any) {
                 },
                 () => {
                     // complete function ....
-                    onComplete(image, props.action.updateDataBlog)
+                    onComplete(image, props.action.updateDataBlog, 'Background')
                         .then(response => {
 
                         })

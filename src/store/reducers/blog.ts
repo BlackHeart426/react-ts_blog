@@ -2,9 +2,7 @@ import {SET_DATA_BLOG, UPDATE_DATA_BLOG, ADD_DATA_BLOG, REMOVE_DATA_BLOG, UPDATE
 
 const initialState = {
     About: '',
-    Avatar: {
-        image: ''
-    },
+    Avatar: '',
     Background: '',
     Description: {
         name: '',

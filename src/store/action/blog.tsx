@@ -23,9 +23,10 @@ import {
     updateArrayBlogDataFireBase
 } from "../../firebase/database";
 import cookie from "react-cookies";
-
-export const getDataBlogActionCreator = (nameBlog: string) => {
+const myPage = cookie.load('myPage')
+export const getDataBlogActionCreator = (nameBlog: string = myPage) => {
     return async (dispatch: any) => {
+
         getDataPageBlogFireBase(nameBlog)
             .then((snapshot: any) => {
                 const dataBlog = snapshot.val()

@@ -1,6 +1,6 @@
 import React from "react";
 import {withAuthorization} from "../../firebase/hoc/withAuthorization";
-import {SettingsComponents} from "../../page/Settings";
+import SettingsComponents from "../../page/Settings";
 import {CardContent, makeStyles, Theme, Typography, Tabs, Tab, Box} from "@material-ui/core";
 import {createStyles, useTheme, withStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
