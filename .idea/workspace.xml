@@ -94,14 +94,7 @@
       <workItem from="1587540372452" duration="9053000" />
       <workItem from="1587554388731" duration="19657000" />
       <workItem from="1587632742197" duration="13866000" />
-      <workItem from="1587661800022" duration="2983000" />
-    </task>
-    <task id="LOCAL-00039" summary="auth">
-      <created>1586690014675</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1586690014675</updated>
+      <workItem from="1587661800022" duration="4415000" />
     </task>
     <task id="LOCAL-00040" summary="css auth">
       <created>1586718349943</created>
@@ -439,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587664151122</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="avatar">
+      <created>1587664791485</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1587664791485</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,10 +486,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587664150477">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587664790852">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587664150477" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587664790852" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -566,7 +566,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/pageShablons/Posts/Posts.tsx</url>
-          <line>36</line>
+          <line>37</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

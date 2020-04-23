@@ -11,6 +11,7 @@ import TelegramIcon from '@material-ui/icons/Telegram';
 import {connect} from "react-redux";
 import {EditPost} from "./EditPost";
 import Skeleton from "@material-ui/lab/Skeleton";
+import {updateArrayDataBlogActionCreator} from "../../../store/action/blog";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -36,7 +37,7 @@ function Posts (props: any) {
     const {editable} = props
     const classes = useStyles()
     const [posts, setPosts] = useState([])
-    const [like, setLike] = useState(0)
+
 
     useEffect(()=>{
         if(props.dataBlog) {
@@ -47,8 +48,8 @@ function Posts (props: any) {
         }
     },[props.dataBlog])
 
-    const handleChangeLike = () => {
-        setLike(like + 1)
+    const handleChangeLike = (uuid: string) => {
+        props.action.updateDataBlog('Like', 0, uuid)
     }
 
     return (
@@ -93,12 +94,12 @@ function Posts (props: any) {
                                 <IconButton
                                     aria-label="toggle  visibility"
                                     size={"small"}
-                                    onClick={handleChangeLike}
+                                    onClick={() => handleChangeLike(item.uuid)}
                                 >
                                     <FavoriteBorderIcon/>
 
                                 </IconButton>
-                                {like}
+                                {item.like ? item.like : 0}
                             </Grid>
                             <Grid item xs={7}>
                                 <IconButton
@@ -159,7 +160,8 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            // getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+            // getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId)
+            updateDataBlog: (nameColumn: string, value: any, uuid: string) => dispatch(updateArrayDataBlogActionCreator(nameColumn, value, uuid))
         }
     }
 }
