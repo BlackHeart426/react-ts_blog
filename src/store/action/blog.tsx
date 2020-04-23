@@ -26,16 +26,18 @@ import cookie from "react-cookies";
 const myPage = cookie.load('myPage')
 export const getDataBlogActionCreator = (nameBlog: string = myPage) => {
     return async (dispatch: any) => {
+        if(nameBlog) {
+            getDataPageBlogFireBase(nameBlog)
+                .then((snapshot: any) => {
+                    const dataBlog = snapshot.val()
+                    dispatch({ type: SET_DATA_BLOG, payload: dataBlog });
+                })
+                .catch(error => {
+                    console.error('error',error)
+                })
+        }
+        }
 
-        getDataPageBlogFireBase(nameBlog)
-            .then((snapshot: any) => {
-                const dataBlog = snapshot.val()
-                dispatch({ type: SET_DATA_BLOG, payload: dataBlog });
-            })
-            .catch(error => {
-                console.error('error',error)
-            })
-    }
 }
 
 export const removeDataBlogActionCreator = (name: string, uuid: string) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Card, CardContent, Divider, Grid, IconButton, InputAdornment, Paper, Typography, Avatar} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -25,13 +25,31 @@ const useStyles = makeStyles((theme: Theme) =>
     )
 )
 
+export const sortPost = (posts: any) => {
+    posts.sort(function(a: any, b: any){
+        let dateA: any = new Date(a.createPost), dateB: any = new Date(b.createPost)
+        return dateB - dateA //сортировка по возрастающей дате
+    })
+}
+
 function Posts (props: any) {
     const {editable} = props
     const classes = useStyles()
+    const [posts, setPosts] = useState([])
+
+    useEffect(()=>{
+        if(props.dataBlog) {
+            const posts: any = Object.values(props.dataBlog)
+            sortPost(posts)
+            setPosts(posts)
+            console.log(posts)
+        }
+    },[props.dataBlog])
+
     return (
     <>
         {props.dataBlog
-                ? Object.values(props.dataBlog).map((item:any, index: number) => (
+                ? posts.map((item:any, index: number) => (
                 <Paper elevation={0}  style={{marginTop: 20}}>
                     <Grid container spacing={3} style={{margin: 0, marginRight: 20}}>
                         <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">

@@ -14,6 +14,7 @@ import { compose } from "redux";
 import {withCheckPage} from "../firebase/hoc/withCheckPage";
 import {Footer} from "../components/Footer";
 import {onComplete, updateBackgroundUser} from "../firebase/storage";
+import shortid from "shortid";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
