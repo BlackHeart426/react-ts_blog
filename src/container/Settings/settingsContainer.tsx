@@ -21,6 +21,7 @@ function TabPanel(props: TabPanelProps) {
         <Typography
             component="div"
             role="tabpanel"
+            style={{height: '100%'}}
             hidden={value !== index}
             id={`full-width-tabpanel-${index}`}
             aria-labelledby={`full-width-tab-${index}`}
@@ -38,7 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
             background: '#fff',
         },
         header : {
-            marginLeft: 13
+            marginLeft: 13,
+            marginBottom: 20
         },
         block : {
             background: grey[100],
@@ -135,21 +137,15 @@ const SettingsContainer: React.FC = (props) => {
 
             </div>
             <div className={classes.component}>
-                <SwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                    index={value}
-                    onChangeIndex={handleChangeIndex}
-                >
-                    <TabPanel value={value} index={0} dir={theme.direction}>
-                        <SettingsComponents/>
-                    </TabPanel>
-                    <TabPanel value={value} index={1} dir={theme.direction}>
-                        Item Two
-                    </TabPanel>
-                    <TabPanel value={value} index={2} dir={theme.direction}>
-                        Item Three
-                    </TabPanel>
-                </SwipeableViews>
+                <TabPanel value={value} index={0} dir={theme.direction}>
+                    <SettingsComponents/>
+                </TabPanel>
+                <TabPanel value={value} index={1} dir={theme.direction}>
+                    Item Two
+                </TabPanel>
+                <TabPanel value={value} index={2} dir={theme.direction}>
+                    Item Three
+                </TabPanel>
             </div>
 
         </div>
