@@ -4,8 +4,6 @@ import {SettingsComponents} from "../../page/Settings";
 import {CardContent, makeStyles, Theme, Typography, Tabs, Tab, Box} from "@material-ui/core";
 import {createStyles, useTheme, withStyles} from "@material-ui/core/styles";
 import {grey} from "@material-ui/core/colors";
-import SwipeableViews from 'react-swipeable-views';
-
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -40,7 +38,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         header : {
             marginLeft: 13,
-            marginBottom: 20
+            paddingBottom: 20,
+            paddingTop: 40
         },
         block : {
             background: grey[100],
@@ -52,7 +51,6 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingBottom: 20
         },
         content: {
-            paddingTop: '60px',
 
         },
         component: {

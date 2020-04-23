@@ -1,23 +1,47 @@
 import React, {useState} from "react";
-import {CardContent, Grid, IconButton, makeStyles, Theme} from "@material-ui/core";
+import {
+    Button,
+    CardActions,
+    CardContent,
+    CardMedia,
+    FormControl,
+    Grid,
+    IconButton,
+    makeStyles, Paper,
+    Theme
+} from "@material-ui/core";
 import {createStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../components/validateForm/validateForm";
 import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from "@material-ui/icons/Clear";
+import PersonIcon from "@material-ui/icons/Person";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            background: '#fff',
+            '& > *': {
+                margin: theme.spacing(1),
+            },
+            display: 'flex',
+            alignItems: 'center',
         },
         textField: {
             marginTop: 5
         },
         content: {
             marginTop: 40
-        }
+        },
+        contentAvatar: {
+            width: '225px',
+        },
+        wrapper: {
+            position: 'relative',
+        },
+        input: {
+            display: 'none',
+        },
         }
     )
 )
@@ -59,7 +83,7 @@ export function SettingsComponents (props: any){
 
     return <div className={classes.content}>
         <Grid container spacing={3}>
-            <Grid item xs={5}>
+            <Grid item xs={6}>
                 <div>
                     <Typography variant="inherit">Name</Typography>
                     <TextField
@@ -109,14 +133,53 @@ export function SettingsComponents (props: any){
                         Mail is required for the full functionality of your account
                     </Typography>
                 </div>
+                <div style={{marginTop: 30}}>
+                    <Typography variant="inherit" >
+                        Change avatar
+                    </Typography>
+                    <div className={classes.root}>
+                        <input
+                            accept="image/*"
+                            className={classes.input}
+                            id="contained-button-file"
+                            multiple
+                            // onChange={handleChange}
+                            type="file"
+                        />
+
+                        <label htmlFor="contained-button-file" style={{margin: 0, marginTop: 5, marginBottom: 5}}>
+                            <div className={classes.wrapper}>
+                                <Button
+                                    disableElevation
+                                    component="span"
+                                    variant="outlined"
+                                    >
+                                    <strong>Change background</strong>
+                                </Button>
+                            </div>
+                        </label>
+                    </div>
+                    <Typography variant="body2" color="textSecondary" component="p" >
+                        PNG, JPG size 225x280, till 10 мб.
+                    </Typography>
+                </div>
             </Grid>
             <Grid item xs={6}>
                 <div>
                     <div>
-
+                        <Typography variant="inherit" >
+                            Avatar profile
+                        </Typography>
                     </div>
                     <div>
-
+                        <Paper elevation={0} className={classes.contentAvatar}>
+                            <CardMedia
+                                component="img"
+                                height="280"
+                                image="https://images.boosty.to/user/9647/avatar?change_time=1561378020&croped=1&mh=560&mw=450"
+                                title="Contemplative Reptile"
+                            />
+                        </Paper>
                     </div>
                 </div>
             </Grid>
