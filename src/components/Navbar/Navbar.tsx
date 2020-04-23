@@ -24,6 +24,7 @@ import WebIcon from '@material-ui/icons/Web';
 import {Divider} from "semantic-ui-react";
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import {PROFILE, SETTINGS} from "../../constants/routes";
+import {grey} from "@material-ui/core/colors";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -137,7 +138,7 @@ function Navbar(props: any) {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="fixed" color="inherit">
+            <AppBar position="fixed" color="inherit" elevation={0} style={{borderBottom: '1px solid #eaeaea'}}>
                 <Toolbar style={{padding: 0}}>
                     <Typography className={classes.title} variant="h6" noWrap>
                         TS BLOG

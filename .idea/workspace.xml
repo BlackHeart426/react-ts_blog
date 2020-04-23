@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/Settings/settingsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Settings/settingsContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,14 +93,8 @@
       <workItem from="1587451855215" duration="3000" />
       <workItem from="1587468551042" duration="13668000" />
       <workItem from="1587540372452" duration="9053000" />
-      <workItem from="1587554388731" duration="15482000" />
-    </task>
-    <task id="LOCAL-00030" summary="google auth">
-      <created>1586512290786</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1586512290786</updated>
+      <workItem from="1587554388731" duration="19657000" />
+      <workItem from="1587632742197" duration="2266000" />
     </task>
     <task id="LOCAL-00031" summary="RecoveryPassword">
       <created>1586528022634</created>
@@ -441,14 +432,20 @@
       <option name="project" value="LOCAL" />
       <updated>1587567060942</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="settings">
+      <created>1587571194611</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1587571194611</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create page" />
     <MESSAGE value="drawer open" />
     <MESSAGE value="blog non found" />
     <MESSAGE value="check user firebase" />
@@ -473,7 +470,8 @@
     <MESSAGE value="task" />
     <MESSAGE value="about" />
     <MESSAGE value="post" />
-    <option name="LAST_COMMIT_MESSAGE" value="post" />
+    <MESSAGE value="settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="settings" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -488,10 +486,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587567060238">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587571194013">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587567060238" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587571194013" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -540,11 +538,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587571000897" />
-    <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1587570984544">
+    <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1587635824628">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
-    <state x="419" y="434" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587570984544" />
+    <state x="419" y="434" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587635824628" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -578,7 +576,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/container/Settings/settingsContainer.tsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
