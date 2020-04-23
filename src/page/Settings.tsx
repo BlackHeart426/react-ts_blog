@@ -103,6 +103,7 @@ function SettingsComponents (props: any){
 
     const handleUpload = (image: string) =>  {
         if(!loading){
+            props.action.updateDataBlog('Avatar', '')
             setLoading(true);
             updateBackgroundUser(image)
                 .on('state_changed',
@@ -115,6 +116,7 @@ function SettingsComponents (props: any){
                         // complete function ....
                         onComplete(image, props.action.updateDataBlog, 'Avatar')
                             .then(response => {
+                                console.log(response)
                                 setLoading(false)
                             })
                             .catch(error => {
@@ -217,7 +219,7 @@ function SettingsComponents (props: any){
                     </div>
                     <div>
                         <Paper elevation={0} className={classes.contentAvatar}>
-                            {loading
+                            {!props.dataBlog
                                 ? <Card
                                     style={{background: grey[100], height: 280, position: 'relative'}}
                                 ><CircularProgress size={85} className={classes.buttonProgress} />
