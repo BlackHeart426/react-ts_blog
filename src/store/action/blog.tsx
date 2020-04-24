@@ -65,10 +65,23 @@ export const updateDataBlogActionCreator = (name: string, value: any) => {
             })
     }
 }
+//добавить проверку пользователя
 export const updateArrayDataBlogActionCreator = (name: string, value: any, uuid: string) => {
     const myPage = cookie.load('myPage')
     return async (dispatch: any) => {
         updateArrayBlogDataFireBase(myPage, name, value, uuid)
+            .then(response => {
+                dispatch({ type: UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
+            })
+            .catch(error => {
+                console.error('error',error)
+            })
+    }
+}
+
+export const updateLikeCommentDataBlogActionCreator = (nameBlog: string ,name: string, value: any, uuid: string) => {
+    return async (dispatch: any) => {
+        updateArrayBlogDataFireBase(nameBlog, name, value, uuid)
             .then(response => {
                 dispatch({ type: UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
             })

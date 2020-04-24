@@ -19,7 +19,9 @@ const initialState = {
     available: 'all',
     comments: 'allowed',
     visible: '',
-    teaser: ''
+    teaser: '',
+    countLike: '',
+    countComments: ''
 }
 
 interface IState {
@@ -28,7 +30,9 @@ interface IState {
     available: string,
     comments: string,
     visible: any,
-    teaser: string
+    teaser: string,
+    countLike: string,
+    countComments: string
 }
 
 function DialogEditPost(props: any) {
@@ -45,16 +49,15 @@ function DialogEditPost(props: any) {
     useEffect(()=>{
         setDialogOpened(show)
         const data: any = Object.values(props.dataBlog.Posts).find((item: any, index) => item.uuid === uuid)
-        console.log( data)
-        console.log( Object.values(props.dataBlog))
-        console.log( uuid)
         data && setState({...state,
             name: data.name,
             available: data.available,
             comments: data.comments,
             visible: data.visible,
             teaser: data.teaser,
-            description: data.description
+            description: data.description,
+            countLike: data.countLike,
+            countComments: data.countComments
         })
     },[show])
 
@@ -69,7 +72,7 @@ function DialogEditPost(props: any) {
     const handleSave = () => {
         onHide()
         const dataPost = {
-            uuid: shortid.generate(),
+            uuid,
             createPost: moment().format('DD MMMM  YYYY, h:mm'),
             name: state.name,
             description: state.description,
@@ -77,8 +80,10 @@ function DialogEditPost(props: any) {
             available: state.available,
             comments: state.comments,
             visible: state.visible,
+            countLike: state.countLike,
+            countComments: state.countComments
         }
-        props.action.addDataBlog('Posts', dataPost)
+        props.action.updateDataBlog('Posts', dataPost, uuid)
     }
     const handleChange = (value: any) => {
 
@@ -216,8 +221,7 @@ function DialogEditPost(props: any) {
                     color="primary"
                     // className={classes.loginBtn}
                     onClick={handleSave}
-                    disableElevation
-                    disabled={isButtonDisabled}>
+                    disableElevation>
                     save
                 </Button>
                 <PromptButton name={"Remove task"} onAccept={() => handleRemovePost()}/>

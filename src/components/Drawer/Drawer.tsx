@@ -36,7 +36,7 @@ function TemporaryDrawer(props: any) {
             role="presentation"
         >
             <List >
-            {Object.values(props.subscriptions).map((item:any, index: number) => (
+            {props.subscriptions && Object.values(props.subscriptions).map((item:any, index: number) => (
                 <ListItem button key={index} onClick={() => handleOpenBlog(item.name)}>
                     <ListItemIcon>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />

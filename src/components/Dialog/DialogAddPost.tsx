@@ -65,6 +65,8 @@ function DialogAddPost(props: any) {
             available: state.available,
             comments: state.comments,
             visible: state.visible,
+            countLike: 0,
+            countComments: 0,
         }
         props.action.addDataBlog('Posts', dataPost)
     }
