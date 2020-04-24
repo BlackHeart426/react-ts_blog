@@ -251,6 +251,8 @@ function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value)),
+            updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value)),
+
             getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId)),
 
         }

@@ -64,10 +64,10 @@ export function createPageBlogFireBase(pageBlog: string) {
         })
 }
 
-export function updatePageBlogUserBlogFireBase(userId: string, pageBlog: any) {
+export function updatePageBlogUserBlogFireBase(userId: string, nameColumn: any, value: any) {
         return database.ref('userBlogs')
             .child(userId)
-            .update({pageBlog})
+            .update({[nameColumn]: value})
 }
 
 export function addSubscriptionsUserBlogFireBase(userId: string, subscriptions: any) {

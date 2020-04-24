@@ -134,6 +134,6 @@ export function isAuthenticatedActionCreator(token: string|null, userId: string|
     return async (dispatch: any) => {
         await dispatch({type: IS_AUTHENTICATED, payload: token})
         await dispatch(getBlogPageUserActionCreator(userId))
-        await dispatch(getDataBlogActionCreator())
+        // await dispatch(getDataBlogActionCreator())
     }
 }

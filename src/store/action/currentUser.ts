@@ -2,11 +2,11 @@ import {
     createPageBlogFireBase,
     createUserFireBase,
     getDataPageBlogFireBase,
-    getPageBlogUserFireBase, updatePageBlogUserBlogFireBase, addSubscriptionsUserBlogFireBase
+    getPageBlogUserFireBase, updatePageBlogUserBlogFireBase, addSubscriptionsUserBlogFireBase, updateBlogDataFireBase
 } from "../../firebase/database";
 import { Dispatch } from "redux";
 import cookie from 'react-cookies'
-import {SET_PAGEBLOG, ADD_SUBSCRIPTIONS, SET_SUBSCRIPTIONS} from "../types";
+import {SET_PAGEBLOG, ADD_SUBSCRIPTIONS, SET_SUBSCRIPTIONS, UPDATE_DATA_BLOG} from "../types";
 
 
 
@@ -17,6 +17,19 @@ export const createUserActionCreator = (name: string) => {
         createUserFireBase(userId)
             .then(response => {
                 console.log('response', response)
+            })
+            .catch(error => {
+                console.error('error',error)
+            })
+    }
+}
+
+export const updateUserDataActionCreator = (name: string, value: any) => {
+    const myPage = cookie.load('myPage')
+    return async (dispatch: any) => {
+        updatePageBlogUserBlogFireBase(myPage, name, value)
+            .then(response => {
+                dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
             })
             .catch(error => {
                 console.error('error',error)

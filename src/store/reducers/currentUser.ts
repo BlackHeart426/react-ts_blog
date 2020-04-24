@@ -1,8 +1,9 @@
-import {SET_PAGEBLOG, ADD_SUBSCRIPTIONS, SET_SUBSCRIPTIONS} from "../types"
+import {SET_PAGEBLOG, ADD_SUBSCRIPTIONS, SET_SUBSCRIPTIONS, SET_AVATAR} from "../types"
 
 const initialState = {
     myPage: null,
-    subscriptions: []
+    subscriptions: [],
+    avatar: ''
 }
 
 interface IAction {
@@ -18,6 +19,8 @@ export const currentUserReducer = (state: any = initialState, action: IAction) =
             return {...state, subscriptions: Object.values(state.subscriptions).concat(action.payload)}
         case SET_SUBSCRIPTIONS:
             return {...state, subscriptions: action.payload }
+        case SET_AVATAR:
+            return {...state, avatar: action.payload }
         default:
             return state
     }

@@ -192,7 +192,7 @@ function mapStateToProps(state: any) {
         isAuthenticated: state.auth.isAuthenticated,
         pageCurrentUser: state.currentUser.myPage,
         openDrawer: state.app.openDrawer,
-        avatar: state.blog.Avatar
+        user: state.currentUser.Avatar
     }
 
 }

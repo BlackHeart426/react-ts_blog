@@ -97,6 +97,7 @@ function TemplatePage(props: any) {
 
     useEffect(()=>{
         props.action.getDataBlog(userId)
+        console.log(userId)
         props.isMyPage === userId
             ? setState({...state, editable: true})
             : setState({...state, editable: false})

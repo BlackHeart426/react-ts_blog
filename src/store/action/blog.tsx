@@ -7,15 +7,6 @@ import {
     UPDATE_DATA_BLOG
 } from "../types";
 import {
-    doAuthStateChange,
-    doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,
-    doSignInWithEmailAndPassword,
-    doSignOut
-} from "../../firebase/auth";
-import { Dispatch } from "redux";
-import firebase from "firebase";
-import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
-import {
     addArrayBlogDataFireBase,
     addRowBlogDataFireBase,
     getDataPageBlogFireBase, removeArrayBlogDataFireBase,
@@ -36,7 +27,7 @@ export const getDataBlogActionCreator = (nameBlog: string = myPage) => {
                     console.error('error',error)
                 })
         }
-        }
+    }
 
 }
 
