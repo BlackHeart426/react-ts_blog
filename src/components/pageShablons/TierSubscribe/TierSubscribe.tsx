@@ -1,12 +1,29 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, Typography, Paper} from "@material-ui/core";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {connect} from "react-redux";
 import {AddTier} from "./AddTier";
 import {EditTier} from "./EditTier";
 
+
+export const sortTier = (tier: any) => {
+    tier.sort(function(a: any, b: any){
+        return a.cost - b.cost //сортировка по возрастающей дате
+    })
+}
+
 function TierSubscribe(props: any){
     const {editable} =props
+    const [tier, setTier] = useState([])
+
+    useEffect(()=>{
+        if(props.dataBlog) {
+            const tier: any = Object.values(props.dataBlog)
+            sortTier(tier)
+            setTier(tier)
+        }
+    },[props.dataBlog])
+
     return (
         <>
         <Paper elevation={0} >
@@ -15,7 +32,7 @@ function TierSubscribe(props: any){
             </Typography>
             <Divider />
             {props.dataBlog
-                ? Object.values(props.dataBlog).map((item:any, index: number) => (
+                ? tier.map((item:any, index: number) => (
                 <div key={index}>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
