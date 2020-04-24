@@ -55,10 +55,12 @@ function DialogAddPost(props: any) {
     }, [state.name, state.description]);
 
     const handleSave = () => {
+        const now = moment()
+        moment.lang('ru');
         onHide()
         const dataPost = {
             uuid: shortid.generate(),
-            createPost: moment().format('DD MMMM  YYYY, h:mm'),
+            createPost: now.format('LLLL'),
             name: state.name,
             description: state.description,
             teaser: state.teaser,

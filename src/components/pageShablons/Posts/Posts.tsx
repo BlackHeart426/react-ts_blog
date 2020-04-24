@@ -10,7 +10,7 @@ import {
     Typography,
     Avatar,
     Button,
-    Tooltip
+    Tooltip, MenuItem
 } from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -156,6 +156,12 @@ function Posts (props: any) {
         }
     }
 
+    const nameTier = (item: any) => {
+        const tier: any = Object.values(props.dataBlogTiers).find((tier:any) => tier.uuid === item.visible)
+        console.log()
+        return tier ? <>"{tier.name}" ({tier.cost})</>: ''
+    }
+
     const handleDeleteComment = (uuidPost: string, uuidComment: string) => {
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuidPost)
         console.log(Object.values(data.countComments))
@@ -186,7 +192,7 @@ function Posts (props: any) {
                             {item.createPost}
                         </Typography>
                         <div className={classes.grow} />
-                        <Tooltip title={item.visible}>
+                        <Tooltip title={nameTier(item)}>
                             <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
                                 {item.available === 'all' ? 'For all users' : 'Only subscribers'}
                             </Typography>
@@ -270,7 +276,7 @@ function Posts (props: any) {
                             <Grid item xs={1}>
                                 <Avatar alt="Remy Sharp" src={props.avatar} />
                             </Grid>
-                            <Grid item xs={9}>
+                            <Grid item xs={9} style={{paddingRight: 0}}>
                                 <TextField
                                     variant="outlined"
                                     style={{marginTop: 0,  marginBottom: 5, width: '100%'}}
@@ -288,6 +294,7 @@ function Posts (props: any) {
                                 <Button
                                     disableElevation
                                     color={"primary"}
+                                    style={{height: 40, width: 77}}
                                     variant={"contained"}
                                     aria-label="delete"
                                     onClick={() => handleSendComment(item.uuid)}>
@@ -311,6 +318,7 @@ function mapStateToProps(state: any) {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
         dataBlog: state.blog.Posts,
+        dataBlogTiers: state.blog.Tiers,
         avatar: state.blog.Avatar
     }
 }
