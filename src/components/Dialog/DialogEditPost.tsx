@@ -15,6 +15,7 @@ import {removeDataBlogActionCreator, updateArrayDataBlogActionCreator} from "../
 
 const initialState = {
     name: '',
+    createPost: '',
     description: '',
     available: 'all',
     comments: 'allowed',
@@ -26,6 +27,7 @@ const initialState = {
 
 interface IState {
     name: string,
+    createPost: string,
     description: string,
     available: string,
     comments: string,
@@ -51,6 +53,7 @@ function DialogEditPost(props: any) {
         const data: any = Object.values(props.dataBlog.Posts).find((item: any, index) => item.uuid === uuid)
         data && setState({...state,
             name: data.name,
+            createPost: data.createPost,
             available: data.available,
             comments: data.comments,
             visible: data.visible,
@@ -73,7 +76,7 @@ function DialogEditPost(props: any) {
         onHide()
         const dataPost = {
             uuid,
-            createPost: moment().format('DD MMMM  YYYY, h:mm'),
+            createPost: state.createPost,
             name: state.name,
             description: state.description,
             teaser: state.teaser,
@@ -183,7 +186,7 @@ function DialogEditPost(props: any) {
                         onChange={handleChangeWhoSee}
                     >
                         {props.dataBlog.Tiers && Object.values(props.dataBlog.Tiers).map((item: any, index: number) => (
-                            <MenuItem key={index} value={item.name}>"{item.name}" ({item.cost})</MenuItem>
+                            <MenuItem key={index} value={item.uuid}>"{item.name}" ({item.cost})</MenuItem>
                         ))}
                     </Select>
                 </FormControl>

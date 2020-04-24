@@ -1,5 +1,17 @@
 import React, {useEffect, useState, useRef} from "react";
-import {Card, CardContent, Divider, Grid, IconButton, InputAdornment, Paper, Typography, Avatar, Button} from "@material-ui/core";
+import {
+    Card,
+    CardContent,
+    Divider,
+    Grid,
+    IconButton,
+    InputAdornment,
+    Paper,
+    Typography,
+    Avatar,
+    Button,
+    Tooltip
+} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -174,6 +186,11 @@ function Posts (props: any) {
                             {item.createPost}
                         </Typography>
                         <div className={classes.grow} />
+                        <Tooltip title={item.visible}>
+                            <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
+                                {item.available === 'all' ? 'For all users' : 'Only subscribers'}
+                            </Typography>
+                        </Tooltip>
                         {editable && <EditPost uuid={item.uuid}/>
                         }
                     </Grid>

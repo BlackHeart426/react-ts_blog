@@ -66,7 +66,7 @@ function DialogAddPost(props: any) {
             comments: state.comments,
             visible: state.visible,
             countLike: 0,
-            countComments: 0,
+            countComments: "",
         }
         props.action.addDataBlog('Posts', dataPost)
     }
@@ -163,10 +163,11 @@ function DialogAddPost(props: any) {
                         // style={{height: 40}}
                         labelId="demo-simple-select-outlined-label"
                         id="demo-simple-select-outlined"
+                        value={state.visible}
                         onChange={handleChangeWhoSee}
                     >
                         {props.dataBlog.Tiers && Object.values(props.dataBlog.Tiers).map((item: any, index: number) => (
-                            <MenuItem key={index} value={item.name}>"{item.name}" ({item.cost})</MenuItem>
+                            <MenuItem key={index} value={item.uuid}>"{item.name}" ({item.cost})</MenuItem>
                         ))}
                     </Select>
                 </FormControl>
