@@ -43,6 +43,7 @@ function Posts (props: any) {
     const {editable} = props
     const classes = useStyles()
     const [posts, setPosts] = useState([])
+    const [currentComment, setCurrenComment] = useState({uuid: '', value: ''})
 
     useEffect(()=>{
         if(props.dataBlog) {
@@ -62,17 +63,32 @@ function Posts (props: any) {
     const changeLike = (data: any) => {
         const userUuid = localStorage.getItem('userId');
         const existLike = Object.values(data.countLike).find((item, index) => item === userUuid)
-        console.log(existLike)
         let like: any = []
         if(existLike){
             like = Object.values(data.countLike).filter(item => item !== existLike)
-            console.log(like)
+            if(like.length === 0) {
+                like = ''
+                return like
+            } else {
+                return [...like]
+            }
+
         } else {
             like = new Set(Object.values(data.countLike).concat(userUuid))
+            return [...like]
         }
 
+    }
 
-        return [...like]
+    const handleChangeComment = (event: any) => {
+        setCurrenComment({...currentComment, uuid: event.currentTarget.name, value: event.currentTarget.value})
+    }
+    const handleSendComment = (e: any) => {
+        //email, createComment
+        if(e.which === 13 ) {
+            console.log(currentComment)
+        }
+
     }
 
     const handleChangeLike = (uuid: string) => {
@@ -163,11 +179,13 @@ function Posts (props: any) {
                                     variant="outlined"
                                     style={{marginTop: 0,  marginBottom: 5, width: '100%'}}
                                     id="comment"
-                                    name="comment"
+                                    name={item.uuid}
                                     type="comment"
                                     size={"small"}
+                                    onChange={handleChangeComment}
+                                    onKeyPress={(e) => handleSendComment(e)}
                                     InputProps={{
-                                        endAdornment: <TelegramIcon fontSize={"large"}/>,
+                                        endAdornment: <TelegramIcon  fontSize={"large"}/>,
                                     }}
                                     // label="Comment"
                                     placeholder="Write comment"
