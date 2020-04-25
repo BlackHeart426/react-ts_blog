@@ -6,7 +6,14 @@ import {
 } from "../../firebase/database";
 import { Dispatch } from "redux";
 import cookie from 'react-cookies'
-import {SET_PAGEBLOG, ADD_SUBSCRIPTIONS, SET_SUBSCRIPTIONS, UPDATE_DATA_BLOG} from "../types";
+import {
+    SET_PAGEBLOG,
+    ADD_SUBSCRIPTIONS,
+    SET_SUBSCRIPTIONS,
+    UPDATE_DATA_BLOG,
+    SET_AVATAR,
+    UPDATE_USER_DATA
+} from "../types";
 
 
 
@@ -24,24 +31,26 @@ export const createUserActionCreator = (name: string) => {
     }
 }
 
-export const updateUserDataActionCreator = (name: string, value: any) => {
-    const myPage = cookie.load('myPage')
+export const updateUserDataActionCreator = (nameColumn: string, value: any) => {
     return async (dispatch: any) => {
-        updatePageBlogUserBlogFireBase(myPage, name, value)
-            .then(response => {
-                dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
-            })
-            .catch(error => {
-                console.error('error',error)
-            })
+        if(userId) {
+            updatePageBlogUserBlogFireBase(userId, nameColumn, value)
+                .then(response => {
+                    dispatch({ type: UPDATE_USER_DATA, payload: {nameColumn, value} });
+                })
+                .catch(error => {
+                    console.error('error',error)
+                })
+        }
+
     }
 }
 
-export const createPageActionCreator = (name: string) => {
+export const createPageActionCreator = (name: string, nameColumn: string) => {
     if(userId) {
         return async (dispatch: any) => {
             createPageBlogFireBase(name)
-            updatePageBlogUserBlogFireBase(userId, name)
+            updatePageBlogUserBlogFireBase(userId,nameColumn, name)
                 .then(response => {
                     cookie.save('myPage', name, {path : '/'})
                     dispatch({type: SET_PAGEBLOG, payload: name});
@@ -111,12 +120,15 @@ export const getBlogPageUserActionCreator = (userId: string|null) => {
                     await getPageBlogUserFireBase(userId)
                         .then((snapshot: any) => {
                             const myPage = snapshot.val().pageBlog
+                            const avatar = snapshot.val().Avatar
                             cookie.save('myPage', myPage, {path : '/'})
                             dispatch({type: SET_PAGEBLOG, payload: myPage});
+                            dispatch({type: SET_AVATAR, payload: avatar});
 
                             dispatch({type: SET_SUBSCRIPTIONS, payload:  snapshot.val().subscriptions});
                             if(!myPage) {
                                 dispatch({type: SET_PAGEBLOG, payload: null});
+                                dispatch({type: SET_AVATAR, payload: avatar});
                             }
                         })
                 } catch (e) {

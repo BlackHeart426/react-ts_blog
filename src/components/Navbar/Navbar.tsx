@@ -83,12 +83,12 @@ function Navbar(props: any) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleOpenMyBlog}>
+            {props.pageCurrentUser && <MenuItem onClick={handleOpenMyBlog}>
                 <ListItemIcon className={classes.menuIcons}>
                     <WebIcon fontSize="small" />
                 </ListItemIcon>
                 <Typography variant="inherit">My page</Typography>
-            </MenuItem>
+            </MenuItem>}
             <MenuItem onClick={handleOpenIncome}>
                 <ListItemIcon className={classes.menuIcons}>
                     <AccountBalanceWalletIcon fontSize="small" />
@@ -160,7 +160,7 @@ function Navbar(props: any) {
                             <div className={classes.account} >
                                 <Button
                                     size="medium"
-                                    startIcon={<Avatar alt="Remy Sharp" src={props.avatar} />}
+                                    startIcon={<Avatar alt="Remy Sharp" src={props.user} />}
                                     onClick={handleProfileMenuOpen}
                                 >
                                     {email}

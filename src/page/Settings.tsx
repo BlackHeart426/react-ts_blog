@@ -20,6 +20,7 @@ import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../store/ac
 import {connect} from "react-redux";
 import {grey, green} from "@material-ui/core/colors";
 import {Card} from "semantic-ui-react";
+import {updateUserDataActionCreator} from "../store/action/currentUser";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -103,7 +104,7 @@ function SettingsComponents (props: any){
 
     const handleUpload = (image: string) =>  {
         if(!loading){
-            props.action.updateDataBlog('Avatar', '')
+            props.action.updateUserDataBlog('Avatar', '')
             setLoading(true);
             updateBackgroundUser(image)
                 .on('state_changed',
@@ -114,7 +115,7 @@ function SettingsComponents (props: any){
                     () => {
 
                         // complete function ....
-                        onComplete(image, props.action.updateDataBlog, 'Avatar')
+                        onComplete(image, props.action.updateDataBlog, props.action.updateUserDataBlog, 'Avatar')
                             .then(response => {
                                 console.log(response)
                                 setLoading(false)
@@ -219,7 +220,7 @@ function SettingsComponents (props: any){
                     </div>
                     <div>
                         <Paper elevation={0} className={classes.contentAvatar}>
-                            {!props.dataBlog
+                            {!props.userAvatar
                                 ? <Card
                                     style={{background: grey[100], height: 280, position: 'relative'}}
                                 ><CircularProgress size={85} className={classes.buttonProgress} />
@@ -228,7 +229,7 @@ function SettingsComponents (props: any){
                                     component="img"
                                     height="280"
                                     style={{background: grey[100]}}
-                                    image={props.dataBlog}
+                                    image={props.userAvatar}
                                     title="Contemplative Reptile"
                                 />
                             }
@@ -243,7 +244,7 @@ function SettingsComponents (props: any){
 
 function mapStateToProps(state: any) {
     return {
-        dataBlog: state.blog.Avatar
+        userAvatar: state.currentUser.Avatar
     }
 }
 
@@ -251,8 +252,7 @@ function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value)),
-            updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value)),
-
+            updateUserDataBlog: (nameColumn: string, value: any) => dispatch(updateUserDataActionCreator(nameColumn, value)),
             getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId)),
 
         }

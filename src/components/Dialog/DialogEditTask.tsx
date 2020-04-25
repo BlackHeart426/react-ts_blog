@@ -138,7 +138,6 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
             removeTier: (name: string, uuid: string) => dispatch(removeDataBlogActionCreator(name, uuid)),
             updateDataBlog: (nameColumn: string, value: any, uuid: string) => dispatch(updateArrayDataBlogActionCreator(nameColumn, value, uuid))
         }

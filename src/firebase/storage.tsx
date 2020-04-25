@@ -8,9 +8,13 @@ export function updateBackgroundUser(image: any) {
             .put(image)
 }
 
-export function onComplete(image: any, onSaveData: any, nameColumn: any) {
+export function onComplete(image: any, onSaveData: any, onSaveUserData: any|null, nameColumn: any) {
         const storageRef = storage.ref(`images/${image.name}`);
         return storageRef.getDownloadURL().then(function(url: string) {
                 onSaveData(nameColumn, url )
+                if(onSaveUserData) {
+                        onSaveUserData(nameColumn, url )
+                }
+
         })
 }

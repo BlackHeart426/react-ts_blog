@@ -100,7 +100,6 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
             updateDataBlog: (nameColumn: string, value: any) => dispatch(updateDataBlogActionCreator(nameColumn, value))
         }
     }

@@ -171,7 +171,6 @@ function DialogAddTask(props: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
             addDataBlog: (nameColumn: string, value: any) => dispatch(addDataBlogActionCreator(nameColumn, value, true))
         }
     }

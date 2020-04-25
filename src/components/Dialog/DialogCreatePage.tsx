@@ -92,7 +92,7 @@ function DialogCreatePage(props: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            setMyPage: (name: string) => dispatch(createPageActionCreator(name)),
+            setMyPage: (name: string) => dispatch(createPageActionCreator(name, 'pageBlog')),
         }
     }
 }
