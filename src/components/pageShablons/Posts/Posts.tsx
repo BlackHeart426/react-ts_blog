@@ -65,6 +65,7 @@ function Posts (props: any) {
     useEffect(()=>{
         if(props.dataBlog) {
             const posts: any = Object.values(props.dataBlog)
+            let newListPosts: any = []
             sortPost(posts)
             setPosts(posts)
         }
@@ -97,6 +98,16 @@ function Posts (props: any) {
 
     }
 
+    const limitedComments = (commetsList: any) => {
+        let newListPosts: any = []
+        if(commetsList.length > 5){
+            newListPosts = commetsList.slice(commetsList.length-3, commetsList.length)
+        } else {
+            newListPosts = [...commetsList]
+        }
+        return newListPosts
+    }
+
     const handleChangeComment = (event: any) => {
         setCurrenComment({...currentComment, [event.target.name]:  {uuid: event.target.name, value: event.target.value, active: event.target.value.trim() ? false : true }})
     }
@@ -107,7 +118,7 @@ function Posts (props: any) {
             uuidComment: shortid.generate(),
             userUuid,
             text: currentComment[uuid].value,
-            createComment:  moment().format('DD MMMM  YYYY, h:mm'),
+            createComment:  moment().format('LLLL'),
         }
 
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuid)
@@ -256,7 +267,7 @@ function Posts (props: any) {
 
                         {item.comments === 'allowed'
                             ? <CardContent  style={{paddingBottom: 10}}>
-                            {item.countComments && Object.values(item.countComments).map((comment: any, index: number) => (
+                            {item.countComments && limitedComments(Object.values(item.countComments)).map((comment: any, index: number) => (
                                 <Grid container spacing={3} key={index}>
                                     <Grid item xs={1}>
                                         <Avatar alt="Remy Sharp" src={props.avatar}/>
