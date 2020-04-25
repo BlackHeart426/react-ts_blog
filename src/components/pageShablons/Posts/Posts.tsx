@@ -98,7 +98,7 @@ function Posts (props: any) {
     }
 
     const handleChangeComment = (event: any) => {
-        setCurrenComment({...currentComment, [event.target.name]:  {uuid: event.target.name, value: event.target.value}})
+        setCurrenComment({...currentComment, [event.target.name]:  {uuid: event.target.name, value: event.target.value, active: event.target.value.trim() ? false : true }})
     }
     const handleSendComment = (uuid: string) => {
 
@@ -302,6 +302,7 @@ function Posts (props: any) {
                                         color={"primary"}
                                         style={{height: 40, width: 77}}
                                         variant={"contained"}
+                                        disabled={currentComment[item.uuid] ? currentComment[item.uuid].active : true}
                                         aria-label="delete"
                                         onClick={() => handleSendComment(item.uuid)}>
                                         <TelegramIcon/>
