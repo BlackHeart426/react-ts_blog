@@ -124,7 +124,8 @@ function TemplatePage(props: any) {
     }
 
     const handleUpload = (image: string) =>  {
-        updateBackgroundUser(image)
+        const imageName: string = shortid.generate();
+        updateBackgroundUser(image, imageName)
             .on('state_changed',
                 (snapshot: any) => {
                 },
@@ -132,7 +133,7 @@ function TemplatePage(props: any) {
                 },
                 () => {
                     // complete function ....
-                    onComplete(image, props.action.updateDataBlog, null,'Background')
+                    onComplete(image, imageName, props.action.updateDataBlog, null,'Background')
                         .then(response => {
 
                         })

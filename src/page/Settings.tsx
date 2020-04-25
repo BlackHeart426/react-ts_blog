@@ -21,6 +21,7 @@ import {connect} from "react-redux";
 import {grey, green} from "@material-ui/core/colors";
 import {Card} from "semantic-ui-react";
 import {updateUserDataActionCreator} from "../store/action/currentUser";
+import shortid from "shortid";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -103,19 +104,21 @@ function SettingsComponents (props: any){
     },[])
 
     const handleUpload = (image: string) =>  {
+        const imageName: string = shortid.generate();
         if(!loading){
             props.action.updateUserDataBlog('Avatar', '')
             setLoading(true);
-            updateBackgroundUser(image)
+            updateBackgroundUser(image, imageName)
                 .on('state_changed',
                     (snapshot: any) => {
+                        console.log(snapshot)
                     },
                     (error: Error) => {
                     },
                     () => {
 
                         // complete function ....
-                        onComplete(image, props.action.updateDataBlog, props.action.updateUserDataBlog, 'Avatar')
+                        onComplete(image, imageName, props.action.updateDataBlog, props.action.updateUserDataBlog, 'Avatar')
                             .then(response => {
                                 console.log(response)
                                 setLoading(false)

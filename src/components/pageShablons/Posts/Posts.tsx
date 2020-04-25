@@ -316,9 +316,10 @@ function Posts (props: any) {
                             </CardContent> }
                     </Paper>
                 ))
-                :  <CardContent>
+                :   <Paper elevation={0}  style={{marginTop: 20}}><CardContent>
                     <Skeleton variant="rect" width={'100%'} height={168} />
                 </CardContent>
+                </Paper>
             }
         </>
     )
