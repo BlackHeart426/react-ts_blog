@@ -96,14 +96,8 @@
       <workItem from="1587632742197" duration="13866000" />
       <workItem from="1587661800022" duration="4477000" />
       <workItem from="1587713092691" duration="27680000" />
-      <workItem from="1587807008622" duration="6755000" />
-    </task>
-    <task id="LOCAL-00052" summary="loading">
-      <created>1586971883402</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1586971883402</updated>
+      <workItem from="1587807008622" duration="6774000" />
+      <workItem from="1587894251923" duration="3587000" />
     </task>
     <task id="LOCAL-00053" summary="create page">
       <created>1587030288800</created>
@@ -441,14 +435,20 @@
       <option name="project" value="LOCAL" />
       <updated>1587810496432</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="limit comment">
+      <created>1587837534072</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1587837534073</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="component tier task" />
     <MESSAGE value="component about" />
     <MESSAGE value="component post" />
     <MESSAGE value="dispatch" />
@@ -473,7 +473,8 @@
     <MESSAGE value="avatar ser blogs" />
     <MESSAGE value="random image name" />
     <MESSAGE value="active button send comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="active button send comment" />
+    <MESSAGE value="limit comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="limit comment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -488,10 +489,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587810495694">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1587837533385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587810495694" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587837533385" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -524,18 +525,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="255" key="IDE.errors.dialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587731428586" />
-    <state x="756" y="231" key="RollbackChangesDialog" timestamp="1587735188886">
+    <state x="756" y="231" key="RollbackChangesDialog" timestamp="1587895113136">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587735188886" />
+    <state x="756" y="231" key="RollbackChangesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587895113136" />
     <state x="765" y="224" key="VCS.ChangeListViewerDialog" timestamp="1587037576742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587810497242">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587837535325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587810497242" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587837535325" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587837281591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -544,11 +545,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587571000897" />
-    <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1587809485768">
+    <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1587895261224">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
-    <state x="419" y="434" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587809485768" />
+    <state x="419" y="434" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587895261224" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1586877882026">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -572,7 +573,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/pageShablons/Posts/Posts.tsx</url>
-          <line>60</line>
+          <line>61</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

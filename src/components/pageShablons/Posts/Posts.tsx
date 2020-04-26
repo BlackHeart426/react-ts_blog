@@ -10,7 +10,7 @@ import {
     Typography,
     Avatar,
     Button,
-    Tooltip, MenuItem
+    Tooltip, MenuItem, FormControl
 } from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -27,6 +27,7 @@ import {useParams} from "react-router";
 import moment from "moment";
 import shortid from "shortid";
 import DeleteIcon from '@material-ui/icons/Delete';
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -60,16 +61,24 @@ function Posts (props: any) {
     const {editable} = props
     const classes = useStyles()
     const [posts, setPosts] = useState([])
+    const [showMoreComment, setShowMoreComment] = useState([])
     const [currentComment, setCurrenComment] = useState<any>([])
 
     useEffect(()=>{
         if(props.dataBlog) {
             const posts: any = Object.values(props.dataBlog)
             let newListPosts: any = []
+            posts.map( (item: any) => newListPosts[item.uuid] = false)
             sortPost(posts)
             setPosts(posts)
+            setShowMoreComment(newListPosts)
+
         }
     },[props.dataBlog])
+
+    const handleShowMoreComments = (uuidPost: string) => {
+        setShowMoreComment({...showMoreComment, [uuidPost]: true})
+    }
 
     const checkLike = (uuid: string) => {
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuid)
@@ -98,9 +107,9 @@ function Posts (props: any) {
 
     }
 
-    const limitedComments = (commetsList: any) => {
+    const limitedComments = (commetsList: any, uuidPost: any) => {
         let newListPosts: any = []
-        if(commetsList.length > 5){
+        if(commetsList.length > 3 && showMoreComment[uuidPost] === false){
             newListPosts = commetsList.slice(commetsList.length-3, commetsList.length)
         } else {
             newListPosts = [...commetsList]
@@ -267,7 +276,13 @@ function Posts (props: any) {
 
                         {item.comments === 'allowed'
                             ? <CardContent  style={{paddingBottom: 10}}>
-                            {item.countComments && limitedComments(Object.values(item.countComments)).map((comment: any, index: number) => (
+                            {(item.countComments && item.countComments.length > 3 && showMoreComment[item.uuid] === false)
+                            &&     <Typography style={{paddingBottom: 15}} variant="body2" color="textSecondary" component="p" >
+                                <Link variant="body2" onClick={() => handleShowMoreComments(item.uuid)}>
+                                    Show more comments
+                                </Link>
+                            </Typography>}
+                            {item.countComments && limitedComments(Object.values(item.countComments), item.uuid).map((comment: any, index: number) => (
                                 <Grid container spacing={3} key={index}>
                                     <Grid item xs={1}>
                                         <Avatar alt="Remy Sharp" src={props.avatar}/>
