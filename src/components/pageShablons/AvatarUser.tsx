@@ -19,6 +19,7 @@ import {useParams} from "react-router";
 import {addSubscriptionUserActionCreator} from "../../store/action/currentUser";
 import {AddPost} from "./Posts/AddPost";
 import {grey} from "@material-ui/core/colors";
+import shortid from "shortid";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -60,7 +61,8 @@ function AvatarUser (props: any) {
     const handleFollowed = () => {
         const subscription = {
             name: userId,
-            tier: 1
+            tier: 1,
+            uuid: shortid.generate()
         }
 
         props.action.addSubscription(subscription)

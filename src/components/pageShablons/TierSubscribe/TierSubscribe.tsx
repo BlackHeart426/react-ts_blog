@@ -4,7 +4,9 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {connect} from "react-redux";
 import {AddTier} from "./AddTier";
 import {EditTier} from "./EditTier";
-
+import {updateArrayPageBlogUserBlogFireBase} from "../../../firebase/database";
+import {useParams} from "react-router";
+import {updateArrayPageBlogUserBlogActionCreator} from "../../../store/action/currentUser";
 
 export const sortTier = (tier: any) => {
     tier.sort(function(a: any, b: any){
@@ -12,17 +14,61 @@ export const sortTier = (tier: any) => {
     })
 }
 
+interface ParamTypes {
+    userId: string
+}
+
 function TierSubscribe(props: any){
     const {editable} =props
+    const {userId} = useParams<ParamTypes>();
     const [tier, setTier] = useState([])
 
     useEffect(()=>{
         if(props.dataBlog) {
             const tier: any = Object.values(props.dataBlog)
             sortTier(tier)
+            const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
+            if(myTierData) {
+                tier.map((item: any) => {
+                    if(item.uuid === myTierData.tier) {
+                        item.active = true
+                    } else {
+                        item.active = false
+                    }
+                })
+            }
             setTier(tier)
         }
     },[props.dataBlog])
+
+    useEffect(()=>{
+        if(props.mySubscriptions) {
+            const tier: any = Object.values(props.dataBlog)
+            sortTier(tier)
+            const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
+            if(myTierData) {
+                tier.map((item: any) => {
+                    if(item.uuid === myTierData.tier) {
+                        item.active = true
+                    } else {
+                        item.active = false
+                    }
+                })
+            }
+            setTier(tier)
+        }
+    },[props.mySubscriptions])
+
+    const handleFollowed = (e: any) => {
+        const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
+        myTierData.tier = e.currentTarget.name
+        if(myTierData) {
+            props.action.updateSubscription(myTierData)
+        } else {
+            props.action.addSubscriptionsUserBlogFireBase(myTierData)
+        }
+
+    }
 
     return (
         <>
@@ -43,16 +89,20 @@ function TierSubscribe(props: any){
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             {item.description}
-                        </Typography>
+                        </Typography >
                             {editable
                                 ?  <EditTier uuid={item.uuid}/>
                                 :
                                 <FormControl fullWidth >
                                 <Button
                                     disableElevation
+                                    style={{marginTop: 10}}
+                                    name={item.uuid}
+                                    disabled={item.active}
                                     variant="contained"
+                                    onClick={(e) =>handleFollowed(e)}
                                     color="primary">
-                                    Followed
+                                    Follow
                                 </Button>
                                 </FormControl>
                             }
@@ -74,6 +124,7 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
+        mySubscriptions: state.currentUser.subscriptions,
         dataBlog: state.blog.Tiers
     }
 }
@@ -81,7 +132,7 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            // getDataBlog: (userId: string) => dispatch(getDataBlogActionCreator(userId))
+            updateSubscription: (value: any) => dispatch(updateArrayPageBlogUserBlogActionCreator('subscriptions', value))
         }
     }
 }

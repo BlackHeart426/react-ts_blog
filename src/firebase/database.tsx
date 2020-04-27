@@ -70,11 +70,20 @@ export function updatePageBlogUserBlogFireBase(userId: string, nameColumn: any, 
             .update({[nameColumn]: value})
 }
 
+export function updateArrayPageBlogUserBlogFireBase(userId: string, nameColumn: any, value: any) {
+        return database.ref('userBlogs')
+            .child(userId)
+            .child(nameColumn)
+            .child(value.uuid)
+            .update(value)
+}
+
+
 export function addSubscriptionsUserBlogFireBase(userId: string, subscriptions: any) {
         return database.ref('userBlogs')
             .child(userId)
             .child('subscriptions')
-            .child(shortid.generate())
+            .child(subscriptions.uuid)
             .set(subscriptions)
 }
 

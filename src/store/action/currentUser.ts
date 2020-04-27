@@ -2,7 +2,11 @@ import {
     createPageBlogFireBase,
     createUserFireBase,
     getDataPageBlogFireBase,
-    getPageBlogUserFireBase, updatePageBlogUserBlogFireBase, addSubscriptionsUserBlogFireBase, updateBlogDataFireBase
+    getPageBlogUserFireBase,
+    updatePageBlogUserBlogFireBase,
+    addSubscriptionsUserBlogFireBase,
+    updateBlogDataFireBase,
+    updateArrayPageBlogUserBlogFireBase
 } from "../../firebase/database";
 import { Dispatch } from "redux";
 import cookie from 'react-cookies'
@@ -12,8 +16,9 @@ import {
     SET_SUBSCRIPTIONS,
     UPDATE_DATA_BLOG,
     SET_AVATAR,
-    UPDATE_USER_DATA
+    UPDATE_USER_DATA, UPDATE_ARRAY_DATA_USER
 } from "../types";
+import shortid from "shortid";
 
 
 
@@ -97,6 +102,21 @@ export const addSubscriptionUserActionCreator = (data: object) => {
             addSubscriptionsUserBlogFireBase(userId, data)
                 .then()
             await dispatch({type: ADD_SUBSCRIPTIONS, payload: data})
+        }
+
+    }
+
+}
+
+export const updateArrayPageBlogUserBlogActionCreator = (nameColumn: string, value: any) => {
+    return async (dispatch: Dispatch) => {
+        if(userId) {
+            console.log('userId',userId)
+            console.log('nameColumn',nameColumn)
+            console.log('value',value)
+            updateArrayPageBlogUserBlogFireBase(userId, nameColumn, value)
+                .then()
+            await dispatch({type: UPDATE_ARRAY_DATA_USER, payload: value})
         }
 
     }
