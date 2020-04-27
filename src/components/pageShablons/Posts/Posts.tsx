@@ -276,7 +276,7 @@ function Posts (props: any) {
                                     <strong>Доступно только для подписчиков уровня</strong>
                                 </Typography>
                                 <Typography component="p" align="center" >
-                                   уровень подписки
+                                    {nameTier(item)}
                                 </Typography>
                             </div>
                             </div>}
@@ -297,7 +297,7 @@ function Posts (props: any) {
                                     <IconButton
                                         aria-label="toggle  visibility"
                                         size={"small"}
-                                        disabled={!props.isAuth || !props.isSub}
+                                        disabled={!props.isAuth || !(props.isSub && (item.visible === tierSub))}
                                         onClick={() => handleChangeLike(item.uuid)}
                                     >
                                         {checkLike(item.uuid) ? <FavoriteIcon/> : <FavoriteBorderIcon />}
@@ -318,7 +318,7 @@ function Posts (props: any) {
                         </CardContent>
                         <Divider />
 
-                        {props.isSub
+                        {props.isSub && (item.visible === tierSub)
                         ? item.comments === 'allowed'
                             ? <CardContent  style={{paddingBottom: 10}}>
                                 {(item.countComments && item.countComments.length > 3 && showMoreComment[item.uuid] === false)

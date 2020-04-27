@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     Button,
     Card,
@@ -21,6 +21,8 @@ import {connect} from "react-redux";
 import {AddTasks} from "./AddTasks";
 import {EditTask} from "./EditTask";
 import Skeleton from "@material-ui/lab/Skeleton";
+import DialogEditTier from "../../Dialog/DialogEditTier";
+import DialogTaskPay from "../../Dialog/DialogTaskPay";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -40,6 +42,8 @@ const useStyles = makeStyles((theme: Theme) =>
 function Tasks (props: any) {
     const {editable} =props
     const classes = useStyles()
+    const [money, setMoney] = useState(0)
+    const [dialogOpened, setDialogOpened] = useState(false);
 
     const BorderLinearProgress = withStyles({
         root: {
@@ -63,14 +67,17 @@ function Tasks (props: any) {
                         <Divider />
                         <CardContent style={{paddingTop: 10, paddingBottom: 10}}>
                             <div className={classes.content}>
-                                <strong>0 of {item.name} </strong> {item.task}
+                                {item.task === 'money'
+                                    ? <strong>{money} of {item.name} </strong>
+                                    : <strong>{Object.values(props.subscription).length}  of {item.name} </strong>
+                                } {item.task}
                             </div>
                             <div className={classes.content}>
                                 <BorderLinearProgress
                                     // className={classes.margin}
                                     variant="determinate"
                                     color="secondary"
-                                    value={50}
+                                    value={item.task === 'money' ? ( money !== 0 ? money / item.name  * 100  : 0 ) :  Object.values(props.subscription).length }
                                 />
                             </div>
                             <div className={classes.content}>
@@ -90,15 +97,21 @@ function Tasks (props: any) {
                         <Skeleton variant="rect" width={'100%'} height={168} />
                     </CardContent>
                 }
-                <CardActions>
+                <CardActions style={{padding: 16, paddingTop: 0}}>
                     {!editable
                        && <FormControl fullWidth >
                             <Button
                                 disableElevation
                                 variant="contained"
+                                onClick={()=>setDialogOpened(true)}
                                 color="primary">
                                 Pay
                             </Button>
+                            <DialogTaskPay
+                                show={ dialogOpened }
+                                onMoney={setMoney}
+                                onHide={ () => setDialogOpened(false)}
+                        />
                         </FormControl>
                     }
 
@@ -114,7 +127,8 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog.Tasks
+        dataBlog: state.blog.Tasks,
+        subscription: state.blog.Subscriptions
     }
 }
 
