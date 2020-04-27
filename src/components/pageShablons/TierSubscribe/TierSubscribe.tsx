@@ -6,7 +6,16 @@ import {AddTier} from "./AddTier";
 import {EditTier} from "./EditTier";
 import {updateArrayPageBlogUserBlogFireBase} from "../../../firebase/database";
 import {useParams} from "react-router";
-import {updateArrayPageBlogUserBlogActionCreator} from "../../../store/action/currentUser";
+import {
+    addSubscriptionUserActionCreator,
+    updateArrayPageBlogUserBlogActionCreator
+} from "../../../store/action/currentUser";
+import {
+    updateDataBlogActionCreator,
+    updateArrayDataBlogActionCreator,
+    addDataBlogActionCreator, addSubscriptionsBlogDataActionCreator
+} from "../../../store/action/blog";
+import shortid from "shortid";
 
 export const sortTier = (tier: any) => {
     tier.sort(function(a: any, b: any){
@@ -60,12 +69,21 @@ function TierSubscribe(props: any){
     },[props.mySubscriptions])
 
     const handleFollowed = (e: any) => {
+        const userUuid = localStorage.getItem('userId')
         const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
-        myTierData.tier = e.currentTarget.name
+
         if(myTierData) {
+            myTierData.tier = e.currentTarget.name
+
             props.action.updateSubscription(myTierData)
+            props.action.addDataBlog(userUuid, userId, {uuid: userUuid, tier: myTierData.tier})
         } else {
-            props.action.addSubscriptionsUserBlogFireBase(myTierData)
+            const newSubscriber = {
+                uuid: shortid.generate(),
+                tier: e.currentTarget.name,
+                name: userId
+            }
+            props.action.addSubscription(newSubscriber)
         }
 
     }
@@ -132,7 +150,9 @@ function mapStateToProps(state: any) {
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            updateSubscription: (value: any) => dispatch(updateArrayPageBlogUserBlogActionCreator('subscriptions', value))
+            updateSubscription: (value: any) => dispatch(updateArrayPageBlogUserBlogActionCreator('subscriptions', value)),
+            addDataBlog: (userId: string, namePage: string, value: any) => dispatch(addSubscriptionsBlogDataActionCreator(userId, namePage, value)),
+            addSubscription: (sub: object) => dispatch(addSubscriptionUserActionCreator(sub))
         }
     }
 }

@@ -11,7 +11,7 @@ import {
     addRowBlogDataFireBase,
     getDataPageBlogFireBase, removeArrayBlogDataFireBase,
     updateBlogDataFireBase,
-    updateArrayBlogDataFireBase
+    updateArrayBlogDataFireBase, addSubscriptionsBlogDataFireBase
 } from "../../firebase/database";
 import cookie from "react-cookies";
 const myPage = cookie.load('myPage')
@@ -78,6 +78,19 @@ export const updateLikeCommentDataBlogActionCreator = (nameBlog: string ,name: s
             })
             .catch(error => {
                 console.error('error',error)
+            })
+    }
+}
+
+export const addSubscriptionsBlogDataActionCreator = (userId: string, namePage: string, value: any) => {
+
+    return async (dispatch: any) => {
+        addSubscriptionsBlogDataFireBase(userId, namePage, value)
+            .then(response => {
+                // dispatch({type: ADD_DATA_BLOG, payload: {name: 'Subscriptions', value}});
+            })
+            .catch(error => {
+                console.error('error', error)
             })
     }
 }

@@ -10,7 +10,8 @@ const initialState = {
     },
     Tiers: [],
     Posts: [],
-    Tasks: []
+    Tasks: [],
+    Subscriptions: []
 }
 
 interface IAction {
@@ -29,6 +30,7 @@ export const blogReducer = (state:any = initialState, action: IAction) => {
                 Tiers: action.payload.Tiers,
                 Posts: action.payload.Posts,
                 Tasks: action.payload.Tasks,
+                Subscriptions: action.payload.Subscriptions,
             }
         case UPDATE_DATA_BLOG:
             return {...state, [action.payload.name]: action.payload.value} //Todo переписать

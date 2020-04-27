@@ -88,7 +88,7 @@ function AvatarUser (props: any) {
                 {!editable && <>
                     <CardContent>
                         <Typography  align="center" gutterBottom variant="h5" component="h2">
-                            42
+                            {props.dataBlog.Subscriptions && Object.values(props.dataBlog.Subscriptions).length}
                         </Typography>
                         <Typography align="center" variant="body2" color="textSecondary" component="p">
                             Subscribers

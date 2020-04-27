@@ -40,6 +40,15 @@ export function addArrayBlogDataFireBase(nameBlog: string, nameColumn: string, v
             .set(value)
 }
 
+export function addSubscriptionsBlogDataFireBase(userId: string, nameBlog: string, value: any) {
+        return database.ref('listBlog')
+            .child(nameBlog)
+            .child('dataBlock')
+            .child('Subscriptions')
+            .child(userId)
+            .set(value)
+}
+
 export function removeArrayBlogDataFireBase(nameBlog: string, nameColumn: string, uuid: string) {
         return database.ref('listBlog')
             .child(nameBlog)
@@ -61,6 +70,7 @@ export function createPageBlogFireBase(pageBlog: string) {
                 Tiers: '',
                 Background: '',
                 Posts: '',
+                Subscriptions: '',
         })
 }
 
