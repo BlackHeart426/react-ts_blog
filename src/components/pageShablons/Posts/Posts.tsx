@@ -83,7 +83,7 @@ function Posts (props: any) {
     const checkLike = (uuid: string) => {
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuid)
         const userUuid = localStorage.getItem('userId');
-        const existLike = Object.values(data.countLike).find((item, index) => item === userUuid)
+        const existLike = data.countLike && Object.values(data.countLike).find((item, index) => item === userUuid)
         return existLike ? true : false
     }
 
@@ -214,11 +214,11 @@ function Posts (props: any) {
                             <div className={classes.grow} />
                             {item.available === 'sub'
                                 ? <Tooltip title={nameTier(item)}>
-                                    <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
+                                    <Typography gutterBottom style={{padding: '15px 40px 5px 20px'}} component="h3">
                                         {'Only subscribers'}
                                     </Typography>
                                 </Tooltip>
-                                :   <Typography gutterBottom style={{padding: '15px 20px 5px 20px'}} component="h3">
+                                :   <Typography gutterBottom style={{padding: '15px 40px 5px 20px'}} component="h3">
                                     {'For all users'}
                                 </Typography>
                             }
@@ -244,6 +244,7 @@ function Posts (props: any) {
                                 <Grid item xs={3}>
                                     <IconButton
                                         aria-label="toggle  visibility"
+                                        disabled={true}
                                         size={"small"}
                                     >
                                         <ChatBubbleOutlineIcon/>
@@ -254,6 +255,7 @@ function Posts (props: any) {
                                     <IconButton
                                         aria-label="toggle  visibility"
                                         size={"small"}
+                                        disabled={!props.isAuth}
                                         onClick={() => handleChangeLike(item.uuid)}
                                     >
                                         {checkLike(item.uuid) ? <FavoriteIcon/> : <FavoriteBorderIcon />}
@@ -276,70 +278,77 @@ function Posts (props: any) {
 
                         {item.comments === 'allowed'
                             ? <CardContent  style={{paddingBottom: 10}}>
-                            {(item.countComments && item.countComments.length > 3 && showMoreComment[item.uuid] === false)
-                            &&     <Typography style={{paddingBottom: 15}} variant="body2" color="textSecondary" component="p" >
-                                <Link variant="body2" onClick={() => handleShowMoreComments(item.uuid)}>
-                                    Show more comments
-                                </Link>
-                            </Typography>}
-                            {item.countComments && limitedComments(Object.values(item.countComments), item.uuid).map((comment: any, index: number) => (
-                                <Grid container spacing={3} key={index}>
-                                    <Grid item xs={1}>
-                                        <Avatar alt="Remy Sharp" src={props.avatar}/>
+                                {(item.countComments && item.countComments.length > 3 && showMoreComment[item.uuid] === false)
+                                &&     <Typography style={{paddingBottom: 15}} variant="body2" color="textSecondary" component="p" >
+                                    <Link variant="body2" onClick={() => handleShowMoreComments(item.uuid)}>
+                                        Show more comments
+                                    </Link>
+                                </Typography>}
+                                {item.countComments && limitedComments(Object.values(item.countComments), item.uuid).map((comment: any, index: number) => (
+                                    <Grid container spacing={3} key={index}>
+                                        <Grid item xs={1}>
+                                            <Avatar alt="Remy Sharp" src={props.avatar}/>
+                                        </Grid>
+                                        <Grid item xs={10}>
+                                            <Typography variant="body2" component="p" align={"left"}>{comment.userUuid}</Typography>
+                                            <Typography variant="body2" component="p" align={"left"}>{comment.text}</Typography>
+                                            <Typography color="textSecondary" variant="body2" component="p" align={"left"}>
+                                                {comment.createComment}
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={1}>
+                                            <IconButton aria-label="delete" onClick={() => handleDeleteComment(item.uuid, comment.uuidComment)}
+                                                        size={"small"}>
+                                                <DeleteIcon/>
+                                            </IconButton>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs={10}>
-                                        <Typography variant="body2" component="p" align={"left"}>{comment.userUuid}</Typography>
-                                        <Typography variant="body2" component="p" align={"left"}>{comment.text}</Typography>
-                                        <Typography color="textSecondary" variant="body2" component="p" align={"left"}>
-                                            {comment.createComment}
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item xs={1}>
-                                        <IconButton aria-label="delete" onClick={() => handleDeleteComment(item.uuid, comment.uuidComment)}
-                                                    size={"small"}>
-                                            <DeleteIcon/>
-                                        </IconButton>
-                                    </Grid>
-                                </Grid>
-                            ))
+                                ))
 
-                            }
-                            <Grid container spacing={3}>
-                                <Grid item xs={1}>
-                                    <Avatar alt="Remy Sharp" src={props.avatar} />
+                                }
+                                {props.isAuth
+                                    ? <Grid container spacing={3}>
+                                    <Grid item xs={1}>
+                                        <Avatar alt="Remy Sharp" src={props.avatar} />
+                                    </Grid>
+                                    <Grid item xs={9} style={{paddingRight: 0}}>
+                                        <TextField
+                                            variant="outlined"
+                                            style={{marginTop: 0,  marginBottom: 5, width: '100%'}}
+                                            id="comment"
+                                            name={item.uuid}
+                                            type="comment"
+
+                                            value={currentComment[item.uuid] ? currentComment[item.uuid].value : ''}
+                                            size={"small"}
+                                            onChange={handleChangeComment}
+                                            placeholder="Write comment"
+                                            margin="normal"
+                                        />
+                                    </Grid>
+                                    <Grid item xs={2}>
+                                        <Button
+                                            disableElevation
+                                            color={"primary"}
+                                            style={{height: 40, width: 77}}
+                                            variant={"contained"}
+                                            disabled={currentComment[item.uuid] ? currentComment[item.uuid].active : true}
+                                            aria-label="delete"
+                                            onClick={() => handleSendComment(item.uuid)}>
+                                            <TelegramIcon/>
+                                        </Button>
+                                    </Grid>
                                 </Grid>
-                                <Grid item xs={9} style={{paddingRight: 0}}>
-                                    <TextField
-                                        variant="outlined"
-                                        style={{marginTop: 0,  marginBottom: 5, width: '100%'}}
-                                        id="comment"
-                                        name={item.uuid}
-                                        type="comment"
-                                        value={currentComment[item.uuid] ? currentComment[item.uuid].value : ''}
-                                        size={"small"}
-                                        onChange={handleChangeComment}
-                                        placeholder="Write comment"
-                                        margin="normal"
-                                    />
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Button
-                                        disableElevation
-                                        color={"primary"}
-                                        style={{height: 40, width: 77}}
-                                        variant={"contained"}
-                                        disabled={currentComment[item.uuid] ? currentComment[item.uuid].active : true}
-                                        aria-label="delete"
-                                        onClick={() => handleSendComment(item.uuid)}>
-                                        <TelegramIcon/>
-                                    </Button>
-                                </Grid>
-                            </Grid>
-                        </CardContent>
+                                :
+                                        <Typography style={{paddingBottom: 5}} color="textSecondary" variant="body2"  component="p" align={"left"}>
+                                            Log in to leave comments
+                                        </Typography>
+                               }
+                            </CardContent>
                             :  <CardContent style={{paddingBottom: 16}}>
                                 <Typography color="textSecondary" variant="body2"  component="p" align={"left"}>
-                                The author has limited the ability to comment on this post.
-                            </Typography>
+                                    The author has limited the ability to comment on this post.
+                                </Typography>
                             </CardContent> }
                     </Paper>
                 ))

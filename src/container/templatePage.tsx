@@ -192,7 +192,7 @@ function TemplatePage(props: any) {
                         </Grid>
                         <Grid item xs={6}>
                             <AboutUserCard editable={state.editable}/>
-                            <Posts editable={state.editable}/>
+                            <Posts editable={state.editable} isAuth={props.isAuth}/>
                         </Grid>
                         <Grid item xs={3}>
                             <TierSubscribe editable={state.editable}/>

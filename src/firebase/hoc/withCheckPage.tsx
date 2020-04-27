@@ -45,13 +45,14 @@ export const withCheckPage = (Component: any) => {
 
         public render() {
             const { existBlog } = this.state;
+            const userId = localStorage.getItem('userId')
             if(existBlog === null) {
                  return <Loading open={true}/>
             } else {
                 if(existBlog === false){
                     return <BlogNonFound/>
                 } else if(existBlog === true) {
-                    return <Component />
+                    return <Component isAuth={userId ? true : false} isSub={false}/>
                 }
             }
         }
