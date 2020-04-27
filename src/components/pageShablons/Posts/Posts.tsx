@@ -68,6 +68,7 @@ function Posts (props: any) {
     const [posts, setPosts] = useState([])
     const [showMoreComment, setShowMoreComment] = useState([])
     const [currentComment, setCurrenComment] = useState<any>([])
+    const [tierSub, setTierSub] = useState('')
 
     useEffect(()=>{
         if(props.dataBlog) {
@@ -81,14 +82,28 @@ function Posts (props: any) {
         }
     },[props.dataBlog])
 
+    useEffect(()=>{
+       let uuidTier = ''
+       Object.values(props.mySub).find((item: any) =>{
+           if ( item.name === userId) {
+               uuidTier = item.tier
+           }
+       })
+        setTierSub(uuidTier)
+    },[props.mySub])
+
     const handleShowMoreComments = (uuidPost: string) => {
         setShowMoreComment({...showMoreComment, [uuidPost]: true})
     }
 
     const checkLike = (uuid: string) => {
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuid)
-        const userUuid = localStorage.getItem('userId');
-        const existLike = data.countLike && Object.values(data.countLike).find((item, index) => item === userUuid)
+        let existLike: any = false
+        if(data) {
+            const userUuid = localStorage.getItem('userId');
+            existLike = Object.values(data.countLike).find((item, index) => item === userUuid)
+        }
+
         return existLike ? true : false
     }
 
@@ -233,7 +248,7 @@ function Posts (props: any) {
 
                         <Divider />
 
-                        {props.isSub
+                        {props.isSub && (item.visible === tierSub)
                         ? <CardContent>
                             <Typography component="p" variant="h6"  className={classes.contentAbout}>
                                 <strong> {item.name}</strong>
@@ -395,7 +410,8 @@ function mapStateToProps(state: any) {
         isMyPage: state.currentUser.myPage,
         dataBlog: state.blog.Posts,
         dataBlogTiers: state.blog.Tiers,
-        avatar: state.currentUser.Avatar
+        avatar: state.currentUser.Avatar,
+        mySub: state.currentUser.subscriptions
     }
 }
 
