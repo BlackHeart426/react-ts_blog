@@ -55,12 +55,15 @@ function Navbar(props: any) {
     };
     const handleOpenMyBlog = () => {
         history.push("/"+props.pageCurrentUser)
+        handleMenuClose()
     };
     const handleOpenIncome = () => {
         history.push(PROFILE)
+        handleMenuClose()
     };
     const handleOpenSettings = () => {
         history.push(SETTINGS)
+        handleMenuClose()
     };
 
     const handleDrawerOpen = () => {

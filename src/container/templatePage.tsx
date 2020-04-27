@@ -93,6 +93,7 @@ function TemplatePage(props: any) {
     const {userId} = useParams<ParamTypes>();
     const classes = useStyles()
     const [state, setState] = useState({editable: false});
+    const [isSub, setIsSub] = useState( false);
     const [imageState, setImageState] = useState(property);
 
     useEffect(()=>{
@@ -106,6 +107,11 @@ function TemplatePage(props: any) {
     useEffect(()=>{
         props.dataBlog && setImageState(props.dataBlog.Background)
     },[props.dataBlog])
+
+    useEffect(()=>{
+        const existSub = Object.values(props.currentUserData.subscriptions).find((item: any) => item.name === userId)
+        existSub && setIsSub(true)
+    },[props.currentUserData])
 
     useEffect(()=>{
         props.isMyPage === userId
@@ -192,7 +198,7 @@ function TemplatePage(props: any) {
                         </Grid>
                         <Grid item xs={6}>
                             <AboutUserCard editable={state.editable}/>
-                            <Posts editable={state.editable} isAuth={props.isAuth}/>
+                            <Posts editable={state.editable} isAuth={props.isAuth} isSub={isSub}/>
                         </Grid>
                         <Grid item xs={3}>
                             <TierSubscribe editable={state.editable}/>
@@ -208,7 +214,8 @@ function mapStateToProps(state: any) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
-        dataBlog: state.blog
+        dataBlog: state.blog,
+        currentUserData: state.currentUser
     }
 }
 

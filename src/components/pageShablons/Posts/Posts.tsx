@@ -10,7 +10,7 @@ import {
     Typography,
     Avatar,
     Button,
-    Tooltip, MenuItem, FormControl
+    Tooltip, MenuItem, FormControl, CardMedia
 } from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -28,6 +28,8 @@ import moment from "moment";
 import shortid from "shortid";
 import DeleteIcon from '@material-ui/icons/Delete';
 import Link from "@material-ui/core/Link";
+import {grey} from "@material-ui/core/colors";
+import LockIcon from '@material-ui/icons/Lock';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -36,6 +38,9 @@ const useStyles = makeStyles((theme: Theme) =>
             },
             grow: {
                 flexGrow: 1
+            },
+            centerContent: {
+                margin: '0 auto',
             }
         }
     )
@@ -227,7 +232,9 @@ function Posts (props: any) {
                         </Grid>
 
                         <Divider />
-                        <CardContent>
+
+                        {props.isSub
+                        ? <CardContent>
                             <Typography component="p" variant="h6"  className={classes.contentAbout}>
                                 <strong> {item.name}</strong>
                             </Typography>
@@ -238,6 +245,26 @@ function Posts (props: any) {
                                 {item.description}
                             </Typography>
                         </CardContent>
+                        : <div style={{position: "relative"}}>
+                                <CardMedia
+                                component="img"
+                                height="280"
+                                style={{background: grey[100]}}
+                                image={"https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/blur-cover.3INPE.jpg?alt=media&token=6d245d22-b39f-4498-a9c4-cff0609dd70a"}
+                                title="Contemplative Reptile"
+                            />
+                            <div style={{position: "absolute", top: 0, color: '#fff', width: '100%', marginTop: 70}} >
+                                <Typography component="p" variant="h6" align="center"   >
+                                    <LockIcon fontSize={"large"} />
+                                </Typography>
+                                <Typography component="p" variant="h6" align="center" >
+                                    <strong>Доступно только для подписчиков уровня</strong>
+                                </Typography>
+                                <Typography component="p" align="center" >
+                                   уровень подписки
+                                </Typography>
+                            </div>
+                            </div>}
 
                         <CardContent style={{paddingBottom: 10}}>
                             <Grid container spacing={3}>
@@ -255,7 +282,7 @@ function Posts (props: any) {
                                     <IconButton
                                         aria-label="toggle  visibility"
                                         size={"small"}
-                                        disabled={!props.isAuth}
+                                        disabled={!props.isAuth || !props.isSub}
                                         onClick={() => handleChangeLike(item.uuid)}
                                     >
                                         {checkLike(item.uuid) ? <FavoriteIcon/> : <FavoriteBorderIcon />}
@@ -276,7 +303,8 @@ function Posts (props: any) {
                         </CardContent>
                         <Divider />
 
-                        {item.comments === 'allowed'
+                        {props.isSub
+                        ? item.comments === 'allowed'
                             ? <CardContent  style={{paddingBottom: 10}}>
                                 {(item.countComments && item.countComments.length > 3 && showMoreComment[item.uuid] === false)
                                 &&     <Typography style={{paddingBottom: 15}} variant="body2" color="textSecondary" component="p" >
@@ -349,7 +377,7 @@ function Posts (props: any) {
                                 <Typography color="textSecondary" variant="body2"  component="p" align={"left"}>
                                     The author has limited the ability to comment on this post.
                                 </Typography>
-                            </CardContent> }
+                            </CardContent> : <></>}
                     </Paper>
                 ))
                 :   <Paper elevation={0}  style={{marginTop: 20}}><CardContent>
@@ -367,7 +395,7 @@ function mapStateToProps(state: any) {
         isMyPage: state.currentUser.myPage,
         dataBlog: state.blog.Posts,
         dataBlogTiers: state.blog.Tiers,
-        avatar: state.blog.Avatar
+        avatar: state.currentUser.Avatar
     }
 }
 
