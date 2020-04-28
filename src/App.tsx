@@ -14,7 +14,7 @@ import {
   PROFILE
 } from './constants/routes';
 import {NonFound} from "./page/NonFound";
-import {Home} from "./page/Home";
+import Home from "./page/Home";
 import {Settings} from "./container/Settings/settingsContainer";
 import {Profile} from "./page/Profile";
 import {auth} from "./firebase/firebaseService";

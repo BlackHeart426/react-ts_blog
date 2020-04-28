@@ -158,7 +158,7 @@ function Navbar(props: any) {
                             <div className={classes.grow} />
                             <div>
                                 {/*add cookies*/}
-                                {!props.pageCurrentUser && <CreatePage/>}
+                                <CreatePage/>
                             </div>
                             <div className={classes.account} >
                                 <Button

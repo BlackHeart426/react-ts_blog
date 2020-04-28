@@ -5,7 +5,6 @@ import List from '@material-ui/core/List';
 import {connect} from "react-redux";
 import {openDrawerActionCreator} from "../../store/action/app";
 import {ListItem, ListItemText, ListItemIcon, Avatar, Grid} from '@material-ui/core';
-import {AccountCircle} from "@material-ui/icons";
 import {useHistory} from "react-router-dom";
 
 export const drawerWidth = 240;
@@ -68,6 +67,7 @@ function mapStateToProps(state: any) {
     return {
         openDrawer: state.app.openDrawer,
         subscriptions: state.currentUser.subscriptions,
+        
     }
 }
 

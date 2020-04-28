@@ -55,9 +55,12 @@ export const createPageActionCreator = (name: string, nameColumn: string) => {
     if(userId) {
         return async (dispatch: any) => {
             createPageBlogFireBase(name)
-            updatePageBlogUserBlogFireBase(userId,nameColumn, name)
+            updatePageBlogUserBlogFireBase(userId, nameColumn, name)
                 .then(response => {
-                    cookie.save('myPage', name, {path : '/'})
+                    console.log('name', name)
+                    if(name) {
+                        cookie.save('myPage', name, {path : '/'})
+                    }
                     dispatch({type: SET_PAGEBLOG, payload: name});
                 })
                 .catch(error => {
@@ -141,7 +144,9 @@ export const getBlogPageUserActionCreator = (userId: string|null) => {
                         .then((snapshot: any) => {
                             const myPage = snapshot.val().pageBlog
                             const avatar = snapshot.val().Avatar
-                            cookie.save('myPage', myPage, {path : '/'})
+                            if(myPage){
+                                cookie.save('myPage', myPage, {path : '/'})
+                            }
                             dispatch({type: SET_PAGEBLOG, payload: myPage});
                             dispatch({type: SET_AVATAR, payload: avatar});
 
