@@ -3,11 +3,13 @@ import {makeStyles} from "@material-ui/core/styles";
 import {drawerWidth} from "../components/Drawer/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
-import {Button} from "@material-ui/core";
+import {Button, CardMedia} from "@material-ui/core";
 import {connect} from "react-redux";
 import {useHistory} from "react-router-dom";
 import DialogCreatePage from "../components/Dialog/DialogCreatePage";
 import cookie from "react-cookies";
+import {grey} from "@material-ui/core/colors";
+import {CarouselBootstrap} from "../components/CarouselBootstrap";
 
 const useStyles = makeStyles({
     root: {
@@ -24,6 +26,10 @@ const useStyles = makeStyles({
     },
     image: {
         position: 'absolute',
+        width: 400,
+        height: 400,
+        right: 0,
+        top: 40
     }
 })
 
@@ -53,6 +59,18 @@ function Home(props: any) {
     return (
         <div className={classes.root}>
             <div className={classes.container}>
+                <div className={classes.image}>
+                    <CarouselBootstrap />
+                </div>
+
+                {/*<CardMedia*/}
+                {/*    component="img"*/}
+                {/*    className={classes.image}*/}
+                {/*    width="400px"*/}
+                {/*    height="400px"*/}
+                {/*    image="https://firebasestorage.googleapis.com/v0/b/ts-blog-45eb9.appspot.com/o/homeImage%2Ftraining.3BZNg.jpg?alt=media&token=709cac4b-87e8-49f1-9646-896e5a0c880a"*/}
+                {/*    title="Contemplative Reptile"*/}
+                {/*/>*/}
                 <div className={classes.content}>
                     <div>
                         <Typography variant="h3" >
@@ -86,6 +104,7 @@ function Home(props: any) {
                             />
                             </>}
                     </div>
+
                 </div>
             </div>
         </div>
