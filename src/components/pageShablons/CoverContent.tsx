@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Typography, InputBase, InputAdornment, Input} from "@material-ui/core";
+import {Typography,  InputAdornment, Input} from "@material-ui/core";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import EditIcon from '@material-ui/icons/Edit';
 import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../../store/action/blog";
@@ -55,8 +55,9 @@ function CoverContent(props: any) {
                 endAdornment={<EditIcon/>}
                 onChange={handleSaveData}
                 fullWidth
+                type={"text"}
                 color={"secondary"}
-                value={value}
+                value={value ? value : ''}
                 name={'Description'}
                 inputProps={{'aria-label': 'naked'}}/>
                 : <Typography gutterBottom variant="h5" component="h2">

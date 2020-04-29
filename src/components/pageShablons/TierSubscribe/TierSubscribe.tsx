@@ -36,7 +36,7 @@ function TierSubscribe(props: any){
         if(props.dataBlog) {
             const tier: any = Object.values(props.dataBlog)
             sortTier(tier)
-            const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
+            const myTierData: any = props.mySubscriptions && Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
             if(myTierData) {
                 tier.map((item: any) => {
                     if(item.uuid === myTierData.tier) {
@@ -70,7 +70,7 @@ function TierSubscribe(props: any){
 
     const handleFollowed = (e: any) => {
         const userUuid = localStorage.getItem('userId')
-        const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
+        const myTierData: any = props.mySubscriptions && Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
 
         if(myTierData) {
             myTierData.tier = e.currentTarget.name
@@ -78,11 +78,13 @@ function TierSubscribe(props: any){
             props.action.updateSubscription(myTierData)
             props.action.addDataBlog(userUuid, userId, {uuid: userUuid, tier: myTierData.tier})
         } else {
+
             const newSubscriber = {
                 uuid: shortid.generate(),
                 tier: e.currentTarget.name,
                 name: userId
             }
+            console.log(newSubscriber)
             props.action.addSubscription(newSubscriber)
         }
 

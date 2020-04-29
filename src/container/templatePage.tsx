@@ -109,7 +109,7 @@ function TemplatePage(props: any) {
     },[props.dataBlog])
 
     useEffect(()=>{
-        const existSub = Object.values(props.currentUserData.subscriptions).find((item: any) => item.name === userId)
+        const existSub = props.currentUserData.subscriptions && Object.values(props.currentUserData.subscriptions).find((item: any) => item.name === userId)
         existSub && setIsSub(true)
     },[props.currentUserData])
 

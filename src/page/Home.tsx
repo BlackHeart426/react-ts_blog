@@ -10,6 +10,7 @@ import DialogCreatePage from "../components/Dialog/DialogCreatePage";
 import cookie from "react-cookies";
 import {grey} from "@material-ui/core/colors";
 import {CarouselBootstrap} from "../components/CarouselBootstrap";
+import {AuthorizationModal} from "../container/Authorization/AuthorizationModal";
 
 const useStyles = makeStyles({
     root: {
@@ -79,30 +80,33 @@ function Home(props: any) {
                         <Typography style={{paddingTop: 20}} color="textSecondary"   >
                             New cool communication format with your most dedicated fans
                         </Typography>
-                        {myPage
-                            ? <Button
-                            style={{marginTop: 20, height: 60}}
-                            disableElevation
-                            variant="contained"
-                            size={"large"}
-                            onClick={handleOpenPage}
-                            color="primary">
-                            <strong>Open my page</strong>
-                        </Button>
-                        : <><Button
-                                style={{marginTop: 20, height: 60}}
-                                disableElevation
-                                variant="contained"
-                                size={"large"}
-                                onClick={handleCreatePage}
-                                color="primary">
-                                <strong>Create page</strong>
-                            </Button>
-                            <DialogCreatePage
-                                show={ dialogOpened }
-                                onHide={ () => setDialogOpened(false)}
-                            />
-                            </>}
+                        {props.isAuthenticated
+                            ? myPage
+                                ? <Button
+                                    style={{marginTop: 20, height: 60}}
+                                    disableElevation
+                                    variant="contained"
+                                    size={"large"}
+                                    onClick={handleOpenPage}
+                                    color="primary">
+                                    <strong>Open my page</strong>
+                                </Button>
+                                : <><Button
+                                    style={{marginTop: 20, height: 60}}
+                                    disableElevation
+                                    variant="contained"
+                                    size={"large"}
+                                    onClick={handleCreatePage}
+                                    color="primary">
+                                    <strong>Create page</strong>
+                                </Button>
+                                <DialogCreatePage
+                                    show={ dialogOpened }
+                                    onHide={ () => setDialogOpened(false)}
+                                />
+                                </>
+                            : <AuthorizationModal register={true}/>
+                        }
                     </div>
 
                 </div>
@@ -114,6 +118,7 @@ function Home(props: any) {
 
 function mapStateToProps(state: any) {
     return {
+        isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
     }
 }

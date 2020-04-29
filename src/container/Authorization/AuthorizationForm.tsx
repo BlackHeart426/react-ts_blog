@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         rootForm: {
-            width: 800,
+            //width: 800,
             // display: 'none',
             [theme.breakpoints.down('md')]: {
                 // display: 'block',
@@ -17,7 +17,7 @@ export const useStyles = makeStyles((theme: Theme) =>
             },
         },
         leftSide: {
-            width: 370,
+            width: 417,
             [theme.breakpoints.down('md')]: {
                 // display: 'block',
                 width: '95%',
@@ -25,17 +25,17 @@ export const useStyles = makeStyles((theme: Theme) =>
                 padding: 0,
             },
             padding: 10,
-            marginRight: 10
+            marginLeft: 10
         } ,
         rightSide: {
-            width: 350,
+            width: 420,
             [theme.breakpoints.down('md')]: {
                 // display: 'block',
                 width: '95%',
                 marginLeft: 0,
             },
             padding: 10,
-            marginLeft: 20
+            marginRight: 20
         },
         leftSideDiv: {
             [theme.breakpoints.down('md')]: {
@@ -87,7 +87,9 @@ export function AuthorizationForm(props: any) {
                     <AuthorizationLeftSide onHideModal={onHideModal}/>
                 </div>
             </div>
+            <div style={{flexGrow: 1}}></div>
             <Hidden xsDown><Divider orientation="vertical" flexItem /></Hidden>
+            <div style={{flexGrow: 1}}></div>
             <div className={classes.rightSide}>
                 <AuthorizationRightSide form={form} onHideModal={onHideModal}/>
             </div>

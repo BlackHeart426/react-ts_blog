@@ -46,14 +46,19 @@ export const removeDataBlogActionCreator = (name: string, uuid: string) => {
 
 export const updateDataBlogActionCreator = (name: string, value: any) => {
     const myPage = cookie.load('myPage')
+    console.log('nameColumn',name)
+    console.log('value',value)
     return async (dispatch: any) => {
-        updateBlogDataFireBase(myPage, name, value)
-            .then(response => {
-                dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
-            })
-            .catch(error => {
-                console.error('error',error)
-            })
+        if(myPage){
+            updateBlogDataFireBase(myPage, name, value)
+                .then(response => {
+                    dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
+                })
+                .catch(error => {
+                    console.error('error',error)
+                })
+        }
+
     }
 }
 //добавить проверку пользователя

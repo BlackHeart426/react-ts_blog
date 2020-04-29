@@ -19,6 +19,7 @@ function GoogleButtonLogin(props: any) {
         <SocialButtonStyle
             onConnection={() => handleConnection('google')}
             colorButton={colorButton}
+            disabled={false}
             colorBorder={colorButtonHover}
             colorBackground={colorButton}
             colorButtonHover={colorButtonHover}

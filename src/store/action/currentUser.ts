@@ -38,6 +38,7 @@ export const createUserActionCreator = (name: string) => {
 
 export const updateUserDataActionCreator = (nameColumn: string, value: any) => {
     return async (dispatch: any) => {
+
         if(userId) {
             updatePageBlogUserBlogFireBase(userId, nameColumn, value)
                 .then(response => {
@@ -51,10 +52,10 @@ export const updateUserDataActionCreator = (nameColumn: string, value: any) => {
     }
 }
 
-export const createPageActionCreator = (name: string, nameColumn: string) => {
+export const createPageActionCreator = (name: string, nameColumn: string, avatar: string) => {
     if(userId) {
         return async (dispatch: any) => {
-            createPageBlogFireBase(name)
+            createPageBlogFireBase(name, avatar)
             updatePageBlogUserBlogFireBase(userId, nameColumn, name)
                 .then(response => {
                     console.log('name', name)
@@ -149,8 +150,11 @@ export const getBlogPageUserActionCreator = (userId: string|null) => {
                             }
                             dispatch({type: SET_PAGEBLOG, payload: myPage});
                             dispatch({type: SET_AVATAR, payload: avatar});
+                            console.log(' snapshot.val().subscriptions',  snapshot.val().subscriptions)
+                            if(snapshot.val().subscriptions){
+                                dispatch({type: SET_SUBSCRIPTIONS, payload:  snapshot.val().subscriptions});
+                            }
 
-                            dispatch({type: SET_SUBSCRIPTIONS, payload:  snapshot.val().subscriptions});
                             if(!myPage) {
                                 dispatch({type: SET_PAGEBLOG, payload: null});
                                 dispatch({type: SET_AVATAR, payload: avatar});

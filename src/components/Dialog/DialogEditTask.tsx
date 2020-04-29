@@ -31,7 +31,7 @@ function DialogEditTask(props: any) {
     const {show, onHide, uuid} = props;
     const [dialogOpened, setDialogOpened] = useState(false);
     const [state, setState] = useState<IState>(initialState);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
     useEffect(()=>{
         setDialogOpened(show)
@@ -40,13 +40,13 @@ function DialogEditTask(props: any) {
         data && setState({...state, name: data.name, task: data.task, description: data.description})
     },[show])
 
-    useEffect(() => {
-        if (state.name.trim() && state.description.trim()){
-            setIsButtonDisabled(false);
-        } else {
-            setIsButtonDisabled(true);
-        }
-    }, [state.name, state.description]);
+    // useEffect(() => {
+    //     if ( (state.name && state.name.trim()) && (state.description && state.description.trim())){
+    //         setIsButtonDisabled(false);
+    //     } else {
+    //         setIsButtonDisabled(true);
+    //     }
+    // }, [state.name, state.description]);
 
     const handleRemoveTask = () => {
         props.action.removeTier('Tasks', uuid)

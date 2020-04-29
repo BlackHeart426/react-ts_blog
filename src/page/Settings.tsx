@@ -134,55 +134,55 @@ function SettingsComponents (props: any){
     return <div className={classes.content}>
         <Grid container spacing={3}>
             <Grid item xs={6}>
-                <div>
-                    <Typography variant="inherit">Name</Typography>
-                    <TextField
-                        variant="outlined"
-                        fullWidth
-                        id="name"
-                        name="name"
-                        className={classes.textField}
-                        type="text"
-                        size={"small"}
-                        placeholder="Name"
-                        value={name}
-                        margin="normal"
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <Typography variant="body2" color="textSecondary" component="p" >
-                        The name will be shown on your pages
-                    </Typography>
-                </div>
-                <div style={{marginTop: 30}}>
-                    <Typography variant="inherit" >
-                        E-mail
-                    </Typography>
-                    <TextField
-                        error={errorForm.email.status}
-                        helperText={errorForm.email.message}
-                        variant="outlined"
-                        fullWidth
-                        value={email}
-                        id="email"
-                        className={classes.textField}
-                        name="email"
-                        type="email"
-                        disabled={isDisabled}
-                        InputProps={{
-                            endAdornment:  <IconButton aria-label="delete" onClick={handleEditEmail} size={"small"}>
-                                <EditIcon color={"primary"}/>
-                            </IconButton>,
-                        }}
-                        size={"small"}
-                        placeholder="Email"
-                        margin="normal"
-                        onChange={(e) => handleValidate(e, setEmail(e.target.value))}
-                        onKeyPress={(e)=>handleKeyPress(e)}
-                    />
-                    <Typography variant="body2" color="textSecondary" component="p" >
-                        Mail is required for the full functionality of your account
-                    </Typography>
-                </div>
+                {/*<div>*/}
+                {/*    <Typography variant="inherit">Name</Typography>*/}
+                {/*    <TextField*/}
+                {/*        variant="outlined"*/}
+                {/*        fullWidth*/}
+                {/*        id="name"*/}
+                {/*        name="name"*/}
+                {/*        className={classes.textField}*/}
+                {/*        type="text"*/}
+                {/*        size={"small"}*/}
+                {/*        placeholder="Name"*/}
+                {/*        value={name}*/}
+                {/*        margin="normal"*/}
+                {/*        onChange={(e) => setName(e.target.value)}*/}
+                {/*    />*/}
+                {/*    <Typography variant="body2" color="textSecondary" component="p" >*/}
+                {/*        The name will be shown on your pages*/}
+                {/*    </Typography>*/}
+                {/*</div>*/}
+                {/*<div style={{marginTop: 30}}>*/}
+                {/*    <Typography variant="inherit" >*/}
+                {/*        E-mail*/}
+                {/*    </Typography>*/}
+                {/*    <TextField*/}
+                {/*        error={errorForm.email.status}*/}
+                {/*        helperText={errorForm.email.message}*/}
+                {/*        variant="outlined"*/}
+                {/*        fullWidth*/}
+                {/*        value={email}*/}
+                {/*        id="email"*/}
+                {/*        className={classes.textField}*/}
+                {/*        name="email"*/}
+                {/*        type="email"*/}
+                {/*        disabled={isDisabled}*/}
+                {/*        InputProps={{*/}
+                {/*            endAdornment:  <IconButton aria-label="delete" onClick={handleEditEmail} size={"small"}>*/}
+                {/*                <EditIcon color={"primary"}/>*/}
+                {/*            </IconButton>,*/}
+                {/*        }}*/}
+                {/*        size={"small"}*/}
+                {/*        placeholder="Email"*/}
+                {/*        margin="normal"*/}
+                {/*        onChange={(e) => handleValidate(e, setEmail(e.target.value))}*/}
+                {/*        onKeyPress={(e)=>handleKeyPress(e)}*/}
+                {/*    />*/}
+                {/*    <Typography variant="body2" color="textSecondary" component="p" >*/}
+                {/*        Mail is required for the full functionality of your account*/}
+                {/*    </Typography>*/}
+                {/*</div>*/}
                 <div style={{marginTop: 30}}>
                     <Typography variant="inherit" >
                         Change avatar

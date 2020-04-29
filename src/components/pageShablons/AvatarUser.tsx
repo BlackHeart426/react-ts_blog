@@ -24,7 +24,7 @@ import shortid from "shortid";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         contentAvatar: {
-            width: '255px',
+            width: '295px',
             padding: '20px'
 
         },

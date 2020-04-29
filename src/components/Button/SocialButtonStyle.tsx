@@ -28,11 +28,12 @@ interface IProps {
     colorBorder: string,
     colorButtonHover: string,
     icon: any,
-    onConnection: any
+    onConnection: any,
+    disabled: boolean
 }
 
 export function SocialButtonStyle(props: IProps) {
-    const {colorButton, colorBackground, colorBorder, icon, colorButtonHover, onConnection} = props;
+    const {colorButton, colorBackground, colorBorder, icon, colorButtonHover, onConnection, disabled} = props;
 
     const CustomButton = withStyles((theme: Theme) => ({
         root: {
@@ -46,7 +47,7 @@ export function SocialButtonStyle(props: IProps) {
     }))(Button);
     const classes = useStyles();
     return (
-        <CustomButton onClick={() => onConnection()} aria-label="delete" className={classes.button} size="large">
+        <CustomButton disabled={disabled} onClick={() => onConnection()} aria-label="delete" className={classes.button} size="large">
             {icon}
         </CustomButton>
     )

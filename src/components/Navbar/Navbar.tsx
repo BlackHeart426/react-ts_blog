@@ -92,12 +92,12 @@ function Navbar(props: any) {
                 </ListItemIcon>
                 <Typography variant="inherit">My page</Typography>
             </MenuItem>}
-            <MenuItem onClick={handleOpenIncome}>
-                <ListItemIcon className={classes.menuIcons}>
-                    <AccountBalanceWalletIcon fontSize="small" />
-                </ListItemIcon>
-                <Typography variant="inherit">My income</Typography>
-            </MenuItem>
+            {/*<MenuItem onClick={handleOpenIncome}>*/}
+            {/*    <ListItemIcon className={classes.menuIcons}>*/}
+            {/*        <AccountBalanceWalletIcon fontSize="small" />*/}
+            {/*    </ListItemIcon>*/}
+            {/*    <Typography variant="inherit">My income</Typography>*/}
+            {/*</MenuItem>*/}
             <MenuItem onClick={handleOpenSettings}>
                 <ListItemIcon className={classes.menuIcons}>
                     <SettingsIcon fontSize="small" />

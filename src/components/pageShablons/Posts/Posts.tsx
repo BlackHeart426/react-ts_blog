@@ -69,6 +69,7 @@ function Posts (props: any) {
     const [showMoreComment, setShowMoreComment] = useState([])
     const [currentComment, setCurrenComment] = useState<any>([])
     const [tierSub, setTierSub] = useState('')
+    const [isMyPage, setIsMyPage] = useState(false)
 
     useEffect(()=>{
         if(props.dataBlog) {
@@ -80,11 +81,16 @@ function Posts (props: any) {
             setShowMoreComment(newListPosts)
 
         }
+        if(userId === props.isisMyPage){
+            setIsMyPage(true)
+        } else {
+            setIsMyPage(false)
+        }
     },[props.dataBlog])
 
     useEffect(()=>{
        let uuidTier = ''
-       Object.values(props.mySub).find((item: any) =>{
+        props.mySub && Object.values(props.mySub).find((item: any) =>{
            if ( item.name === userId) {
                uuidTier = item.tier
            }
@@ -105,6 +111,15 @@ function Posts (props: any) {
         }
 
         return existLike ? true : false
+    }
+
+    const visiblePost = (item: any) => {
+        console.log('tierSub',(item.available === 'all' || props.isMyPage))
+        if((item.available === 'all' || props.isMyPage === userId) || ((item.visible === tierSub) && props.isSub)) {
+            return true
+        } else {
+            return false
+        }
     }
 
     const changeLike = (data: any) => {
@@ -248,7 +263,7 @@ function Posts (props: any) {
 
                         <Divider />
 
-                        {props.isSub && (item.visible === tierSub)
+                        {visiblePost(item)
                         ? <CardContent>
                             <Typography component="p" variant="h6"  className={classes.contentAbout}>
                                 <strong> {item.name}</strong>

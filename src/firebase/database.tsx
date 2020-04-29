@@ -58,12 +58,12 @@ export function removeArrayBlogDataFireBase(nameBlog: string, nameColumn: string
             .remove()
 }
 
-export function createPageBlogFireBase(pageBlog: string) {
+export function createPageBlogFireBase(pageBlog: string, avatar: string) {
         return database.ref('listBlog')
             .child(pageBlog)
             .child('dataBlock')
             .set({
-                Avatar: { image: ''},
+                Avatar: avatar,
                 Tasks: '',
                 About: '',
                 Description: { name: pageBlog},

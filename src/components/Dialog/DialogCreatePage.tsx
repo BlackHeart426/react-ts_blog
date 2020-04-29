@@ -29,7 +29,7 @@ function DialogCreatePage(props: any) {
     }, [email, pageBlog]);
 
     const handleBecomeAuthor = () => {
-        props.action.setMyPage(pageBlog)
+        props.action.setMyPage(pageBlog, props.avatar)
         onHide()
 
     }
@@ -89,12 +89,18 @@ function DialogCreatePage(props: any) {
     )
 }
 
+function mapStateToProps(state: any) {
+    return {
+        avatar: state.currentUser.Avatar
+    }
+}
+
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            setMyPage: (name: string) => dispatch(createPageActionCreator(name, 'pageBlog')),
+            setMyPage: (name: string, avatar: string) => dispatch(createPageActionCreator(name, 'pageBlog', avatar)),
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(DialogCreatePage)
+export default connect(mapStateToProps, mapDispatchToProps)(DialogCreatePage)
