@@ -46,7 +46,6 @@ function AuthorizationRecoveryPassword(props: any) {
         }
         props.action.resetPassword(email)
         setAlertSuccess(true)
-        // onLogin(dataUser)
     };
 
 
@@ -105,7 +104,6 @@ function AuthorizationRecoveryPassword(props: any) {
                         variant="contained"
                         size="large"
                         color="primary"
-                        // className={classes.loginBtn}
                         onClick={handleSendEmail}
                         disabled={isButtonDisabled}>
                         Send

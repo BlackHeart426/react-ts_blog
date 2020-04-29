@@ -121,7 +121,6 @@ function DialogAddTier(props: any) {
                     placeholder="Enter your name"
                     margin="normal"
                     onChange={(e) => setName(e.target.value)}
-                    // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography variant="body2"  component="p">
                     <strong>Description</strong>
@@ -141,7 +140,6 @@ function DialogAddTier(props: any) {
                     placeholder="Enter your description"
                     margin="normal"
                     onChange={(e) => setDescription(e.target.value)}
-                    // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography color="textSecondary" variant="body2"  component="p" align={"right"}>
                     {description.length} / 150
@@ -163,7 +161,6 @@ function DialogAddTier(props: any) {
                     placeholder="Cost"
                     margin="normal"
                     onChange={(e) => setCost(e.target.value)}
-                    // onKeyPress={(e)=>handleKeyPress(e)}
                 />
             </div>,
         action:

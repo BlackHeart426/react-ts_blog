@@ -14,7 +14,9 @@ import {
     updateArrayBlogDataFireBase, addSubscriptionsBlogDataFireBase
 } from "../../firebase/database";
 import cookie from "react-cookies";
+
 const myPage = cookie.load('myPage')
+
 export const getDataBlogActionCreator = (nameBlog: string = myPage) => {
     return async (dispatch: any) => {
         if(nameBlog) {

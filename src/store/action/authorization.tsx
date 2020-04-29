@@ -11,8 +11,6 @@ import firebase from "firebase";
 import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
 import {getBlogPageUserActionCreator, userId, createPageActionCreator, getDataPageBlogActionCreator, createUserActionCreator} from "./currentUser";
 import cookie from "react-cookies";
-import {createUserFireBase} from "../../firebase/database";
-import { getDataBlogActionCreator } from "./blog";
 
 interface IUserData {
     token: string,
@@ -30,8 +28,6 @@ export const authorizationGoogleActionCreator = () => {
                     userId = dataUser.userId
                     await dispatch(isAuthenticatedActionCreator(dataUser.token, dataUser.userId))
                     await dispatch(getDataPageBlogActionCreator(dataUser.userId))
-
-                    // await dispatch(getBlogPageUserActionCreator())
                 })
             })
             .catch(error => {
