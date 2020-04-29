@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="env template">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreatePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditTask.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditTier.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditTier.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RecoveryPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecoveryPassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AbountUserCard/AboutUserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AbountUserCard/AboutUserCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/Posts/Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/Posts/Posts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/TierSubscribe/TierSubscribe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/TierSubscribe/TierSubscribe.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/container/templatePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/templatePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action/currentUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/currentUser.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,19 +60,19 @@
     <property name="ts.external.directory.path" value="C:\Users\BlackHeart\WebstormProjects\ts_blog\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\firebase" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\Posts" />
-      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\Tasks" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Button\Auth" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\Posts" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\AboutUserCard" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\Tasks" />
       <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\LevelSubscribe" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\Dialog" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\firebase" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components" />
+      <recent name="C:\Users\BlackHeart\WebstormProjects\ts_blog\src\components\pageShablons\Posts" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -100,14 +115,7 @@
       <workItem from="1587915152334" duration="668000" />
       <workItem from="1587973360491" duration="23760000" />
       <workItem from="1588061711081" duration="7522000" />
-      <workItem from="1588144151390" duration="9506000" />
-    </task>
-    <task id="LOCAL-00065" summary="tier">
-      <created>1587326834205</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1587326834206</updated>
+      <workItem from="1588144151390" duration="9861000" />
     </task>
     <task id="LOCAL-00066" summary="css tier">
       <created>1587373131781</created>
@@ -445,14 +453,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588159945648</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="env template">
+      <created>1588160232221</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1588160232221</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="post" />
     <MESSAGE value="settings" />
     <MESSAGE value="loading" />
     <MESSAGE value="post orders" />
@@ -477,7 +491,8 @@
     <MESSAGE value=" CarouselBootstrap" />
     <MESSAGE value="fix" />
     <MESSAGE value="delete env" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete env" />
+    <MESSAGE value="env template" />
+    <option name="LAST_COMMIT_MESSAGE" value="env template" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -492,10 +507,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588160216980">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588160257438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160216980" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160257438" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -536,10 +551,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588160226836">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588160233471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160226836" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160233471" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588152808890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -548,11 +563,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587571000897" />
-    <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1588159821398">
+    <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1588160450415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1057" y="295" width="632" height="536" key="find.popup/-1440.0.1440.860/0.0.1920.1040@-1440.0.1440.860" timestamp="1587132706100" />
-    <state x="419" y="434" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588159821398" />
+    <state x="419" y="434" width="842" height="606" key="find.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160450415" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1588145034636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

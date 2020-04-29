@@ -36,7 +36,6 @@ function DialogEditTier(props: any) {
     useEffect(()=>{
         setDialogOpened(show)
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuid)
-        console.log( data)
         data && setState({...state, name: data.name, cost: data.cost, description: data.description})
     },[show])
 

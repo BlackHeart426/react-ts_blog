@@ -24,7 +24,6 @@ function DialogEditTask(props: any) {
 
     useEffect(()=>{
         setDialogOpened(show)
-        console.log(props.dataBlog)
         setDescription(props.dataBlog)
         // setValue(props.dataBlog)
     },[show])

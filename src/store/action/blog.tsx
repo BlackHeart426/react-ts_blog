@@ -46,8 +46,6 @@ export const removeDataBlogActionCreator = (name: string, uuid: string) => {
 
 export const updateDataBlogActionCreator = (name: string, value: any) => {
     const myPage = cookie.load('myPage')
-    console.log('nameColumn',name)
-    console.log('value',value)
     return async (dispatch: any) => {
         if(myPage){
             updateBlogDataFireBase(myPage, name, value)

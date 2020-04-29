@@ -15,7 +15,6 @@ function CreatePage(props: any) {
 
     useEffect(()=>{
         const myPageCookie = cookie.load('myPage');
-        console.log(myPageCookie)
         if(myPageCookie !== "") {
             setMyPage(myPageCookie)
         } else {

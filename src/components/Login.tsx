@@ -18,7 +18,6 @@ const Login: React.FC = (props: any) => {
 
     };
     const handleLogin = (dataUser: IDataUser) => {
-        console.log(dataUser.email)
         props.action.authorization(dataUser.email, dataUser.password)
     };
     const handleAuthGoogle = () => {

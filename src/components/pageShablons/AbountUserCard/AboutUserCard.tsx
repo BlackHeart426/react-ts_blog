@@ -24,7 +24,6 @@ function AboutUserCard(props: any){
     const [value, setValue] = useState('')
 
     useEffect(()=>{
-        console.log('props.dataBlog',props.dataBlog)
         props.dataBlog && setValue(props.dataBlog)
     },[props.dataBlog])
 

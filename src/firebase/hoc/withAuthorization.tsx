@@ -27,7 +27,6 @@ export const withAuthorization = (Component: any) => {
 
         public componentDidMount(): void {
             this.unsubscriber = auth.onAuthStateChanged(authUser => {
-                console.log(authUser)
                 authUser
                     ? this.setState(() => ({ authUser }))
                     : this.setState(() => ({ authUser: false }));

@@ -28,7 +28,6 @@ export const createUserActionCreator = (name: string) => {
     if(userId) {
         createUserFireBase(userId)
             .then(response => {
-                console.log('response', response)
             })
             .catch(error => {
                 console.error('error',error)
@@ -58,7 +57,6 @@ export const createPageActionCreator = (name: string, nameColumn: string, avatar
             createPageBlogFireBase(name, avatar)
             updatePageBlogUserBlogFireBase(userId, nameColumn, name)
                 .then(response => {
-                    console.log('name', name)
                     if(name) {
                         cookie.save('myPage', name, {path : '/'})
                     }
@@ -77,14 +75,12 @@ export const getDataPageBlogActionCreator = (userId: string) => {
         if(userId){
             getPageBlogUserFireBase(userId)
                 .then((snapshot: any) => {
-                    console.log('getDataPageBlogActionCreator',snapshot.val())
                     if (snapshot.val()) {
                         // dispatch(setDataUserBlogActionCreator(snapshot.val())) // add subscription resux
                         return flagUserExist = true;
                     } else {
                         createUserFireBase(userId)
                             .then(response => {
-                                console.log('response', response)
                             })
                             .catch(error => {
                                 console.error('error',error)
@@ -115,9 +111,6 @@ export const addSubscriptionUserActionCreator = (data: object) => {
 export const updateArrayPageBlogUserBlogActionCreator = (nameColumn: string, value: any) => {
     return async (dispatch: Dispatch) => {
         if(userId) {
-            console.log('userId',userId)
-            console.log('nameColumn',nameColumn)
-            console.log('value',value)
             updateArrayPageBlogUserBlogFireBase(userId, nameColumn, value)
                 .then()
             await dispatch({type: UPDATE_ARRAY_DATA_USER, payload: value})
@@ -135,10 +128,8 @@ export const setDataUserBlogActionCreator = (dataUser: any) => {
 }
 
 export const getBlogPageUserActionCreator = (userId: string|null) => {
-    console.log('userId', userId)
     return async (dispatch: Dispatch) => {
         const myPage = cookie.load('myPage')
-        console.log('myPage',myPage)
             if(userId) {
                 try {
                     await getPageBlogUserFireBase(userId)
@@ -150,7 +141,6 @@ export const getBlogPageUserActionCreator = (userId: string|null) => {
                             }
                             dispatch({type: SET_PAGEBLOG, payload: myPage});
                             dispatch({type: SET_AVATAR, payload: avatar});
-                            console.log(' snapshot.val().subscriptions',  snapshot.val().subscriptions)
                             if(snapshot.val().subscriptions){
                                 dispatch({type: SET_SUBSCRIPTIONS, payload:  snapshot.val().subscriptions});
                             }

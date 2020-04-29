@@ -84,7 +84,6 @@ function TierSubscribe(props: any){
                 tier: e.currentTarget.name,
                 name: userId
             }
-            console.log(newSubscriber)
             props.action.addSubscription(newSubscriber)
         }
 

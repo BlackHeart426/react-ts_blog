@@ -18,7 +18,6 @@ const RecoveryPassword = (props: any) => {
 
     };
     const handleRecoveryPassword = (dataUser: IDataUser) => {
-        console.log(dataUser.email)
         // props.action.authorization(dataUser.email, dataUser.password)
     };
 

@@ -33,7 +33,6 @@ export const authorizationGoogleActionCreator = () => {
 
                     // await dispatch(getBlogPageUserActionCreator())
                 })
-                console.log(result)
             })
             .catch(error => {
                 console.log(error)
@@ -120,7 +119,6 @@ export const resetPasswordActionCreator = (email: string) => {
     return async (dispatch: Dispatch) => {
         doPasswordReset(email)
             .then( info => {
-                    console.log(info)
                 }
             )
             .catch(error => {

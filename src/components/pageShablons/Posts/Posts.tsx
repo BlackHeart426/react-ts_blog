@@ -114,7 +114,6 @@ function Posts (props: any) {
     }
 
     const visiblePost = (item: any) => {
-        console.log('tierSub',(item.available === 'all' || props.isMyPage))
         if((item.available === 'all' || props.isMyPage === userId) || ((item.visible === tierSub) && props.isSub)) {
             return true
         } else {
@@ -179,7 +178,6 @@ function Posts (props: any) {
             countLike: data.countLike,
             countComments: Object.values(data.countComments).concat(dataComment)
         }
-        console.log(dataPost)
         props.action.updateDataBlog(userId, 'Posts', dataPost, uuid)
         setCurrenComment({...currentComment, [uuid]:  {uuid: uuid, value: ''}})
     }
@@ -213,14 +211,11 @@ function Posts (props: any) {
 
     const nameTier = (item: any) => {
         const tier: any = Object.values(props.dataBlogTiers).find((tier:any) => tier.uuid === item.visible)
-        console.log()
         return tier ? <>"{tier.name}" ({tier.cost})</>: ''
     }
 
     const handleDeleteComment = (uuidPost: string, uuidComment: string) => {
         const data: any = Object.values(props.dataBlog).find((item: any, index) => item.uuid === uuidPost)
-        console.log(Object.values(data.countComments))
-        console.log(uuidComment)
         const dataPost = {
             uuid: uuidPost,
             createPost: data.createPost,
@@ -233,7 +228,6 @@ function Posts (props: any) {
             countLike: data.countLike,
             countComments: changeComment(data, uuidComment)
         }
-        console.log(dataPost)
         props.action.updateDataBlog(userId, 'Posts', dataPost, uuidPost)
     }
 

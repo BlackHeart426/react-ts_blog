@@ -89,7 +89,6 @@ function SettingsComponents (props: any){
         if (e.keyCode === 13 || e.which === 13) {
             // handleSendEmail();
             if(!errorForm.email.status && email.trim() ) {
-                console.log(e)
             }
 
         }
@@ -100,7 +99,6 @@ function SettingsComponents (props: any){
         handleUpload(image)
     }
     useEffect(()=>{
-        console.log(props.dataBlog)
     },[])
 
     const handleUpload = (image: string) =>  {
@@ -111,7 +109,6 @@ function SettingsComponents (props: any){
             updateBackgroundUser(image, imageName)
                 .on('state_changed',
                     (snapshot: any) => {
-                        console.log(snapshot)
                     },
                     (error: Error) => {
                     },
@@ -120,7 +117,6 @@ function SettingsComponents (props: any){
                         // complete function ....
                         onComplete(image, imageName, props.action.updateDataBlog, props.action.updateUserDataBlog, 'Avatar')
                             .then(response => {
-                                console.log(response)
                                 setLoading(false)
                             })
                             .catch(error => {
