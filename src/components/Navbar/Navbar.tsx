@@ -25,6 +25,7 @@ import {Divider} from "semantic-ui-react";
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import {PROFILE, SETTINGS} from "../../constants/routes";
 import {grey} from "@material-ui/core/colors";
+import {AppState} from "../../store/reducers/rootReducer";
 
 function Navbar(props: any) {
     const classes = useStyles();
@@ -205,7 +206,7 @@ function mapDispatchToProps(dispatch: any) {
     return {
         action: {
             logout: () => dispatch(logoutActionCreator()),
-            openingDrawer: (open: any) => dispatch(openDrawerActionCreator(open))
+            openingDrawer: () => dispatch(openDrawerActionCreator())
         }
     }
 }

@@ -1,9 +1,12 @@
-import {OPEN_DRAWER} from "../types";
+import {EReduxActionTypes, IReduxBaseAction} from "../reducers/rootReducer";
 
-export const openDrawerActionCreator = (open: boolean) => {
+export interface IReduxOpenDrawerAction extends IReduxBaseAction{
+    type: EReduxActionTypes.OPEN_DRAWER
+}
+
+export const openDrawerActionCreator = (): IReduxOpenDrawerAction => {
     return {
-        type: OPEN_DRAWER,
-        payload: open
+        type: EReduxActionTypes.OPEN_DRAWER
     }
 
 }

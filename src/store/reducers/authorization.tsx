@@ -6,10 +6,14 @@ const initialState = {
 
 interface IAction {
     type: string,
-    payload: object
+    payload: boolean
 }
 
-export const authReducer = (state:object = initialState, action: IAction) => {
+export interface IAuthState {
+    isAuthenticated: boolean
+}
+
+export const authReducer = (state: any = initialState, action: any) => {
     switch (action.type) {
         case IS_AUTHENTICATED:
             return {...state, isAuthenticated: action.payload }

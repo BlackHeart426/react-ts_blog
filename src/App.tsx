@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Dispatch, useEffect, useState} from 'react';
 import './App.css';
 import  Navbar  from './components/Navbar/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
@@ -19,8 +19,9 @@ import {Settings} from "./container/Settings/settingsContainer";
 import {Profile} from "./page/Profile";
 import {auth} from "./firebase/firebaseService";
 import { User } from 'firebase';
-import { connect } from 'react-redux';
+import {connect, MapDispatchToProps, RootStateOrAny} from 'react-redux';
 import {autoLoginActionCreator, logoutActionCreator} from "./store/action/authorization";
+import {AppState} from "./store/reducers/rootReducer";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -85,9 +86,8 @@ const App: React.FC = (props: any) => {
   </div>
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
   return {
-    isAuthenticated: state.auth.isAuthenticated,
     openDrawer: state.app.openDrawer
   }
 }

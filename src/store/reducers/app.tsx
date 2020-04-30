@@ -1,24 +1,25 @@
-import {OPEN_DRAWER} from "../types";
-import * as actions from '../action/app'
+import {EReduxActionTypes} from "./rootReducer";
+import {IReduxOpenDrawerAction} from "../action/app";
 
-type InferValueTypes<T> = T extends { [key: string]: infer U} ? U : never;
-type ActionTypes = ReturnType<InferValueTypes<typeof actions>>
+// type InferValueTypes<T> = T extends { [key: string]: infer U} ? U : never;
+// type ActionTypes = ReturnType<InferValueTypes<typeof actions>>
 
-export const initialState = {
-    alert: false,
+
+
+export interface IReduxAppState {
+    openDrawer: boolean,
+}
+
+const initialState: IReduxAppState = {
     openDrawer: false
 }
 
-interface StateType {
-    openDrawer: boolean,
-    alert: boolean
-}
+type TAppReducerActions = IReduxOpenDrawerAction
 
-
-export const appReducer = (state: StateType = initialState, action: ActionTypes) => {
+export const appReducer = (state: IReduxAppState = initialState, action: TAppReducerActions) => {
     switch (action.type) {
-        case OPEN_DRAWER:
-            return {...state, openDrawer: action.payload }
+        case EReduxActionTypes.OPEN_DRAWER:
+            return {...state, openDrawer: !state.openDrawer }
         default:
             return state
     }

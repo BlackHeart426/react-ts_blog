@@ -11,12 +11,18 @@ import firebase from "firebase";
 import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
 import {getBlogPageUserActionCreator, userId, createPageActionCreator, getDataPageBlogActionCreator, createUserActionCreator} from "./currentUser";
 import cookie from "react-cookies";
+import {EReduxActionTypes, IReduxBaseAction} from "../reducers/rootReducer";
 
 interface IUserData {
     token: string,
     expirationDate: string,
     userId: string
 }
+
+export interface IReduxIsAuthAction extends IReduxBaseAction{
+    type: EReduxActionTypes.IS_AUTHENTICATED
+}
+
 
 export const authorizationGoogleActionCreator = () => {
     let userId: any = null;

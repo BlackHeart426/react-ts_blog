@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {openDrawerActionCreator} from "../../store/action/app";
 import {ListItem, ListItemText, ListItemIcon, Avatar, Grid} from '@material-ui/core';
 import {useHistory} from "react-router-dom";
+import {AppState} from "../../store/reducers/rootReducer";
 
 export const drawerWidth = 240;
 
@@ -63,18 +64,17 @@ function TemporaryDrawer(props: any) {
     );
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
     return {
         openDrawer: state.app.openDrawer,
         subscriptions: state.currentUser.subscriptions,
-        
     }
 }
 
 function mapDispatchToProps(dispatch: any) {
     return {
         action: {
-            openingDrawer: (open: any) => dispatch(openDrawerActionCreator(open))
+            openingDrawer: () => dispatch(openDrawerActionCreator())
         }
     }
 }
