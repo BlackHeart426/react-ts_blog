@@ -7,6 +7,7 @@ import {openDrawerActionCreator} from "../../store/action/app";
 import {ListItem, ListItemText, ListItemIcon, Avatar, Grid} from '@material-ui/core';
 import {useHistory} from "react-router-dom";
 import {AppState} from "../../store/reducers/rootReducer";
+import { AnyAction, bindActionCreators, Dispatch } from 'redux';
 
 export const drawerWidth = 240;
 
@@ -71,7 +72,7 @@ function mapStateToProps(state: AppState) {
     }
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
         action: {
             openingDrawer: () => dispatch(openDrawerActionCreator())
