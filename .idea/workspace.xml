@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tests/redux/action/app.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/redux/reduce/app.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/redux/reduce/blog.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.testEX.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogAddTier.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogAddTier.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/container/Authorization/AuthorizationRecoveryPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/container/Authorization/AuthorizationRecoveryPassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/app.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,14 +102,8 @@
       <workItem from="1587915152334" duration="668000" />
       <workItem from="1587973360491" duration="23760000" />
       <workItem from="1588061711081" duration="7522000" />
-      <workItem from="1588144151390" duration="18452000" />
-    </task>
-    <task id="LOCAL-00067" summary="component tier task">
-      <created>1587382094811</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1587382094811</updated>
+      <workItem from="1588144151390" duration="18493000" />
+      <workItem from="1588239571232" duration="3699000" />
     </task>
     <task id="LOCAL-00068" summary="component about">
       <created>1587388432744</created>
@@ -454,14 +441,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588160462396</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="unit test">
+      <created>1588180296181</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1588180296181</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="loading" />
     <MESSAGE value="post orders" />
     <MESSAGE value="avatar" />
     <MESSAGE value="post like" />
@@ -486,7 +479,8 @@
     <MESSAGE value="delete env" />
     <MESSAGE value="env template" />
     <MESSAGE value="delete log" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete log" />
+    <MESSAGE value="unit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="unit test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -501,10 +495,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588160461711">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588180295341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160461711" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588180295341" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -545,10 +539,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588160463788">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588180297488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588160463788" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588180297488" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588152808890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
