@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Drawer/Drawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Drawer/Drawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action/authorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/authorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withAuthorization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Settings.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/action/blog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action/blog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/rootReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,14 +110,7 @@
       <workItem from="1588061711081" duration="7522000" />
       <workItem from="1588144151390" duration="18493000" />
       <workItem from="1588239571232" duration="10944000" />
-      <workItem from="1588319727009" duration="6060000" />
-    </task>
-    <task id="LOCAL-00071" summary="dinamic state">
-      <created>1587473804636</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1587473804637</updated>
+      <workItem from="1588319727009" duration="12482000" />
     </task>
     <task id="LOCAL-00072" summary="dinamic state">
       <created>1587474384903</created>
@@ -456,14 +448,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588264563379</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="type action/reduce blog">
+      <created>1588326309128</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1588326309129</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="post like" />
     <MESSAGE value="like" />
     <MESSAGE value="comments" />
     <MESSAGE value="tier" />
@@ -488,7 +486,8 @@
     <MESSAGE value="unit test" />
     <MESSAGE value="type reduce" />
     <MESSAGE value="type action/reduce app" />
-    <option name="LAST_COMMIT_MESSAGE" value="type action/reduce app" />
+    <MESSAGE value="type action/reduce blog" />
+    <option name="LAST_COMMIT_MESSAGE" value="type action/reduce blog" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -503,10 +502,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588264562700">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588326308318">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588264562700" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588326308318" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -547,18 +546,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588264564761">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588326310364">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588264564761" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588326310364" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588152808890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588152808890" />
-    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587571000897">
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588329657297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587571000897" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588329657297" />
     <state x="419" y="434" width="842" height="606" key="find.popup" timestamp="1588321293313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -568,10 +567,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588320933873" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588261123848">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588330270529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588261123848" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588330270529" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -601,7 +600,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/page/Settings.tsx</url>
-          <line>42</line>
+          <line>47</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

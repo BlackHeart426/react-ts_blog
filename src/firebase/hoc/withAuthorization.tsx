@@ -41,7 +41,7 @@ export const withAuthorization = (Component: any) => {
         public render() {
             const { authUser } = this.state;
             if(authUser === null) {
-                return <Loading open={true}/>
+                return <Loading isLoading={true}/>
             } else {
                 if(authUser === false){
                     return <Redirect to={HOME}/>

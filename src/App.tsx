@@ -22,6 +22,8 @@ import { User } from 'firebase';
 import {connect, MapDispatchToProps, RootStateOrAny} from 'react-redux';
 import {autoLoginActionCreator, logoutActionCreator} from "./store/action/authorization";
 import {AppState} from "./store/reducers/rootReducer";
+import {IReduxOpenDrawerAction, openDrawerActionCreator} from "./store/action/app";
+import {bindActionCreators} from "redux";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -53,14 +55,14 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
-const App: React.FC = (props: any) => {
+const App: React.FC<ReturnType<typeof mapDispatchToProps>> = ({
+  autoLoginActionCreator
+}) => {
   const classes = useStyles()
   const [user, setUser] = useState<User|null>(null);
 
   useEffect(() => {
-
-    props.action.autoLogin()
-
+    autoLoginActionCreator()
   },[])
 
   return <div className={classes.root}>
@@ -86,18 +88,7 @@ const App: React.FC = (props: any) => {
   </div>
 }
 
-function mapStateToProps(state: AppState) {
-  return {
-    openDrawer: state.app.openDrawer
-  }
-}
+const mapDispatchToProps = (dispatch: any) =>
+    bindActionCreators( { autoLoginActionCreator }, dispatch);
 
-function mapDispatchToProps(dispatch: any) {
-  return {
-    action: {
-      autoLogin: () => dispatch(autoLoginActionCreator())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default connect(null, mapDispatchToProps) (App);

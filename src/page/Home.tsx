@@ -11,6 +11,7 @@ import cookie from "react-cookies";
 import {grey} from "@material-ui/core/colors";
 import {CarouselBootstrap} from "../components/CarouselBootstrap";
 import {AuthorizationModal} from "../container/Authorization/AuthorizationModal";
+import {AppState} from "../store/reducers/rootReducer";
 
 const useStyles = makeStyles({
     root: {
@@ -34,7 +35,10 @@ const useStyles = makeStyles({
     }
 })
 
-function Home(props: any) {
+const Home: React.FC<ReturnType<typeof mapStateToProps>> = ({
+    isAuthenticated,
+    isMyPage
+}) => {
     const history = useHistory();
     const [dialogOpened, setDialogOpened] = useState(false);
     const [myPage, setMyPage] =useState('')
@@ -45,7 +49,7 @@ function Home(props: any) {
     }
 
     const handleOpenPage =()=>{
-        history.push("/"+props.isMyPage)
+        history.push("/"+isMyPage)
     }
 //Todo total fnc
     useEffect(()=>{
@@ -53,10 +57,10 @@ function Home(props: any) {
         if(myPageCookie !== "") {
             setMyPage(myPageCookie)
         } else {
-            setMyPage(props.isMyPage)
+            setMyPage(isMyPage)
         }
 
-    },[props.isMyPage])
+    },[isMyPage])
     return (
         <div className={classes.root}>
             <div className={classes.container}>
@@ -80,7 +84,7 @@ function Home(props: any) {
                         <Typography style={{paddingTop: 20}} color="textSecondary"   >
                             New cool communication format with your most dedicated fans
                         </Typography>
-                        {props.isAuthenticated
+                        {isAuthenticated
                             ? myPage
                                 ? <Button
                                     style={{marginTop: 20, height: 60}}
@@ -116,7 +120,7 @@ function Home(props: any) {
 }
 
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,

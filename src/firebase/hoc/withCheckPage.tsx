@@ -48,7 +48,7 @@ export const withCheckPage = (Component: any) => {
             const userId = localStorage.getItem('userId')
 
             if(existBlog === null) {
-                 return <Loading open={true}/>
+                 return <Loading isLoading={true}/>
             } else {
                 if(existBlog === false){
                     return <BlogNonFound/>

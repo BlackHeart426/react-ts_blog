@@ -10,8 +10,11 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export function Loading(props: any) {
-    const {show} = props
+export interface ILoading {
+    isLoading: boolean
+}
+
+export function Loading({isLoading}:ILoading) {
     const classes = useStyles()
     const [open, setOpen] = React.useState(false);
 
@@ -21,7 +24,7 @@ export function Loading(props: any) {
 
     useEffect(()=>{
         setOpen(true);
-    },[show])
+    },[isLoading])
 
 
     return <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>

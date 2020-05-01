@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import {
     Button,
     CardActions,
@@ -16,12 +16,17 @@ import TextField from "@material-ui/core/TextField";
 import {validateForm} from "../components/validateForm/validateForm";
 import EditIcon from '@material-ui/icons/Edit';
 import {onComplete, updateBackgroundUser} from "../firebase/storage";
-import {getDataBlogActionCreator, updateDataBlogActionCreator} from "../store/action/blog";
+import {
+    getDataBlogActionCreator,
+    updateDataBlogActionCreator
+} from "../store/action/blog";
 import {connect} from "react-redux";
+import {Dispatch, AnyAction} from 'redux';
 import {grey, green} from "@material-ui/core/colors";
 import {Card} from "semantic-ui-react";
 import {updateUserDataActionCreator} from "../store/action/currentUser";
 import shortid from "shortid";
+import {AppState} from "../store/reducers/rootReducer";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -241,7 +246,7 @@ function SettingsComponents (props: any){
     </div>
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
     return {
         userAvatar: state.currentUser.Avatar
     }

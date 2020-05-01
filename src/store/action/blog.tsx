@@ -35,9 +35,9 @@ export interface IReduxUpdateDataBlogAction extends IReduxBaseAction{
     payload: IBlogSetData
 }
 
-export interface IReduxUpdateArrayData extends IReduxBaseAction{
+export interface IReduxUpdateArrayDataAction extends IReduxBaseAction{
     type: EReduxActionTypes.UPDATE_ARRAY_DATA_BLOG
-    payload: IBlogSetData
+    payload: { name: string , value: {}}
 }
 
 export interface IReduxUpdateLikeCommentDataBlogAction extends IReduxBaseAction{
