@@ -7,9 +7,7 @@ import {Backdrop} from "@material-ui/core";
 import {Loading} from "../../page/Loading";
 import {BlogNonFound} from "../../components/BlogNonFound";
 
-interface IProp {
-    existBlog?: any;
-}
+
 interface IState {
     existBlog?: any;
 }

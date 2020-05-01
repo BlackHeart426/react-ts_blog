@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, ChangeEvent} from "react";
 import {Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, Typography, Paper} from "@material-ui/core";
 import Skeleton from '@material-ui/lab/Skeleton';
 import {connect} from "react-redux";
@@ -16,10 +16,11 @@ import {
     addDataBlogActionCreator, addSubscriptionsBlogDataActionCreator
 } from "../../../store/action/blog";
 import shortid from "shortid";
+import {AppState} from "../../../store/reducers/rootReducer";
 
-export const sortTier = (tier: any) => {
+export const sortTier = (tier: ITier[]) => {
     tier.sort(function(a: any, b: any){
-        return a.cost - b.cost //сортировка по возрастающей дате
+        return a.cost - b.cost
     })
 }
 
@@ -27,18 +28,33 @@ interface ParamTypes {
     userId: string
 }
 
+export interface ITier {
+    cost: string,
+    description: string,
+    name: string,
+    uuid: string,
+    active: boolean
+}
+
+interface ISubscriptions {
+    name: string,
+    tier: string,
+    uuid: string
+}
+
 function TierSubscribe(props: any){
     const {editable} =props
     const {userId} = useParams<ParamTypes>();
-    const [tier, setTier] = useState([])
+    const [tier, setTier] = useState<ITier[]>([])
 
     useEffect(()=>{
         if(props.dataBlog) {
-            const tier: any = Object.values(props.dataBlog)
+            const tier: ITier[] = Object.values(props.dataBlog)
             sortTier(tier)
             const myTierData: any = props.mySubscriptions && Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
+            console.log('123', typeof myTierData)
             if(myTierData) {
-                tier.map((item: any) => {
+                tier.map((item: ITier) => {
                     if(item.uuid === myTierData.tier) {
                         item.active = true
                     } else {
@@ -52,11 +68,11 @@ function TierSubscribe(props: any){
 
     useEffect(()=>{
         if(props.mySubscriptions) {
-            const tier: any = Object.values(props.dataBlog)
+            const tier: ITier[] = Object.values(props.dataBlog)
             sortTier(tier)
             const myTierData: any = Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
             if(myTierData) {
-                tier.map((item: any) => {
+                tier.map((item: ITier) => {
                     if(item.uuid === myTierData.tier) {
                         item.active = true
                     } else {
@@ -68,12 +84,12 @@ function TierSubscribe(props: any){
         }
     },[props.mySubscriptions])
 
-    const handleFollowed = (e: any) => {
+    const handleFollowed = (event: React.MouseEvent<HTMLButtonElement>) => {
         const userUuid = localStorage.getItem('userId')
         const myTierData: any = props.mySubscriptions && Object.values(props.mySubscriptions).find((item: any) => item.name === userId)
 
         if(myTierData) {
-            myTierData.tier = e.currentTarget.name
+            myTierData.tier = event.currentTarget && event.currentTarget.name
 
             props.action.updateSubscription(myTierData)
             props.action.addDataBlog(userUuid, userId, {uuid: userUuid, tier: myTierData.tier})
@@ -81,7 +97,7 @@ function TierSubscribe(props: any){
 
             const newSubscriber = {
                 uuid: shortid.generate(),
-                tier: e.currentTarget.name,
+                tier: event.currentTarget.name,
                 name: userId
             }
             props.action.addSubscription(newSubscriber)
@@ -97,7 +113,7 @@ function TierSubscribe(props: any){
             </Typography>
             <Divider />
             {props.dataBlog
-                ? tier.map((item:any, index: number) => (
+                ? tier.map((item:ITier, index: number) => (
                 <div key={index}>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
@@ -119,7 +135,7 @@ function TierSubscribe(props: any){
                                     name={item.uuid}
                                     disabled={item.active}
                                     variant="contained"
-                                    onClick={(e) =>handleFollowed(e)}
+                                    onClick={(e: React.MouseEvent<HTMLButtonElement>) =>handleFollowed(e)}
                                     color="primary">
                                     Follow
                                 </Button>
@@ -139,7 +155,7 @@ function TierSubscribe(props: any){
     )
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,

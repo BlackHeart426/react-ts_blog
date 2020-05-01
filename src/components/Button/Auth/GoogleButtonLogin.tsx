@@ -11,13 +11,13 @@ function GoogleButtonLogin(props: any) {
     const colorButtonHover =  grey[300]
     const icon = <Icon width={36} height={36} icon={googleIcon}/>
 
-    const handleConnection = (name: any) => {
+    const handleConnection = () => {
         props.action.authorizationGoogle()
     }
 
     return (
         <SocialButtonStyle
-            onConnection={() => handleConnection('google')}
+            onConnection={() => handleConnection()}
             colorButton={colorButton}
             disabled={false}
             colorBorder={colorButtonHover}

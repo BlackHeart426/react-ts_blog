@@ -3,7 +3,7 @@ import {SocialButtonStyle} from "../SocialButtonStyle";
 import {blue} from "@material-ui/core/colors";
 import FacebookIcon from '@material-ui/icons/Facebook';
 
-export function FacebookButtonLogin(props: any) {
+export function FacebookButtonLogin() {
     const colorButton =  '#4267b2'
     const colorButtonHover =  '#385898'
     const icon = <FacebookIcon  fontSize="large"/>

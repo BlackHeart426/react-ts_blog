@@ -3,7 +3,6 @@ import {
     IReduxAddDataBlogAction,
     IReduxGetDataBlogAction,
     IReduxRemoveDataBlogAction,
-    IReduxUpdateArrayData,
     IReduxUpdateDataBlogAction,
     IReduxUpdateLikeCommentDataBlogAction
 } from "../action/blog";
@@ -58,7 +57,6 @@ interface IAction {
 type TBlogReducerActions = IReduxGetDataBlogAction
     | IReduxRemoveDataBlogAction
     | IReduxUpdateDataBlogAction
-    | IReduxUpdateArrayData
     | IReduxUpdateLikeCommentDataBlogAction
     | IReduxAddDataBlogAction
 

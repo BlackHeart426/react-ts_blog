@@ -33,7 +33,7 @@ function DialogTaskPay(props: any) {
         setDialogOpened(show)
     },[show])
 
-    const handlePay = (event: any) => {
+    const handlePay = () => {
         onMoney(state.amount)
         onHide()
     }
@@ -55,7 +55,7 @@ function DialogTaskPay(props: any) {
                     size={"small"}
                     placeholder="Enter your Amount"
                     margin="normal"
-                    onChange={(e) => setState({...state, amount: e.target.value})}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setState({...state, amount: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography variant="body2" style={{marginTop: 10}}  component="p">
@@ -71,7 +71,7 @@ function DialogTaskPay(props: any) {
                     size={"small"}
                     placeholder="Enter description"
                     margin="normal"
-                    onChange={(e) => setState({...state, description: e.target.value})}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setState({...state, description: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
 
