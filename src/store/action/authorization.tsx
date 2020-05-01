@@ -1,4 +1,4 @@
-import {IS_AUTHENTICATED} from "../types";
+import {IS_AUTHENTICATED, EReduxActionTypes} from "../types";
 import {
     doAuthStateChange,
     doCreateUserWithEmailAndPassword, doGoogleSignIn, doPasswordReset,
@@ -11,7 +11,7 @@ import firebase from "firebase";
 import {TOKEN, USERID, EXPIRATIONDATE, EMAIL} from "../../constants/localStorage";
 import {getBlogPageUserActionCreator, userId, createPageActionCreator, getDataPageBlogActionCreator, createUserActionCreator} from "./currentUser";
 import cookie from "react-cookies";
-import {EReduxActionTypes, IReduxBaseAction} from "../reducers/rootReducer";
+import {IReduxBaseAction} from "../reducers/rootReducer";
 
 interface IUserData {
     token: string,
@@ -22,7 +22,6 @@ interface IUserData {
 export interface IReduxIsAuthAction extends IReduxBaseAction{
     type: EReduxActionTypes.IS_AUTHENTICATED
 }
-
 
 export const authorizationGoogleActionCreator = () => {
     let userId: any = null;

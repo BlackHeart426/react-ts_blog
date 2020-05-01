@@ -1,6 +1,15 @@
-import {SET_DATA_BLOG, UPDATE_DATA_BLOG, ADD_DATA_BLOG, REMOVE_DATA_BLOG, UPDATE_ARRAY_DATA_BLOG} from "../types";
+import {ADD_DATA_BLOG, EReduxActionTypes, REMOVE_DATA_BLOG, UPDATE_ARRAY_DATA_BLOG, UPDATE_DATA_BLOG} from "../types";
+import {
+    IReduxAddDataBlogAction,
+    IReduxGetDataBlogAction,
+    IReduxRemoveDataBlogAction,
+    IReduxUpdateArrayData,
+    IReduxUpdateDataBlogAction,
+    IReduxUpdateLikeCommentDataBlogAction
+} from "../action/blog";
 
-const initialState = {
+
+const initialState: IReduxBlogState = {
     About: '',
     Avatar: '',
     Background: '',
@@ -14,14 +23,48 @@ const initialState = {
     Subscriptions: []
 }
 
+export interface IBlogSetData {
+    About: string,
+    Avatar: string,
+    Background: string,
+    Description: {
+        name: string,
+        about: string
+    },
+    Tiers: [],
+    Posts: [],
+    Tasks: [],
+    Subscriptions: []
+}
+export interface IReduxBlogState {
+    About: string,
+    Avatar: string,
+    Background: string,
+    Description: {
+        name: string,
+        about: string
+    },
+    Tiers: [],
+    Posts: [],
+    Tasks: [],
+    Subscriptions: []
+}
+
 interface IAction {
     type: string,
     payload: any
 }
 
+type TBlogReducerActions = IReduxGetDataBlogAction
+    | IReduxRemoveDataBlogAction
+    | IReduxUpdateDataBlogAction
+    | IReduxUpdateArrayData
+    | IReduxUpdateLikeCommentDataBlogAction
+    | IReduxAddDataBlogAction
+
 export const blogReducer = (state:any = initialState, action: IAction) => {
     switch (action.type) {
-        case SET_DATA_BLOG:
+        case EReduxActionTypes.SET_DATA_BLOG:
             return {...state,
                 About: action.payload.About,
                 Avatar: action.payload.Avatar,
@@ -32,18 +75,18 @@ export const blogReducer = (state:any = initialState, action: IAction) => {
                 Tasks: action.payload.Tasks,
                 Subscriptions: action.payload.Subscriptions,
             }
-        case UPDATE_DATA_BLOG:
+        case EReduxActionTypes.UPDATE_DATA_BLOG:
             return {...state, [action.payload.name]: action.payload.value} //Todo переписать
-        case UPDATE_ARRAY_DATA_BLOG:
+        case EReduxActionTypes.UPDATE_ARRAY_DATA_BLOG:
             return {...state, [action.payload.name]: Object.values(state[action.payload.name]).map((item: any, index: number) => {
                     if(item.uuid === action.payload.uuid){
                         item = action.payload.value
                     }
                     return item
                 })}
-        case ADD_DATA_BLOG:
+        case EReduxActionTypes.ADD_DATA_BLOG:
             return {...state, [action.payload.name]: Object.values(state[action.payload.name]).concat(action.payload.value)} //Todo переписать
-        case REMOVE_DATA_BLOG:
+        case EReduxActionTypes.REMOVE_DATA_BLOG:
             return {...state, [action.payload.name]: Object.values(state[action.payload.name]).filter((item: any) => {
                     if(item.uuid !== action.payload.uuid) {
                         return item

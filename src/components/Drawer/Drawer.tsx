@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import {connect} from "react-redux";
-import {openDrawerActionCreator} from "../../store/action/app";
+import {IReduxOpenDrawerAction, openDrawerActionCreator} from "../../store/action/app";
 import {ListItem, ListItemText, ListItemIcon, Avatar, Grid} from '@material-ui/core';
 import {useHistory} from "react-router-dom";
 import {AppState} from "../../store/reducers/rootReducer";
@@ -18,17 +18,21 @@ const useStyles = makeStyles({
     },
 })
 
-function TemporaryDrawer(props: any) {
+const TemporaryDrawer: React.FC<ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>> = ({
+    openDrawer,
+    subscriptions,
+    openDrawerActionCreator
+}) => {
     const classes = useStyles()
     const history = useHistory()
 
     const handleDrawerClose = () => {
-        props.action.openingDrawer(false)
+        openDrawerActionCreator()
     }
 
     const handleOpenBlog = (blog: string) => {
         history.push("/" + blog)
-        props.action.openingDrawer(false)
+        openDrawerActionCreator()
     }
 
     const list = () => (
@@ -37,7 +41,7 @@ function TemporaryDrawer(props: any) {
             role="presentation"
         >
             <List >
-            {props.subscriptions && Object.values(props.subscriptions).map((item:any, index: number) => (
+            {subscriptions && Object.values(subscriptions).map((item:any, index: number) => (
                 <ListItem button key={index} onClick={() => handleOpenBlog(item.name)}>
                     <ListItemIcon>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -56,7 +60,7 @@ function TemporaryDrawer(props: any) {
             <Drawer
                 onClose={handleDrawerClose}
                 variant="temporary"
-                open={ props.openDrawer }
+                open={ openDrawer }
                 anchor="left"
             >
                 {list()}
@@ -72,12 +76,7 @@ function mapStateToProps(state: AppState) {
     }
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
-    return {
-        action: {
-            openingDrawer: () => dispatch(openDrawerActionCreator())
-        }
-    }
-}
+const mapDispatchToProps = (dispatch: Dispatch<IReduxOpenDrawerAction>) =>
+    bindActionCreators( { openDrawerActionCreator }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (TemporaryDrawer);

@@ -3,11 +3,7 @@ import { combineReducers } from "redux";
 import { currentUserReducer } from "./currentUser";
 import {blogReducer} from "./blog";
 import { appReducer } from "./app";
-
-export enum EReduxActionTypes {
-    IS_AUTHENTICATED = 'AUTH/IS_AUTHENTICATED',
-    OPEN_DRAWER = 'APP/OPEN_DRAWER'
-}
+import {EReduxActionTypes} from "../types";
 
 export interface IReduxBaseAction {
     type: EReduxActionTypes

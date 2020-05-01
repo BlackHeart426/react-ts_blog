@@ -1,5 +1,5 @@
 import {
-    ADD_DATA_BLOG,
+    ADD_DATA_BLOG, EReduxActionTypes,
     IS_AUTHENTICATED,
     REMOVE_DATA_BLOG,
     SET_DATA_BLOG,
@@ -14,8 +14,45 @@ import {
     updateArrayBlogDataFireBase, addSubscriptionsBlogDataFireBase
 } from "../../firebase/database";
 import cookie from "react-cookies";
+import {IReduxBaseAction} from "../reducers/rootReducer";
+import { IBlogSetData } from "../reducers/blog";
+
 
 const myPage = cookie.load('myPage')
+
+export interface IReduxGetDataBlogAction extends IReduxBaseAction{
+    type: EReduxActionTypes.SET_DATA_BLOG
+    payload: IBlogSetData
+}
+
+export interface IReduxRemoveDataBlogAction extends IReduxBaseAction{
+    type: EReduxActionTypes.REMOVE_DATA_BLOG
+    payload: IBlogSetData
+}
+
+export interface IReduxUpdateDataBlogAction extends IReduxBaseAction{
+    type: EReduxActionTypes.UPDATE_DATA_BLOG
+    payload: IBlogSetData
+}
+
+export interface IReduxUpdateArrayData extends IReduxBaseAction{
+    type: EReduxActionTypes.UPDATE_ARRAY_DATA_BLOG
+    payload: IBlogSetData
+}
+
+export interface IReduxUpdateLikeCommentDataBlogAction extends IReduxBaseAction{
+    type: EReduxActionTypes.UPDATE_ARRAY_DATA_BLOG
+    payload: IBlogSetData
+}
+
+// export interface IReduxAddSubscriptionsBlogDataAction extends IReduxBaseAction{
+//     type: EReduxActionTypes.
+// }
+
+export interface IReduxAddDataBlogAction extends IReduxBaseAction{
+    type: EReduxActionTypes.ADD_DATA_BLOG | EReduxActionTypes.UPDATE_DATA_BLOG
+    payload: IBlogSetData
+}
 
 export const getDataBlogActionCreator = (nameBlog: string = myPage) => {
     return async (dispatch: any) => {
@@ -23,7 +60,7 @@ export const getDataBlogActionCreator = (nameBlog: string = myPage) => {
             getDataPageBlogFireBase(nameBlog)
                 .then((snapshot: any) => {
                     const dataBlog = snapshot.val()
-                    dispatch({ type: SET_DATA_BLOG, payload: dataBlog });
+                    dispatch({ type: EReduxActionTypes.SET_DATA_BLOG, payload: dataBlog });
                 })
                 .catch(error => {
                     console.error('error',error)
@@ -38,7 +75,7 @@ export const removeDataBlogActionCreator = (name: string, uuid: string) => {
     return async (dispatch: any) => {
         removeArrayBlogDataFireBase(myPage, name, uuid)
             .then(
-                dispatch({type: REMOVE_DATA_BLOG, payload: {name, uuid}})
+                dispatch({type: EReduxActionTypes.REMOVE_DATA_BLOG, payload: {name, uuid}})
             )
             .catch(error => {
                 console.error(error)
@@ -52,7 +89,7 @@ export const updateDataBlogActionCreator = (name: string, value: any) => {
         if(myPage){
             updateBlogDataFireBase(myPage, name, value)
                 .then(response => {
-                    dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
+                    dispatch({ type: EReduxActionTypes.UPDATE_DATA_BLOG, payload: {name, value} });
                 })
                 .catch(error => {
                     console.error('error',error)
@@ -67,7 +104,7 @@ export const updateArrayDataBlogActionCreator = (name: string, value: any, uuid:
     return async (dispatch: any) => {
         updateArrayBlogDataFireBase(myPage, name, value, uuid)
             .then(response => {
-                dispatch({ type: UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
+                dispatch({ type: EReduxActionTypes.UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
             })
             .catch(error => {
                 console.error('error',error)
@@ -79,7 +116,7 @@ export const updateLikeCommentDataBlogActionCreator = (nameBlog: string ,name: s
     return async (dispatch: any) => {
         updateArrayBlogDataFireBase(nameBlog, name, value, uuid)
             .then(response => {
-                dispatch({ type: UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
+                dispatch({ type: EReduxActionTypes.UPDATE_ARRAY_DATA_BLOG, payload: {name, value, uuid} });
             })
             .catch(error => {
                 console.error('error',error)
@@ -106,7 +143,7 @@ export const addDataBlogActionCreator = (name: string, value: any, array: boolea
         if(array) {
             addArrayBlogDataFireBase(myPage, name, value)
                 .then(response => {
-                    dispatch({ type: ADD_DATA_BLOG, payload: {name, value} });
+                    dispatch({ type: EReduxActionTypes.ADD_DATA_BLOG, payload: {name, value} });
                 })
                 .catch(error => {
                     console.error('error',error)
@@ -114,7 +151,7 @@ export const addDataBlogActionCreator = (name: string, value: any, array: boolea
         } else {
             addRowBlogDataFireBase(myPage, name, value)
                 .then(response => {
-                    dispatch({ type: UPDATE_DATA_BLOG, payload: {name, value} });
+                    dispatch({ type: EReduxActionTypes.UPDATE_DATA_BLOG, payload: {name, value} });
                 })
                 .catch(error => {
                     console.error('error',error)
