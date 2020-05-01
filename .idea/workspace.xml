@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="87db982a-0ffc-484a-abc8-cec5fc96b54f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/Auth/FacebookButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/FacebookButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/Auth/GoogleButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/GoogleButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/Auth/YoutubeButtonLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/Auth/YoutubeButtonLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogTaskPay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogTaskPay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/TierSubscribe/TierSubscribe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/TierSubscribe/TierSubscribe.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/hoc/withCheckPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/blog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialog/DialogEditAbout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageShablons/AbountUserCard/AboutUserCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageShablons/AbountUserCard/AboutUserCard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,14 +105,8 @@
       <workItem from="1588061711081" duration="7522000" />
       <workItem from="1588144151390" duration="18493000" />
       <workItem from="1588239571232" duration="10944000" />
-      <workItem from="1588319727009" duration="17175000" />
-    </task>
-    <task id="LOCAL-00073" summary="state">
-      <created>1587483847772</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1587483847772</updated>
+      <workItem from="1588319727009" duration="17208000" />
+      <workItem from="1588357140356" duration="2296000" />
     </task>
     <task id="LOCAL-00074" summary="add edit">
       <created>1587550742278</created>
@@ -455,14 +444,20 @@
       <option name="project" value="LOCAL" />
       <updated>1588350957509</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="type tier">
+      <created>1588355665330</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1588355665330</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comments" />
     <MESSAGE value="tier" />
     <MESSAGE value="allowed comments" />
     <MESSAGE value="sort tier" />
@@ -487,7 +482,8 @@
     <MESSAGE value="type action/reduce app" />
     <MESSAGE value="type action/reduce blog" />
     <MESSAGE value="type components" />
-    <option name="LAST_COMMIT_MESSAGE" value="type components" />
+    <MESSAGE value="type tier" />
+    <option name="LAST_COMMIT_MESSAGE" value="type tier" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586599561558">
@@ -502,10 +498,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587392373506" />
-    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588350956711">
+    <state x="585" y="112" key="CommitChangelistDialog2" timestamp="1588355664652">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588350956711" />
+    <state x="585" y="112" key="CommitChangelistDialog2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588355664652" />
     <state x="92" y="92" width="1737" height="856" key="DiffContextDialog" timestamp="1586509307892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -546,10 +542,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="VCS.ChangeListViewerDialog/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1587037576742" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588350961717">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588355666557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588350961717" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1440.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1588355666557" />
     <state x="476" y="118" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588152808890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

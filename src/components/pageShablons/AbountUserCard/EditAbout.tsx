@@ -4,7 +4,7 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import DialogEditAbout from "../../Dialog/DialogEditAbout";
 
 export function EditAbout() {
-    const [dialogOpened, setDialogOpened] = useState(false);
+    const [dialogOpened, setDialogOpened] = useState<boolean>(false);
 
     const handleOpeningDialog = () => {
         setDialogOpened(true)

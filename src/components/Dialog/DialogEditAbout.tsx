@@ -7,6 +7,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import RichTextEditor from 'react-rte';
 import {updateDataBlogActionCreator} from "../../store/action/blog";
 import TextField from "@material-ui/core/TextField";
+import {AppState} from "../../store/reducers/rootReducer";
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -16,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
 
 function DialogEditTask(props: any) {
     const {show, onHide} = props;
-    const [dialogOpened, setDialogOpened] = useState(false);
+    const [dialogOpened, setDialogOpened] = useState<boolean>(false);
     // const [value, setValue] = React.useState({value: RichTextEditor.createEmptyValue()})
-    const [description, setDescription] = React.useState('')
+    const [description, setDescription] = React.useState<string>('')
     // const [html, setHtml] = React.useState('')
 
 
@@ -90,7 +91,7 @@ function DialogEditTask(props: any) {
     )
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
     return {
         dataBlog: state.blog.About
     }

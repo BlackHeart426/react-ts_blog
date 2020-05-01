@@ -6,6 +6,7 @@ import {Visibility, VisibilityOff} from "@material-ui/icons";
 import {getDataBlogActionCreator} from "../../../store/action/blog";
 import {connect} from "react-redux";
 import {EditAbout} from "./EditAbout";
+import {AppState} from "../../../store/reducers/rootReducer";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
 function AboutUserCard(props: any){
     const {editable} = props
     const classes = useStyles()
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState<string>('')
 
     useEffect(()=>{
         props.dataBlog && setValue(props.dataBlog)
@@ -48,7 +49,7 @@ function AboutUserCard(props: any){
     )
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: AppState) {
     return {
         isAuthenticated: state.auth.isAuthenticated,
         isMyPage: state.currentUser.myPage,
