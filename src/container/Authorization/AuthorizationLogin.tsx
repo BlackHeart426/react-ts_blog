@@ -38,8 +38,8 @@ function AuthorizationLogin(props: any) {
         },
     }
 
-    const [email, setEmail] = useState('valepa009@gmail.com');
-    const [password, setPassword] = useState('qwe123QWE!@#');
+    const [email, setEmail] = useState('test@gmail.com');
+    const [password, setPassword] = useState('1Test2Test3!@');
     const [dialogOpened, setDialogOpened] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [errorForm, setError] = useState(initialState);
@@ -88,6 +88,7 @@ function AuthorizationLogin(props: any) {
                     variant="outlined"
                     fullWidth
                     id="email"
+                    value={email}
                     autoFocus
                     name="email"
                     type="email"
@@ -105,6 +106,7 @@ function AuthorizationLogin(props: any) {
                     fullWidth
                     name="password"
                     id="password"
+                    value={password}
                     size={"small"}
                     type="password"
                     label="Password"
