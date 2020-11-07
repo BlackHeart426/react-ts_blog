@@ -282,7 +282,7 @@ function Posts (props: any) {
                                     <LockIcon fontSize={"large"} />
                                 </Typography>
                                 <Typography component="p" variant="h6" align="center" >
-                                    <strong>Доступно только для подписчиков уровня</strong>
+                                    <strong>Only available to tier subscribers</strong>
                                 </Typography>
                                 <Typography component="p" align="center" >
                                     {nameTier(item)}

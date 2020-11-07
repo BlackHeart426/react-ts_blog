@@ -19,7 +19,7 @@ export const exampleCategories = {
         {
             title: 'Extended Subscription',
             cost: 300,
-            description: 'For an extended subscription, you can offer discounts on merch, upload unique content that will be posted only on Busty',
+            description: 'For an extended subscription, you can offer discounts on merch',
         },
         {
             title: 'Exclusive Subscription',

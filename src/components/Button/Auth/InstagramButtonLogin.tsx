@@ -18,7 +18,7 @@ export function InstagramButtonLogin(props: any) {
         <SocialButtonStyle
             onConnection={() => handleConnection('twitter')}
             colorButton={colorButton}
-            disabled={true}
+            disabled={false}
             colorBackground={colorBackground}
             colorBorder={colorBackground}
             colorButtonHover={colorButtonHover}

@@ -120,7 +120,7 @@ function TierSubscribe(props: any){
                             {item.name}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            {item.cost} ₽ в месяц
+                            {item.cost} ₽ per month
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             {item.description}

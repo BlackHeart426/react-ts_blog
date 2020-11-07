@@ -80,7 +80,7 @@ function DialogEditTask(props: any) {
                     value={state.name}
                     size={"small"}
                     margin="normal"
-                    onChange={(e) => setState({...state, name: e.target.value})}
+                    onChange={(e) => setState({ ...state, name: e.target.value})}
                     // onKeyPress={(e)=>handleKeyPress(e)}
                 />
                 <Typography variant="body2"  component="p">

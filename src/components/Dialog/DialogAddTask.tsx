@@ -69,7 +69,7 @@ function DialogAddTask(props: any) {
         content:
             <div>
                 <Typography color="textSecondary" variant="body2"  component="p" align={"left"} style={{marginBottom: 10}}>
-                    Using goals, you can easily tell your subscribers what you want to achieve using the Boosty page.
+                    Using goals, you can easily tell your subscribers what you want to achieve.
                 </Typography>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
